@@ -1,0 +1,152 @@
+/* CSS para aplicar no botão preview */
+@property --gradient-angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+@property --gradient-angle-offset {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+@property --gradient-percent {
+  syntax: "<percentage>";
+  initial-value: 5%;
+  inherits: false;
+}
+@property --gradient-shine {
+  syntax: "<color>";
+  initial-value: white;
+  inherits: false;
+}
+
+.elementor-button-preview {
+  --animation: gradient-angle linear infinite !important;
+  --duration: 3s !important;
+  --shadow-size: 2px !important;
+  isolation: isolate !important;
+  position: relative !important;
+  overflow: hidden !important;
+  cursor: pointer !important;
+  outline-offset: 4px !important;
+  padding: 1.25rem 2.5rem !important;
+  font-family: "Inter", sans-serif !important;
+  font-size: 1.125rem !important;
+  line-height: 1.2 !important;
+  border: 1px solid transparent !important;
+  border-radius: 360px !important;
+  color: white !important;
+  background: linear-gradient(#000000, #000000) padding-box,
+    conic-gradient(
+      from calc(var(--gradient-angle) - var(--gradient-angle-offset)),
+      transparent,
+      blue var(--gradient-percent),
+      var(--gradient-shine) calc(var(--gradient-percent) * 2),
+      blue calc(var(--gradient-percent) * 3),
+      transparent calc(var(--gradient-percent) * 4)
+    ) border-box !important;
+  box-shadow: inset 0 0 0 1px #1a1818 !important;
+  transition: 800ms cubic-bezier(0.25, 1, 0.5, 1) !important;
+  transition-property: --gradient-angle-offset, --gradient-percent, --gradient-shine !important;
+}
+
+.elementor-button-preview::before,
+.elementor-button-preview::after,
+.elementor-button-preview span::before {
+  content: "" !important;
+  pointer-events: none !important;
+  position: absolute !important;
+  inset-inline-start: 50% !important;
+  inset-block-start: 50% !important;
+  translate: -50% -50% !important;
+  z-index: -1 !important;
+}
+
+.elementor-button-preview::before {
+  --size: calc(100% - var(--shadow-size) * 3) !important;
+  --position: 2px !important;
+  --space: calc(var(--position) * 2) !important;
+  width: var(--size) !important;
+  height: var(--size) !important;
+  background: radial-gradient(
+      circle at var(--position) var(--position),
+      white calc(var(--position) / 4),
+      transparent 0
+    ) padding-box !important;
+  background-size: var(--space) var(--space) !important;
+  background-repeat: space !important;
+  mask-image: conic-gradient(
+    from calc(var(--gradient-angle) + 45deg),
+    black,
+    transparent 10% 90%,
+    black
+  ) !important;
+  border-radius: inherit !important;
+  opacity: 0.4 !important;
+}
+
+.elementor-button-preview::after {
+  --animation: shimmer linear infinite !important;
+  width: 100% !important;
+  aspect-ratio: 1 !important;
+  background: linear-gradient(
+    -50deg,
+    transparent,
+    blue,
+    transparent
+  ) !important;
+  mask-image: radial-gradient(circle at bottom, transparent 40%, black) !important;
+  opacity: 0.6 !important;
+}
+
+.elementor-button-preview span {
+  z-index: 1 !important;
+  position: relative !important;
+}
+
+.elementor-button-preview span::before {
+  size: calc(100% + 1rem) !important;
+  width: 240px !important;
+  height: 90px !important;
+  box-shadow: inset 0 -1ex 2rem 4px #8484ff70 !important;
+  opacity: 0 !important;
+  transition: opacity 800ms cubic-bezier(0.25, 1, 0.5, 1) !important;
+}
+
+.elementor-button-preview:hover,
+.elementor-button-preview:focus-visible {
+  --gradient-percent: 20% !important;
+  --gradient-angle-offset: 95deg !important;
+  --gradient-shine: #8484ff !important;
+}
+
+.elementor-button-preview:hover span::before {
+  opacity: 1 !important;
+}
+
+@keyframes gradient-angle {
+  to {
+    --gradient-angle: 360deg;
+  }
+}
+
+@keyframes shimmer {
+  to {
+    transform: rotate(360deg) !important;
+  }
+}
+
+.elementor-button-preview,
+.elementor-button-preview::before,
+.elementor-button-preview::after {
+  animation: var(--animation) var(--duration),
+    var(--animation) calc(var(--duration) / 0.4) reverse paused !important;
+  animation-composition: add !important;
+}
+
+.elementor-button-preview:hover,
+.elementor-button-preview:hover::before,
+.elementor-button-preview:hover::after {
+  animation-play-state: running !important;
+}
+      
