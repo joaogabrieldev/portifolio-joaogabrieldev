@@ -1,6 +1,7 @@
-
 import Navbar from "../Navbar/Navbar";
 import Hero from "./../Hero/Hero";
+import FooterBackground from "./../FooterBackground/FooterBackground";
+import About from "./../About/About";
 
 const PageContent = () => {
   return (
@@ -8,25 +9,20 @@ const PageContent = () => {
       <header className="">
         <Navbar />
       </header>
-      <main className="mt-20">
+      <main>
         <Hero />
-        <div className="text-white">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod
-          provident iusto voluptas autem quas dolorum, laudantium natus quos
-          voluptatum temporibus aut quam minus consequuntur inventore nam fugit.
-          Debitis, iure recusandae. Culpa, fugiat aliquam minima aliquid dolor
-          exercitationem amet perferendis distinctio voluptas labore vitae
-          itaque necessitatibus quasi quod nulla, ipsum non! Sunt, corrupti?
-          Perspiciatis fugiat velit dignissimos. Porro alias dolore architecto.
-        </div>
-        <div>
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cupiditate
-          ipsam a repellendus perspiciatis perferendis, molestiae, minus
-          doloribus tempore ullam beatae soluta sunt odit necessitatibus debitis
-          illo consequuntur. Praesentium, facilis vitae.
-        </div>
+        <About />
       </main>
-      <footer></footer>
+      <footer>
+        <FooterBackground>
+          <div className="px-18 text-white">
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odio quas
+            possimus incidunt facere. Saepe, atque accusamus deserunt voluptas
+            ullam obcaecati eum similique optio dicta laboriosam nulla
+            reiciendis incidunt odio in!
+          </div>
+        </FooterBackground>
+      </footer>
     </div>
   );
 };

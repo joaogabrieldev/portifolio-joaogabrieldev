@@ -24,7 +24,7 @@ interface TextTypeProps {
   className?: string;
   showCursor?: boolean;
   hideCursorWhileTyping?: boolean;
-  cursorCharacter?: CursorType | string | React.ReactNode;
+  cursorCharacter?: string | React.ReactNode;
   cursorBlinkDuration?: number;
   cursorClassName?: string;
   text: string | string[];
@@ -120,7 +120,7 @@ const TextType = ({
   useEffect(() => {
     if (!isVisible) return;
 
-    let timeout: ReturnType<typeof setTimeout>;
+    let timeout: NodeJS.Timeout;
 
     const currentText = textArray[currentTextIndex];
     const processedText = reverseMode
