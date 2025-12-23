@@ -3,8 +3,8 @@
 #navbar {
   background-color: rgba(26, 26, 26, 0.44);
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
 
   -webkit-transform: translateZ(0);
   transform: translateZ(0);

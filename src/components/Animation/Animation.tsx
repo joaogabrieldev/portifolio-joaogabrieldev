@@ -1,18 +1,18 @@
-// import Lottie from "lottie-react";
-// import animationData from "../../../animacoes/animacao/data-2.json";
+import Lottie from "lottie-react";
+import animationData from "../../animations/text-type/text-type.json";
 
 const Animation = () => {
   return (
     <div
-      style={{ width: "100%", maxWidth: 1080, margin: "0 auto" }}
+      style={{ width: "100%", maxWidth: 2560, margin: "0 auto" }}
       className="border-2 border-white"
     >
-      {/* <Lottie
+      <Lottie
         animationData={animationData}
         alt="introduction animation"
         loop={true}
         autoplay={true}
-      /> */}
+      />
     </div>
   );
 };
