@@ -5,17 +5,17 @@ import PageContent from "@/widgets/PageContent/PageContent";
 const Content = () => {
   return (
     <div className="">
-      <div className="pointer-events-none fixed inset-0 z-20 h-full w-full opacity-50">
+      <PageContent />
+
+      <div className="pointer-events-none fixed inset-0 z-50 min-h-screen w-full opacity-40">
         <Noise
           patternSize={500}
           patternScaleX={1}
           patternScaleY={1}
           patternRefreshInterval={5}
-          patternAlpha={10}
+          patternAlpha={25}
         />
       </div>
-
-      <PageContent />
     </div>
   );
 };
