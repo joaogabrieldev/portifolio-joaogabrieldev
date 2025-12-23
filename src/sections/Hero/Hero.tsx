@@ -1,5 +1,8 @@
 import Section from "@/components/Section/Section";
 import Animation from "../../components/Animation/Animation";
+
+import GradualBlur from "@/components/ReactBits/GradualBlur/GradualBlur";
+
 const Hero = () => {
   return (
     <Section className="flex items-center justify-center">

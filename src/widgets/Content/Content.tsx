@@ -13,7 +13,7 @@ const Content = () => {
           patternScaleX={1}
           patternScaleY={1}
           patternRefreshInterval={5}
-          patternAlpha={25}
+          patternAlpha={55}
         />
       </div>
     </div>

@@ -11,16 +11,17 @@
   "dependencies": {
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
-    "embla-carousel-react": "^8.6.0",
     "framer-motion": "^12.23.26",
     "gsap": "^3.14.2",
     "lottie-react": "^2.4.1",
     "lucide-react": "^0.562.0",
+    "mathjs": "^14.6.0",
     "next": "16.1.0",
     "ogl": "^1.0.11",
     "react": "19.2.3",
     "react-dom": "19.2.3",
     "react-fast-marquee": "^1.6.5",
+    "react-icons": "^5.5.0",
     "react-scroll": "^1.9.3",
     "tailwind-merge": "^3.4.0"
   },
