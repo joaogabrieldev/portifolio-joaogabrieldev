@@ -1,5 +1,9 @@
 ## Paleta de Cores do Projeto
 
+#### Base
+
+- [https://www.behance.net/gallery/239678489/Stringit-Website-Design-Animations?tracking_source=curated_galleries_list](https://www.behance.net/gallery/239678489/Stringit-Website-Design-Animations?tracking_source=curated_galleries_list)
+
 #### Todas as Cores - Em Hex
 
 - **Cor 1**: #342E59

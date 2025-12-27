@@ -1,16 +1,19 @@
 import React from "react";
-import Noise from "../ReactBits/Noise/Noise";
 
 interface ISectionProps {
   children: React.ReactNode;
   className?: string;
+  id?: string;
+  height: "auto" | "screen"
 }
 
-const Section = ({ children, className }: ISectionProps) => {
+const Section = ({ children, className, id, height }: ISectionProps) => {
   return (
-    <section className={`relative h-screen border-2 border-white ${className}`}>
-      
-      {children}
+    <section
+      className={`relative h-${height} border-2 border-white ${className}`}
+      id={id}
+    >
+      {children} 
     </section>
   );
 };

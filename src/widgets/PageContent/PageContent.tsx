@@ -1,9 +1,11 @@
 import Navbar from "../Navbar/Navbar";
 import Hero from "../../sections/Hero/Hero";
-import FooterBackground from "./../FooterBackground/FooterBackground";
+
 import About from "../../sections/About/About";
 
-import GradualBlur from "@/components/ReactBits/GradualBlur/GradualBlur";
+import RightBottomGradient from "./../Gradients/RightBottomGradient/RightBottomGradient";
+import Processes from './../../sections/Processes/Processes';
+import Prices from "@/sections/Prices/Prices";
 
 const PageContent = () => {
   return (
@@ -13,26 +15,19 @@ const PageContent = () => {
       </header>
       <main>
         <Hero />
-        <GradualBlur 
-      target="page"
-      position="bottom"
-      height="8rem"
-      strength={3}
-      divCount={5}
-      curve="bezier"
-      exponential={true}
-      opacity={1}/>
         <About />
+        <Processes />
+        <Prices />
       </main>
       <footer>
-        <FooterBackground>
+        <RightBottomGradient>
           <div className="px-18 text-white">
             Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odio quas
             possimus incidunt facere. Saepe, atque accusamus deserunt voluptas
             ullam obcaecati eum similique optio dicta laboriosam nulla
             reiciendis incidunt odio in!
           </div>
-        </FooterBackground>
+        </RightBottomGradient>
       </footer>
     </div>
   );

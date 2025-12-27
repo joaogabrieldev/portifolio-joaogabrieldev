@@ -1,0 +1,27 @@
+@import "tailwindcss";
+
+#photoSpace {
+  animation: "shadowGlow" 8s infinite;
+
+  animation-timing-function: linear;
+}
+
+@keyframes shadowGlow {
+  0% {
+    box-shadow:
+      rgb(52, 46, 89, 0.7) 0px 0px 0px 0px,
+      rgba(0, 0, 0, 0.3) 0px 0px 0px 0px;
+  }
+
+  50% {
+    box-shadow:
+      rgb(52, 46, 89, 0.7) 0px 50px 100px -20px,
+      rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+  }
+
+  100% {
+    box-shadow:
+      rgb(52, 46, 89, 0.7) 0px 0px 0px 0px,
+      rgba(0, 0, 0, 0.3) 0px 0px 0px 0px;
+  }
+}

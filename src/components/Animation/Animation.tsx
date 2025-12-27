@@ -4,7 +4,7 @@ import animationData from "../../animations/text-type/text-type.json";
 const Animation = () => {
   return (
     <div
-      style={{ width: "100%", maxWidth: 2560, margin: "0 auto" }}
+      style={{ width: "110%", maxWidth: 2560, margin: "0 auto" }}
       className="border-2 border-white"
     >
       <Lottie

@@ -37,6 +37,10 @@
 
 - [https://magicui.design/docs/components/shine-border](https://magicui.design/docs/components/shine-border)
 
+- [https://magicui.design/docs/components/border-beam](https://magicui.design/docs/components/border-beam)
+
+- [https://magicui.design/docs/components/magic-card](https://magicui.design/docs/components/magic-card)
+
 #### **Text Animations**
 
 - [https://magicui.design/docs/components/aurora-text](https://magicui.design/docs/components/aurora-text)
@@ -44,6 +48,10 @@
 - [https://magicui.design/docs/components/animated-gradient-text](https://magicui.design/docs/components/animated-gradient-text)
 
 - [https://magicui.design/docs/components/morphing-text](https://magicui.design/docs/components/morphing-text)
+
+- [https://magicui.design/docs/components/animated-shiny-text](https://magicui.design/docs/components/animated-shiny-text)
+
+- [https://magicui.design/docs/components/text-animate](https://magicui.design/docs/components/text-animate)
 
 - [https://magicui.design/docs/components/highlighter](https://magicui.design/docs/components/highlighter)
 

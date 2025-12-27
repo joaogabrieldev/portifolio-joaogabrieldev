@@ -1,6 +1,5 @@
 @import "tailwindcss";
 
 .activeLink {
-  color: oklch(76.5% 0.177 163.223);
+  color: #948ad5;
 }
-
