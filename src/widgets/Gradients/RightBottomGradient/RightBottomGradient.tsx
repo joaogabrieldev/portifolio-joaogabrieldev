@@ -3,6 +3,7 @@ import React from "react";
 
 interface IRightBottomGradientProps {
   children: React.ReactNode;
+  id?: string
 }
 
 const RightBottomGradient = ({ children }: IRightBottomGradientProps) => {

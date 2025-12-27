@@ -9,6 +9,7 @@ import CharCard from "./../../components/CharCard/CharCard";
 import { characteristics } from "@/assets/characteristics";
 import { motion } from "motion/react";
 import { useEffect, useState } from "react";
+import { ubuntu } from "@/utils/fonts";
 
 
 
@@ -23,7 +24,7 @@ const About = () => {
       whileInView={{opacity: 1}}
       viewport={{once: true}}
       transition={{duration: 1, delay: 1}}
-      className="mt-14 mb-8 flex justify-center">
+      className="mt-14 flex justify-center">
         <MorphingText
           texts={texts}
           className="mt-8 w-xl border-2 border-white text-white select-none sm:text-4xl md:h-24 md:text-4xl lg:text-[3rem]"
@@ -34,19 +35,16 @@ const About = () => {
           whileInView={{opacity: 1}}
           viewport={{once: true}}
           transition={{duration: 0.8, delay: 3}} className="flex flex-row items-center gap-28 border-2 border-white">
-          <div 
-          
-          className="mb-4 flex flex-col gap-2 border-2 border-white">
+          <div
+          className={`mb-4 flex flex-col gap-2 border-2 border-white ${ubuntu.className}`}>
             <span className="text-center font-semibold text-zinc-500 select-none">
               Desenvolvedor Full Stack com atuação focada no Front-end
             </span>
             <AnimatedShinyText
               shimmerWidth={150}
-              className="max-w-3xl text-center text-lg text-[17.5px] font-semibold text-gray-300"
+              className="max-w-3xl text-center text-lg text-[17.5px]  text-gray-300"
             >
-              <span 
-              
-              >
+              <span>
                 Meu trabalho consiste em traduzir sua necessidade em uma interface
                 funcional, moderna e atraente. Atuo combinando técnica e
                 criatividade para entregar soluções sob medida, seja para quem
@@ -56,7 +54,7 @@ const About = () => {
             </AnimatedShinyText>
             <AnimatedShinyText
               shimmerWidth={150}
-              className="max-w-3xl px-2 text-center text-lg text-[17.5px] font-semibold text-gray-300"
+              className="max-w-3xl px-2 text-center text-lg text-[17.5px] text-gray-300"
             >
               <span>
                 Encaro cada novo desafio como uma oportunidade de aplicar as

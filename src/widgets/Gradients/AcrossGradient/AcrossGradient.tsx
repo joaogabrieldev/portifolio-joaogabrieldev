@@ -2,6 +2,7 @@ import React from "react";
 
 interface IAcrossGradientProps {
   children: React.ReactNode;
+  id?: string
 }
 
 const AcrossGradient = ({ children }: IAcrossGradientProps) => {

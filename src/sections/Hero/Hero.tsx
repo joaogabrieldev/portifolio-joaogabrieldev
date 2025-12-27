@@ -8,7 +8,6 @@ import { MorphingText } from "@/components/ui/morphing-text";
 import { useEffect, useState } from "react";
 import { defaultSelection } from "@/utils/defaults";
 import { morphTimeMath } from "./../../components/ui/morphing-text";
-import { Ubuntu } from "next/font/google"
 import { ubuntu } from "@/utils/fonts";
 
 const texts = ["João Gabriel", "Elevando o padrão da sua presença online."];
@@ -44,7 +43,7 @@ const Hero = () => {
               animate={{opacity: 1}}
               transition={{duration: 0.8, delay: 2}}
               viewport={{once: true}}
-              className={`flex flex-col gap-4 px-2 text-start text-[17.5px] font-semibold ${ubuntu.className}`}
+              className={`flex flex-col gap-4 px-2 text-start text-[17.5px] ${ubuntu.className}`}
             >
               <AnimatedShinyText
                 shimmerWidth={150}

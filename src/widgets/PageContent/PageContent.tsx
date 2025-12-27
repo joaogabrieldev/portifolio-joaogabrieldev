@@ -5,7 +5,7 @@ import About from "../../sections/About/About";
 
 import RightBottomGradient from "./../Gradients/RightBottomGradient/RightBottomGradient";
 import Processes from './../../sections/Processes/Processes';
-import Prices from "@/sections/Prices/Prices";
+import Plans from "@/sections/Plans/Plans"; 
 
 const PageContent = () => {
   return (
@@ -17,7 +17,7 @@ const PageContent = () => {
         <Hero />
         <About />
         <Processes />
-        <Prices />
+        <Plans />
       </main>
       <footer>
         <RightBottomGradient>

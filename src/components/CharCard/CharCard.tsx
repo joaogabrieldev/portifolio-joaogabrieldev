@@ -2,6 +2,7 @@ import { Characteristics } from "@/assets/characteristics";
 
 import "./CharCard.css";
 import { BorderBeam } from './../ui/border-beam';
+import { ubuntu } from "@/utils/fonts";
 
 const CharCard = ({ icon, title, description }: Characteristics) => {
   return (
@@ -13,7 +14,7 @@ const CharCard = ({ icon, title, description }: Characteristics) => {
         <span className="text-lg font-bold text-gray-300">{icon}</span>
         <span className="text-lg text-gray-300 select-none font-semibold">{title}</span>
       </div>
-      <p className="text-[16px] text-gray-300 border-2 border-white mt-3">{description}</p>
+      <p className={`text-[16px] text-gray-300 border-2 border-white mt-3 ${ubuntu.className}`}>{description}</p>
       <BorderBeam duration={6} colorFrom={"#342E59"} size={120} colorTo={"#887CDE"} borderWidth={2}/>
     </div>
   );
