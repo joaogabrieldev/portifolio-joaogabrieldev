@@ -1,11 +1,12 @@
 import Navbar from "../Navbar/Navbar";
-import Hero from "../../sections/Hero/Hero";
+import Hero from "../../Sections/Hero/Hero";
 
-import About from "../../sections/About/About";
+import About from "../../Sections/About/About";
 
 import RightBottomGradient from "./../Gradients/RightBottomGradient/RightBottomGradient";
-import Processes from './../../sections/Processes/Processes';
-import Plans from "@/sections/Plans/Plans"; 
+import Processes from "../../Sections/Processes/Processes";
+import Plans from "@/Sections/Plans/Plans";
+import Projects from "./../../Sections/Projects/Projects";
 
 const PageContent = () => {
   return (
@@ -18,6 +19,7 @@ const PageContent = () => {
         <About />
         <Processes />
         <Plans />
+        <Projects />
       </main>
       <footer>
         <RightBottomGradient>

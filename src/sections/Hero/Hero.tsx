@@ -1,19 +1,18 @@
 import Section from "@/components/Section/Section";
 import Animation from "../../components/Animation/Animation";
 
-import { motion } from "motion/react"
+import { motion } from "motion/react";
 import { AnimatedShinyText } from "@/components/ui/animated-shiny-text";
 import GradualBlur from "@/components/ReactBits/GradualBlur/GradualBlur";
 import { MorphingText } from "@/components/ui/morphing-text";
 import { useEffect, useState } from "react";
 import { defaultSelection } from "@/utils/defaults";
-import { morphTimeMath } from "./../../components/ui/morphing-text";
+import { morphTimeMath } from "../../components/ui/morphing-text";
 import { ubuntu } from "@/utils/fonts";
 
 const texts = ["João Gabriel", "Elevando o padrão da sua presença online."];
 
 export const morphTimeTransition = morphTimeMath - 10;
-
 
 const Hero = () => {
   const [displayTexts, setDisplayTexts] = useState<string[]>(["", ...texts]);
@@ -27,7 +26,10 @@ const Hero = () => {
   }, []);
 
   return (
-    <Section height="screen" className={`flex items-center justify-center ${defaultSelection}`}>
+    <Section
+      height="screen"
+      className={`flex items-center justify-center ${defaultSelection}`}
+    >
       <div className="flex max-w-375 flex-row gap-4 border-2 border-white py-4">
         <div className="flex flex-col items-center justify-center gap-7.5 border-2 border-white">
           <div>
@@ -39,10 +41,10 @@ const Hero = () => {
           </div>
           <div className="flex w-2xl max-w-4xl flex-col gap-2 border-2 border-white py-1.5 text-gray-200">
             <motion.div
-              initial={{opacity: 0}}
-              animate={{opacity: 1}}
-              transition={{duration: 0.8, delay: 2}}
-              viewport={{once: true}}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.8, delay: 2 }}
+              viewport={{ once: true }}
               className={`flex flex-col gap-4 px-2 text-start text-[17.5px] ${ubuntu.className}`}
             >
               <AnimatedShinyText

@@ -1,10 +1,10 @@
-import Badge from '@/pieces/Badge/Badge';
-import CheckIListItem from '@/pieces/CheckIListItem/CheckIListItem';
-import { defaultSelection, defaultTransition } from '@/utils/defaults';
-import { BorderBeam } from '../ui/border-beam';
-import { ShineBorder } from '../ui/shine-border';
-import { AuroraText } from '../ui/aurora-text';
-import GlowButton from '../UIverse/GlowButton/GlowButton';
+import Badge from "@/pieces/Badge/Badge";
+import CheckIListItem from "@/pieces/CheckIListItem/CheckIListItem";
+import { defaultSelection, defaultTransition } from "@/utils/defaults";
+import { BorderBeam } from "../ui/border-beam";
+import { ShineBorder } from "../ui/shine-border";
+import { AuroraText } from "../ui/aurora-text";
+import GlowButton from "../UIverse/GlowButton/GlowButton";
 
 export type Beneficts = {
   title: string;
@@ -26,14 +26,15 @@ const formatter = new Intl.NumberFormat("pt-BR", {
   maximumFractionDigits: 0,
 });
 
-const PlanCard = ({ 
-  title, 
-  price, 
-  originalPrice, 
-  emphasis, 
-  description, 
-  recommendation, 
-  beneficts }: IPlanCardProps) => {
+const PlanCard = ({
+  title,
+  price,
+  originalPrice,
+  emphasis,
+  description,
+  recommendation,
+  beneficts,
+}: IPlanCardProps) => {
   const hasBadge = emphasis ? (
     <div className="flex justify-start pb-2">
       <Badge label={"Recomendado pelos Clientes"} />
@@ -44,25 +45,35 @@ const PlanCard = ({
     ? "border-[#7c7abf99] bg-[#7c7abf99]/15 "
     : "border-slate-700 bg-slate-700/10 border-2";
 
-  const hasEmphasisBorder = emphasis ? <ShineBorder duration={14} borderWidth={2} shineColor={["#A07CFE", "#7C7ABF", "#FFF"]} /> : null
-    
+  const hasEmphasisBorder = emphasis ? (
+    <ShineBorder
+      duration={14}
+      borderWidth={2}
+      shineColor={["#A07CFE", "#7C7ABF", "#FFF"]}
+    />
+  ) : null;
+
   const buttonEmphasis = emphasis
     ? null
     : `bg-slate-900 ${defaultTransition} hover:bg-slate-800 hover:shadow-gray-700/40`;
 
-  const hasEmphasisGlowButton = emphasis ? <div className='flex justify-center'>
-    <GlowButton label={'Solicitar Orçamento'} />
-  </div> : (
-          <a
-            href="#"
-            className={`block rounded-lg ${buttonEmphasis} py-2.5 text-center font-semibold text-[14px] text-white tracking-[1px] select-none uppercase`}
-          >
-            Solicitar Orçamento
-          </a>)
-  
+  const hasEmphasisGlowButton = emphasis ? (
+    <div className="flex justify-center">
+      <GlowButton label={"Solicitar Orçamento"} />
+    </div>
+  ) : (
+    <a
+      href="#"
+      className={`block rounded-lg ${buttonEmphasis} py-2.5 text-center text-[14px] font-semibold tracking-[1px] text-white uppercase select-none`}
+    >
+      Solicitar Orçamento
+    </a>
+  );
 
   return (
-    <div className={`rounded-2xl ${hasEmphasis} px-8 py-8 max-w-125 backdrop-blur-md -w`}>
+    <div
+      className={`rounded-2xl ${hasEmphasis} -w max-w-125 px-8 py-8 backdrop-blur-md`}
+    >
       {hasEmphasisBorder}
       {hasBadge}
       <div>
@@ -70,7 +81,11 @@ const PlanCard = ({
           {title}
         </h1>
         <div className="flex flex-row gap-3 select-none">
-          <AuroraText colors={["#FFF", "#A07CFE"]} speed={2} className="text-[30px] font-bold">
+          <AuroraText
+            colors={["#FFF", "#A07CFE"]}
+            speed={2}
+            className="text-[30px] font-bold"
+          >
             {price ? formatter.format(price) : null}
           </AuroraText>
           <span className="flex items-end text-lg font-semibold text-gray-500 line-through">
@@ -97,13 +112,10 @@ const PlanCard = ({
             })}
           </ul>
         </div>
-        <div className="w-full">
-          {hasEmphasisGlowButton}
-        </div>
+        <div className="w-full">{hasEmphasisGlowButton}</div>
       </div>
-      
     </div>
-  )
-}
+  );
+};
 
-export default PlanCard
+export default PlanCard;
