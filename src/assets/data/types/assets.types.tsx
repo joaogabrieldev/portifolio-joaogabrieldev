@@ -1,3 +1,5 @@
+import { JSX } from "react";
+
 //? Plans
 export type Beneficts = {
   title: string;
@@ -18,9 +20,10 @@ export type Question = {
   questionID: number;
   questionTitle: string;
   questionBody: string;
+  icon?: JSX.Element;
 };
 
 export type FAQ = {
-  title: string;
+  title?: string;
   questions: Question[];
 };
