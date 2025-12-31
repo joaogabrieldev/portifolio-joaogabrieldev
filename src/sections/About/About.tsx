@@ -6,7 +6,7 @@ import PhotoSpace from "../../components/PhotoSpace/PhotoSpace";
 import { AnimatedShinyText } from "@/components/ui/animated-shiny-text";
 import { defaultSelection } from "@/utils/defaults";
 import CharCard from "../../components/CharCard/CharCard";
-import { characteristics } from "@/assets/characteristics";
+import { characteristics } from "@/assets/data/characteristics";
 import { motion } from "motion/react";
 import { useEffect, useState } from "react";
 import { ubuntu } from "@/utils/fonts";

@@ -7,6 +7,7 @@ import RightBottomGradient from "./../Gradients/RightBottomGradient/RightBottomG
 import Processes from "../../Sections/Processes/Processes";
 import Plans from "@/Sections/Plans/Plans";
 import Projects from "./../../Sections/Projects/Projects";
+import FAQ from "./../../Sections/FAQ/FAQ";
 
 const PageContent = () => {
   return (
@@ -22,14 +23,7 @@ const PageContent = () => {
         <Projects />
       </main>
       <footer>
-        <RightBottomGradient>
-          <div className="px-18 text-white">
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odio quas
-            possimus incidunt facere. Saepe, atque accusamus deserunt voluptas
-            ullam obcaecati eum similique optio dicta laboriosam nulla
-            reiciendis incidunt odio in!
-          </div>
-        </RightBottomGradient>
+        <FAQ />
       </footer>
     </div>
   );

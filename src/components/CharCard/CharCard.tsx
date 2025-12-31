@@ -1,21 +1,30 @@
-import { Characteristics } from "@/assets/characteristics";
+import { Characteristics } from "@/assets/data/characteristics";
 
 import "./CharCard.css";
-import { BorderBeam } from './../ui/border-beam';
+import { BorderBeam } from "./../ui/border-beam";
 import { ubuntu } from "@/utils/fonts";
 
 const CharCard = ({ icon, title, description }: Characteristics) => {
   return (
-    <div
-      id="Card"
-      className="max-w-sm px-6 py-4 text-white relative"
-    >
+    <div id="Card" className="relative max-w-xs px-6 py-4 text-white">
       <div className="flex flex-row items-center gap-2">
         <span className="text-lg font-bold text-gray-300">{icon}</span>
-        <span className="text-lg text-gray-300 select-none font-semibold">{title}</span>
+        <span className="text-lg font-semibold text-gray-300 select-none">
+          {title}
+        </span>
       </div>
-      <p className={`text-[16px] text-gray-300 border-2 border-white mt-3 ${ubuntu.className}`}>{description}</p>
-      <BorderBeam duration={6} colorFrom={"#342E59"} size={120} colorTo={"#887CDE"} borderWidth={2}/>
+      <p
+        className={`mt-3 border-2 border-white  text-[16px] text-gray-300 ${ubuntu.className} `}
+      >
+        {description}
+      </p>
+      <BorderBeam
+        duration={6}
+        colorFrom={"#342E59"}
+        size={120}
+        colorTo={"#887CDE"}
+        borderWidth={2}
+      />
     </div>
   );
 };

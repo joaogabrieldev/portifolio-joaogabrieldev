@@ -6,7 +6,7 @@ interface IGlowButtonProps {
 
 const GlowButton = ({label}: IGlowButtonProps) => {
   return (
-    <button>
+    <button className="glowButton">
         {label}
     </button>
   )

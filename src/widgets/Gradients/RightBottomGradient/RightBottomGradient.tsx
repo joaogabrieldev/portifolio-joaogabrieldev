@@ -3,16 +3,18 @@ import React from "react";
 
 interface IRightBottomGradientProps {
   children: React.ReactNode;
-  id?: string
+  id?: string;
 }
 
 const RightBottomGradient = ({ children }: IRightBottomGradientProps) => {
   return (
-    <Section height="screen" className="z-0 bg-linear-to-br from-transparent via-transparent to-[#2e294f] ">
+    <Section
+      height="auto"
+      className="z-0 bg-linear-to-br from-transparent via-transparent to-[#2e294f83]"
+    >
       <div className="absolute z-1 flex justify-center">{children}</div>
     </Section>
   );
 };
 
 export default RightBottomGradient;
-

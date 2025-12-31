@@ -5,6 +5,10 @@ export interface INavLinks {
 
 export const navLinks: INavLinks[] = [
   {
+    title: "Início",
+    slug: "inicio"
+  },
+  {
     title: "Sobre",
     slug: "sobre",
   },

@@ -1,7 +1,7 @@
 import Section from "@/components/Section/Section";
 import VerticalTimeLine from "../../widgets/VerticalTimeLine/VerticalTimeLine";
 import { MorphingText } from "@/components/ui/morphing-text";
-import { phases } from "@/assets/phases";
+import { phases } from "@/assets/data/phases";
 import { defaultSelection } from "@/utils/defaults";
 
 import { motion } from "motion/react";

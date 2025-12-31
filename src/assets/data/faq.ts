@@ -1,4 +1,10 @@
-import type { FAQ } from "./types/assets.types";
+import type { FAQ, Question } from "./types/assets.types";
+
+export interface IQuestionBlockProps {
+  title: string
+  questions: Question[]
+  index: number
+}
 
 export const questions: FAQ[] = [
   {

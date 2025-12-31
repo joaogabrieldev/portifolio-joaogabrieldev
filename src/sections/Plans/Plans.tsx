@@ -1,7 +1,7 @@
 import Section from "@/components/Section/Section";
 import { motion } from "motion/react";
 import { MorphingText } from "@/components/ui/morphing-text";
-import { plans } from "@/assets/plans";
+import { plans } from "@/assets/data/plans";
 import PlanCard from "@/components/PlanCard/PlanCard";
 import { defaultSelection } from "@/utils/defaults";
 

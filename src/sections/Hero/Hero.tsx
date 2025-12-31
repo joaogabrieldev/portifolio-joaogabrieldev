@@ -29,6 +29,7 @@ const Hero = () => {
     <Section
       height="screen"
       className={`flex items-center justify-center ${defaultSelection}`}
+      id="inicio"
     >
       <div className="flex max-w-375 flex-row gap-4 border-2 border-white py-4">
         <div className="flex flex-col items-center justify-center gap-7.5 border-2 border-white">
