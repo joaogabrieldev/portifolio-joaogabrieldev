@@ -39,7 +39,7 @@ const Plans = () => {
         viewport={{ once: true }}
         className="flex justify-center py-8"
       >
-        <div className="grid grid-cols-3 items-start gap-x-3">
+        <div className="grid grid-cols-3 items-start gap-x-6">
           {plans.map((item, index) => {
             return (
               <PlanCard

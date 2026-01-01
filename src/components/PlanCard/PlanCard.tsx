@@ -72,7 +72,7 @@ const PlanCard = ({
 
   return (
     <div
-      className={`rounded-2xl ${hasEmphasis} -w max-w-125 px-8 py-8 backdrop-blur-md`}
+      className={`rounded-2xl ${hasEmphasis} w-full max-w-100 px-8 py-8 backdrop-blur-md`}
     >
       {hasEmphasisBorder}
       {hasBadge}

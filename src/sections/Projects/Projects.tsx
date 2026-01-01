@@ -22,8 +22,8 @@ const Projects = () => {
           texts={texts}
         />
       </motion.div>
-      <div className="flex justify-center">
-        <motion.div className="mt-10 w-full max-w-8xl border-2 border-white px-6">
+      <div className="flex items-center justify-center">
+        <motion.div className="max-w-8xl mt-10 w-full border-2 border-white px-6">
           <Carousel slides={projects} options={OPTIONS} />
         </motion.div>
       </div>
