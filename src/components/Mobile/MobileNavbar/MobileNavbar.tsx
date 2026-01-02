@@ -1,9 +1,22 @@
-import React from 'react'
+import { navLinks } from "@/assets/data/navLinks";
+import NavLink from "@/pieces/NavLink/NavLink";
+import { Ref } from "react";
 
-const MobileNavbar = () => {
-  return (
-    <div>MobileNavbar</div>
-  )
+interface IMobileNavbarProps {
+  ref: Ref<HTMLDivElement>;
+  className: string;
 }
 
-export default MobileNavbar
+const MobileNavbar = ({ ref, className }: IMobileNavbarProps) => {
+  return (
+    <div ref={ref} className={`${className}`}>
+      <ul className="flex flex-col gap-2">
+        {navLinks.map((item, index) => {
+          return <NavLink key={index} title={item.title} slug={item.slug} />;
+        })}
+      </ul>
+    </div>
+  );
+};
+
+export default MobileNavbar;

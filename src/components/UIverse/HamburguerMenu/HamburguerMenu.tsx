@@ -1,5 +1,3 @@
-import React from "react";
-
 import "./HamburguerMenu.css";
 
 interface IHamburguerMenuProps {
