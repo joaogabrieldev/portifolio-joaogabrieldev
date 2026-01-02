@@ -2,18 +2,14 @@ import React from "react";
 
 import "./HamburguerMenu.css";
 
-const FunctionTest = () => {
-  console.log("Testando");
-};
-
 interface IHamburguerMenuProps {
-  
+  onClick: () => void;
 }
 
-const HamburguerMenu = ({}) => {
+const HamburguerMenu = ({ onClick }: IHamburguerMenuProps) => {
   return (
     <label className="hamburger">
-      <input type="checkbox" onClick={FunctionTest} />
+      <input type="checkbox" onClick={onClick} />
       <svg viewBox="0 0 32 32">
         <path
           className="line line-top-bottom"

@@ -10,7 +10,7 @@ import FAQ from "@/sections/FAQ/FAQ";
 
 const PageContent = () => {
   return (
-    <div className="absolute top-0 left-0 z-10 h-full w-full overflow-x-hidden">
+    <div className="absolute top-0 left-0 z-10 h-full w-full">
       <header>
         <Navbar />
       </header>
