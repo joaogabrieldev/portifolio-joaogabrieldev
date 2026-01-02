@@ -1,17 +1,16 @@
 import Navbar from "../Navbar/Navbar";
-import Hero from "../../Sections/Hero/Hero";
+import Hero from "@/sections/Hero/Hero";
 
-import About from "../../Sections/About/About";
+import About from "@/sections/About/About";
 
-import RightBottomGradient from "./../Gradients/RightBottomGradient/RightBottomGradient";
-import Processes from "../../Sections/Processes/Processes";
-import Plans from "@/Sections/Plans/Plans";
-import Projects from "./../../Sections/Projects/Projects";
-import FAQ from "./../../Sections/FAQ/FAQ";
+import Processes from "@/sections/Processes/Processes";
+import Plans from "@/sections/Plans/Plans";
+import Projects from "@/sections/Projects/Projects";
+import FAQ from "@/sections/FAQ/FAQ";
 
 const PageContent = () => {
   return (
-    <div className="absolute top-0 left-0 z-10 h-full w-full">
+    <div className="absolute top-0 left-0 z-10 h-full w-full overflow-x-hidden">
       <header>
         <Navbar />
       </header>

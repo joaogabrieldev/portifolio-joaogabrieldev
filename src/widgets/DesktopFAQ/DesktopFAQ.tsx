@@ -1,5 +1,5 @@
 import { questions } from "@/assets/data/faq";
-import DesktopFAQElement from "@/components/DesktopFAQElement/DesktopFAQElement";
+import DesktopFAQElement from "@/components/Desktop/DesktopFAQElement/DesktopFAQElement";
 
 const DesktopFAQ = () => {
   return (

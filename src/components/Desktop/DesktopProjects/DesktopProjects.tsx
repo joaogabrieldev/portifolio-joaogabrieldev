@@ -2,7 +2,6 @@ import { projects } from "@/assets/data/projects";
 import Carousel from "@/widgets/Carousel/Carousel";
 import { EmblaOptionsType } from "embla-carousel";
 import { motion } from "motion/react";
-import React from "react";
 
 const OPTIONS: EmblaOptionsType = { align: "center" };
 // const SLIDE_COUNT = 6;

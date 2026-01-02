@@ -5,6 +5,7 @@ import { BorderBeam } from "../ui/border-beam";
 import { ShineBorder } from "../ui/shine-border";
 import { AuroraText } from "../ui/aurora-text";
 import GlowButton from "../UIverse/GlowButton/GlowButton";
+import MobileGlowButton from "../Mobile/MobileGlowButton/MobileGlowButton";
 
 export type Beneficts = {
   title: string;
@@ -59,7 +60,7 @@ const PlanCard = ({
 
   const hasEmphasisGlowButton = emphasis ? (
     <div className="flex justify-center">
-      <GlowButton label={"Solicitar Orçamento"} />
+      <MobileGlowButton label={"Solicitar Orçamento"} />
     </div>
   ) : (
     <a

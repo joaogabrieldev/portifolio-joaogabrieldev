@@ -2,7 +2,7 @@ import Section from "@/components/Section/Section";
 import { motion } from "motion/react";
 import { MorphingText } from "@/components/ui/morphing-text";
 
-import DesktopProjects from "./../../components/DesktopProjects/DesktopProjects";
+import DesktopProjects from "../../components/Desktop/DesktopProjects/DesktopProjects";
 
 const texts = ["Projetos", "Uma seleção dos meus trabalhos recentes."];
 

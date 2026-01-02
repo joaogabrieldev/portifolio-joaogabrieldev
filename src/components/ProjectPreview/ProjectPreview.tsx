@@ -1,13 +1,12 @@
 import { formatProjectDate } from "@/utils/formatProjectDate";
-import type { Projects } from "../../assets/data/projects";
-import Image from "next/image";
+import type { Projects } from "@/assets/data/projects";
 import "./ProjectPreview.css";
 import Link from "next/link";
 
 const ProjectPreview = ({ url, title, date, description, icons }: Projects) => {
   return (
     <div className="select-none">
-      <div className="iframe-container rounded-xl border-0 bg-white">
+      <div className="iframe-container rounded-xl bg-white shadow-lg shadow-gray-400/10">
         <iframe
           src={url}
           loading="lazy"
@@ -17,10 +16,12 @@ const ProjectPreview = ({ url, title, date, description, icons }: Projects) => {
         />
       </div>
       <Link href={url} target="_blank">
-        <div className="flex justify-center items-center">
-          <div className="mb-1.5 mt-2.5 flex flex-row border-2 justify-around  font-semibold max-w-6xl w-full text-[#bdbbfc]">
-            <div className="border-2 w-1/2">{title}</div>
-            <div className="border-2 w-1/2 text-end">{formatProjectDate(date)}</div>
+        <div className="flex items-center justify-center">
+          <div className="mt-2.5 mb-1.5 ml-5 flex w-full max-w-6xl flex-row justify-around border-2 font-semibold text-[#bdbbfc]">
+            <div className="w-1/2 border-2">{title}</div>
+            <div className="w-1/2 border-2 text-end">
+              {formatProjectDate(date)}
+            </div>
           </div>
         </div>
         <div className="px-2 font-semibold text-[#a7a4fff1]">

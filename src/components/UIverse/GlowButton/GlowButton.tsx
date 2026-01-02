@@ -1,15 +1,11 @@
-import "./GlowButton.css"
+import "./GlowButton.css";
 
 interface IGlowButtonProps {
-    label: string
+  label: string;
 }
 
-const GlowButton = ({label}: IGlowButtonProps) => {
-  return (
-    <button className="glowButton">
-        {label}
-    </button>
-  )
-}
+const GlowButton = ({ label }: IGlowButtonProps) => {
+  return <button className="glowButton">{label}</button>;
+};
 
-export default GlowButton
+export default GlowButton;
