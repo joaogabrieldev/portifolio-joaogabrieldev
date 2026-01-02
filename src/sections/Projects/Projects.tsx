@@ -2,16 +2,9 @@ import Section from "@/components/Section/Section";
 import { motion } from "motion/react";
 import { MorphingText } from "@/components/ui/morphing-text";
 
-import LivePreview from "../../components/ProjectPreview/ProjectPreview";
-import Carousel from "@/widgets/Carousel/Carousel";
-import { EmblaOptionsType } from "embla-carousel";
-import { projects } from "@/assets/data/projects";
+import DesktopProjects from "./../../components/DesktopProjects/DesktopProjects";
 
 const texts = ["Projetos", "Uma seleção dos meus trabalhos recentes."];
-
-const OPTIONS: EmblaOptionsType = { align: "center" };
-// const SLIDE_COUNT = 6;
-// const SLIDES = Array.from(Array(SLIDE_COUNT).keys());
 
 const Projects = () => {
   return (
@@ -22,11 +15,11 @@ const Projects = () => {
           texts={texts}
         />
       </motion.div>
+
       <div className="flex items-center justify-center">
-        <motion.div className="max-w-8xl mt-10 w-full border-2 border-white px-6">
-          <Carousel slides={projects} options={OPTIONS} />
-        </motion.div>
+        <DesktopProjects />
       </div>
+
       <motion.div></motion.div>
     </Section>
   );
