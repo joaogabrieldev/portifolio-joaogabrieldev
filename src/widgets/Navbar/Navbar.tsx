@@ -32,14 +32,16 @@ const Navbar = () => {
           </div>
           <HamburguerMenu onClick={toggleMenu} />
         </div>
-        {/* <div className="relative z-10">
-            <div className="absolute -right-20 z-10 h-90 max-w-50 border-2 border-white">
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aliquam
-              sit ut at qui sapiente excepturi dolore corrupti sunt iusto. Neque
-              facere assumenda sint commodi sequi autem cupiditate. Consectetur,
-              molestias sed.
-            </div> */}
       </div>
+      {isMenuOpen && (
+        <div className="relative z-10 flex justify-end pr-20">
+          <div className="fixed top-22 right-22 z-10 h-90 max-w-40 border-2 border-white bg-black p-4 text-white">
+            <ul>
+              {}  
+            </ul>           
+          </div>
+        </div>
+      )}
     </div>
   );
 };
