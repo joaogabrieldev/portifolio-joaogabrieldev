@@ -8,6 +8,21 @@ body {
   overflow-y: auto;
 }
 
+::-webkit-scrollbar {
+  width: 14px;
+  transition: background-color 0.4s ease-in-out;
+}
+
+::-webkit-scrollbar-track {
+  background: #0d0d0d;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #413b72;
+  border-radius: 5px;
+  border: 2px solid #0d0d0d;
+}
+
 @layer utilities {
   .no-scrollbar::-webkit-scrollbar {
     display: none;

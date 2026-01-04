@@ -1,6 +1,8 @@
 import Section from "@/components/Section/Section";
 import Animation from "../../components/Animation/Animation";
 
+import "./Hero.css";
+
 import { motion } from "motion/react";
 import { AnimatedShinyText } from "@/components/ui/animated-shiny-text";
 import GradualBlur from "@/components/ReactBits/GradualBlur/GradualBlur";
@@ -35,25 +37,28 @@ const Hero = () => {
   return (
     <Section
       height="screen"
-      className={`flex items-center justify-center ${defaultSelection} no-scrollbar`}
+      className={`heroSection flex items-center justify-center ${defaultSelection} no-scrollbar max-[1200px]:pt-40 max-[1200px]:pb-40`}
       id="inicio"
     >
-      <div className="flex max-w-375 flex-row gap-4 py-4">
-        <div className="flex flex-col items-center justify-center gap-7.5 border-2 border-white">
-          <div>
+      <div className="hero-main-wrapper">
+        <div className="hero-content-column">
+          <div className="hero-title-wrapper">
             <MorphingText
               key={displayTexts.length}
               texts={displayTexts}
-              className="w-2xl border-2 border-white text-center text-2xl font-bold text-white select-none sm:text-4xl md:h-24 md:text-4xl lg:text-[3rem]"
+              className="hero-title"
             />
           </div>
-          <div className="flex w-2xl max-w-4xl flex-col gap-2 border-2 border-white py-1.5 text-gray-200">
+          <div
+            id="hero-description-container"
+            className="hero-description-container"
+          >
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.8, delay: 2 }}
               viewport={{ once: true }}
-              className={`flex flex-col gap-4 px-2 text-start text-[17.5px] ${ubuntu.className}`}
+              className={`hero-description ${ubuntu.className}`}
             >
               <AnimatedShinyText
                 shimmerWidth={150}
@@ -80,7 +85,9 @@ const Hero = () => {
             </motion.div>
           </div>
         </div>
-        <Animation />
+        <div className="hero-visual-section hidden w-full max-w-2xl items-center justify-center max-[1300px]:w-220 max-[1300px]:max-w-xl md:mt-8 md:flex lg:max-w-50 xl:max-w-none">
+          <Animation />
+        </div>
       </div>
       <GradualBlur
         target="page"

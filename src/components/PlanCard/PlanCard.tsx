@@ -61,6 +61,7 @@ const PlanCard = ({
   const hasEmphasisGlowButton = emphasis ? (
     <div className="flex justify-center">
       <MobileGlowButton label={"Solicitar Orçamento"} />
+      {/* <GlowButton label={"Solicitar Orçamento"} /> */}
     </div>
   ) : (
     <a

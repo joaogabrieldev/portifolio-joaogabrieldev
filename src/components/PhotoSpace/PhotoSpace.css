@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 #photoSpace {
-  animation: "shadowGlow" 8s infinite;
+  animation: shadowGlow 8s infinite;
 
   animation-timing-function: linear;
 }

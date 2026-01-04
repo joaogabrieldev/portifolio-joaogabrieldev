@@ -2,12 +2,13 @@ import "./HamburguerMenu.css";
 
 interface IHamburguerMenuProps {
   onClick: () => void;
+  isOpen: boolean;
 }
 
-const HamburguerMenu = ({ onClick }: IHamburguerMenuProps) => {
+const HamburguerMenu = ({ onClick, isOpen }: IHamburguerMenuProps) => {
   return (
     <label className="hamburger">
-      <input type="checkbox" onClick={onClick} />
+      <input type="checkbox" checked={isOpen} onChange={onClick} />
       <svg viewBox="0 0 32 32">
         <path
           className="line line-top-bottom"
