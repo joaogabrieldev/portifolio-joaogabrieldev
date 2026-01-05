@@ -64,6 +64,7 @@ const TimelineElement = ({
         style={{
           textAlign: "center",
           marginTop: "5px",
+          fontSize: "16px",
         }}
       >
         {description}

@@ -15,10 +15,11 @@ const Plans = () => {
         whileInView={{ opacity: 1 }}
         transition={{ duration: 3, delay: 1 }}
         viewport={{ once: true }}
+        className="justi flex"
       >
         <MorphingText
           texts={texts}
-          className="mt-20 -mb-6 w-3xl text-center text-2xl font-bold text-white select-none sm:text-4xl md:h-24 md:text-4xl lg:text-[3rem]"
+          className="mt-20 -mb-6 max-w-lg border-2 border-white text-center text-4xl font-bold text-white select-none sm:text-4xl md:h-24 md:w-3xl md:max-w-5xl md:text-4xl lg:text-[3rem]"
         />
       </motion.div>
       <motion.p
@@ -26,7 +27,7 @@ const Plans = () => {
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
         transition={{ duration: 3, delay: 2.5 }}
-        className={`my-1.5 flex max-w-4xl justify-self-center text-center font-semibold text-gray-500 ${defaultSelection}`}
+        className={`my-2 mt-12 flex max-w-4xl justify-self-center text-center font-semibold text-gray-500 min-[557px]:mt-3 md:-mt-2 ${defaultSelection}`}
       >
         Encontre a solução perfeita para alavancar seu negócio. Nossos pacotes
         garantem excelência técnica, layout moderno e uma estrutura pensada para
@@ -39,7 +40,7 @@ const Plans = () => {
         viewport={{ once: true }}
         className="flex justify-center py-8"
       >
-        <div className="grid grid-cols-3 items-start gap-x-6">
+        <div className="mx-2 flex flex-col items-center justify-center gap-y-4 min-[1435px]:grid-cols-3 md:grid lg:items-start lg:gap-x-10">
           {plans.map((item, index) => {
             return (
               <PlanCard

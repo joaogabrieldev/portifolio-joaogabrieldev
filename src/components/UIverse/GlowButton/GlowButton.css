@@ -28,9 +28,9 @@
     transition: all 0.2s ease-out;
 
     &::before {
-      -webkit-animation: sh02 0.5s 0s linear;
-      -moz-animation: sh02 0.5s 0s linear;
-      animation: sh02 0.5s 0s linear;
+      -webkit-animation: sh02 2s 0s linear;
+      -moz-animation: sh02 2s 0s linear;
+      animation: sh02 2s 0s linear;
     }
   }
 

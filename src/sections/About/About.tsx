@@ -45,7 +45,7 @@ const About = () => {
           <div
             className={`mb-4 flex flex-col gap-2 border-2 border-red-600 lg:gap-0 ${ubuntu.className} -mx-20 -mt-20 w-full max-w-5xl xl:mt-2 xl:ml-10`}
           >
-            <span className="mb-8 text-center font-semibold text-zinc-500 select-none">
+            <span className="mb-6 text-center font-semibold text-zinc-500 select-none">
               Desenvolvedor Full Stack com atuação focada no Front-end
             </span>
             <AnimatedShinyText

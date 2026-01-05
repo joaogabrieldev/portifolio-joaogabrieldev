@@ -44,7 +44,7 @@ const PlanCard = ({
 
   const hasEmphasis = emphasis
     ? "border-[#7c7abf99] bg-[#7c7abf99]/15 "
-    : "border-slate-700 bg-slate-700/10 border-2";
+    : "border-slate-700 bg-slate-700/10 border-2 ";
 
   const hasEmphasisBorder = emphasis ? (
     <ShineBorder
@@ -59,14 +59,18 @@ const PlanCard = ({
     : `bg-slate-900 ${defaultTransition} hover:bg-slate-800 hover:shadow-gray-700/40`;
 
   const hasEmphasisGlowButton = emphasis ? (
-    <div className="flex justify-center">
-      <MobileGlowButton label={"Solicitar Orçamento"} />
-      {/* <GlowButton label={"Solicitar Orçamento"} /> */}
+    <div>
+      <div className="flex justify-center min-[1435px]:hidden">
+        <MobileGlowButton label={"Solicitar Orçamento"} />
+      </div>
+      <div className="hidden min-[1435px]:flex min-[1435px]:justify-center">
+        <GlowButton label={"Solicitar Orçamento"} />
+      </div>
     </div>
   ) : (
     <a
       href="#"
-      className={`block rounded-lg ${buttonEmphasis} py-2.5 text-center text-[14px] font-semibold tracking-[1px] text-white uppercase select-none`}
+      className={`block rounded-lg ${buttonEmphasis} w-full py-2.5 text-center text-[14px] font-semibold tracking-[1px] text-white uppercase select-none`}
     >
       Solicitar Orçamento
     </a>

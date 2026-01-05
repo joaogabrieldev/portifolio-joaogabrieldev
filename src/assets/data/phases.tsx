@@ -1,6 +1,5 @@
 import { MessageCircle, Pencil, Code, Check } from "lucide-react";
 import { JSX } from "react";
-import "./styles/phases.css";
 
 export type Phases = {
   icon: JSX.Element;

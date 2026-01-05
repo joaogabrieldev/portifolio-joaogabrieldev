@@ -1,0 +1,24 @@
+.mobile-iframe-container {
+  width: 105%;
+  height: 330px;
+  overflow: hidden;
+  /* cursor: url("../../assets/images/svgs/blackCursor.svg"), auto; */
+
+  & iframe {
+    width: 200%;
+    height: 200%;
+    border: none;
+
+    -ms-transform: scale(0.5);
+    -moz-transform: scale(0.5);
+    -o-transform: scale(0.5);
+    -webkit-transform: scale(0.5);
+    transform: scale(0.5);
+
+    -ms-transform-origin: 0 0;
+    -moz-transform-origin: 0 0;
+    -o-transform-origin: 0 0;
+    -webkit-transform-origin: 0 0;
+    transform-origin: 0 0;
+  }
+}

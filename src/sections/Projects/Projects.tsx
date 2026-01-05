@@ -3,10 +3,28 @@ import { motion } from "motion/react";
 import { MorphingText } from "@/components/ui/morphing-text";
 
 import DesktopProjects from "../../components/Desktop/DesktopProjects/DesktopProjects";
+import MobileProjects from "@/components/Mobile/MobileProjects/MobileProjects";
+import { useWindowSize } from "@/hooks/useWindowSize";
+import { useEffect, useState } from "react";
 
 const texts = ["Projetos", "Uma seleção dos meus trabalhos recentes."];
 
 const Projects = () => {
+  const { width } = useWindowSize();
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted((prev) => !prev);
+  }, []);
+
+  if (!isMounted) {
+    return (
+      <Section height={"auto"} id="projetos" className="pb-10">
+        <div className="opacity-0">Carregando projetos...</div>
+      </Section>
+    );
+  }
+
   return (
     <Section height={"auto"} id="projetos" className="pb-10">
       <motion.div className="mt-20">
@@ -16,11 +34,7 @@ const Projects = () => {
         />
       </motion.div>
 
-      <div className="flex items-center justify-center">
-        <DesktopProjects />
-      </div>
-
-      <motion.div></motion.div>
+      <div>{width > 1200 ? <DesktopProjects /> : <MobileProjects />}</div>
     </Section>
   );
 };

@@ -5,9 +5,11 @@
 - **`Cult UI`:** [https://magicui.design/](https://magicui.design/)
 - **`Magic UI`:** [https://magicui.design/](https://magicui.design/)
 - **`Aceternity UI`:** [https://ui.aceternity.com/](https://ui.aceternity.com/)
+- **`Untitled UI`:** [https://www.untitledui.com/](https://www.untitledui.com/)
 - **`UIverse`:** [https://uiverse.io/](https://uiverse.io/)
 
 ### ShadCN Components
+
 - [https://ui.shadcn.com/docs/components/accordion](https://ui.shadcn.com/docs/components/accordion)
 
 ### React Bits Components
@@ -59,3 +61,9 @@
 #### **Buttons**
 
 - [https://magicui.design/docs/components/ripple-button](https://magicui.design/docs/components/ripple-button)
+
+- ### Untitled UI Components
+
+#### FAQ Component (I did the FAQ my component myself, but I was inspired by this)
+
+- [https://www.untitledui.com/react/marketing/faq-sections](https://www.untitledui.com/react/marketing/faq-sections)
