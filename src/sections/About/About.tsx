@@ -11,6 +11,8 @@ import { motion } from "motion/react";
 import { useEffect, useState } from "react";
 import { ubuntu } from "@/utils/fonts";
 
+import "./About.css";
+
 const texts = ["Sobre Mim", "Sobre o Desenvolvedor"];
 
 const About = () => {
@@ -25,11 +27,11 @@ const About = () => {
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
         transition={{ duration: 1, delay: 1 }}
-        className="mt-14 flex justify-center"
+        className="flex justify-center md:mt-14"
       >
         <MorphingText
           texts={texts}
-          className="mt-8 w-xl border-2 border-white text-white select-none sm:text-4xl md:h-24 md:text-4xl lg:text-[3rem]"
+          className="mt-8 w-xl border-2 border-white text-4xl text-white select-none sm:text-4xl md:h-24 md:text-4xl lg:text-[3rem]"
         />
       </motion.div>
       <div className="flex flex-row justify-around px-10">
@@ -38,17 +40,17 @@ const About = () => {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 3 }}
-          className="flex flex-row items-center gap-28 border-2 border-white"
+          className="max-w-9xl flex w-full flex-col-reverse items-center justify-center gap-28 border-2 border-white xl:flex-row"
         >
           <div
-            className={`mb-4 flex flex-col gap-2 border-2 border-white ${ubuntu.className}`}
+            className={`mb-4 flex flex-col gap-2 border-2 border-red-600 lg:gap-0 ${ubuntu.className} -mx-20 -mt-20 w-full max-w-5xl xl:mt-2 xl:ml-10`}
           >
-            <span className="text-center font-semibold text-zinc-500 select-none">
+            <span className="mb-8 text-center font-semibold text-zinc-500 select-none">
               Desenvolvedor Full Stack com atuação focada no Front-end
             </span>
             <AnimatedShinyText
               shimmerWidth={150}
-              className="max-w-3xl text-center text-lg text-[17.5px] text-gray-300"
+              className="mb-2 max-w-3xl text-center text-lg text-[17.5px] text-gray-300"
             >
               <span>
                 Meu trabalho consiste em traduzir sua necessidade em uma
@@ -72,7 +74,9 @@ const About = () => {
               </span>
             </AnimatedShinyText>
           </div>
-          <PhotoSpace />
+          <div className="flex w-full max-w-2xl items-center justify-center pt-8 lg:pt-0">
+            <PhotoSpace />
+          </div>
         </motion.div>
       </div>
       <div
@@ -93,7 +97,7 @@ const About = () => {
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
         transition={{ duration: 0.8, delay: 12 }}
-        className="flex flex-row justify-center gap-8"
+        className="flex flex-col items-center justify-center gap-8 px-6 lg:flex-row"
       >
         {characteristics.map((item, index) => {
           return (

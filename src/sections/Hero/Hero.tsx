@@ -37,7 +37,7 @@ const Hero = () => {
   return (
     <Section
       height="screen"
-      className={`heroSection flex items-center justify-center ${defaultSelection} no-scrollbar max-[1200px]:pt-40 max-[1200px]:pb-40`}
+      className={`hero-section flex items-center justify-center ${defaultSelection} no-scrollbar`}
       id="inicio"
     >
       <div className="hero-main-wrapper">
@@ -58,11 +58,11 @@ const Hero = () => {
               animate={{ opacity: 1 }}
               transition={{ duration: 0.8, delay: 2 }}
               viewport={{ once: true }}
-              className={`hero-description ${ubuntu.className}`}
+              className={`hero-description ${ubuntu.className} max-w-full max-md:w-full`}
             >
               <AnimatedShinyText
                 shimmerWidth={150}
-                className="max-w-2xl border-2 border-white"
+                className="border-2 border-white md:max-w-4xl"
               >
                 Olá! Sou{" "}
                 <strong className="text-zinc-300">
@@ -74,7 +74,7 @@ const Hero = () => {
               </AnimatedShinyText>
               <AnimatedShinyText
                 shimmerWidth={150}
-                className="max-w-2xl border-2 border-white"
+                className="border-2 border-white md:max-w-4xl"
               >
                 Por isso, te ajudarei a transformar sua visão em uma presença
                 online estratégica. Utilizando as melhores práticas de
@@ -85,7 +85,7 @@ const Hero = () => {
             </motion.div>
           </div>
         </div>
-        <div className="hero-visual-section hidden w-full max-w-2xl items-center justify-center max-[1300px]:w-220 max-[1300px]:max-w-xl md:mt-8 md:flex lg:max-w-50 xl:max-w-none">
+        <div className="hero-visual-section hidden w-full max-w-2xl items-center justify-center max-[1300px]:w-240 max-[1300px]:max-w-xl md:mt-0 md:flex lg:max-w-50 xl:max-w-none">
           <Animation />
         </div>
       </div>

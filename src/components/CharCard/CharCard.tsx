@@ -6,7 +6,7 @@ import { ubuntu } from "@/utils/fonts";
 
 const CharCard = ({ icon, title, description }: Characteristics) => {
   return (
-    <div id="Card" className="relative max-w-xs px-6 py-4 text-white">
+    <div id="Card" className="relative w-xs max-w-xs px-6 py-4 text-white">
       <div className="flex flex-row items-center gap-2">
         <span className="text-lg font-bold text-gray-300">{icon}</span>
         <span className="text-lg font-semibold text-gray-300 select-none">
@@ -14,7 +14,7 @@ const CharCard = ({ icon, title, description }: Characteristics) => {
         </span>
       </div>
       <p
-        className={`mt-3 border-2 border-white  text-[16px] text-gray-300 ${ubuntu.className} `}
+        className={`mt-3 border-2 border-white text-[16px] text-gray-300 ${ubuntu.className} `}
       >
         {description}
       </p>

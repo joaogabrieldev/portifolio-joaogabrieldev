@@ -1,5 +1,5 @@
-import Logo from "./../../pieces/Logo/Logo";
-import Nav from "./../../components/Nav/Nav";
+import Logo from "@/pieces/Logo/Logo";
+import Nav from "@/components/Nav/Nav";
 
 import "./Navbar.css";
 import MobileNavbar from "@/components/Mobile/MobileNavbar/MobileNavbar";

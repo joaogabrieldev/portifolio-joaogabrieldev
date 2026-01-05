@@ -8,6 +8,7 @@
 - **`UIverse`:** [https://uiverse.io/](https://uiverse.io/)
 
 ### ShadCN Components
+- [https://ui.shadcn.com/docs/components/accordion](https://ui.shadcn.com/docs/components/accordion)
 
 ### React Bits Components
 
