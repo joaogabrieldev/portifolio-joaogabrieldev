@@ -12,9 +12,15 @@ const ProjectsPageContent = () => {
   return (
     <div className="absolute top-0 text-white">
       <div className="relative z-20 flex h-auto w-full min-w-dvw flex-col items-center justify-center border-white bg-[#343434]/40 pb-10 backdrop-blur-md">
-        <div className="absolute top-8 left-4 md:left-28">
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1, delay: 1 }}
+          className="absolute top-8 left-2 md:left-24"
+        >
           <BackButton />
-        </div>
+        </motion.div>
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -24,7 +30,7 @@ const ProjectsPageContent = () => {
         >
           <MorphingText
             texts={texts}
-            className="mt-8 mb-4 md:max-w-lg w-sm border-2 border-white text-4xl text-white select-none sm:text-4xl md:-mt-2 md:h-24 md:w-xl md:text-5xl lg:text-[3rem]"
+            className="mt-8 mb-4 w-sm border-2 border-white text-4xl text-white select-none sm:text-4xl md:-mt-2 md:h-24 md:w-xl md:max-w-lg md:text-5xl lg:text-[3rem]"
           />
         </motion.div>
         <div className="mt-6">

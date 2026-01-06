@@ -28,4 +28,8 @@ export const navLinks: INavLinks[] = [
     title: "FAQ",
     slug: "faq",
   },
+  {
+    title: "Contato",
+    slug: "contato"
+  }
 ];

@@ -42,7 +42,7 @@ const TimelineElement = ({
           color: "white",
           fontWeight: "500",
           textAlign: "center",
-          fontSize: "26px",
+          fontSize: "24px",
           marginBottom: "10px",
           userSelect: "none",
         }}

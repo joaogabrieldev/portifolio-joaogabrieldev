@@ -32,7 +32,7 @@ const FAQ = () => {
     <Section
       height="auto"
       id="faq"
-      className={`pt-20 pb-40 ${defaultSelection}`}
+      className={`pt-20 pb-10 ${defaultSelection}`}
     >
       <motion.span
         initial={{ opacity: 0 }}

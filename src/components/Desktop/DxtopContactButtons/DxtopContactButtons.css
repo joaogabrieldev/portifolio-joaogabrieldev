@@ -1,0 +1,85 @@
+@charset "UTF-8";
+
+.dock-container {
+  display: block;
+  margin: auto;
+  position: relative;
+
+  top: 50px;
+  width: 100%;
+  max-width: 180px;
+}
+
+.dock-background {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  background-color: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+
+  border-radius: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+
+  transition: border 0.2s cubic-bezier(0.17, 0.52, 0.62, 0.91);
+}
+
+.icons-wrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  column-gap: 0.5rem;
+  padding: 0.5rem;
+}
+
+.icon-item {
+  width: 3.5rem;
+  height: 3.5rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 0.75rem;
+  box-shadow:
+    0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -4px rgba(0, 0, 0, 0.1);
+  border-width: 1px;
+  cursor: pointer;
+
+  clip-path: url(#squircleClip);
+
+  transition: all 0.3s cubic-bezier(0, 0, 0.2, 1);
+}
+
+.icon-item:hover {
+  transform: translateY(-0.5rem) scale(1.1);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+.icon-item svg {
+  width: 2rem;
+  /* 32px */
+  height: 2rem;
+  /* 32px */
+  color: white;
+}
+
+.icon-github {
+  background-image: linear-gradient(to bottom right, #374151, #111827);
+  border-color: rgba(75, 85, 99, 0.5);
+}
+
+.icon-linkedin {
+  background-image: linear-gradient(to bottom right, #2563eb, #1e40af);
+  border-color: rgba(59, 130, 246, 0.5);
+}
+
+.dock-container:has(.icon-github:hover, .icon-linkedin:hover) .dock-background {
+  border: 1px solid rgba(255, 255, 255, 0.6);
+}

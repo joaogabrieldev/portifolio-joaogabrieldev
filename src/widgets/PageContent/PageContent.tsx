@@ -7,6 +7,7 @@ import Processes from "@/sections/Processes/Processes";
 import Plans from "@/sections/Plans/Plans";
 import Projects from "@/sections/Projects/Projects";
 import FAQ from "@/sections/FAQ/FAQ";
+import Contact from "./../../sections/Contact/Contact";
 
 const PageContent = () => {
   return (
@@ -23,6 +24,7 @@ const PageContent = () => {
       </main>
       <footer>
         <FAQ />
+        <Contact />
       </footer>
     </div>
   );

@@ -22,7 +22,7 @@ const MobileNavbar = () => {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.25 }}
-          className="dropdownMenu absolute top-full right-0 mt-6 h-60 w-40 rounded-b-2xl border border-gray-600 border-t-gray-800 p-4 text-sm text-white"
+          className="dropdownMenu absolute top-full right-0 mt-8 h-68 w-40 rounded-b-2xl border border-gray-600 border-t-gray-800 p-4 text-sm text-white"
         >
           <div className="flex flex-col gap-4">
             {navLinks.map((item, index) => {
