@@ -1,4 +1,5 @@
 import { projects } from "@/assets/data/projects";
+import { useWindowSize } from "@/hooks/useWindowSize";
 import Carousel from "@/widgets/Carousel/Carousel";
 import { EmblaOptionsType } from "embla-carousel";
 import { motion } from "motion/react";
@@ -9,7 +10,7 @@ const OPTIONS: EmblaOptionsType = { align: "center" };
 
 const DesktopProjects = () => {
   return (
-    <motion.div className="max-w-8xl rounded-2 mt-10 w-full">
+    <motion.div className={`max-w-8xl rounded-2 mt-10 w-full`}>
       <Carousel slides={projects} options={OPTIONS} />
     </motion.div>
   );
