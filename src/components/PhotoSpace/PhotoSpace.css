@@ -15,7 +15,7 @@
 
   50% {
     box-shadow:
-      rgb(52, 46, 89, 0.7) 0px 50px 100px -20px,
+      rgb(52, 46, 89, 0.7) 0px 80px 160px -20px,
       rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
   }
 
@@ -24,4 +24,10 @@
       rgb(52, 46, 89, 0.7) 0px 0px 0px 0px,
       rgba(0, 0, 0, 0.3) 0px 0px 0px 0px;
   }
+}
+
+.custom-cursor {
+  cursor:
+    url("../../assets/icons/custom-cursor-colorized-100x100.png") 16 16,
+    auto;
 }

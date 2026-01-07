@@ -15,7 +15,7 @@ const Plans = () => {
         whileInView={{ opacity: 1 }}
         transition={{ duration: 3, delay: 1 }}
         viewport={{ once: true }}
-        className="justi flex"
+        className="flex"
       >
         <MorphingText
           texts={texts}

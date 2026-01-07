@@ -63,7 +63,7 @@
 .hero-visual-section {
   display: none;
   width: 100%;
-  max-width: 710px;
+  max-width: 750px;
 }
 
 /*? CSS Responsive Design Configs */
@@ -201,15 +201,9 @@
   }
 }
 
-@media (max-width: 505px) {
-  .hero-title {
-    font-size: 2rem;
-  }
-}
-
 @media (max-width: 700px) {
   .hero-title {
-    font-size: 2.2rem;
+    font-size: 2.28rem;
     width: 500px;
   }
 }

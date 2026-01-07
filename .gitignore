@@ -39,3 +39,9 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# My Dirs
+src/assets/images
+colors.md
+libs.md
+

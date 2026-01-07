@@ -1,0 +1,9 @@
+@font-face {
+  font-family: "Hendrigo";
+  src: url("../../assets/fonts/Hendrigo.otf");
+}
+
+.footer-title {
+  font-family: "Hendrigo";
+  border: 2px solid white;
+}

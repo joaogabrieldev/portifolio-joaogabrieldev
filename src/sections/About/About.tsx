@@ -74,7 +74,7 @@ const About = () => {
               </span>
             </AnimatedShinyText>
           </div>
-          <div className="flex w-full max-w-2xl items-center justify-center pt-8 lg:pt-0">
+          <div className="mb-6 flex w-full max-w-2xl items-center justify-center pt-8 lg:mb-0 lg:pt-0">
             <PhotoSpace />
           </div>
         </motion.div>

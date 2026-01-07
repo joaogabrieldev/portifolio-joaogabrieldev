@@ -41,9 +41,14 @@ const Projects = () => {
         />
       </motion.div>
 
-      <div>{width > 1200 ? <DesktopProjects /> : <MobileProjects />}</div>
+      <div className="select-none">
+        {width > 1200 ? <DesktopProjects /> : <MobileProjects />}
+      </div>
       <div className="mt-6 flex items-center justify-center border-2 border-white">
-        <Link href={"/projetos"} className={`${isMobileButton}`}>
+        <Link
+          href={"/projetos"}
+          className={`${isMobileButton} text-lg font-semibold`}
+        >
           Ver todos os Projetos!
         </Link>
       </div>

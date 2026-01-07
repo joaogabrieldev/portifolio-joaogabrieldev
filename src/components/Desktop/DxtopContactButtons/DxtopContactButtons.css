@@ -1,13 +1,12 @@
-@charset "UTF-8";
-
 .dock-container {
   display: block;
   margin: auto;
   position: relative;
-
-  top: 50px;
+  top: 10px;
   width: 100%;
-  max-width: 180px;
+  max-width: 220px;
+  margin-top: 20px;
+  margin-bottom: 40px;
 }
 
 .dock-background {
@@ -71,8 +70,8 @@
 }
 
 .icon-github {
-  background-image: linear-gradient(to bottom right, #374151, #111827);
-  border-color: rgba(75, 85, 99, 0.5);
+  background-image: linear-gradient(to bottom right, #00c950, #008236);
+  border-color: rgba(0, 130, 54, 0.5);
 }
 
 .icon-linkedin {
@@ -80,6 +79,22 @@
   border-color: rgba(59, 130, 246, 0.5);
 }
 
-.dock-container:has(.icon-github:hover, .icon-linkedin:hover) .dock-background {
+.icon-gmail {
+  background-image: linear-gradient(to bottom right, white, #ffffff);
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+.icon-outlook {
+  background-image: linear-gradient(to bottom right, white, #ffffff);
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+.dock-container:has(
+    .icon-github:hover,
+    .icon-linkedin:hover,
+    .icon-outlook:hover,
+    .icon-gmail:hover
+  )
+  .dock-background {
   border: 1px solid rgba(255, 255, 255, 0.6);
 }
