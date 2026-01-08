@@ -13,9 +13,7 @@ const CharCard = ({ icon, title, description }: Characteristics) => {
           {title}
         </span>
       </div>
-      <p
-        className={`mt-3 border-2 border-white text-[16px] text-gray-300 ${ubuntu.className} `}
-      >
+      <p className={`mt-3 text-[16px] text-gray-300 ${ubuntu.className} `}>
         {description}
       </p>
       <BorderBeam

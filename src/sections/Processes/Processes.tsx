@@ -24,7 +24,7 @@ const Processes = () => {
       >
         <MorphingText
           texts={texts}
-          className="mx-6 max-w-2xl border-2 border-white text-center text-4xl font-bold text-white select-none sm:text-4xl md:mx-0 md:h-24 md:text-3xl lg:text-[3rem]"
+          className="mx-6 max-w-2xl text-center text-4xl font-bold text-white select-none sm:text-4xl md:mx-0 md:h-24 md:text-3xl lg:text-[3rem]"
         />
       </motion.span>
       <motion.span

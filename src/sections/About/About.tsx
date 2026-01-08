@@ -31,7 +31,7 @@ const About = () => {
       >
         <MorphingText
           texts={texts}
-          className="mt-8 w-xl border-2 border-white text-4xl text-white select-none sm:text-4xl md:h-24 md:text-4xl lg:text-[3rem]"
+          className="mt-8 w-xl text-4xl text-white select-none sm:text-4xl md:h-24 md:text-4xl lg:text-[3rem]"
         />
       </motion.div>
       <div className="flex flex-row justify-around px-10">
@@ -40,10 +40,10 @@ const About = () => {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 3 }}
-          className="max-w-9xl flex w-full flex-col-reverse items-center justify-center gap-28 border-2 border-white xl:flex-row"
+          className="max-w-9xl flex w-full flex-col-reverse items-center justify-center gap-28 xl:flex-row"
         >
           <div
-            className={`mb-4 flex flex-col gap-2 border-2 border-red-600 lg:gap-0 ${ubuntu.className} -mx-20 -mt-20 w-full max-w-5xl xl:mt-2 xl:ml-10`}
+            className={`mb-4 flex flex-col gap-2 lg:gap-0 ${ubuntu.className} -mx-20 -mt-20 w-full max-w-5xl xl:mt-2 xl:ml-10`}
           >
             <span className="mb-6 text-center font-semibold text-zinc-500 select-none">
               Desenvolvedor Full Stack com atuação focada no Front-end

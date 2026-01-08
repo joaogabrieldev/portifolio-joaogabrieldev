@@ -20,7 +20,7 @@ const Contact = () => {
     <Section
       height={"screen"}
       id="contato"
-      className="text-white max-[700px]:-mt-28"
+      className="pb-34 text-white max-[700px]:-mt-28 min-[1200px]:pb-18"
     >
       <div>
         <motion.span
@@ -32,7 +32,7 @@ const Contact = () => {
         >
           <MorphingText
             texts={texts}
-            className="mt-8 w-xl border-2 text-center text-4xl font-bold text-white select-none sm:text-4xl md:h-24 md:text-4xl lg:text-[3rem]"
+            className="mt-8 w-xl text-center text-4xl font-bold text-white select-none sm:text-4xl md:h-24 md:text-4xl lg:text-[3rem]"
           />
         </motion.span>
       </div>

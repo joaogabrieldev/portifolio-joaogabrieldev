@@ -60,10 +60,7 @@ const Hero = () => {
               viewport={{ once: true }}
               className={`hero-description ${ubuntu.className} max-w-full max-md:w-full`}
             >
-              <AnimatedShinyText
-                shimmerWidth={150}
-                className="border-2 border-white md:max-w-4xl"
-              >
+              <AnimatedShinyText shimmerWidth={150} className="md:max-w-4xl">
                 Olá! Sou{" "}
                 <strong className="text-zinc-300">
                   <u>João Gabriel</u>
@@ -72,10 +69,7 @@ const Hero = () => {
                 além de linhas de código: ele é a porta de entrada para o seu
                 negócio e a representação da sua marca no mundo digital.
               </AnimatedShinyText>
-              <AnimatedShinyText
-                shimmerWidth={150}
-                className="border-2 border-white md:max-w-4xl"
-              >
+              <AnimatedShinyText shimmerWidth={150} className="md:max-w-4xl">
                 Por isso, te ajudarei a transformar sua visão em uma presença
                 online estratégica. Utilizando as melhores práticas de
                 desenvolvimento, meu foco é criar um site que destaque sua marca

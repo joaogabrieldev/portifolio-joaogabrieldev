@@ -5,7 +5,7 @@ const Animation = () => {
   return (
     <div
       style={{ width: "100%", maxWidth: 1440, margin: "0 auto" }}
-      className="border-2 border-white md:w-123"
+      className="rounded-lg border border-gray-500/15 md:w-123"
     >
       <Lottie
         animationData={animationData}

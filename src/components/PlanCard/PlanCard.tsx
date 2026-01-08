@@ -6,6 +6,7 @@ import { ShineBorder } from "../ui/shine-border";
 import { AuroraText } from "../ui/aurora-text";
 import GlowButton from "../UIverse/GlowButton/GlowButton";
 import MobileGlowButton from "../Mobile/MobileGlowButton/MobileGlowButton";
+import { Link } from "react-scroll";
 
 export type Beneficts = {
   title: string;
@@ -68,12 +69,11 @@ const PlanCard = ({
       </div>
     </div>
   ) : (
-    <a
-      href="#"
+    <div
       className={`block rounded-lg ${buttonEmphasis} w-full py-2.5 text-center text-[14px] font-semibold tracking-[1px] text-white uppercase select-none`}
     >
       Solicitar Orçamento
-    </a>
+    </div>
   );
 
   return (
@@ -118,7 +118,9 @@ const PlanCard = ({
             })}
           </ul>
         </div>
-        <div className="w-full">{hasEmphasisGlowButton}</div>
+        <div className="w-full">
+          <Link to="contato">{hasEmphasisGlowButton}</Link>
+        </div>
       </div>
     </div>
   );

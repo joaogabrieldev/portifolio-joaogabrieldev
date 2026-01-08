@@ -19,7 +19,7 @@ const Plans = () => {
       >
         <MorphingText
           texts={texts}
-          className="mt-20 -mb-6 max-w-lg border-2 border-white text-center text-4xl font-bold text-white select-none sm:text-4xl md:h-24 md:w-3xl md:max-w-5xl md:text-4xl lg:text-[3rem]"
+          className="mt-20 -mb-6 max-w-lg text-center text-4xl font-bold text-white select-none sm:text-4xl md:h-24 md:w-3xl md:max-w-5xl md:text-4xl lg:text-[3rem]"
         />
       </motion.div>
       <motion.p

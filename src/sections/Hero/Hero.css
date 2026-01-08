@@ -13,7 +13,6 @@
   justify-content: center;
   align-items: center;
   gap: 30px;
-  border: 2px solid white;
 }
 
 .hero-title-wrapper {
@@ -21,14 +20,12 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 2px solid white;
 }
 
 .hero-title {
   display: block;
   margin: auto;
   width: 500px;
-  border: 2px solid white;
   text-align: center;
   font-size: 2rem;
   font-weight: bold;
@@ -44,7 +41,6 @@
   align-items: center;
   justify-content: center;
   gap: 8px;
-  border: 2px solid white;
   padding: 6px 0;
   color: #e5e7eb;
 }
