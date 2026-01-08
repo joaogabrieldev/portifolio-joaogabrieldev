@@ -32,6 +32,7 @@ const Logo = () => {
           alt={"logo"}
           width={logoResponsizeSize.current}
           height={logoResponsizeSize.current}
+          className="rounded-md"
         />
       </Link>
     </div>

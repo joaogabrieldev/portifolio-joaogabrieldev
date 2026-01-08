@@ -10,13 +10,13 @@ import { urlWhatsapp, urlGmail, urlOutlook } from "@/utils/linksToGo";
 const MobileContactButtons = () => {
   return (
     <div className="mt-10 flex flex-col gap-4">
-      <div className="border border-white text-center font-semibold text-gray-500">
+      <div className="text-center font-semibold text-gray-500">
         <h1 className="text-lg select-none">
           Selecione por onde deseja entrar em contato:{" "}
         </h1>
       </div>
       {/* 880 */}
-      <div className="flex w-full flex-col items-center justify-center gap-3 border-2 border-white select-none">
+      <div className="flex w-full flex-col items-center justify-center gap-3 select-none">
         <div className="flex flex-row gap-4">
           <Link
             href={urlWhatsapp}

@@ -43,7 +43,9 @@ const Contact = () => {
         viewport={{ once: true }}
         className="mx-4 mt-4 flex items-center justify-center text-center"
       >
-        <p className="mt-2 max-w-2xl font-semibold text-gray-500">
+        <p
+          className={`mt-2 max-w-2xl font-semibold text-gray-500 ${defaultSelection}`}
+        >
           Vamos tirar seu projeto do papel? Entre em contato e tenha uma
           presença digital estratégica, feita para converter visitantes em
           clientes.
@@ -54,6 +56,7 @@ const Contact = () => {
         whileInView={{ opacity: 1 }}
         transition={{ duration: 0.8, delay: 3 }}
         viewport={{ once: true }}
+        className="select-none"
       >
         {width > 1200 ? <DxtopContactButtons /> : <MobileContactButtons />}
         <div className="mt-6 flex items-center justify-center">

@@ -16,7 +16,7 @@ const Projects = () => {
   const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
-    setIsMounted((prev) => !prev);
+    setIsMounted(true);
   }, []);
 
   if (!isMounted) {
@@ -59,9 +59,9 @@ const Projects = () => {
       <motion.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
-        transition={{ duration: 0.8 }}
+        transition={{ duration: 0.8, delay: 2.5 }}
         viewport={{ once: true }}
-        className="mt-6 flex items-center justify-center border-2 border-white"
+        className="mt-6 flex items-center justify-center"
       >
         <Link
           href={"/projetos"}

@@ -3,8 +3,8 @@ import DesktopFAQElement from "@/components/Desktop/DesktopFAQElement/DesktopFAQ
 
 const DesktopFAQ = () => {
   return (
-    <div className="flex items-center justify-center border-2 border-white px-8">
-      <div className="grid grid-cols-2 gap-6 border-2 border-white lg:grid-cols-3">
+    <div className="flex items-center justify-center px-8">
+      <div className="grid grid-cols-2 gap-6 lg:grid-cols-3">
         {questions.map((category, index) => {
           return category.questions.map((question, index) => {
             return (

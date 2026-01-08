@@ -1,8 +1,7 @@
-import { questions } from "@/assets/data/faq";
 import NonDesktopFAQ from "@/components/Mobile/NonDesktopFAQ/NonDesktopFAQ";
-import QuestionBlock from "@/components/QuestionBlock/QuestionBlock";
+
 import Section from "@/components/Section/Section";
-import { Accordion } from "@/components/ui/accordion";
+
 import { MorphingText } from "@/components/ui/morphing-text";
 import { useWindowSize } from "@/hooks/useWindowSize";
 import { defaultSelection } from "@/utils/defaults";
@@ -17,7 +16,7 @@ const FAQ = () => {
   const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
-    setIsMounted((prev) => !prev);
+    setIsMounted(true);
   }, []);
 
   if (!isMounted) {
@@ -43,7 +42,7 @@ const FAQ = () => {
       >
         <MorphingText
           texts={texts}
-          className="w-xl border-2 text-center text-4xl font-bold text-white select-none sm:text-4xl md:h-24 md:text-4xl lg:text-[3rem]"
+          className="w-xl text-center text-4xl font-bold text-white select-none sm:text-4xl md:h-24 md:text-4xl lg:text-[3rem]"
         />
       </motion.span>
       <motion.div

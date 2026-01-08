@@ -32,7 +32,7 @@ const InformationFooter = () => {
       whileInView={{ opacity: 1 }}
       transition={{ duration: 0.8, delay: 3 }}
       viewport={{ once: true }}
-      className="absolute bottom-8 flex w-full max-w-dvw flex-col border-2 border-t border-red-600 border-t-gray-500 bg-gray-600/12 pb-40 max-[1200px]:pb-32 min-[1200px]:flex-row"
+      className="absolute bottom-8 flex w-full max-w-dvw flex-col border-t border-t-gray-500 bg-gray-600/12 pb-40 max-[1200px]:pb-32 min-[1200px]:flex-row"
     >
       <div className="flex w-full flex-col md:flex-row">
         <div className="mt-2 flex flex-col select-none">

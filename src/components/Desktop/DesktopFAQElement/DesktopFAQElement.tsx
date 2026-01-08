@@ -10,8 +10,8 @@ const DesktopFAQElement = ({
   const svgIconSize: number = 31;
 
   return (
-    <div className="w-full max-w-130 border-2 border-white">
-      <div className="mt-4 mb-1 flex items-center justify-center border-2 border-white select-none">
+    <div className="w-full max-w-130">
+      <div className="mt-8 mb-1 flex items-center justify-center select-none">
         <div className="rounded-[10px] border border-gray-600 bg-[#0C0E12] p-2">
           <span
             className={`[&>svg]:text-red [&>svg]:h-[${svgIconSize}px] [&>svg]:w-[${svgIconSize}px]`}
