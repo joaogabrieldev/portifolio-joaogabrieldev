@@ -1,15 +1,42 @@
-import React from "react";
+import React, { useRef } from "react";
 import "./InformationFooter.css";
 import { SiGithub, SiLinkedin } from "react-icons/si";
 import { ubuntu } from "@/utils/fonts";
 import Link from "next/link";
+import { urlGithub, urlLinkedin } from "@/utils/linksToGo";
+import { motion } from "motion/react";
 
 const InformationFooter = () => {
+  const linkedinRef = useRef<Window | null>(null);
+  const githubWindowRef = useRef<Window | null>(null);
+
+  const handleLinkedinClick = () => {
+    if (linkedinRef.current && !linkedinRef.current.closed) {
+      linkedinRef.current.focus();
+    } else {
+      linkedinRef.current = window.open(urlLinkedin, "linkedinWindow");
+    }
+  };
+
+  const handleGithubClick = () => {
+    if (githubWindowRef.current && !githubWindowRef.current.closed) {
+      githubWindowRef.current.focus();
+    } else {
+      githubWindowRef.current = window.open(urlGithub, "githubWindow");
+    }
+  };
+
   return (
-    <div className="absolute bottom-8 flex w-full max-w-dvw flex-col border-2 border-red-600 pb-20 max-[1200px]:pb-26 min-[1200px]:flex-row">
+    <motion.div
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      transition={{ duration: 0.8, delay: 3 }}
+      viewport={{ once: true }}
+      className="absolute bottom-8 flex w-full max-w-dvw flex-col border-2 border-red-600 pb-20 max-[1200px]:pb-26 min-[1200px]:flex-row"
+    >
       <div className="flex w-full flex-col md:flex-row">
         <div className="flex flex-col border-2 border-white select-none">
-          <span className="footer-title -ml-12 text-center text-4xl md:text-start md:ml-0">
+          <span className="footer-title -ml-12 text-center text-4xl md:ml-0 md:text-start">
             Joao
           </span>
           <span className="footer-title pl-12 text-center text-4xl md:pl-6">
@@ -17,24 +44,30 @@ const InformationFooter = () => {
           </span>
         </div>
         <div className="w-full border-2 border-white">
-          <h2 className={`${ubuntu.className} text-center text-lg select-none`}>
+          <h2
+            className={`${ubuntu.className} pt-0 text-center text-lg select-none md:pt-7`}
+          >
             &copy; 2025, João Gabriel R. Rocha. Todos os direitos reservados.
           </h2>
         </div>
       </div>
-      <div className="flex flex-row justify-center gap-2 border-2 border-white px-14 py-2 text-4xl text-gray-500 md:py-0">
+      <div className="flex flex-row justify-center gap-2 border-2 border-white px-14 py-2 text-4xl text-gray-500 min-[1200px]:pt-7 md:pb-0">
         <span>
-          <Link href={""} target="_blank">
+          <Link href={urlGithub} target="_blank" onClick={handleGithubClick}>
             <SiGithub className="cursor-pointer hover:text-[#948ad5]" />
           </Link>
         </span>
         <span>
-          <Link href={""} target="_blank">
+          <Link
+            href={urlLinkedin}
+            target="_blank"
+            onClick={handleLinkedinClick}
+          >
             <SiLinkedin className="cursor-pointer hover:text-[#948ad5]" />
           </Link>
         </span>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

@@ -12,4 +12,4 @@ export const urlOutlook = `https://outlook.live.com/owa/?path=/mail/action/compo
 export const urlGmail = `https://mail.google.com/mail/?view=cm&fs=1&to=${emailGmail}&su=${encodeURIComponent(assunto)}&body=${encodeURIComponent(corpo)}`;
 
 export const urlLinkedin = "https://www.linkedin.com/in/joaogabrielrocha/";
-export const urlGithub = "";
+export const urlGithub = "https://github.com/joaogabrieldev";

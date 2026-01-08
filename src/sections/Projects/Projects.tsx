@@ -34,24 +34,42 @@ const Projects = () => {
 
   return (
     <Section height={"auto"} id="projetos" className="pb-10">
-      <motion.div className="mt-20">
+      <motion.div
+        className="mt-20"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 0.8, delay: 1 }}
+        viewport={{ once: true }}
+      >
         <MorphingText
           className="max-w-xl text-center text-4xl font-bold text-white select-none sm:pb-8 sm:text-5xl md:h-24 md:pb-0 md:text-5xl lg:text-[3rem]"
           texts={texts}
         />
       </motion.div>
 
-      <div className="select-none">
+      <motion.div
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 0.8, delay: 2.5 }}
+        viewport={{ once: true }}
+        className="select-none"
+      >
         {width > 1200 ? <DesktopProjects /> : <MobileProjects />}
-      </div>
-      <div className="mt-6 flex items-center justify-center border-2 border-white">
+      </motion.div>
+      <motion.div
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true }}
+        className="mt-6 flex items-center justify-center border-2 border-white"
+      >
         <Link
           href={"/projetos"}
           className={`${isMobileButton} text-lg font-semibold`}
         >
           Ver todos os Projetos!
         </Link>
-      </div>
+      </motion.div>
     </Section>
   );
 };

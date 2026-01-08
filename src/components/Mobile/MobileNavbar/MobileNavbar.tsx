@@ -14,7 +14,7 @@ const MobileNavbar = () => {
   };
 
   return (
-    <div className="relative flex w-50 max-w-100 justify-end border-2 border-red-600 min-[750px]:w-85">
+    <div className="relative flex w-50 max-w-100 justify-end min-[750px]:w-85">
       <HamburguerMenu onClick={toggleMenu} isOpen={isMenuOpen!} />
       {isMenuOpen && (
         <motion.div

@@ -74,9 +74,15 @@ const About = () => {
               </span>
             </AnimatedShinyText>
           </div>
-          <div className="mb-6 flex w-full max-w-2xl items-center justify-center pt-8 lg:mb-0 lg:pt-0">
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1, delay: 1 }}
+            className="mb-6 flex w-full max-w-2xl items-center justify-center pt-8 lg:mb-0 lg:pt-0"
+          >
             <PhotoSpace />
-          </div>
+          </motion.div>
         </motion.div>
       </div>
       <div

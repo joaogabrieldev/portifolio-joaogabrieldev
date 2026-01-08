@@ -46,7 +46,14 @@ const FAQ = () => {
           className="w-xl border-2 text-center text-4xl font-bold text-white select-none sm:text-4xl md:h-24 md:text-4xl lg:text-[3rem]"
         />
       </motion.span>
-      <div>{width > 700 ? <DesktopFAQ /> : <NonDesktopFAQ />}</div>
+      <motion.div
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 0.8, delay: 3.5 }}
+        viewport={{ once: true }}
+      >
+        {width > 700 ? <DesktopFAQ /> : <NonDesktopFAQ />}
+      </motion.div>
     </Section>
   );
 };

@@ -41,7 +41,11 @@ yarn-error.log*
 next-env.d.ts
 
 # My Dirs
-src/assets/images
+src/assets/images/favicon.png
+src/assets/images/inverted-favicon.png
+src/assets/images/logo-copy.png
+src/assets/images/logo.png
 colors.md
 libs.md
+my-components.md
 

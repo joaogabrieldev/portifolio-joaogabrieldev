@@ -36,14 +36,25 @@ const Contact = () => {
           />
         </motion.span>
       </div>
-      <div className="mx-4 mt-4 flex items-center justify-center text-center">
+      <motion.div
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 0.8, delay: 3 }}
+        viewport={{ once: true }}
+        className="mx-4 mt-4 flex items-center justify-center text-center"
+      >
         <p className="mt-2 max-w-2xl font-semibold text-gray-500">
           Vamos tirar seu projeto do papel? Entre em contato e tenha uma
           presença digital estratégica, feita para converter visitantes em
           clientes.
         </p>
-      </div>
-      <div>
+      </motion.div>
+      <motion.div
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 0.8, delay: 3 }}
+        viewport={{ once: true }}
+      >
         {width > 1200 ? <DxtopContactButtons /> : <MobileContactButtons />}
         <div className="mt-6 flex items-center justify-center">
           <div className="rounded-lg border-2 border-[#7c7abf7c] bg-[#7c7abf]/5 px-16 py-10">
@@ -57,7 +68,7 @@ const Contact = () => {
             </div>
           </div>
         </div>
-      </div>
+      </motion.div>
       <InformationFooter />
     </Section>
   );
