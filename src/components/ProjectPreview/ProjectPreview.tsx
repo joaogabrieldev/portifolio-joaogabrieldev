@@ -17,11 +17,9 @@ const ProjectPreview = ({ url, title, date, description, icons }: Projects) => {
       </div>
       <Link href={url} target="_blank">
         <div className="flex items-center justify-center">
-          <div className="mt-2.5 mb-1.5 ml-5 flex w-full max-w-6xl flex-row justify-around border-2 font-semibold text-[#bdbbfc]">
-            <div className="w-1/2 border-2">{title}</div>
-            <div className="w-1/2 border-2 text-end">
-              {formatProjectDate(date)}
-            </div>
+          <div className="mt-2.5 mb-1.5 ml-5 flex w-full max-w-6xl flex-row justify-around font-semibold text-[#bdbbfc]">
+            <div className="w-1/2">{title}</div>
+            <div className="w-1/2 text-end">{formatProjectDate(date)}</div>
           </div>
         </div>
         <div className="px-2 font-semibold text-[#a7a4fff1]">
