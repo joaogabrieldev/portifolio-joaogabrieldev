@@ -1,6 +1,6 @@
 import Noise from "@/components/ReactBits/Noise/Noise";
 
-import PageContent from "@/widgets/PageContent/PageContent";
+import PageContent from "@/widgets/Desktop/PageContent/PageContent";
 
 const Content = () => {
   return (

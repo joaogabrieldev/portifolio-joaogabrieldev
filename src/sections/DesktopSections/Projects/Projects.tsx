@@ -2,7 +2,7 @@ import Section from "@/components/Section/Section";
 import { motion } from "motion/react";
 import { MorphingText } from "@/components/ui/morphing-text";
 
-import DesktopProjects from "../../components/Desktop/DesktopProjects/DesktopProjects";
+import DesktopProjects from "../../../components/Desktop/DesktopProjects/DesktopProjects";
 import MobileProjects from "@/components/Mobile/MobileProjects/MobileProjects";
 import { useWindowSize } from "@/hooks/useWindowSize";
 import { useEffect, useState } from "react";

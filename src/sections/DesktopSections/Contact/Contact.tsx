@@ -7,7 +7,7 @@ import Link from "next/link";
 import { SiWhatsapp, SiLinkedin } from "react-icons/si";
 import { Phone } from "lucide-react";
 import { defaultSelection } from "@/utils/defaults";
-import MobileContactButtons from "./../../components/Mobile/MobileContactButtons/MobileContactButtons";
+import MobileContactButtons from "../../../components/Mobile/MobileContactButtons/MobileContactButtons";
 import { useWindowSize } from "@/hooks/useWindowSize";
 import DxtopContactButtons from "@/components/Desktop/DxtopContactButtons/DxtopContactButtons";
 import InformationFooter from "@/components/InformationFooter/InformationFooter";

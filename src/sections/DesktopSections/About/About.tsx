@@ -2,10 +2,10 @@ import GradualBlur from "@/components/ReactBits/GradualBlur/GradualBlur";
 import Section from "@/components/Section/Section";
 import { MorphingText, morphTimeMath } from "@/components/ui/morphing-text";
 
-import PhotoSpace from "../../components/PhotoSpace/PhotoSpace";
+import PhotoSpace from "../../../components/PhotoSpace/PhotoSpace";
 import { AnimatedShinyText } from "@/components/ui/animated-shiny-text";
 import { defaultSelection } from "@/utils/defaults";
-import CharCard from "../../components/CharCard/CharCard";
+import CharCard from "../../../components/CharCard/CharCard";
 import { characteristics } from "@/assets/data/characteristics";
 import { motion } from "motion/react";
 import { useEffect, useState } from "react";

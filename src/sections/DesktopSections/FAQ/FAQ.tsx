@@ -5,7 +5,7 @@ import Section from "@/components/Section/Section";
 import { MorphingText } from "@/components/ui/morphing-text";
 import { useWindowSize } from "@/hooks/useWindowSize";
 import { defaultSelection } from "@/utils/defaults";
-import DesktopFAQ from "@/widgets/DesktopFAQ/DesktopFAQ";
+import DesktopFAQ from "@/widgets/Desktop/DesktopFAQ/DesktopFAQ";
 import { motion } from "motion/react";
 import { useState, useEffect } from "react";
 

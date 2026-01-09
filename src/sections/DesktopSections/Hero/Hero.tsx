@@ -1,5 +1,5 @@
 import Section from "@/components/Section/Section";
-import Animation from "../../components/Animation/Animation";
+import Animation from "../../../components/Animation/Animation";
 
 import "./Hero.css";
 
@@ -9,7 +9,7 @@ import GradualBlur from "@/components/ReactBits/GradualBlur/GradualBlur";
 // import { MorphingText } from "@/components/ui/morphing-text";
 import { useEffect, useState } from "react";
 import { defaultSelection } from "@/utils/defaults";
-import { morphTimeMath } from "../../components/ui/morphing-text";
+import { morphTimeMath } from "../../../components/ui/morphing-text";
 import { ubuntu } from "@/utils/fonts";
 
 import dynamic from "next/dynamic";
