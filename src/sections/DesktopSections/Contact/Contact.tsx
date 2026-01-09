@@ -3,7 +3,6 @@ import Section from "@/components/Section/Section";
 import { motion } from "motion/react";
 import { MorphingText } from "@/components/ui/morphing-text";
 import Link from "next/link";
-
 import { SiWhatsapp, SiLinkedin } from "react-icons/si";
 import { Phone } from "lucide-react";
 import { defaultSelection } from "@/utils/defaults";
@@ -11,6 +10,8 @@ import MobileContactButtons from "../../../components/Mobile/MobileContactButton
 import { useWindowSize } from "@/hooks/useWindowSize";
 import DxtopContactButtons from "@/components/Desktop/DxtopContactButtons/DxtopContactButtons";
 import InformationFooter from "@/components/InformationFooter/InformationFooter";
+import Image from "next/image";
+import CurriculumButton from "@/lib/CurriculumButton/CurriculumButton";
 
 const texts = ["Contato", "Vamos conversar sobre o seu projeto?"];
 
@@ -70,6 +71,9 @@ const Contact = () => {
               </span>
             </div>
           </div>
+        </div>
+        <div className="mt-8 flex items-center justify-center">
+          <CurriculumButton />
         </div>
       </motion.div>
       <InformationFooter />

@@ -11,7 +11,7 @@ const MobileContactButtons = () => {
   return (
     <div className="mt-10 flex flex-col gap-4">
       <div className="text-center font-semibold text-gray-500">
-        <h1 className="text-lg select-none px-2">
+        <h1 className="px-2 text-lg select-none">
           Selecione por onde deseja entrar em contato:{" "}
         </h1>
       </div>
@@ -20,7 +20,7 @@ const MobileContactButtons = () => {
         <div className="flex flex-row gap-4">
           <Link
             href={urlWhatsapp}
-            className="flex flex-row items-center gap-1.5 rounded-md bg-green-600 text-white px-8 py-2 text-lg font-semibold"
+            className="flex flex-row items-center gap-1.5 rounded-md bg-green-600 px-8 py-2 text-lg font-semibold text-white"
           >
             <SiWhatsapp className="font-bold" width={30} height={30} />
             <span>Whatsapp</span>
@@ -42,6 +42,11 @@ const MobileContactButtons = () => {
             <span className="text-blue-500">Outlook</span>
           </Link>
         </div>
+      </div>
+      <div className="text-white">
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Reprehenderit
+        hic harum saepe aliquid. Quis voluptatum alias vel hic nulla quae nam
+        perspiciatis illo, commodi in optio explicabo ullam earum corrupti.
       </div>
     </div>
   );

@@ -1,6 +1,7 @@
 import MobileContactButtons from "@/components/Mobile/MobileContactButtons/MobileContactButtons";
 import NonDesktopSection from "@/components/Mobile/NonDesktopSection/NonDesktopSection";
 import TextType from "@/components/ReactBits/TextType/TextType";
+import CurriculumButton from "@/lib/CurriculumButton/CurriculumButton";
 import { defaultSelection } from "@/utils/defaults";
 import { Phone } from "lucide-react";
 import { motion } from "motion/react";
@@ -38,6 +39,9 @@ const NonDesktopContact = () => {
               </span>
             </div>
           </div>
+        </div>
+        <div className="my-6 flex items-center justify-center">
+          <CurriculumButton />
         </div>
       </motion.div>
     </NonDesktopSection>

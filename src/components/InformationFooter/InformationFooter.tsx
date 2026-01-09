@@ -5,6 +5,13 @@ import { ubuntu } from "@/utils/fonts";
 import Link from "next/link";
 import { urlGithub, urlLinkedin } from "@/utils/linksToGo";
 import { motion } from "motion/react";
+import {
+  SiNextdotjs,
+  SiReact,
+  SiTailwindcss,
+  SiTypescript,
+} from "react-icons/si";
+import { icons } from "lucide-react";
 
 const InformationFooter = () => {
   const linkedinRef = useRef<Window | null>(null);
@@ -26,13 +33,20 @@ const InformationFooter = () => {
     }
   };
 
+  const stackIcons = [
+    <SiNextdotjs />,
+    <SiReact />,
+    <SiTailwindcss />,
+    <SiTypescript />,
+  ];
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       transition={{ duration: 0.8, delay: 3 }}
       viewport={{ once: true }}
-      className="static mt-8 flex w-full max-w-full flex-col border-t border-t-gray-500 bg-gray-600/15 pb-40 max-[1200px]:pb-32 min-[1200px]:flex-row lg:mt-50 lg:bg-gray-600/5"
+      className="static mt-8 flex w-full max-w-full flex-col border-t border-t-gray-500 bg-gray-600/15 pb-40 max-[1200px]:pb-32 min-[1200px]:flex-row lg:mt-50 lg:bg-gray-600/7"
     >
       <div className="flex w-full flex-col md:flex-row">
         <div className="mt-2 flex flex-col select-none">
@@ -49,6 +63,14 @@ const InformationFooter = () => {
           >
             &copy; 2025, João Gabriel R. Rocha. Todos os direitos reservados.
           </h2>
+          <div className="flex flex-col items-center justify-center">
+            <h3 className="my-2 font-semibold text-gray-400">
+              Este projeto foi desenvolvido com:{" "}
+            </h3>
+            <div className="mb-6 flex flex-row items-center justify-center gap-1.5 text-2xl text-gray-400">
+              {...stackIcons}
+            </div>
+          </div>
         </div>
       </div>
       <div className="flex flex-row justify-center gap-2 px-14 py-2 text-4xl text-gray-500 min-[1200px]:pt-7 md:pb-0">
