@@ -11,7 +11,7 @@ import { useWindowSize } from "@/hooks/useWindowSize";
 import DxtopContactButtons from "@/components/Desktop/DxtopContactButtons/DxtopContactButtons";
 import InformationFooter from "@/components/InformationFooter/InformationFooter";
 import Image from "next/image";
-import CurriculumButton from "@/lib/CurriculumButton/CurriculumButton";
+import CurriculumButton from "@/pieces/CurriculumButton/CurriculumButton";
 
 const texts = ["Contato", "Vamos conversar sobre o seu projeto?"];
 
