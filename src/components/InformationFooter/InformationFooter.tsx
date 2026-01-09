@@ -12,6 +12,7 @@ import {
   SiTypescript,
 } from "react-icons/si";
 import { icons } from "lucide-react";
+import { defaultSelection } from "@/utils/defaults";
 
 const InformationFooter = () => {
   const linkedinRef = useRef<Window | null>(null);
@@ -64,10 +65,12 @@ const InformationFooter = () => {
             &copy; 2025, João Gabriel R. Rocha. Todos os direitos reservados.
           </h2>
           <div className="flex flex-col items-center justify-center">
-            <h3 className="my-2 font-semibold text-gray-400">
+            <h3
+              className={`my-2 font-semibold text-gray-400 ${defaultSelection}`}
+            >
               Este projeto foi desenvolvido com:{" "}
             </h3>
-            <div className="mb-6 flex flex-row items-center justify-center gap-1.5 text-2xl text-gray-400">
+            <div className="mb-6 flex flex-row items-center justify-center gap-1.5 text-2xl text-gray-400 select-none">
               {...stackIcons}
             </div>
           </div>
