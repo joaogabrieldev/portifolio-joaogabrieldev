@@ -11,7 +11,7 @@ const texts = ["Planos", "Solicite seu orçamento agora!"];
 
 const NonDesktopPlans = () => {
   return (
-    <NonDesktopSection className="px-4" height={"auto"} id="planos">
+    <NonDesktopSection className="px-4" height={"auto"} id="mobile-planos">
       <motion.span
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}

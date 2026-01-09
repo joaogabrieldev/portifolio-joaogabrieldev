@@ -7,6 +7,7 @@ import { AuroraText } from "../ui/aurora-text";
 import GlowButton from "../UIverse/GlowButton/GlowButton";
 import MobileGlowButton from "../Mobile/MobileGlowButton/MobileGlowButton";
 import { Link } from "react-scroll";
+import { useWindowSize } from "@/hooks/useWindowSize";
 
 export type Beneficts = {
   title: string;
@@ -37,6 +38,8 @@ const PlanCard = ({
   recommendation,
   beneficts,
 }: IPlanCardProps) => {
+  const { width } = useWindowSize();
+
   const hasBadge = emphasis ? (
     <div className="flex justify-start pb-2">
       <Badge label={"Recomendado pelos Clientes"} />
@@ -75,6 +78,19 @@ const PlanCard = ({
       Solicitar Orçamento
     </div>
   );
+
+  const handleMobileScroll = (slug: string) => {
+    setTimeout(() => {
+      const element = document.getElementById(slug);
+
+      if (element) {
+        element.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+      }
+    }, 100);
+  };
 
   return (
     <div
@@ -119,7 +135,13 @@ const PlanCard = ({
           </ul>
         </div>
         <div className="w-full">
-          <Link to="contato">{hasEmphasisGlowButton}</Link>
+          {width > 1024 ? (
+            <Link to="contato">{hasEmphasisGlowButton}</Link>
+          ) : (
+            <a onClick={() => handleMobileScroll("mobile-contato")}>
+              {hasEmphasisGlowButton}
+            </a>
+          )}
         </div>
       </div>
     </div>

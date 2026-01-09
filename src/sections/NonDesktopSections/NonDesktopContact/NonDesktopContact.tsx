@@ -1,6 +1,8 @@
 import MobileContactButtons from "@/components/Mobile/MobileContactButtons/MobileContactButtons";
 import NonDesktopSection from "@/components/Mobile/NonDesktopSection/NonDesktopSection";
 import TextType from "@/components/ReactBits/TextType/TextType";
+import { defaultSelection } from "@/utils/defaults";
+import { Phone } from "lucide-react";
 import { motion } from "motion/react";
 import React from "react";
 
@@ -25,6 +27,18 @@ const NonDesktopContact = () => {
         viewport={{ once: true }}
       >
         <MobileContactButtons />
+        <div className="mt-6 flex items-center justify-center">
+          <div className="rounded-lg border-2 border-[#7c7abf7c] bg-[#7c7abf]/5 px-16 py-10">
+            <div
+              className={`flex flex-row gap-1 text-gray-500 ${defaultSelection}`}
+            >
+              <Phone />
+              <span className="font-semibold">
+                <span className="select-none">Telefone:</span> (61) 98447-3234
+              </span>
+            </div>
+          </div>
+        </div>
       </motion.div>
     </NonDesktopSection>
   );
