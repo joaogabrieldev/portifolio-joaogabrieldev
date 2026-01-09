@@ -16,7 +16,7 @@ const Logo = () => {
   }
 
   return (
-    <div className="ml-20 flex w-full flex-row gap-2 select-none lg:ml-50">
+    <div className="flex w-full max-w-2xl flex-row gap-2 pl-10 select-none md:ml-20 md:pl-0 lg:ml-50">
       {/* <Sparkles stroke="white" />
       <h1 className="font-semibold text-white select-none">Minha Logo</h1> */}
       <Link

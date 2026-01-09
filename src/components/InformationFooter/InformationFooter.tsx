@@ -32,20 +32,20 @@ const InformationFooter = () => {
       whileInView={{ opacity: 1 }}
       transition={{ duration: 0.8, delay: 3 }}
       viewport={{ once: true }}
-      className="absolute bottom-8 flex w-full max-w-dvw flex-col border-t border-t-gray-500 bg-gray-600/12 pb-40 max-[1200px]:pb-32 min-[1200px]:flex-row"
+      className="static bottom-8 mt-8 flex w-full max-w-full flex-col border-t border-t-gray-500 bg-gray-600/12 pb-40 max-[1200px]:pb-32 min-[1200px]:flex-row"
     >
       <div className="flex w-full flex-col md:flex-row">
         <div className="mt-2 flex flex-col select-none">
-          <span className="footer-title -ml-12 px-6 text-center text-4xl md:ml-0 md:text-start">
+          <span className="footer-title -ml-12 px-6 text-center text-4xl text-white md:ml-0 md:text-start">
             Joao
           </span>
-          <span className="footer-title pl-8 text-center text-4xl md:pl-12">
+          <span className="footer-title pl-8 text-center text-4xl text-white md:pl-12">
             Gabriel
           </span>
         </div>
         <div className="w-full">
           <h2
-            className={`${ubuntu.className} pt-0 text-center text-lg select-none md:pt-7`}
+            className={`${ubuntu.className} px-2 pt-0 text-center text-lg text-white select-none md:pt-7`}
           >
             &copy; 2025, João Gabriel R. Rocha. Todos os direitos reservados.
           </h2>

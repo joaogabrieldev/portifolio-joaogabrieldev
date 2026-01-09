@@ -11,7 +11,9 @@ const QuestionBlock = ({ title, questions, index }: IQuestionBlockProps) => {
       className={`flex flex-col justify-center gap-4 border border-x-0 border-y border-slate-700 ${isFirst} ${isLast}`}
     >
       <div className="border-b-slate-700 py-4 text-center">
-        <span className={`text-2xl font-bold select-none`}>{title}</span>
+        <span className={`text-2xl font-bold text-white select-none`}>
+          {title}
+        </span>
       </div>
       <div className="px-12 py-4">
         {questions.map((item) => {

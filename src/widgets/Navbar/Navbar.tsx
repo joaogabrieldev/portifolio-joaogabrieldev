@@ -3,8 +3,11 @@ import Nav from "@/components/Nav/Nav";
 
 import "./Navbar.css";
 import MobileNavbar from "@/components/Mobile/MobileNavbar/MobileNavbar";
+import { useWindowSize } from "@/hooks/useWindowSize";
 
 const Navbar = () => {
+  const { width } = useWindowSize();
+
   return (
     <div className="fixed top-0 z-50 flex w-full">
       <div
@@ -16,12 +19,15 @@ const Navbar = () => {
         </div>
 
         <div className="flex w-full flex-row items-end gap-6">
-          <div className="flex max-[1200px]:hidden">
-            <Nav />
-          </div>
-          <div className="hidden max-[1200px]:flex max-[1200px]:items-end">
-            <MobileNavbar />
-          </div>
+          {width <= 1200 ? (
+            <div className="flex items-end">
+              <MobileNavbar />
+            </div>
+          ) : (
+            <div className="flex">
+              <Nav />
+            </div>
+          )}
         </div>
       </div>
     </div>

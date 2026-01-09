@@ -17,7 +17,7 @@ const ProjectsPageContent = () => {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 1, delay: 1 }}
-          className="absolute top-8 left-2 md:left-24"
+          className="absolute top-2 left-2 min-w-dvw border-2 border-white md:top-8 md:left-24"
         >
           <BackButton />
         </motion.div>
@@ -26,7 +26,7 @@ const ProjectsPageContent = () => {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 1, delay: 1 }}
-          className="flex justify-center md:mt-14"
+          className="mt-18 flex justify-center md:mt-12"
         >
           <MorphingText
             texts={texts}

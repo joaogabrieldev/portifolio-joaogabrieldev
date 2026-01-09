@@ -6,7 +6,7 @@ export interface INavLinks {
 export const navLinks: INavLinks[] = [
   {
     title: "Início",
-    slug: "inicio"
+    slug: "inicio",
   },
   {
     title: "Sobre",
@@ -14,7 +14,7 @@ export const navLinks: INavLinks[] = [
   },
   {
     title: "Processos",
-    slug: "processos"
+    slug: "processos",
   },
   {
     title: "Planos",
@@ -30,6 +30,37 @@ export const navLinks: INavLinks[] = [
   },
   {
     title: "Contato",
-    slug: "contato"
-  }
+    slug: "contato",
+  },
+];
+
+export const mobileNavLinks: INavLinks[] = [
+  {
+    title: "Início",
+    slug: "mobile-inicio",
+  },
+  {
+    title: "Sobre",
+    slug: "mobile-sobre",
+  },
+  {
+    title: "Processos",
+    slug: "mobile-processos",
+  },
+  {
+    title: "Planos",
+    slug: "mobile-planos",
+  },
+  {
+    title: "Projetos",
+    slug: "mobile-projetos",
+  },
+  {
+    title: "FAQ",
+    slug: "mobile-faq",
+  },
+  {
+    title: "Contato",
+    slug: "mobile-contato",
+  },
 ];

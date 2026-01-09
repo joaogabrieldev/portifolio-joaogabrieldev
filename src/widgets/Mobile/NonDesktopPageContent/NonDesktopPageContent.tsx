@@ -1,7 +1,8 @@
 import React from "react";
 import Navbar from "../../Navbar/Navbar";
 import Aurora from "@/components/ReactBits/Aurora/Aurora";
-import MobileContent from "../NonDesktopContent/NonDesktopContent";
+
+import NonDesktopContent from "../NonDesktopContent/NonDesktopContent";
 
 const NonDesktopPageContent = () => {
   return (
@@ -12,7 +13,7 @@ const NonDesktopPageContent = () => {
         speed={0.4}
         amplitude={8}
       />
-      <MobileContent />
+      <NonDesktopContent />
     </div>
   );
 };
