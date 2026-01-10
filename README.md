@@ -39,7 +39,7 @@
 
 A aplicação está hospedada na **Vercel** e pode ser acessada através do link:
 
-### 🔗 [https://portifolio-joaogabrieldev.vercel.app/](https://portifolio-joaogabrieldev.vercel.app/)
+### 🔗 [https://www.joaogabriel.dev/](https://www.joaogabriel.dev/)
 
 ---
 
