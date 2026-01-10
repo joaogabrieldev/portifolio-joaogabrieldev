@@ -17,7 +17,7 @@ const ProjectsPageContent = () => {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 1, delay: 1 }}
-          className="absolute top-2 left-2 min-w-dvw border-2 border-white md:top-8 md:left-24"
+          className="absolute top-2 left-2 min-w-dvw md:top-8 md:left-24"
         >
           <BackButton />
         </motion.div>
@@ -30,7 +30,7 @@ const ProjectsPageContent = () => {
         >
           <MorphingText
             texts={texts}
-            className="mt-8 mb-4 w-sm border-2 border-white text-4xl text-white select-none sm:text-4xl md:-mt-2 md:h-24 md:w-xl md:max-w-lg md:text-5xl lg:text-[3rem]"
+            className="mt-8 mb-4 w-sm text-4xl text-white select-none sm:text-4xl md:-mt-2 md:h-24 md:w-xl md:max-w-lg md:text-5xl lg:text-[3rem]"
           />
         </motion.div>
         <div className="mt-6">
