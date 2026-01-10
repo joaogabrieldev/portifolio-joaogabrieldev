@@ -43,11 +43,6 @@ const MobileContactButtons = () => {
           </Link>
         </div>
       </div>
-      <div className="text-white">
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Reprehenderit
-        hic harum saepe aliquid. Quis voluptatum alias vel hic nulla quae nam
-        perspiciatis illo, commodi in optio explicabo ullam earum corrupti.
-      </div>
     </div>
   );
 };
