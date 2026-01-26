@@ -4,7 +4,7 @@ const CurriculumButton = () => {
   return (
     <a
       href="/curriculo-joao-gabriel-r.-rocha.pdf"
-      download={"Curriculo - João Gabriel"}
+      download={"Curriculo - João Gabriel.pdf"}
       target="_blank"
       rel="noopener noreferrer"
       className="Documents-btn"
