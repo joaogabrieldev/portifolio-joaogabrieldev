@@ -50,3 +50,6 @@ libs.md
 my-components.md
 /.unlighthouse
 # /references
+
+# Fontes de vídeo pesadas (GitHub bloqueia >100MB; use apenas webm em public/assets)
+src/assets/animations/*.mov

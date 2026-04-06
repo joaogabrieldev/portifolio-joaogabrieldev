@@ -1,13 +1,18 @@
 "use client";
 
-import { useWindowSize } from "@/hooks/useWindowSize";
-import DesktopPageContent from "@/widgets/Desktop/DesktopPageContent/DesktopPageContent";
-import MobilePageContent from "@/widgets/Mobile/NonDesktopPageContent/NonDesktopPageContent";
+import Aurora from "@/components/ReactBits/Aurora/Aurora";
+import Content from "@/widgets/Content/Content";
 
 export default function Home() {
-  const { width } = useWindowSize();
-
   return (
-    <div>{width >= 1024 ? <DesktopPageContent /> : <MobilePageContent />}</div>
+    <div>
+      {/* <Aurora
+        blend={0.65}
+        colorStops={["#413b72", "#342e59", "#0d0d0d"]}
+        speed={0.4}
+        amplitude={8}
+      /> */}
+      <Content />
+    </div>
   );
 }

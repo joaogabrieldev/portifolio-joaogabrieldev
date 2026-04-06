@@ -33,7 +33,6 @@ export const navLinks: INavLinks[] = [
     slug: "contato",
   },
 ];
-
 export const mobileNavLinks: INavLinks[] = [
   {
     title: "Início",
