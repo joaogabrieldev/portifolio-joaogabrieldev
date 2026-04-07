@@ -9,22 +9,22 @@ const Navbar = () => {
   const { width } = useWindowSize();
 
   return (
-    <div className="fixed top-0 z-50 flex w-full">
+    <div className="fixed top-0 z-50 flex w-full justify-center px-3 pt-4 md:px-6">
       <div
-        className={`relative z-20 flex w-full min-w-dvw flex-row items-center justify-around gap-10 border-b border-b-zinc-800 bg-[#34343496]/40 py-5 backdrop-blur-[6px] lg:gap-46`}
+        className="relative z-20 flex w-full max-w-7xl flex-row items-center justify-between rounded-2xl border border-white/15 bg-[#16070bf2] px-4 py-3 shadow-[0_14px_45px_rgba(0,0,0,0.35)] backdrop-blur-xl md:px-6"
         id="navbar"
       >
-        <div className="w-full">
+        <div className="w-auto">
           <Logo />
         </div>
 
-        <div className="flex w-full flex-row items-end gap-6">
+        <div className="flex w-auto flex-row items-center gap-6">
           {width <= 1200 ? (
-            <div className="flex items-end">
+            <div className="flex items-center">
               <MobileNavbar />
             </div>
           ) : (
-            <div className="flex">
+            <div className="flex items-center">
               <Nav />
             </div>
           )}

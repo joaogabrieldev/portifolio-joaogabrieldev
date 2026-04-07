@@ -1,6 +1,7 @@
 "use client";
 
 import Aurora from "@/components/ReactBits/Aurora/Aurora";
+import GradualBlur from "@/components/ReactBits/GradualBlur/GradualBlur";
 import Content from "@/widgets/Content/Content";
 
 export default function Home() {
@@ -13,6 +14,13 @@ export default function Home() {
         amplitude={8}
       /> */}
       <Content />
+      {/* <GradualBlur
+        position="bottom"
+        strength={3}
+        height="250px"
+        width="100vw"
+        className="hidden md:block"
+      /> */}
     </div>
   );
 }

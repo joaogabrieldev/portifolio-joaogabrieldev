@@ -19,7 +19,7 @@ const NavLink = ({ title, slug, onClick }: INavLinkProps) => {
         spy={true}
         onClick={onClick}
         activeClass="activeLink"
-        className={`cursor-pointer text-[17px] font-semibold text-white select-none hover:text-[#948ad5] ${defaultTransition}`}
+        className={`cursor-pointer select-none text-[17px] font-semibold text-white hover:text-white/80 ${defaultTransition}`}
       >
         {title}
       </Link>

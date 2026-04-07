@@ -1,5 +1,5 @@
 import Navbar from "../../Navbar/Navbar";
-import { MinimalistHero } from "@/components/21st/minimalist-hero";
+import Hero from "@/layout/Hero";
 
 const PageContent = () => {
   return (
@@ -7,8 +7,8 @@ const PageContent = () => {
       {/* <header>
         <Navbar />
       </header> */}
-      <main className="min-h-dvh ">
-        <MinimalistHero />
+      <main className="min-h-dvh">
+        <Hero />
       </main>
     </div>
   );
