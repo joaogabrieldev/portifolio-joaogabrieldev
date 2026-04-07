@@ -16,8 +16,8 @@ export const HERO_CONTENT = {
   imageSrc: "/assets/images/hero-2-alpha_b&w.png",
   imageAlt: "Minimalist Hero",
   overlayText: {
-    part1: "Minimalist Hero",
-    part2: "",
+    part1: "Minimalist",
+    part2: "Hero",
   },
   locationText: "Sao Paulo, Brazil",
   className: "bg-black",
@@ -33,7 +33,7 @@ export const MinimalistHero = () => {
     >
       <HeroHeader />
 
-      <div className="relative grid w-full max-w-7xl grow grid-cols-1 items-center md:grid-cols-3">
+      <div className="relative grid w-full min-w-0 max-w-7xl grow grid-cols-1 items-center gap-y-8 md:grid-cols-3 md:gap-y-0 *:min-w-0">
         <HeroLeftText />
         <HeroCenterMedia />
         <HeroRightText />
