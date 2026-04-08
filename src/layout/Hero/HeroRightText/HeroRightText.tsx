@@ -2,37 +2,29 @@
 
 import Image from "next/image";
 import nameLogo from "@/assets/images/name-2.png";
-import { motion, useScroll, useSpring, useTransform } from "framer-motion";
-import { useRef } from "react";
+import { motion } from "motion/react";
+import { orderClass } from "..";
 
-const HeroRightText = () => {
-  const sectionRef = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ["start end", "end start"],
-  });
-  const smoothProgress = useSpring(scrollYProgress, {
-    stiffness: 70,
-    damping: 28,
-    mass: 0.7,
-  });
+interface HeroRightTextProps {
+  order: "right" | "center" | "left";
+}
 
-  const y = useTransform(smoothProgress, [0, 1], [28, -30]);
-  const x = useTransform(smoothProgress, [0, 1], [8, -6]);
-  const opacity = useTransform(smoothProgress, [0, 0.25, 0.8, 1], [0.65, 1, 1, 0.8]);
-
+const HeroRightText = ({ order }: HeroRightTextProps) => {
   return (
     <motion.div
-      ref={sectionRef}
-      style={{ y, x, opacity }}
-      data-hero="right"
-      data-parallax="right"
-      className="z-20 order-2 flex w-full max-w-full min-w-0 items-center justify-center px-2 text-center sm:px-0 md:order-3 md:justify-start"
+      initial={{ x: 700, filter: "blur(4px)" }}
+      animate={{ opacity: 1, x: 0, filter: "blur(0px)" }}
+      transition={{
+        duration: 1.5,
+        delay: 0.25,
+        ease: [0.22, 1, 0.36, 1],
+      }}
+      className={`z-20 flex w-full max-w-full min-w-0 items-center justify-center px-1 text-center sm:px-0 ${orderClass[order]}`}
     >
       <Image
         src={nameLogo}
         alt="João Gabriel"
-        className="relative h-auto w-full max-w-[300px] object-contain sm:max-w-[600px] md:max-w-[760px] lg:left-35 lg:mb-12 lg:max-w-[1000px] lg:scale-150"
+        className={`relative h-auto w-full max-w-[250px] object-contain sm:max-w-[440px] md:max-w-[640px] lg:-left-6 lg:mb-8 lg:max-w-[860px] lg:scale-125 xl:-left-14 xl:mb-12 xl:max-w-[1000px] xl:scale-150 ${orderClass[order]}`}
         priority
       />
     </motion.div>

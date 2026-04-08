@@ -38,14 +38,6 @@ const HeroDesktopNav = ({ navLinks }: HeroDesktopNavProps) => {
       >
         Let&apos;s Chat
       </ScrollLink>
-
-      <button
-        type="button"
-        aria-label="Abrir contato"
-        className="flex h-11 w-11 items-center justify-center rounded-full bg-white text-black transition hover:bg-white/85"
-      >
-        <ArrowUpRight size={18} />
-      </button>
     </div>
   );
 };

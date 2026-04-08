@@ -1,11 +1,10 @@
+"use client";
+
 import { HERO_CONTENT } from "@/layout/Hero";
-import Image from "next/image";
-import logo from "@/assets/images/new-logo.png";
 import Link from "next/link";
 import { useState } from "react";
 import HeroDesktopNav from "./HeroDesktopNav";
 import HeroMobileNav from "./HeroMobileNav";
-import { useWindowSize } from "@/hooks/useWindowSize";
 import NewLogo from "@/pieces/NewLogo/NewLogo";
 
 const HeroHeader = () => {
@@ -15,7 +14,7 @@ const HeroHeader = () => {
     <header
       data-hero="header"
       data-parallax="header"
-      className="z-30 flex w-full max-w-7xl items-center justify-between gap-3"
+      className="z-30 flex w-full max-w-7xl items-center justify-between gap-2 sm:gap-3"
     >
       <div className="text-base font-bold tracking-wider text-white sm:text-lg md:text-xl">
         <Link href="/">

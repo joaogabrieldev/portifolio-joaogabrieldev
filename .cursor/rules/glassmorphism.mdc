@@ -1,7 +1,6 @@
 ---
-alwaysApply: true
+alwaysApply: false
 ---
-
 ### [PROTOCOLO DE DESIGN: GLASSMORFISMO SÊNIOR v2.1 — TypeScript Edition]
 
 Sempre que eu solicitar a criação de um elemento com "glassmorfismo" (efeito de vidro), você está estritamente proibido de usar apenas `opacity`. Você deve construir o componente (React/Next.js + TypeScript com Tailwind ou CSS-in-JS) aplicando as **três camadas obrigatórias** abaixo:

@@ -12,7 +12,6 @@ import HeroRightText from "@/layout/Hero/HeroRightText/HeroRightText";
 import HeroFooter from "@/layout/Hero/HeroFooter/HeroFooter";
 import { navLinks } from "@/assets/data/navLinks";
 import GradualBlur from "@/components/ReactBits/GradualBlur/GradualBlur";
-import { useWindowSize } from "@/hooks/useWindowSize";
 
 type HeroNavLinkTitle = Exclude<(typeof navLinks)[number]["title"], "Contato">;
 type HeroNavLink = { title: HeroNavLinkTitle; slug: string };
@@ -33,6 +32,12 @@ export const HERO_CONTENT = {
   },
   locationText: "Sao Paulo, Brazil",
   className: "bg-black",
+};
+
+export const orderClass = {
+  left: "order-1 right-0 sm:right-2 md:right-8 lg:right-60 xl:right-40",
+  center: "order-2",
+  right: "order-3 left-0 sm:left-2 md:left-8 lg:left-40 xl:left-40",
 };
 
 const Hero = () => {
@@ -185,9 +190,6 @@ const Hero = () => {
     return () => ctx.revert();
   }, []);
 
-  const { width } = useWindowSize();
-  const isMobile = width < 768;
-
   return (
     <>
       <div
@@ -200,9 +202,9 @@ const Hero = () => {
         <HeroHeader />
 
         <div className="relative mt-4 grid w-full max-w-7xl min-w-0 grow grid-cols-1 items-center gap-y-4 py-2 *:min-w-0 sm:mt-6 sm:gap-y-6 md:mt-10 md:grid-cols-3 md:gap-x-6 md:gap-y-0 md:py-0">
-          <HeroLeftText />
-          <HeroCenterMedia />
-          <HeroRightText />
+          <HeroLeftText order={"right"} />
+          <HeroCenterMedia order={"center"} />
+          <HeroRightText order={"left"} />
         </div>
 
         <HeroFooter />
