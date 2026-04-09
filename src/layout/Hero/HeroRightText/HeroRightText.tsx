@@ -12,7 +12,7 @@ interface HeroRightTextProps {
 const HeroRightText = ({ order }: HeroRightTextProps) => {
   return (
     <motion.div
-      initial={{ x: 700, filter: "blur(4px)" }}
+      initial={{ x: -700, filter: "blur(4px)" }}
       animate={{ opacity: 1, x: 0, filter: "blur(0px)" }}
       transition={{
         duration: 1.5,
