@@ -197,13 +197,13 @@ const Hero = () => {
         ref={heroRef}
         id="inicio"
         className={cn(
-          "relative flex min-h-screen w-full scroll-mt-0 flex-col items-center justify-between overflow-hidden bg-black px-4 py-5 font-sans sm:px-6 sm:py-6 md:px-10 md:py-8 lg:px-12",
+          "relative flex min-h-screen w-full scroll-mt-0 flex-col items-center justify-between overflow-hidden bg-black px-4 py-5 font-sans sm:px-6 sm:py-6 md:px-10 md:py-8 lg:top-0 lg:px-12",
           HERO_CONTENT.className,
         )}
       >
         <HeroHeader />
 
-        <div className="relative mt-4 grid w-full max-w-7xl min-w-0 grow grid-cols-1 items-center gap-y-4 py-2 *:min-w-0 sm:mt-6 sm:gap-y-6 md:mt-10 md:grid-cols-3 md:gap-x-6 md:gap-y-0 md:py-0">
+        <div className="relative mt-2 flex w-full max-w-7xl min-w-0 grow flex-col items-center gap-y-4 py-2 *:min-w-0 sm:mt-6 sm:gap-y-6 md:mt-10 md:flex-row md:items-center md:justify-center md:gap-x-6 md:gap-y-0 md:py-0 md:*:flex-1 md:*:basis-0 lg:mt-4">
           <HeroLeftText />
           <HeroCenterMedia order={"center"} />
           <HeroRightText order={"left"} />
@@ -217,7 +217,7 @@ const Hero = () => {
         target="page"
         zIndex={30}
         opacity={0.9}
-        height="140px"
+        height="120px"
         width="100vw"
         className="block md:hidden"
       />
@@ -227,7 +227,7 @@ const Hero = () => {
         target="page"
         zIndex={30}
         opacity={0.9}
-        height="250px"
+        height="200px"
         width="100vw"
         className="hidden md:block"
       />

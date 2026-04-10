@@ -19,12 +19,12 @@ const HeroRightText = ({ order }: HeroRightTextProps) => {
         delay: 0.25,
         ease: [0.22, 1, 0.36, 1],
       }}
-      className={`z-20 flex w-full max-w-full min-w-0 items-center justify-center px-1 text-center sm:px-0 ${orderClass[order]}`}
+      className={`z-20 flex w-full max-w-full min-w-0 items-center justify-center px-1 text-center sm:px-0 ${orderClass[order]} `}
     >
       <Image
         src={nameLogo}
         alt="João Gabriel"
-        className={`relative h-auto w-full max-w-[250px] object-contain sm:max-w-[440px] md:left-4 md:max-w-[640px] lg:-left-8 lg:mb-8 lg:max-w-[860px] lg:scale-125 xl:-left-10 xl:mb-12 xl:max-w-[1000px] xl:scale-150 ${orderClass[order]}`}
+        className={`relative h-auto -top-2 w-full max-w-[250px] object-contain sm:max-w-[440px] md:left-4 md:max-w-[640px] lg:-left-8 lg:mb-8 lg:max-w-[860px] lg:scale-125 xl:-left-10 xl:mb-12 xl:max-w-[1000px] xl:scale-150 ${orderClass[order]}`}
         priority
       />
     </motion.div>

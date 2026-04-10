@@ -11,8 +11,8 @@ const NewLogo = () => {
       <Image
         src={logo}
         alt="logo"
-        width={isMobile ? 58 : 72}
-        height={isMobile ? 58 : 72}
+        width={isMobile ? 54 : 72}
+        height={isMobile ? 54 : 72}
         className="cursor-pointer hover:fill-gray-200"
       />
     </div>

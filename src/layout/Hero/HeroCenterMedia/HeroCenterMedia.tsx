@@ -3,9 +3,9 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { orderClass } from "..";
+import hero2Alpha from "@/assets/images/hero-2-alpha.png";
 
-const HERO_IMAGE_SRC = "/assets/images/hero-2-alpha_b&w.png";
-const HERO_IMAGE_ALT = "Minimalist Hero";
+const HERO_IMAGE_ALT = "João Gabriel";
 
 interface HeroCenterMediaProps {
   order: "right" | "center" | "left";
@@ -47,8 +47,19 @@ const HeroCenterMedia = ({ order }: HeroCenterMediaProps) => {
         )
         .fromTo(
           imageRef.current,
-          { filter: "blur(6px) brightness(0.7) contrast(1.15)" },
-          { filter: "blur(0px) brightness(1) contrast(1)", duration: 1.05 },
+          {
+            filter:
+              "blur(6px) brightness(0.7) contrast(1.15) grayscale(100%)",
+          },
+          {
+            filter: "blur(0px) brightness(1) contrast(1) grayscale(100%)",
+            duration: 1.05,
+            onComplete: () => {
+              if (imageRef.current) {
+                gsap.set(imageRef.current, { clearProps: "filter" });
+              }
+            },
+          },
           "-=0.95",
         );
     }, sectionRef);
@@ -60,7 +71,7 @@ const HeroCenterMedia = ({ order }: HeroCenterMediaProps) => {
     <div
       ref={sectionRef}
       data-hero="media"
-      className={`relative flex h-[38vh] min-h-[220px] w-full items-center justify-center sm:h-[42vh] sm:min-h-[260px] ${orderClass[order]} ml-0 lg:ml-5`}
+      className={`relative -top-8 flex h-[38vh] min-h-[220px] w-full items-center justify-center sm:h-[42vh] sm:min-h-[260px] md:top-0 ${orderClass[order]} ml-1.5 lg:ml-0`}
     >
       <div
         ref={videoWrapperRef}
@@ -83,11 +94,13 @@ const HeroCenterMedia = ({ order }: HeroCenterMediaProps) => {
           ref={imageRef}
           data-hero="media-image"
           data-parallax="image"
-          src={HERO_IMAGE_SRC}
+          src={hero2Alpha.src}
+          width={hero2Alpha.width}
+          height={hero2Alpha.height}
           alt={HERO_IMAGE_ALT}
-          className="relative top-2 h-auto w-[260px] scale-[1.2] object-cover sm:w-[320px] sm:scale-[1.3] md:top-3 md:w-[620px] md:scale-[2.1] lg:w-[760px]"
-          onError={(e) => {
-            const target = e.target as HTMLImageElement;
+          className="relative top-2 h-auto w-[480px] scale-[1.2] cursor-pointer object-cover grayscale transition-[filter] duration-500 ease-out hover:filter-[grayscale(10%)] sm:w-[320px] sm:scale-[1.3] md:top-3 md:w-[620px] md:scale-[2.1] lg:w-[760px]"
+          onError={(event) => {
+            const target = event.target as HTMLImageElement;
             target.onerror = null;
             target.src =
               "https://placehold.co/400x600/383178/ffffff?text=Image+Not+Found";

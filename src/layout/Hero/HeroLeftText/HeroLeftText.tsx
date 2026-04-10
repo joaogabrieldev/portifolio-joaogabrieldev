@@ -1,35 +1,61 @@
+import { useWindowSize } from "@/hooks/useWindowSize";
 import { HERO_CONTENT } from "@/layout/Hero";
+import HeroButton from "@/pieces/HeroButton/HeroButton";
+import { dmSans, syne } from "@/utils/fonts";
 import { ArrowUpRight } from "lucide-react";
 
 const HeroLeftText = () => {
-  const referenceText =
-    "Merging design thinking with human insight to create digital experiences that do not just look great - they perform effortlessly.";
+  const { width } = useWindowSize();
+  const isMobile = width < 768;
 
   return (
     <div
       data-hero="left"
       data-parallax="left"
-      className="relative z-20 order-3 flex w-full min-w-0 justify-center px-1 sm:px-2 md:px-0"
+      className="relative -top-16 z-20 order-3 flex w-full max-w-[780px] min-w-0 flex-col items-center px-1 sm:px-2 md:px-0 lg:top-0"
     >
-      <div className="w-full max-w-[320px] rounded-2xl border border-white/15 bg-white/6 p-3 text-left shadow-[0_10px_36px_rgba(0,0,0,0.38)] backdrop-blur-xl sm:max-w-[350px] sm:p-4 md:p-5">
-        <p className="text-[0.94rem] leading-[1.45] text-zinc-100/90">
-          {referenceText}
-        </p>
-
-        <div className="mt-4 h-px w-full bg-linear-to-r from-white/25 via-white/5 to-transparent" />
-
-        <a
-          href={HERO_CONTENT.readMoreLink}
-          className="group mt-4 inline-flex items-center gap-2 rounded-full border border-violet-300/35 bg-violet-500/75 px-3 py-1.5 text-base font-medium text-white shadow-[0_8px_24px_rgba(109,40,217,0.45)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-violet-400/85 sm:px-4 sm:py-2 sm:text-lg"
+      {isMobile && (
+        <h2
+          className={`mb-5 w-full max-w-full border-2 border-red-500 px-1 text-center text-4xl leading-[1.08] font-extrabold tracking-[-0.02em] text-balance text-white sm:mb-6 sm:px-2 sm:text-5xl md:text-6xl lg:text-[2.35rem] ${syne.className}`}
         >
-          <span>Let&apos;s Talk.</span>
-          <span
-            aria-hidden="true"
-            className="flex h-8 w-8 items-center justify-center rounded-full bg-white text-black transition group-hover:bg-white/85 sm:h-10 sm:w-10"
+          Design que pensa. <br />
+          Interfaces que funcionam.
+        </h2>
+      )}
+      <div className="w-full max-w-[440px] rounded-2xl border border-white/15 bg-white/6 p-3 text-left shadow-[0_10px_36px_rgba(0,0,0,0.38)] backdrop-blur-xl sm:max-w-[860px] sm:p-4 md:p-10">
+        {!isMobile && (
+          <h2
+            className={`mb-5 w-full max-w-full border-2 border-red-500 px-1 text-center text-4xl leading-[1.08] font-extrabold tracking-[-0.02em] text-balance text-white sm:mb-6 sm:px-2 sm:text-5xl md:text-6xl lg:text-[2.35rem] ${syne.className}`}
           >
-            <ArrowUpRight size={18} />
-          </span>
-        </a>
+            Design que pensa. <br />
+            Interfaces que funcionam.
+          </h2>
+        )}
+        <p
+          className={`text-center text-[0.98rem] leading-[1.55] text-zinc-100/88 sm:text-lg ${dmSans.className}`}
+        >
+          A maioria dos sites parecem bonitos até alguém tentar usá-los.
+        </p>
+        <p
+          className={`mt-4 text-center text-[0.98rem] leading-[1.55] text-zinc-100/88 sm:text-lg ${dmSans.className}`}
+        >
+          Aqui, estética e performance não competem — elas colaboram.
+        </p>
+        <div className="mt-4 h-px w-full bg-linear-to-r from-white/25 via-white/5 to-transparent" />
+        <div className="flex justify-center gap-4">
+          <HeroButton
+            button_href={HERO_CONTENT.readMoreLink}
+            button_label="Ver Projetos"
+            button_icon={<ArrowUpRight size={18} />}
+            button_variant="primary"
+          />{" "}
+          <HeroButton
+            button_href={HERO_CONTENT.readMoreLink}
+            button_label="Ver CV"
+            button_variant="secondary"
+            button_icon={<ArrowUpRight size={18} />}
+          />
+        </div>
       </div>
     </div>
   );
