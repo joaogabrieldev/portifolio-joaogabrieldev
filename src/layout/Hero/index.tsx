@@ -24,8 +24,9 @@ export const HERO_CONTENT = {
   mainText: "Minimalist Hero",
   readMoreLink: "https://www.google.com",
   videoSrc: "/assets/animations/sunrise-webm-3.webm",
-  imageSrc: "/assets/images/hero-2-alpha_b&w.png",
-  imageAlt: "Minimalist Hero",
+  imageSrc: "/assets/images/hero-2-alpha.png",
+  imageAlt:
+    "Retrato em perfil de João Gabriel, iluminado por luz direcional em fundo escuro",
   overlayText: {
     part1: "João",
     part2: "Gabriel",
@@ -194,15 +195,16 @@ const Hero = () => {
     <>
       <div
         ref={heroRef}
+        id="inicio"
         className={cn(
-          "relative flex min-h-screen w-full flex-col items-center justify-between overflow-hidden bg-black px-4 py-5 font-sans sm:px-6 sm:py-6 md:px-10 md:py-8 lg:px-12",
+          "relative flex min-h-screen w-full scroll-mt-0 flex-col items-center justify-between overflow-hidden bg-black px-4 py-5 font-sans sm:px-6 sm:py-6 md:px-10 md:py-8 lg:px-12",
           HERO_CONTENT.className,
         )}
       >
         <HeroHeader />
 
         <div className="relative mt-4 grid w-full max-w-7xl min-w-0 grow grid-cols-1 items-center gap-y-4 py-2 *:min-w-0 sm:mt-6 sm:gap-y-6 md:mt-10 md:grid-cols-3 md:gap-x-6 md:gap-y-0 md:py-0">
-          <HeroLeftText order={"right"} />
+          <HeroLeftText />
           <HeroCenterMedia order={"center"} />
           <HeroRightText order={"left"} />
         </div>

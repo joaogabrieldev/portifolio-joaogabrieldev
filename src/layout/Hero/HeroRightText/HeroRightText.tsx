@@ -24,7 +24,7 @@ const HeroRightText = ({ order }: HeroRightTextProps) => {
       <Image
         src={nameLogo}
         alt="João Gabriel"
-        className={`relative h-auto w-full max-w-[250px] object-contain sm:max-w-[440px] md:max-w-[640px] lg:-left-6 lg:mb-8 lg:max-w-[860px] lg:scale-125 xl:-left-14 xl:mb-12 xl:max-w-[1000px] xl:scale-150 ${orderClass[order]}`}
+        className={`relative h-auto w-full max-w-[250px] object-contain sm:max-w-[440px] md:left-4 md:max-w-[640px] lg:-left-8 lg:mb-8 lg:max-w-[860px] lg:scale-125 xl:-left-10 xl:mb-12 xl:max-w-[1000px] xl:scale-150 ${orderClass[order]}`}
         priority
       />
     </motion.div>

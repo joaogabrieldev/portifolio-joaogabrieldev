@@ -14,7 +14,7 @@ const HeroHeader = () => {
     <header
       data-hero="header"
       data-parallax="header"
-      className="z-30 flex w-full max-w-7xl items-center justify-between gap-2 sm:gap-3"
+      className="relative top-8 z-30 mt-3 flex w-full max-w-7xl items-center justify-between gap-2 sm:gap-3 md:top-0"
     >
       <div className="text-base font-bold tracking-wider text-white sm:text-lg md:text-xl">
         <Link href="/">

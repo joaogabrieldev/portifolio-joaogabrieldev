@@ -1,12 +1,7 @@
 import { HERO_CONTENT } from "@/layout/Hero";
 import { ArrowUpRight } from "lucide-react";
-import { orderClass } from "../index";
 
-interface HeroLeftTextProps {
-  order: "right" | "center" | "left";
-}
-
-const HeroLeftText = ({ order }: HeroLeftTextProps) => {
+const HeroLeftText = () => {
   const referenceText =
     "Merging design thinking with human insight to create digital experiences that do not just look great - they perform effortlessly.";
 
@@ -14,9 +9,9 @@ const HeroLeftText = ({ order }: HeroLeftTextProps) => {
     <div
       data-hero="left"
       data-parallax="left"
-      className={`relative z-20 w-full px-1 text-center sm:px-2 md:px-0 md:text-left ${orderClass[order]}`}
+      className="relative z-20 order-3 flex w-full min-w-0 justify-center px-1 sm:px-2 md:px-0"
     >
-      <div className="mx-auto w-full max-w-[320px] rounded-2xl border border-white/15 bg-white/6 p-3 text-left shadow-[0_10px_36px_rgba(0,0,0,0.38)] backdrop-blur-xl sm:max-w-[350px] sm:p-4 md:mx-0 md:p-5">
+      <div className="w-full max-w-[320px] rounded-2xl border border-white/15 bg-white/6 p-3 text-left shadow-[0_10px_36px_rgba(0,0,0,0.38)] backdrop-blur-xl sm:max-w-[350px] sm:p-4 md:p-5">
         <p className="text-[0.94rem] leading-[1.45] text-zinc-100/90">
           {referenceText}
         </p>

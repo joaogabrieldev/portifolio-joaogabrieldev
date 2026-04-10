@@ -34,7 +34,7 @@ const HeroDesktopNav = ({ navLinks }: HeroDesktopNavProps) => {
         to="contato"
         smooth={true}
         duration={800}
-        className="flex h-11 cursor-pointer items-center justify-center rounded-full bg-[#f46f1f] px-6 text-sm font-semibold text-white transition hover:bg-[#ff7d2f]"
+        className="flex h-11 cursor-pointer items-center justify-center rounded-full border border-violet-400/25 bg-[#413b72] px-6 text-sm font-semibold text-white shadow-[0_8px_24px_rgba(65,59,114,0.45)] transition hover:border-violet-300/35 hover:bg-[#4f4790] hover:shadow-[0_10px_28px_rgba(65,59,114,0.5)]"
       >
         Let&apos;s Chat
       </ScrollLink>
