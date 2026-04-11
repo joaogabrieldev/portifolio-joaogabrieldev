@@ -4,6 +4,7 @@ import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { orderClass } from "..";
 import hero2Alpha from "@/assets/images/hero-2-alpha.png";
+import "./HeroCenterMedia.css";
 
 const HERO_IMAGE_ALT = "João Gabriel";
 
@@ -48,8 +49,7 @@ const HeroCenterMedia = ({ order }: HeroCenterMediaProps) => {
         .fromTo(
           imageRef.current,
           {
-            filter:
-              "blur(6px) brightness(0.7) contrast(1.15) grayscale(100%)",
+            filter: "blur(6px) brightness(0.7) contrast(1.15) grayscale(100%)",
           },
           {
             filter: "blur(0px) brightness(1) contrast(1) grayscale(100%)",
@@ -98,7 +98,7 @@ const HeroCenterMedia = ({ order }: HeroCenterMediaProps) => {
           width={hero2Alpha.width}
           height={hero2Alpha.height}
           alt={HERO_IMAGE_ALT}
-          className="relative top-2 h-auto w-[480px] scale-[1.2] cursor-pointer object-cover grayscale transition-[filter] duration-500 ease-out hover:filter-[grayscale(10%)] sm:w-[320px] sm:scale-[1.3] md:top-3 md:w-[620px] md:scale-[2.1] lg:w-[760px]"
+          className="profile-image relative top-2 h-auto w-[480px] scale-[1.2] cursor-pointer object-cover grayscale transition-[filter] duration-500 ease-out hover:filter-[grayscale(0%)] sm:w-[320px] sm:scale-[1.3] md:top-3 md:w-[620px] md:scale-[2.1] lg:w-[760px]"
           onError={(event) => {
             const target = event.target as HTMLImageElement;
             target.onerror = null;
