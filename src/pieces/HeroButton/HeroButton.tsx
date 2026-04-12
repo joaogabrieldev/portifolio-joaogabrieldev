@@ -39,7 +39,7 @@ const HeroButton = ({
         button_variants[button_variant],
       )}
     >
-      <span className="text-[16px]">{button_label}</span>
+      <span className="hero-button-label text-[16px]">{button_label}</span>
       {button_icon && (
         <span
           aria-hidden="true"

@@ -16,7 +16,7 @@ const HeroLeftText = () => {
     >
       {isMobile && (
         <h2
-          className={`mb-5 w-full max-w-full border-2 border-red-500 px-1 text-center text-4xl leading-[1.08] font-extrabold tracking-[-0.02em] text-balance text-white sm:mb-6 sm:px-2 sm:text-5xl md:text-6xl lg:text-[2.35rem] ${syne.className}`}
+          className={`mb-5 w-full max-w-full px-1 text-center text-4xl leading-[1.08] font-extrabold tracking-[-0.02em] text-balance text-white sm:mb-6 sm:px-2 sm:text-5xl md:text-6xl lg:text-[2.35rem] ${syne.className}`}
         >
           Design que pensa. <br />
           Interfaces que funcionam.
