@@ -1,5 +1,13 @@
 ---
+description: "Glassmorfismo (efeito vidro fosco) em React/TypeScript — backdrop-blur, gradientes translúcidos, borda/sombra, estados hover/focus e tipagem de props. Use ao criar ou estilizar cards, modais, navbars ou quando o pedido mencionar glassmorphism, vidro ou frosted UI."
 alwaysApply: false
+globs:
+  - "**/*.tsx"
+  - "**/*.jsx"
+  - "**/*.ts"
+  - "**/*.js"
+  - "**/*.css"
+  - "**/tailwind.config.*"
 ---
 ### [PROTOCOLO DE DESIGN: GLASSMORFISMO SÊNIOR v2.1 — TypeScript Edition]
 

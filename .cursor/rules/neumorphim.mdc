@@ -1,10 +1,15 @@
 ---
+description: "Neumorfismo (Soft UI) no projeto — sombras duplas, estados pressed com inset, contraste em texto/ícones e tema via Tailwind/CSS. Use ao estilizar componentes, temas ou quando o pedido mencionar neumorfismo ou Soft UI."
 alwaysApply: false
+globs:
+  - "**/*.tsx"
+  - "**/*.jsx"
+  - "**/*.ts"
+  - "**/*.js"
+  - "**/*.css"
+  - "**/tailwind.config.*"
 ---
----
-description: Aplica princípios de Neumorfismo (Soft UI), forçando cálculos físicos corretos de sombras, estados interativos e acessibilidade.
-globs: *.tsx, *.jsx, *.ts, *.js, *.css, tailwind.config.*
----
+
 # Protocolo Universal de Neumorfismo (Soft UI)
 
 Sempre que atuar em arquivos de UI ou estilos englobados por esta regra, e o contexto exigir ou sugerir "Neumorfismo" ou "Soft UI", aplique OBRIGATORIAMENTE os seguintes princípios físicos e visuais.
