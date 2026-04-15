@@ -1,0 +1,75 @@
+[23:18:13.542] [INFO] [36mInitializing Storybook[39m
+[23:18:14.728] [DEBUG] Getting package.json info for C:/dev/portifolio-joaogabrieldev/package.json...
+[23:18:14.729] [DEBUG] Getting CLI versions from NPM for storybook...
+[23:18:14.730] [DEBUG] Executing command: pnpm info storybook version
+[23:18:18.650] [INFO] Adding Storybook version 10.3.5 to your project
+[23:18:18.660] [DEBUG] Project type detected: nextjs
+[23:18:18.662] [DEBUG] Using cached package.json for C:\dev\portifolio-joaogabrieldev\package.json...
+[23:18:18.692] [INFO] Framework detected: nextjs-vite
+[23:18:18.698] [DEBUG] Getting installed version for vitest...
+[23:18:18.699] [DEBUG] Executing command: pnpm list "vitest" --json --depth=99
+[23:18:20.000] [DEBUG] Installed version for vitest: null
+[23:18:20.000] [DEBUG] Getting installed version for msw...
+[23:18:20.000] [DEBUG] Executing command: pnpm list "msw" --json --depth=99
+[23:18:20.965] [DEBUG] Installed version for msw: null
+[23:19:32.434] [PROMPT] New to Storybook? {"choice":true}
+[23:19:32.436] [INFO] Storybook collects completely anonymous usage telemetry. We use it to shape Storybook's roadmap and prioritize features. You can learn more, including how to opt out, at https://storybook.js.org/telemetry
+[23:19:34.583] [INFO] base-generator-task-start: Generating Storybook configuration
+[23:19:34.584] [DEBUG] Using cached package.json for C:\dev\portifolio-joaogabrieldev\package.json...
+[23:19:34.584] [DEBUG] Using cached package.json for C:\dev\portifolio-joaogabrieldev\package.json...
+[23:19:34.585] [DEBUG] Using cached package.json for C:\dev\portifolio-joaogabrieldev\package.json...
+[23:19:34.586] [INFO] base-generator-task: - Configuring ESLint plugin
+[23:19:34.587] [DEBUG] Detected flat config at C:\dev\portifolio-joaogabrieldev\eslint.config.mjs
+[23:19:34.679] [DEBUG] Using cached version for storybook...
+[23:19:34.679] [DEBUG] Getting CLI versions from NPM for @storybook/nextjs-vite...
+[23:19:34.679] [DEBUG] Executing command: pnpm info @storybook/nextjs-vite version
+[23:19:34.729] [DEBUG] Getting CLI versions from NPM for @chromatic-com/storybook...
+[23:19:34.729] [DEBUG] Executing command: pnpm info @chromatic-com/storybook version
+[23:19:34.787] [DEBUG] Getting CLI versions from NPM for @storybook/addon-vitest...
+[23:19:34.787] [DEBUG] Executing command: pnpm info @storybook/addon-vitest version
+[23:19:34.834] [DEBUG] Getting CLI versions from NPM for @storybook/addon-a11y...
+[23:19:34.834] [DEBUG] Executing command: pnpm info @storybook/addon-a11y version
+[23:19:34.884] [DEBUG] Getting CLI versions from NPM for @storybook/addon-docs...
+[23:19:34.884] [DEBUG] Executing command: pnpm info @storybook/addon-docs version
+[23:19:34.932] [DEBUG] Getting CLI versions from NPM for @storybook/addon-onboarding...
+[23:19:34.932] [DEBUG] Executing command: pnpm info @storybook/addon-onboarding version
+[23:19:34.984] [DEBUG] Getting CLI versions from NPM for vite...
+[23:19:34.984] [DEBUG] Executing command: pnpm info vite version
+[23:19:35.033] [DEBUG] Getting CLI versions from NPM for eslint-plugin-storybook...
+[23:19:35.033] [DEBUG] Executing command: pnpm info eslint-plugin-storybook version
+[23:19:57.521] [INFO] base-generator-task: - Configuring main.ts
+[23:19:57.525] [INFO] base-generator-task: - Configuring preview.ts
+[23:19:57.530] [INFO] base-generator-task: - Adding Storybook command to package.json
+[23:19:57.531] [DEBUG] Getting package.json info for C:/dev/portifolio-joaogabrieldev/package.json...
+[23:19:57.532] [DEBUG] Using cached package.json for C:\dev\portifolio-joaogabrieldev\package.json...
+[23:19:57.532] [DEBUG] Using cached package.json for C:\dev\portifolio-joaogabrieldev\package.json...
+[23:19:57.535] [INFO] base-generator-task: - Copying framework templates
+[23:19:57.698] [DEBUG] Executing command: npm config get registry -ws=false -iwr
+[23:19:59.838] [ERROR] [38;2;241;97;97mError: Cannot find @storybook\nextjs-vite\package.json, Error: Cannot find module '@storybook/nextjs-vite/package.json'
+Require stack:
+- .
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1421:15)
+    at require.resolve (node:internal/modules/helpers:163:19)
+    at resolvePackageDir (file:///C:/Users/Jo%C3%A3o%20Gabriel/AppData/Local/npm-cache/_npx/ac6065c87c5c24ee/node_modules/storybook/dist/_node-chunks/chunk-YBRG5EIF.js:725:26)
+    at getRendererDir (file:///C:/Users/Jo%C3%A3o%20Gabriel/AppData/Local/npm-cache/_npx/ac6065c87c5c24ee/node_modules/storybook/dist/_node-chunks/chunk-QTYBYUH2.js:5401:12)
+    at templatePath (file:///C:/Users/Jo%C3%A3o%20Gabriel/AppData/Local/npm-cache/_npx/ac6065c87c5c24ee/node_modules/storybook/dist/_node-chunks/chunk-QTYBYUH2.js:5484:25)
+    at copyTemplateFiles (file:///C:/Users/Jo%C3%A3o%20Gabriel/AppData/Local/npm-cache/_npx/ac6065c87c5c24ee/node_modules/storybook/dist/_node-chunks/chunk-QTYBYUH2.js:5499:23)
+    at async baseGenerator (file:///C:/Users/Jo%C3%A3o%20Gabriel/AppData/Local/npm-cache/_npx/ac6065c87c5c24ee/node_modules/create-storybook/dist/_node-chunks/chunk-5VDIKOHD.js:1298:152)
+    at async GeneratorExecutionCommand.executeProjectGenerator (file:///C:/Users/Jo%C3%A3o%20Gabriel/AppData/Local/npm-cache/_npx/ac6065c87c5c24ee/node_modules/create-storybook/dist/_node-chunks/chunk-5VDIKOHD.js:1366:101)
+    at async GeneratorExecutionCommand.execute (file:///C:/Users/Jo%C3%A3o%20Gabriel/AppData/Local/npm-cache/_npx/ac6065c87c5c24ee/node_modules/create-storybook/dist/_node-chunks/chunk-5VDIKOHD.js:1388:27)
+    at async doInitiate (file:///C:/Users/Jo%C3%A3o%20Gabriel/AppData/Local/npm-cache/_npx/ac6065c87c5c24ee/node_modules/create-storybook/dist/_node-chunks/chunk-5VDIKOHD.js:2886:68)
+
+Error: EPERM: operation not permitted, mkdir 'C:\Users\João Gabriel'
+    at async Module.mkdir (node:internal/fs/promises:861:10)
+    at async file:///C:/Users/Jo%C3%A3o%20Gabriel/AppData/Local/npm-cache/_npx/ac6065c87c5c24ee/node_modules/storybook/dist/_node-chunks/chunk-QTYBYUH2.js:5250:5[39m
+    at getRendererDir (file:///C:/Users/Jo%C3%A3o%20Gabriel/AppData/Local/npm-cache/_npx/ac6065c87c5c24ee/node_modules/storybook/dist/_node-chunks/chunk-QTYBYUH2.js:5410:9)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async templatePath (file:///C:/Users/Jo%C3%A3o%20Gabriel/AppData/Local/npm-cache/_npx/ac6065c87c5c24ee/node_modules/storybook/dist/_node-chunks/chunk-QTYBYUH2.js:5484:19)
+    at async copyTemplateFiles (file:///C:/Users/Jo%C3%A3o%20Gabriel/AppData/Local/npm-cache/_npx/ac6065c87c5c24ee/node_modules/storybook/dist/_node-chunks/chunk-QTYBYUH2.js:5499:17)
+    at async baseGenerator (file:///C:/Users/Jo%C3%A3o%20Gabriel/AppData/Local/npm-cache/_npx/ac6065c87c5c24ee/node_modules/create-storybook/dist/_node-chunks/chunk-5VDIKOHD.js:1298:152)
+    at async GeneratorExecutionCommand.executeProjectGenerator (file:///C:/Users/Jo%C3%A3o%20Gabriel/AppData/Local/npm-cache/_npx/ac6065c87c5c24ee/node_modules/create-storybook/dist/_node-chunks/chunk-5VDIKOHD.js:1366:101)
+    at async GeneratorExecutionCommand.execute (file:///C:/Users/Jo%C3%A3o%20Gabriel/AppData/Local/npm-cache/_npx/ac6065c87c5c24ee/node_modules/create-storybook/dist/_node-chunks/chunk-5VDIKOHD.js:1388:27)
+    at async doInitiate (file:///C:/Users/Jo%C3%A3o%20Gabriel/AppData/Local/npm-cache/_npx/ac6065c87c5c24ee/node_modules/create-storybook/dist/_node-chunks/chunk-5VDIKOHD.js:2886:68)
+    at async file:///C:/Users/Jo%C3%A3o%20Gabriel/AppData/Local/npm-cache/_npx/ac6065c87c5c24ee/node_modules/create-storybook/dist/_node-chunks/chunk-5VDIKOHD.js:2928:20
+    at async withTelemetry (file:///C:/Users/Jo%C3%A3o%20Gabriel/AppData/Local/npm-cache/_npx/ac6065c87c5c24ee/node_modules/storybook/dist/_node-chunks/chunk-FIR43JGQ.js:225:12)
+[23:21:19.283] [PROMPT] Would you like to send anonymous crash reports to improve Storybook and fix bugs faster? {"choice":false}
