@@ -59,7 +59,7 @@ const Hero = () => {
         >
           <HeroHeader />
 
-          <div className="relative mt-2 grid w-full max-w-7xl min-w-0 grow grid-cols-1 justify-items-center gap-y-4 py-2 *:min-w-0 sm:mt-6 sm:gap-y-6 md:mt-10 md:grid-cols-3 md:items-center md:justify-items-stretch md:gap-x-6 md:gap-y-0 md:py-0 lg:mt-4">
+          <div className="relative mt-10 grid w-full max-w-[min(100%,90rem)] min-w-0 grow grid-cols-1 justify-items-center gap-y-5 py-2 *:min-w-0 sm:mt-6 sm:gap-y-7 md:mt-8 md:py-0 lg:grid-cols-[minmax(0,1.42fr)_minmax(0,0.68fr)_minmax(0,1.42fr)] lg:items-center lg:justify-items-stretch lg:gap-x-3 lg:gap-y-0 lg:mt-6 xl:gap-x-5 2xl:gap-x-7">
             <HeroRightText order={"left"} />
             <HeroCenterMedia order={"center"} />
             <HeroLeftText />
@@ -84,7 +84,7 @@ const Hero = () => {
         target="page"
         zIndex={30}
         opacity={0.9}
-        height="200px"
+        height="180px"
         width="100vw"
         className="hidden md:block"
       />

@@ -26,12 +26,14 @@ export const syne = Syne({
 
 /** Serif de apoio premium para assinatura/subtitulo */
 export const fraunces = Fraunces({
-  weight: ["500", "600"],
+  weight: ["300", "500", "600"],
+  style: ["normal", "italic"],
   subsets: ["latin"],
 });
 
 export const epilogue = Epilogue({
   weight: ["400", "500", "600", "700", "800", "900"],
+  style: ["normal", "italic"],
   subsets: ["latin"],
 });
 

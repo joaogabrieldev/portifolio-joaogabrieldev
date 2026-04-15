@@ -20,7 +20,7 @@ const HeroCenterMedia = ({ order }: HeroCenterMediaProps) => {
 
   return (
     <div
-      className={`relative -top-8 flex h-[38vh] min-h-[220px] w-full min-w-0 items-center justify-center sm:h-[42vh] sm:min-h-[260px] md:top-0 ${orderClass[order]} ml-1.5 lg:ml-0`}
+      className={`relative -top-6 flex h-[34vh] min-h-[200px] w-full min-w-0 items-center justify-center sm:-top-8 sm:h-[40vh] sm:min-h-[240px] md:top-0 md:h-[42vh] md:min-h-[260px] ${orderClass[order]} ml-0 sm:ml-1.5 lg:ml-0`}
     >
       <motion.div
         className="absolute z-0 h-[92vw] max-h-[360px] min-h-[220px] w-[94vw] max-w-[360px] min-w-[220px] sm:h-[100vw] sm:max-h-[420px] sm:min-h-[260px] sm:w-[96vw] sm:max-w-[420px] sm:min-w-[260px] md:h-[56vw] md:max-h-[700px] md:w-[84vw] md:max-w-[1180px] lg:h-[50vw] lg:max-h-[820px] lg:w-screen lg:max-w-[1920px]"
@@ -55,16 +55,16 @@ const HeroCenterMedia = ({ order }: HeroCenterMediaProps) => {
       </motion.div>
       <motion.div className="relative z-10" style={{ y: imageParallaxY }}>
         <motion.div
-          initial={{ opacity: 0, y: 1000, rotate: -0.8 }}
+          initial={{ opacity: 0, y: 36, rotate: -0.8 }}
           animate={{ opacity: 1, y: 0, rotate: 0 }}
-          transition={{ duration: 1.8, ease: easeMedia }}
+          transition={{ duration: 1.5, ease: easeMedia }}
         >
           <motion.img
             src={hero2Alpha.src}
             width={hero2Alpha.width}
             height={hero2Alpha.height}
             alt={HERO_IMAGE_ALT}
-            className="profile-image relative top-2 h-auto w-[480px] scale-[1.2] cursor-pointer object-cover sm:w-[320px] sm:scale-[1.3] md:top-3 md:w-[620px] md:scale-[2.1] lg:w-[760px]"
+            className="profile-image relative top-1 mx-auto h-auto w-[min(100%,17.5rem)] max-w-[92vw] scale-[1.08] cursor-pointer object-cover sm:top-2 sm:w-[min(100%,20rem)] sm:scale-[1.2] md:top-3 md:w-[min(100%,28rem)] md:max-w-none md:scale-[1.75] lg:w-[min(100%,30rem)] lg:scale-[2.05] xl:w-[28.75rem] xl:scale-[2.1]"
             initial={{
               filter: "blur(6px) grayscale(1)",
             }}
@@ -88,6 +88,14 @@ const HeroCenterMedia = ({ order }: HeroCenterMediaProps) => {
           />
         </motion.div>
       </motion.div>
+      <div
+        className="pointer-events-none absolute inset-0 z-11 bg-[linear-gradient(180deg,transparent_0%,transparent_62%,rgb(0,0,0)_100%)] md:hidden"
+        aria-hidden
+      />
+      <div
+        className="pointer-events-none absolute inset-0 z-11 bg-[linear-gradient(180deg,transparent_0%,transparent_62%,rgb(0,0,0)_100%)] md:hidden"
+        aria-hidden
+      />
     </div>
   );
 };

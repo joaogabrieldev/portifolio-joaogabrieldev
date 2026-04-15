@@ -16,7 +16,7 @@ const HeroFooter = () => {
         initial={reduced ? false : { opacity: 0, y: 22 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.85, ease: easeOut }}
-        className="z-30 flex w-full max-w-7xl items-center justify-end sm:justify-between"
+        className="z-30 flex w-full min-w-0 max-w-7xl flex-wrap items-center justify-center gap-2 px-0 sm:justify-between sm:px-0"
       >
         <div className="hidden items-center space-x-4 sm:flex" />
         <div className="text-foreground/80 text-xs font-medium sm:text-sm">
