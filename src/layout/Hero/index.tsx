@@ -80,7 +80,7 @@ const Hero = () => {
       />
       <GradualBlur
         position="bottom"
-        strength={3}
+        strength={5}
         target="page"
         zIndex={30}
         opacity={0.9}

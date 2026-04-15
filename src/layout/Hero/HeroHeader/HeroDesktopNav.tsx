@@ -36,7 +36,7 @@ const HeroDesktopNav = ({ navLinks }: HeroDesktopNavProps) => {
 
 export function HeroDesktopNavActions() {
   return (
-    <>
+    <div className="hidden flex-row gap-2 md:flex">
       <LangSelect />
       <ScrollLink
         to="contato"
@@ -46,7 +46,7 @@ export function HeroDesktopNavActions() {
       >
         Contato
       </ScrollLink>
-    </>
+    </div>
   );
 }
 

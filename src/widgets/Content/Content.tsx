@@ -4,7 +4,7 @@ import PageContent from "@/widgets/Desktop/PageContent/PageContent";
 
 const Content = () => {
   return (
-    <div className="">
+    <div className="relative min-h-dvh w-full">
       <PageContent />
 
       <div className="pointer-events-none fixed inset-0 z-50 min-h-screen w-full opacity-40">

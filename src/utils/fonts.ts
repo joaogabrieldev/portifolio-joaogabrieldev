@@ -1,11 +1,18 @@
 import {
+  Barlow,
   DM_Sans,
+  Epilogue,
   Fraunces,
+  Outfit,
   Syne,
   Ubuntu,
-  Epilogue,
-  Barlow,
 } from "next/font/google";
+
+/** Seções abaixo da Hero: geométrica contemporânea, ótima legibilidade */
+export const outfit = Outfit({
+  weight: ["400", "500", "600", "700"],
+  subsets: ["latin"],
+});
 
 export const ubuntu = Ubuntu({
   weight: ["300", "400", "500", "700"],

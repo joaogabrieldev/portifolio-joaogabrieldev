@@ -45,7 +45,7 @@ const LangSelect = () => {
       </ListboxButton>
       <ListboxOptions
         anchor="bottom end"
-        className="z-50 mt-1 min-w-[12rem] rounded-xl border border-white/10 bg-zinc-900/95 py-1 text-center shadow-xl backdrop-blur-xl outline-none [--anchor-gap:4px]"
+        className="z-50 mt-1 flex min-w-[8rem] flex-col rounded-xl border border-white/10 bg-zinc-900/95 shadow-xl backdrop-blur-xl outline-none [--anchor-gap:4px]"
       >
         {languages
           .filter((person) => person.id !== selectedPerson.id)
@@ -53,9 +53,9 @@ const LangSelect = () => {
             <ListboxOption
               key={person.id}
               value={person}
-              className="flex cursor-pointer items-center gap-2 px-3 py-2 text-sm text-white data-[focus]:bg-white/10"
+              className="flex w-full cursor-pointer items-center justify-center gap-2 px-3 py-2 text-sm text-white data-[focus]:bg-white/10"
             >
-              <span>{person.name}</span>
+              <span className="font-semibold">{person.name}</span>
               {/* <span className="ml-auto text-xs text-white/50">
                 {person.lang}
               </span> */}

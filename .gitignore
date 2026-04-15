@@ -57,3 +57,5 @@ src/assets/animations/*.mov
 # Artefatos de Inteligência Artificial
 repomix-output.xml
 repomix-output.txt
+*storybook.log
+storybook-static

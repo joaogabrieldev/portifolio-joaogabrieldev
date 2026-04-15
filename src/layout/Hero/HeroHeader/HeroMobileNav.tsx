@@ -1,5 +1,10 @@
+"use client";
+
 import { motion } from "framer-motion";
 import { Link as ScrollLink } from "react-scroll";
+import { HeroDesktopNavActions } from "./HeroDesktopNav";
+import LangSelect from "@/pieces/LangSelect/LangSelect";
+import { dmSans } from "@/utils/fonts";
 
 interface HeroNavLink {
   title: string;
@@ -59,6 +64,15 @@ const HeroMobileNav = ({
                 {item.title}
               </ScrollLink>
             ))}
+            <LangSelect />
+            <ScrollLink
+              to="contato"
+              smooth={true}
+              duration={800}
+              className={`flex h-11 cursor-pointer items-center justify-center rounded-full border border-violet-400/25 bg-[#413b72] px-6 text-sm font-bold tracking-wide text-white uppercase shadow-[0_8px_24px_rgba(65,59,114,0.45)] transition hover:border-violet-300/35 hover:bg-[#4f4790] hover:shadow-[0_10px_28px_rgba(65,59,114,0.5)] ${dmSans.className}`}
+            >
+              Contato
+            </ScrollLink>
           </div>
         </motion.div>
       )}
