@@ -53,3 +53,7 @@ my-components.md
 
 # Fontes de vídeo pesadas (GitHub bloqueia >100MB; use apenas webm em public/assets)
 src/assets/animations/*.mov
+
+# Artefatos de Inteligência Artificial
+repomix-output.xml
+repomix-output.txt

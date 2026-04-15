@@ -20,7 +20,7 @@ const HeroCenterMedia = ({ order }: HeroCenterMediaProps) => {
 
   return (
     <div
-      className={`relative -top-8 flex h-[38vh] min-h-[220px] min-w-0 w-full items-center justify-center sm:h-[42vh] sm:min-h-[260px] md:top-0 ${orderClass[order]} ml-1.5 lg:ml-0`}
+      className={`relative -top-8 flex h-[38vh] min-h-[220px] w-full min-w-0 items-center justify-center sm:h-[42vh] sm:min-h-[260px] md:top-0 ${orderClass[order]} ml-1.5 lg:ml-0`}
     >
       <motion.div
         className="absolute z-0 h-[92vw] max-h-[360px] min-h-[220px] w-[94vw] max-w-[360px] min-w-[220px] sm:h-[100vw] sm:max-h-[420px] sm:min-h-[260px] sm:w-[96vw] sm:max-w-[420px] sm:min-w-[260px] md:h-[56vw] md:max-h-[700px] md:w-[84vw] md:max-w-[1180px] lg:h-[50vw] lg:max-h-[820px] lg:w-screen lg:max-w-[1920px]"
@@ -55,24 +55,30 @@ const HeroCenterMedia = ({ order }: HeroCenterMediaProps) => {
       </motion.div>
       <motion.div className="relative z-10" style={{ y: imageParallaxY }}>
         <motion.div
-          initial={{ opacity: 0, y: 24, rotate: -0.8 }}
+          initial={{ opacity: 0, y: 1000, rotate: -0.8 }}
           animate={{ opacity: 1, y: 0, rotate: 0 }}
-          transition={{ duration: 1.8, delay: 0.3, ease: easeMedia }}
+          transition={{ duration: 1.8, ease: easeMedia }}
         >
           <motion.img
             src={hero2Alpha.src}
             width={hero2Alpha.width}
             height={hero2Alpha.height}
             alt={HERO_IMAGE_ALT}
-            className="profile-image relative top-2 h-auto w-[480px] scale-[1.2] cursor-pointer object-cover grayscale transition-[filter] duration-500 ease-out hover:filter-[grayscale(0%)] sm:w-[320px] sm:scale-[1.3] md:top-3 md:w-[620px] md:scale-[2.1] lg:w-[760px]"
+            className="profile-image relative top-2 h-auto w-[480px] scale-[1.2] cursor-pointer object-cover sm:w-[320px] sm:scale-[1.3] md:top-3 md:w-[620px] md:scale-[2.1] lg:w-[760px]"
             initial={{
-              filter:
-                "blur(6px) brightness(0.7) contrast(1.15) grayscale(100%)",
+              filter: "blur(6px) grayscale(1)",
             }}
             animate={{
-              filter: "blur(0px) brightness(1) contrast(1) grayscale(100%)",
+              filter: "blur(0px) grayscale(1)",
             }}
-            transition={{ duration: 1.05, delay: 0.35, ease: easeMedia }}
+            whileHover={{
+              filter: "blur(0px) grayscale(0)",
+              transition: { duration: 0.35, ease: easeMedia },
+            }}
+            transition={{
+              ease: easeMedia,
+              filter: { duration: 0.6, ease: easeMedia },
+            }}
             onError={(event) => {
               const target = event.target as HTMLImageElement;
               target.onerror = null;
