@@ -13,12 +13,15 @@ const HeroLeftText = () => {
   const leftParallaxY = useHeroParallaxY(-10, 0);
 
   return (
-    <motion.div className="w-full min-w-0" style={{ y: leftParallaxY }}>
+    <motion.div
+      className="relative z-30 w-full min-w-0"
+      style={{ y: leftParallaxY }}
+    >
       <motion.div
         initial={reduced ? false : { opacity: 0, x: 28 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.7, delay: 0.33, ease: easeOut }}
-        className="relative -top-10 left-0 z-20 flex w-full max-w-[420px] min-w-0 flex-col items-center px-1 select-none sm:-top-12 sm:px-2 md:-top-8 md:left-26 md:px-0 lg:top-0"
+        className="relative -top-10 left-0 flex w-full max-w-[420px] min-w-0 flex-col items-center px-1 select-none sm:-top-12 sm:px-2 md:-top-8 md:left-26 md:px-0 lg:top-0"
       >
         <div className="-mt-6 w-full max-w-full rounded-2xl border border-white/15 bg-white/6 p-3 text-left shadow-[0_10px_36px_rgba(0,0,0,0.38)] backdrop-blur-xl sm:max-w-[min(100%,56rem)] sm:p-4 md:mt-0 md:px-6 md:py-8 lg:p-10">
           <h2

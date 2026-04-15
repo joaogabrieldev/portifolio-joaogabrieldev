@@ -20,7 +20,7 @@ const HeroCenterMedia = ({ order }: HeroCenterMediaProps) => {
 
   return (
     <div
-      className={`relative -top-6 flex h-[34vh] min-h-[200px] w-full min-w-0 items-center justify-center sm:-top-8 sm:h-[40vh] sm:min-h-[240px] md:top-0 md:h-[42vh] md:min-h-[260px] ${orderClass[order]} ml-0 sm:ml-1.5 lg:ml-0`}
+      className={`relative z-0 -top-6 flex h-[34vh] min-h-[200px] w-full min-w-0 items-center justify-center sm:-top-8 sm:h-[40vh] sm:min-h-[240px] md:top-0 md:h-[42vh] md:min-h-[260px] ${orderClass[order]} ml-0 sm:ml-1.5 lg:ml-0`}
     >
       <motion.div
         className="absolute z-0 h-[92vw] max-h-[360px] min-h-[220px] w-[94vw] max-w-[360px] min-w-[220px] sm:h-[100vw] sm:max-h-[420px] sm:min-h-[260px] sm:w-[96vw] sm:max-w-[420px] sm:min-w-[260px] md:h-[56vw] md:max-h-[700px] md:w-[84vw] md:max-w-[1180px] lg:h-[50vw] lg:max-h-[820px] lg:w-screen lg:max-w-[1920px]"
@@ -53,7 +53,7 @@ const HeroCenterMedia = ({ order }: HeroCenterMediaProps) => {
           />
         </motion.div>
       </motion.div>
-      <motion.div className="relative z-10" style={{ y: imageParallaxY }}>
+      <motion.div className="relative z-[10]" style={{ y: imageParallaxY }}>
         <motion.div
           initial={{ opacity: 0, y: 36, rotate: -0.8 }}
           animate={{ opacity: 1, y: 0, rotate: 0 }}
@@ -89,11 +89,11 @@ const HeroCenterMedia = ({ order }: HeroCenterMediaProps) => {
         </motion.div>
       </motion.div>
       <div
-        className="pointer-events-none absolute inset-0 z-11 bg-[linear-gradient(180deg,transparent_0%,transparent_62%,rgb(0,0,0)_100%)] md:hidden"
+        className="pointer-events-none absolute inset-0 z-[2] bg-[linear-gradient(180deg,transparent_0%,transparent_62%,rgb(0,0,0)_100%)] md:hidden"
         aria-hidden
       />
       <div
-        className="pointer-events-none absolute inset-0 z-11 bg-[linear-gradient(180deg,transparent_0%,transparent_62%,rgb(0,0,0)_100%)] md:hidden"
+        className="pointer-events-none absolute inset-0 z-[2] bg-[linear-gradient(180deg,transparent_0%,transparent_62%,rgb(0,0,0)_100%)] md:hidden"
         aria-hidden
       />
     </div>
