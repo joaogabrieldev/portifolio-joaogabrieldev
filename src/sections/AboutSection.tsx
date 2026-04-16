@@ -1,9 +1,19 @@
 import { SkillProgressBar } from "@/components/SkillProgressBar/SkillProgressBar";
 import { dmSans, outfit } from "@/utils/fonts";
+import Image from "next/image";
 import { aboutSkillGroups } from "./aboutContent";
 import { sectionShell } from "./sectionStyles";
+import { useMemo } from "react";
 
 export default function AboutSection() {
+  const largeGroups = useMemo(() => {
+    return aboutSkillGroups.filter((group) => group.skills.length > 5);
+  }, [aboutSkillGroups]);
+
+  const normalGroups = useMemo(() => {
+    return aboutSkillGroups.filter((group) => group.skills.length <= 5);
+  }, [aboutSkillGroups]);
+
   return (
     <section
       id="sobre"
@@ -30,13 +40,13 @@ export default function AboutSection() {
           {/* Coluna esquerda: formação, idiomas, redes */}
           <div className="space-y-8">
             <section aria-label="Formação acadêmica" className="space-y-3">
-              <h3 className="text-xs font-semibold uppercase tracking-[0.18em] text-white/55">
+              <h3 className="text-xs font-semibold tracking-[0.18em] text-white/55 uppercase">
                 Formação acadêmica
               </h3>
 
               <div className="space-y-4 text-sm text-white/80">
                 <div className="grid gap-1 sm:grid-cols-[minmax(0,82px)_minmax(0,1fr)] sm:gap-3">
-                  <p className="text-xs font-medium uppercase tracking-[0.18em] text-white/45">
+                  <p className="text-xs font-medium tracking-[0.18em] text-white/45 uppercase">
                     2023 — atual
                   </p>
                   <div>
@@ -53,7 +63,7 @@ export default function AboutSection() {
                 <div className="h-px w-full bg-white/[0.06]" />
 
                 <div className="grid gap-1 sm:grid-cols-[minmax(0,82px)_minmax(0,1fr)] sm:gap-3">
-                  <p className="text-xs font-medium uppercase tracking-[0.18em] text-white/45">
+                  <p className="text-xs font-medium tracking-[0.18em] text-white/45 uppercase">
                     2020 — 2022
                   </p>
                   <div>
@@ -74,7 +84,7 @@ export default function AboutSection() {
               className="grid gap-6 sm:grid-cols-2"
             >
               <div className="space-y-3">
-                <h3 className="text-xs font-semibold uppercase tracking-[0.18em] text-white/55">
+                <h3 className="text-xs font-semibold tracking-[0.18em] text-white/55 uppercase">
                   Idiomas
                 </h3>
                 <ul className="space-y-1.5 text-sm text-white/80">
@@ -92,21 +102,17 @@ export default function AboutSection() {
               </div>
 
               <div className="space-y-3">
-                <h3 className="text-xs font-semibold uppercase tracking-[0.18em] text-white/55">
+                <h3 className="text-xs font-semibold tracking-[0.18em] text-white/55 uppercase">
                   Redes
                 </h3>
                 <ul className="space-y-1.5 text-sm text-white/80">
                   <li>
                     <span className="text-white/60">LinkedIn</span>
-                    <span className="ml-2 text-white/90">
-                      /joaogabrieldev
-                    </span>
+                    <span className="ml-2 text-white/90">/joaogabrieldev</span>
                   </li>
                   <li>
                     <span className="text-white/60">GitHub</span>
-                    <span className="ml-2 text-white/90">
-                      /joaogabriel2r
-                    </span>
+                    <span className="ml-2 text-white/90">/joaogabriel2r</span>
                   </li>
                   <li className="text-xs text-white/60">
                     joaogabriel2r.profissional@hotmail.com
@@ -121,13 +127,13 @@ export default function AboutSection() {
             aria-label="Resumo profissional"
             className="space-y-6 rounded-2xl border border-white/8 bg-white/[0.02] p-6 shadow-[0_0_0_1px_rgba(255,255,255,0.03)_inset] backdrop-blur-sm"
           >
-            <h3 className="text-xs font-semibold uppercase tracking-[0.18em] text-white/55">
+            <h3 className="text-xs font-semibold tracking-[0.18em] text-white/55 uppercase">
               Experiência profissional
             </h3>
 
             <div className="space-y-4 text-sm leading-relaxed text-white/80">
               <div className="grid gap-1 sm:grid-cols-[minmax(0,82px)_minmax(0,1fr)] sm:gap-3">
-                <p className="text-xs font-medium uppercase tracking-[0.18em] text-white/45">
+                <p className="text-xs font-medium tracking-[0.18em] text-white/45 uppercase">
                   2022 — atual
                 </p>
                 <div>
@@ -135,7 +141,9 @@ export default function AboutSection() {
                     Desenvolvedor Frontend / Freelancer
                   </p>
                   <ul className="mt-1 list-disc space-y-0.5 pl-4 text-xs text-white/70">
-                    <li>Criação de landing pages e portfólios performáticos.</li>
+                    <li>
+                      Criação de landing pages e portfólios performáticos.
+                    </li>
                     <li>Integração com APIs e CMS headless.</li>
                     <li>
                       Foco em acessibilidade, SEO técnico e DX de manutenção.
@@ -166,42 +174,119 @@ export default function AboutSection() {
             certificações nem métricas de projeto.
           </p>
 
-          <div className="mt-8 grid gap-8 lg:grid-cols-3">
-            {aboutSkillGroups.map((group, groupIndex) => (
-              <section
-                key={group.id}
-                aria-label={group.label}
-                className="space-y-4"
-              >
-                <h4 className="text-xs font-semibold uppercase tracking-[0.18em] text-white/55">
-                  {group.label}
-                </h4>
-                <ul className="space-y-4" aria-label={group.label}>
-                  {group.skills.map(({ name, Icon, level }, index) => (
-                    <li key={name} className="grid gap-2">
-                      <div className="flex items-center gap-3">
-                        <span
-                          className="flex size-9 shrink-0 items-center justify-center rounded-lg bg-white/5 text-[1.35rem] text-white/90"
-                          aria-hidden
-                        >
-                          <Icon />
-                        </span>
-                        <span className="text-sm font-medium text-white/92 sm:text-base">
-                          {name}
-                        </span>
-                        <span className="ml-auto tabular-nums text-xs text-white/45 sm:text-sm">
-                          {level}%
-                        </span>
-                      </div>
-                      <SkillProgressBar
-                        value={level}
-                        delay={(groupIndex * 0.12 + index * 0.06)}
-                      />
-                    </li>
-                  ))}
-                </ul>
-              </section>
-            ))}
+          <div className="mt-8 flex flex-col gap-10 border-2 border-red-500 lg:mt-10 lg:flex-row lg:items-start lg:gap-10 xl:gap-12">
+            <div className="grid w-full min-w-0 flex-1 gap-x-10 gap-y-10 sm:gap-y-12 lg:grid-cols-2">
+              {normalGroups.map((group, groupIndex) => {
+                return (
+                  <section
+                    key={group.id}
+                    aria-label={group.label}
+                    className="space-y-5"
+                  >
+                    <h4 className="text-xs font-semibold tracking-[0.18em] text-white/55 uppercase">
+                      {group.label}
+                    </h4>
+                    <ul className="space-y-6" aria-label={group.label}>
+                      {group.skills.map(
+                        ({ name, Icon, iconColor, iconUrl, level }, index) => (
+                          <li key={name} className="grid gap-3">
+                            <div className="flex items-center gap-3">
+                              <span
+                                className="flex size-9 shrink-0 items-center justify-center rounded-lg bg-gray-800/60 text-[1.35rem]"
+                                aria-hidden
+                                style={{ color: iconColor ?? "#e5e7eb" }}
+                              >
+                                {iconUrl ? (
+                                  <Image
+                                    src={iconUrl}
+                                    alt=""
+                                    width={28}
+                                    height={28}
+                                    unoptimized={
+                                      iconUrl.endsWith(".svg") ||
+                                      iconUrl.includes(".svg?")
+                                    }
+                                    className="size-7 rounded-sm object-contain"
+                                  />
+                                ) : (
+                                  <Icon />
+                                )}
+                              </span>
+                              <span className="text-sm font-medium text-white/92 sm:text-base">
+                                {name}
+                              </span>
+                              <span className="ml-auto text-xs text-white/45 tabular-nums sm:text-sm">
+                                {level}%
+                              </span>
+                            </div>
+                            <SkillProgressBar
+                              value={level}
+                              delay={groupIndex * 0.12 + index * 0.06}
+                            />
+                          </li>
+                        ),
+                      )}
+                    </ul>
+                  </section>
+                );
+              })}
+            </div>
+            <div className="flex w-full min-w-0 flex-1 flex-col gap-12 lg:max-w-[min(100%,28rem)] xl:max-w-none xl:flex-[0.6]">
+              {largeGroups.map((group, groupIndex) => {
+                return (
+                  <section
+                    key={group.id}
+                    aria-label={group.label}
+                    className="space-y-5"
+                  >
+                    <h4 className="text-xs font-semibold tracking-[0.18em] text-white/55 uppercase">
+                      {group.label}
+                    </h4>
+                    <ul className="space-y-6" aria-label={group.label}>
+                      {group.skills.map(
+                        ({ name, Icon, iconColor, iconUrl, level }, index) => (
+                          <li key={name} className="grid gap-3">
+                            <div className="flex items-center gap-3">
+                              <span
+                                className="flex size-9 shrink-0 items-center justify-center rounded-lg bg-gray-800/60 text-[1.35rem]"
+                                aria-hidden
+                                style={{ color: iconColor ?? "#e5e7eb" }}
+                              >
+                                {iconUrl ? (
+                                  <Image
+                                    src={iconUrl}
+                                    alt=""
+                                    width={28}
+                                    height={28}
+                                    unoptimized={
+                                      iconUrl.endsWith(".svg") ||
+                                      iconUrl.includes(".svg?")
+                                    }
+                                    className="size-7 rounded-sm object-contain"
+                                  />
+                                ) : (
+                                  <Icon />
+                                )}
+                              </span>
+                              <span className="text-sm font-medium text-white/92 sm:text-base">
+                                {name}
+                              </span>
+                              <span className="ml-auto text-xs text-white/45 tabular-nums sm:text-sm">
+                                {level}%
+                              </span>
+                            </div>
+                            <SkillProgressBar
+                              value={level}
+                              delay={groupIndex * 0.12 + index * 0.06}
+                            />
+                          </li>
+                        ),
+                      )}
+                    </ul>
+                  </section>
+                );
+              })}
+            </div>
           </div>
         </div>
       </div>

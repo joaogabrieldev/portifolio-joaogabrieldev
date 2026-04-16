@@ -2,9 +2,13 @@
 
 import { orderClass } from "..";
 import { useHeroParallaxY } from "@/layout/Hero/useHeroParallaxY";
-import hero2Alpha from "@/assets/images/hero-2-alpha.png";
 import { motion } from "motion/react";
 import "./HeroCenterMedia.css";
+
+const HERO_PORTRAIT_SRC =
+  "/assets/images/erasebg-transformed%20(5).png";
+const HERO_PORTRAIT_WIDTH = 1856;
+const HERO_PORTRAIT_HEIGHT = 2254;
 
 const HERO_IMAGE_ALT = "João Gabriel";
 
@@ -60,11 +64,11 @@ const HeroCenterMedia = ({ order }: HeroCenterMediaProps) => {
           transition={{ duration: 1.5, ease: easeMedia }}
         >
           <motion.img
-            src={hero2Alpha.src}
-            width={hero2Alpha.width}
-            height={hero2Alpha.height}
+            src={HERO_PORTRAIT_SRC}
+            width={HERO_PORTRAIT_WIDTH}
+            height={HERO_PORTRAIT_HEIGHT}
             alt={HERO_IMAGE_ALT}
-            className="profile-image relative top-1 mx-auto h-auto w-[min(100%,17.5rem)] max-w-[92vw] scale-[1.25] cursor-pointer object-cover sm:top-2 sm:w-[min(100%,20rem)] sm:scale-[1.2] md:top-3 md:w-[min(100%,26rem)] md:max-w-none md:scale-[1.55] lg:w-[min(100%,28rem)] lg:scale-[1.8] xl:w-[28.75rem] xl:scale-[2.05]"
+            className="profile-image relative top-1 mx-auto h-auto w-[min(100%,17.5rem)] max-w-[92vw] scale-[1.25] cursor-pointer object-cover sm:top-2 sm:w-[min(100%,20rem)] sm:scale-[1.2] md:top-18 md:w-[min(100%,26rem)] md:max-w-none md:scale-[1.55] lg:w-[min(100%,28rem)] lg:scale-[1.8] xl:w-[28.75rem] xl:scale-[2.05]"
             initial={{
               filter: "blur(6px) grayscale(1)",
             }}

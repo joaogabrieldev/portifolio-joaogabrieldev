@@ -22,12 +22,12 @@ const HeroRightText = ({ order }: HeroRightTextProps) => {
         delay: 0.2,
         ease: [0.22, 1, 0.36, 1],
       }}
-      className={`z-20 flex w-full max-w-full min-w-0 flex-col items-center justify-center justify-self-center px-1 text-center sm:max-w-[min(100%,42rem)] sm:px-0 ${orderClass[order]} select-none`}
+      className={`relative z-30 flex w-full max-w-full min-w-0 flex-col items-center justify-center justify-self-center px-1 text-center sm:max-w-[min(100%,42rem)] sm:px-0 ${orderClass[order]} select-none`}
     >
       <div
         data-hero="right"
         data-parallax="right"
-        className="relative -top-2 flex w-full max-w-[min(100vw-1.5rem,1200px)] flex-col items-center sm:-top-2 md:left-4 lg:-left-5 lg:mb-8 xl:-left-8 xl:mb-12"
+        className="relative z-30 -top-2 flex w-full max-w-[min(100vw-1.5rem,1200px)] flex-col items-center sm:-top-2 md:left-4 lg:-left-5 lg:mb-8 xl:-left-12 xl:mb-12"
       >
         <div
           className={`${epilogue.className} hero-right-title w-full max-w-full text-center leading-[0.82] font-extrabold tracking-[-0.05em] text-white uppercase`}
@@ -42,7 +42,7 @@ const HeroRightText = ({ order }: HeroRightTextProps) => {
             João Gabriel
           </p>
         </div>
-        <div className="relative -top-6 -left-8 mt-3 hidden w-full items-center justify-start gap-3 pl-1.5 text-white sm:-left-12 sm:-mt-9 md:-left-16 md:flex lg:-left-20 xl:-left-48">
+        <div className="hero-right-social">
           <Link
             href={urlGithub}
             target="_blank"

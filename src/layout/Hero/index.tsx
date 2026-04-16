@@ -24,7 +24,7 @@ export const HERO_CONTENT = {
   mainText: "Minimalist Hero",
   readMoreLink: "https://www.google.com",
   videoSrc: "/assets/animations/sunrise-webm-3.webm",
-  imageSrc: "/assets/images/hero-2-alpha.png",
+  imageSrc: "/assets/images/erasebg-transformed%20(5).png",
   imageAlt:
     "Retrato em perfil de João Gabriel, iluminado por luz direcional em fundo escuro",
   overlayText: {
