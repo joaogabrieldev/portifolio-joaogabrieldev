@@ -32,21 +32,17 @@ const HeroRightText = ({ order }: HeroRightTextProps) => {
         <div
           className={`${epilogue.className} hero-right-title w-full max-w-full text-center leading-[0.82] font-extrabold tracking-[-0.05em] text-white uppercase`}
         >
-          <span className="hero-right-port relative block">
-            PORT
-          </span>
-          <span className="hero-right-folio relative block italic">
-            FOLIO.
-          </span>
+          <span className="hero-right-port relative block">PORT</span>
+          <span className="hero-right-folio relative block italic">FOLIO.</span>
         </div>
         <div>
           <p
-            className={`${fraunces.className} relative max-w-full text-center text-xl leading-none font-light text-zinc-100 italic sm:-top-6 sm:left-14 sm:mt-2.5 sm:text-2xl md:text-2xl`}
+            className={`${fraunces.className} relative mb-4 max-w-full text-center text-xl leading-none font-light text-zinc-100 italic sm:-top-6 sm:left-14 sm:mt-2.5 sm:text-2xl md:mb-0 md:text-2xl`}
           >
             João Gabriel
           </p>
         </div>
-        <div className="relative -top-6 -left-8 mt-3 flex w-full items-center justify-start gap-3 pl-1.5 text-white sm:-left-12 sm:-mt-9 md:-left-16 lg:-left-20 xl:-left-28">
+        <div className="relative -top-6 -left-8 mt-3 hidden w-full items-center justify-start gap-3 pl-1.5 text-white sm:-left-12 sm:-mt-9 md:-left-16 md:flex lg:-left-20 xl:-left-48">
           <Link
             href={urlGithub}
             target="_blank"
