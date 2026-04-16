@@ -1,0 +1,77 @@
+.hero-right-title {
+  font-size: 3.75rem;
+}
+
+.hero-right-port {
+  left: -0.25rem;
+}
+
+.hero-right-folio {
+  left: 0;
+}
+
+@media (min-width: 640px) {
+  .hero-right-title {
+    font-size: 4.5rem;
+  }
+
+  .hero-right-port {
+    left: -0.5rem;
+  }
+
+  .hero-right-folio {
+    left: -0.75rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .hero-right-title {
+    font-size: 6rem;
+  }
+
+  .hero-right-port {
+    left: -0.75rem;
+  }
+
+  .hero-right-folio {
+    left: -1rem;
+  }
+}
+
+@media (min-width: 1366px) {
+  .hero-right-title {
+    font-size: 9rem;
+  }
+
+  .hero-right-port {
+    left: -1rem;
+  }
+
+  .hero-right-folio {
+    left: -1.5rem;
+  }
+}
+
+@media (min-width: 1700px) {
+  .hero-right-title {
+    font-size: 12.5rem;
+  }
+
+  .hero-right-port {
+    left: -6rem;
+  }
+  .hero-right-folio {
+    left: -5.7rem;
+  }
+}
+
+@media (min-width: 1800px) {
+  .hero-right-title {
+    font-size: 14.5rem;
+  }
+
+  .hero-right-port,
+  .hero-right-folio {
+    left: -12rem;
+  }
+}

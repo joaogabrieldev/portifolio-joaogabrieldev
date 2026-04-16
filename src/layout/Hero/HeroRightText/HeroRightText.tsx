@@ -6,6 +6,7 @@ import { epilogue, fraunces } from "@/utils/fonts";
 import { urlGithub, urlLinkedin } from "@/utils/linksToGo";
 import Link from "next/link";
 import { SiGithub, SiLinkedin } from "react-icons/si";
+import "./HeroRightText.css";
 
 interface HeroRightTextProps {
   order: "right" | "center" | "left";
@@ -29,12 +30,12 @@ const HeroRightText = ({ order }: HeroRightTextProps) => {
         className="relative -top-2 flex w-full max-w-[min(100vw-1.5rem,1200px)] flex-col items-center sm:-top-2 md:left-4 lg:-left-5 lg:mb-8 xl:-left-8 xl:mb-12"
       >
         <div
-          className={`${epilogue.className} w-full max-w-full text-center text-6xl leading-[0.82] font-extrabold tracking-[-0.05em] text-white uppercase sm:text-7xl md:text-8xl lg:text-[9rem] xl:text-[11rem]`}
+          className={`${epilogue.className} hero-right-title w-full max-w-full text-center leading-[0.82] font-extrabold tracking-[-0.05em] text-white uppercase`}
         >
-          <span className="relative -left-1 block sm:-left-2 md:-left-3 lg:-left-4 xl:-left-17">
+          <span className="hero-right-port relative block">
             PORT
           </span>
-          <span className="relative left-0 block italic sm:-left-3 md:-left-4 lg:-left-6 xl:-left-9">
+          <span className="hero-right-folio relative block italic">
             FOLIO.
           </span>
         </div>

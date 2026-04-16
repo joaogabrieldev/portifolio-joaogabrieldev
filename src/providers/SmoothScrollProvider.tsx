@@ -37,7 +37,43 @@ function LenisScrollTriggerBridge() {
       gsap.ticker.add(tickerFn);
       gsap.ticker.lagSmoothing(0);
 
-      ScrollTrigger.refresh();
+      /**
+       * Com `ReactLenis root`, o Lenis usa `window` como wrapper e aplica scroll
+       * via `window.scrollTo`. Proxy em `documentElement` desincroniza o pin do
+       * ScrollTrigger e pode sobrepor seções anteriores (ex.: Sobre + Processos).
+       */
+      const scroller: typeof window = window;
+
+      ScrollTrigger.scrollerProxy(scroller, {
+        scrollTop(value?: number) {
+          if (arguments.length) {
+            lenis.scrollTo(value ?? 0, { immediate: true });
+          }
+          return lenis.scroll;
+        },
+        getBoundingClientRect() {
+          return {
+            top: 0,
+            left: 0,
+            width: window.innerWidth,
+            height: window.innerHeight,
+            bottom: window.innerHeight,
+            right: window.innerWidth,
+          };
+        },
+        scrollHeight: () =>
+          Math.max(
+            document.documentElement.scrollHeight,
+            document.body.scrollHeight,
+          ),
+        pinType: document.documentElement.style.transform ? "transform" : "fixed",
+      });
+
+      ScrollTrigger.defaults({ scroller });
+
+      requestAnimationFrame(() => {
+        ScrollTrigger.refresh();
+      });
 
       return () => {
         gsap.ticker.remove(tickerFn);

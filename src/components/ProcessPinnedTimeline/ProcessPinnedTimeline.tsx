@@ -1,10 +1,11 @@
 "use client";
 
 import { useGSAP } from "@gsap/react";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 
 import { processSteps } from "@/assets/data/processSteps";
-import { gsap } from "@/lib/gsap-client";
+import { gsap, ScrollTrigger } from "@/lib/gsap-client";
+import { cn } from "@/lib/utils";
 import { dmSans, outfit } from "@/utils/fonts";
 
 /**
@@ -17,6 +18,8 @@ export default function ProcessPinnedTimeline() {
   const trackRef = useRef<HTMLDivElement | null>(null);
   const fillRef = useRef<HTMLDivElement | null>(null);
   const textRefs = useRef<(HTMLDivElement | null)[]>([]);
+  /** 0–1: progresso do ScrollTrigger na zona pinada (alinha ao preenchimento da linha). */
+  const [pinnedProgress, setPinnedProgress] = useState(0);
 
   const setTextRef = (index: number) => (el: HTMLDivElement | null) => {
     textRefs.current[index] = el;
@@ -49,6 +52,7 @@ export default function ProcessPinnedTimeline() {
 
       const tl = gsap.timeline({
         scrollTrigger: {
+          scroller: window,
           trigger: pin,
           start: "top top",
           end: () => `+=${scrollDistance()}`,
@@ -56,6 +60,10 @@ export default function ProcessPinnedTimeline() {
           scrub: 0.65,
           anticipatePin: 1,
           invalidateOnRefresh: true,
+          onUpdate(self) {
+            // Mesmo valor que move a timeline (barra); com scrub suavizado, bate com o fill.
+            setPinnedProgress(self.progress);
+          },
         },
       });
 
@@ -88,6 +96,10 @@ export default function ProcessPinnedTimeline() {
         );
       }
 
+      requestAnimationFrame(() => setPinnedProgress(0));
+      requestAnimationFrame(() => {
+        ScrollTrigger.refresh();
+      });
     },
     { scope: sectionRef, dependencies: [] },
   );
@@ -106,13 +118,42 @@ export default function ProcessPinnedTimeline() {
           <div className="flex shrink-0 flex-col items-center pt-2">
             <div
               ref={trackRef}
-              className="relative h-[min(28rem,55vh)] w-1 overflow-hidden rounded-full bg-white/10 md:h-[min(32rem,60vh)]"
+              className="relative h-[min(28rem,55vh)] w-7 shrink-0 md:h-[min(32rem,60vh)]"
             >
+              {/* Trilho completo sempre visível (evita “linha quebrada”) */}
               <div
-                ref={fillRef}
-                className="absolute inset-0 rounded-full bg-gradient-to-b from-violet-400/90 to-[#413b72]"
+                className="absolute top-0 bottom-0 left-1/2 z-1 w-px -translate-x-1/2 rounded-full bg-linear-to-b from-white/18 via-white/12 to-white/8 md:w-0.5"
                 aria-hidden
               />
+              {/* Progresso animado — mesma altura, scaleY; trilho base fica sempre visível atrás */}
+              <div
+                className="pointer-events-none absolute top-0 bottom-0 left-1/2 z-2 w-px -translate-x-1/2 md:w-0.5"
+                aria-hidden
+              >
+                <div
+                  ref={fillRef}
+                  className="h-full w-full origin-top rounded-full bg-linear-to-b from-violet-300 via-violet-400/95 to-[#4c3d8a]"
+                />
+              </div>
+              {processSteps.map((step, index) => {
+                const n = processSteps.length;
+                const topPct = n <= 1 ? 50 : (index / (n - 1)) * 100;
+                const threshold = n <= 1 ? 0 : index / (n - 1);
+                const isActive =
+                  n <= 1 ? true : pinnedProgress + 1e-4 >= threshold;
+                return (
+                  <div
+                    key={`checkpoint-${step.id}`}
+                    className={cn(
+                      "pointer-events-none absolute left-1/2 z-20 size-4 -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-violet-300/85 bg-[#0a0a0a] shadow-[0_0_0_1px_rgba(255,255,255,0.14),0_4px_14px_rgba(0,0,0,0.35)] transition-[border-color,background-color,box-shadow,transform] duration-300 md:size-4.5",
+                      isActive &&
+                        "scale-110 border-violet-100 bg-linear-to-br from-violet-400 to-[#5b4ba3] shadow-[0_0_0_2px_rgba(167,139,250,0.4),0_0_22px_rgba(139,92,246,0.5)]",
+                    )}
+                    style={{ top: `${topPct}%` }}
+                    aria-hidden
+                  />
+                );
+              })}
             </div>
           </div>
 
