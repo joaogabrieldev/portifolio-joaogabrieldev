@@ -26,26 +26,26 @@ const HeroRightText = ({ order }: HeroRightTextProps) => {
       <div
         data-hero="right"
         data-parallax="right"
-        className="relative -top-2 flex w-full max-w-[min(100vw-1.5rem,1200px)] flex-col items-center sm:-top-2 md:left-4 lg:-left-8 lg:mb-8 xl:-left-12 xl:mb-12"
+        className="relative -top-2 flex w-full max-w-[min(100vw-1.5rem,1200px)] flex-col items-center sm:-top-2 md:left-4 lg:-left-5 lg:mb-8 xl:-left-8 xl:mb-12"
       >
         <div
-          className={`${epilogue.className} w-full max-w-full text-center text-[clamp(2.75rem,11vw+0.5rem,7.25rem)] leading-[0.82] font-extrabold tracking-[-0.05em] text-white uppercase sm:text-[clamp(3.35rem,10vw+0.35rem,9.5rem)] md:text-[clamp(4.25rem,12vw+0.25rem,12.5rem)] lg:text-[clamp(5rem,13vw+0.25rem,15rem)]`}
+          className={`${epilogue.className} w-full max-w-full text-center text-6xl leading-[0.82] font-extrabold tracking-[-0.05em] text-white uppercase sm:text-7xl md:text-8xl lg:text-[9rem] xl:text-[11rem]`}
         >
-          <span className="relative -left-1 block sm:-left-2 md:-left-4 lg:-left-6 xl:-left-40">
+          <span className="relative -left-1 block sm:-left-2 md:-left-3 lg:-left-4 xl:-left-17">
             PORT
           </span>
-          <span className="relative left-0 block italic sm:-left-3 md:-left-5 lg:-left-8 xl:-left-47">
+          <span className="relative left-0 block italic sm:-left-3 md:-left-4 lg:-left-6 xl:-left-9">
             FOLIO.
           </span>
         </div>
         <div>
           <p
-            className={`${fraunces.className} relative max-w-full text-center text-[clamp(1.15rem,2.6vw,1.75rem)] leading-none font-light text-zinc-100 italic sm:-top-6 sm:left-14 sm:mt-2.5 md:text-[clamp(2rem,2.6vw,1.75rem)]`}
+            className={`${fraunces.className} relative max-w-full text-center text-xl leading-none font-light text-zinc-100 italic sm:-top-6 sm:left-14 sm:mt-2.5 sm:text-2xl md:text-2xl`}
           >
             João Gabriel
           </p>
         </div>
-        <div className="relative -top-6 -left-47 mt-3 flex w-full items-center justify-start gap-3 pl-1.5 text-white sm:-mt-9">
+        <div className="relative -top-6 -left-8 mt-3 flex w-full items-center justify-start gap-3 pl-1.5 text-white sm:-left-12 sm:-mt-9 md:-left-16 lg:-left-20 xl:-left-28">
           <Link
             href={urlGithub}
             target="_blank"

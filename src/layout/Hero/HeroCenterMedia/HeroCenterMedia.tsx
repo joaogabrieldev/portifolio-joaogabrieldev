@@ -64,7 +64,7 @@ const HeroCenterMedia = ({ order }: HeroCenterMediaProps) => {
             width={hero2Alpha.width}
             height={hero2Alpha.height}
             alt={HERO_IMAGE_ALT}
-            className="profile-image relative top-1 mx-auto h-auto w-[min(100%,17.5rem)] max-w-[92vw] scale-[1.25] cursor-pointer object-cover sm:top-2 sm:w-[min(100%,20rem)] sm:scale-[1.2] md:top-3 md:w-[min(100%,28rem)] md:max-w-none md:scale-[1.75] lg:w-[min(100%,30rem)] lg:scale-[2.05] xl:w-[28.75rem] xl:scale-[2.1]"
+            className="profile-image relative top-1 mx-auto h-auto w-[min(100%,17.5rem)] max-w-[92vw] scale-[1.25] cursor-pointer object-cover sm:top-2 sm:w-[min(100%,20rem)] sm:scale-[1.2] md:top-3 md:w-[min(100%,26rem)] md:max-w-none md:scale-[1.55] lg:w-[min(100%,28rem)] lg:scale-[1.8] xl:w-[28.75rem] xl:scale-[2.05]"
             initial={{
               filter: "blur(6px) grayscale(1)",
             }}

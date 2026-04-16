@@ -25,7 +25,7 @@ const HeroLeftText = () => {
       >
         <div className="-mt-6 w-full max-w-full rounded-2xl border border-white/15 bg-white/6 p-3 text-left shadow-[0_10px_36px_rgba(0,0,0,0.38)] backdrop-blur-xl sm:max-w-[min(100%,56rem)] sm:p-4 md:mt-0 md:px-6 md:py-8 lg:p-10">
           <h2
-            className={`mb-4 w-full px-0.5 pt-2 text-center text-[1.5rem] leading-[1.08] font-extrabold tracking-[-0.02em] text-balance text-white sm:mb-5 sm:px-1 sm:text-4xl md:mt-0 md:mb-6 md:text-[2.65rem] lg:text-[3.15rem] ${epilogue.className} italic select-none`}
+            className={`mb-4 w-full px-0.5 pt-2 text-center text-[1.5rem] leading-[1.08] font-extrabold tracking-[-0.02em] text-balance text-white sm:mb-5 sm:px-1 sm:text-4xl md:mt-0 md:mb-6 md:text-[2.2rem] lg:text-[2.65rem] ${epilogue.className} italic select-none`}
           >
             DESIGN QUE PENSAM. <br />
             INTERFACES QUE FUNCIONAM.
