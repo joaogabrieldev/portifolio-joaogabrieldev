@@ -9,7 +9,7 @@ import HeroHeader from "@/layout/Hero/HeroHeader/HeroHeader";
 import HeroLeftText from "@/layout/Hero/HeroLeftText/HeroLeftText";
 import HeroRightText from "@/layout/Hero/HeroRightText/HeroRightText";
 import HeroFooter from "@/layout/Hero/HeroFooter/HeroFooter";
-import { HeroScrollContext } from "@/layout/Hero/HeroScrollContext";
+import { HeroScrollContext } from "@/contexts/HeroScrollContext";
 import { navLinks } from "@/assets/data/navLinks";
 import GradualBlur from "@/components/ReactBits/GradualBlur/GradualBlur";
 
@@ -59,7 +59,7 @@ const Hero = () => {
         >
           <HeroHeader />
 
-          <div className="relative mt-10 grid w-full max-w-[min(100%,90rem)] min-w-0 grow grid-cols-1 justify-items-center gap-y-5 py-2 *:min-w-0 sm:mt-6 sm:gap-y-7 md:mt-8 md:py-0 lg:grid-cols-[minmax(0,1.35fr)_minmax(0,0.72fr)_minmax(0,1.35fr)] lg:items-center lg:justify-items-stretch lg:gap-x-2 lg:gap-y-0 lg:mt-6 xl:gap-x-4 2xl:gap-x-7">
+          <div className="relative mt-10 grid w-full max-w-[min(100%,90rem)] min-w-0 grow grid-cols-1 justify-items-center gap-y-5 py-2 *:min-w-0 sm:mt-6 sm:gap-y-7 md:mt-8 md:py-0 lg:mt-6 lg:grid-cols-[minmax(0,1.35fr)_minmax(0,0.72fr)_minmax(0,1.35fr)] lg:items-center lg:justify-items-stretch lg:gap-x-2 lg:gap-y-0 xl:gap-x-4 2xl:gap-x-7">
             <HeroRightText order={"left"} />
             <HeroCenterMedia order={"center"} />
             <HeroLeftText />

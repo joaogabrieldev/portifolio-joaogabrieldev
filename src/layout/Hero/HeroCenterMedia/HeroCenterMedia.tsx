@@ -1,12 +1,11 @@
 "use client";
 
 import { orderClass } from "..";
-import { useHeroParallaxY } from "@/layout/Hero/useHeroParallaxY";
+import { useHeroParallaxY } from "@/hooks/useHeroParallaxY";
 import { motion } from "motion/react";
 import "./HeroCenterMedia.css";
 
-const HERO_PORTRAIT_SRC =
-  "/assets/images/erasebg-transformed%20(5).png";
+const HERO_PORTRAIT_SRC = "/assets/images/erasebg-transformed%20(5).png";
 const HERO_PORTRAIT_WIDTH = 1856;
 const HERO_PORTRAIT_HEIGHT = 2254;
 
@@ -24,7 +23,7 @@ const HeroCenterMedia = ({ order }: HeroCenterMediaProps) => {
 
   return (
     <div
-      className={`relative z-0 -top-6 flex h-[34vh] min-h-[200px] w-full min-w-0 items-center justify-center sm:-top-8 sm:h-[40vh] sm:min-h-[240px] md:top-0 md:h-[42vh] md:min-h-[260px] ${orderClass[order]} ml-0 sm:ml-1.5 lg:ml-0`}
+      className={`relative -top-6 z-0 flex h-[34vh] min-h-[200px] w-full min-w-0 items-center justify-center sm:-top-8 sm:h-[40vh] sm:min-h-[240px] md:top-0 md:h-[42vh] md:min-h-[260px] ${orderClass[order]} ml-0 sm:ml-1.5 lg:ml-0`}
     >
       <motion.div
         className="absolute z-0 h-[92vw] max-h-[360px] min-h-[220px] w-[94vw] max-w-[360px] min-w-[220px] sm:h-[100vw] sm:max-h-[420px] sm:min-h-[260px] sm:w-[96vw] sm:max-w-[420px] sm:min-w-[260px] md:h-[56vw] md:max-h-[700px] md:w-[84vw] md:max-w-[1180px] lg:h-[50vw] lg:max-h-[820px] lg:w-screen lg:max-w-[1920px]"
@@ -47,7 +46,7 @@ const HeroCenterMedia = ({ order }: HeroCenterMediaProps) => {
           transition={{ duration: 1.15, ease: easeMedia }}
         >
           <video
-            className="h-full w-full object-cover md:object-contain mt-4 md:mt-0"
+            className="mt-4 h-full w-full object-cover md:mt-0 md:object-contain"
             style={{ backgroundColor: "transparent" }}
             src="/assets/animations/sunrise-2.webm"
             autoPlay

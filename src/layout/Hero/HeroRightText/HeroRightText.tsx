@@ -36,9 +36,7 @@ const HeroRightText = ({ order }: HeroRightTextProps) => {
           <span className="hero-right-folio relative block italic">FOLIO.</span>
         </div>
         <div>
-          <p
-            className={`${fraunces.className} relative mb-4 max-w-full text-center text-xl leading-none font-light text-zinc-100 italic sm:-top-6 sm:left-14 sm:mt-2.5 sm:text-2xl md:mb-0 md:text-2xl`}
-          >
+          <p className={`${fraunces.className} hero-right-name`}>
             João Gabriel
           </p>
         </div>

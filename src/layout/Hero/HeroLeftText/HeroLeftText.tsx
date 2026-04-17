@@ -1,6 +1,6 @@
 "use client";
 import { HERO_CONTENT } from "@/layout/Hero";
-import { useHeroParallaxY } from "@/layout/Hero/useHeroParallaxY";
+import { useHeroParallaxY } from "@/hooks/useHeroParallaxY";
 import HeroButton from "@/pieces/HeroButton/HeroButton";
 import { dmSans, epilogue } from "@/utils/fonts";
 import { ArrowDown, ArrowUpRight } from "lucide-react";

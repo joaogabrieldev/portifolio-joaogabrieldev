@@ -2,7 +2,7 @@
 
 import { motionValue, useReducedMotion, useTransform } from "motion/react";
 import { useEffect, useRef, useState } from "react";
-import { useHeroScrollProgress } from "./HeroScrollContext";
+import { useHeroScrollProgress } from "@/contexts/HeroScrollContext";
 
 const zeroProgress = motionValue(0);
 

@@ -10,6 +10,33 @@
   left: 0;
 }
 
+.hero-right-name {
+  position: relative;
+  max-width: 100%;
+  margin-bottom: 1rem;
+  text-align: center;
+  font-size: 1.25rem;
+  line-height: 1;
+  font-weight: 300;
+  font-style: italic;
+  color: #f4f4f5;
+}
+
+/* Links sociais (GitHub / LinkedIn): visíveis a partir de md, offsets nos breakpoints abaixo */
+.hero-right-social {
+  position: relative;
+  top: -0.5rem;
+  left: -2rem;
+  margin-top: 0.75rem;
+  display: none;
+  width: 100%;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.75rem;
+  padding-left: 0.375rem;
+  color: #fff;
+}
+
 @media (min-width: 640px) {
   .hero-right-title {
     font-size: 4.5rem;
@@ -21,6 +48,18 @@
 
   .hero-right-folio {
     left: -0.75rem;
+  }
+
+  .hero-right-social {
+    left: -3rem;
+    margin-top: -2.25rem;
+  }
+
+  .hero-right-name {
+    top: -1.5rem;
+    left: 3.5rem;
+    margin-top: 0.625rem;
+    font-size: 1.5rem;
   }
 }
 
@@ -36,6 +75,16 @@
   .hero-right-folio {
     left: -1rem;
   }
+
+  .hero-right-social {
+    left: -4rem;
+    display: flex;
+  }
+
+  .hero-right-name {
+    margin-bottom: 0;
+    font-size: 1.5rem;
+  }
 }
 
 @media (min-width: 1366px) {
@@ -50,18 +99,38 @@
   .hero-right-folio {
     left: -1.5rem;
   }
+
+  .hero-right-social {
+    left: -7.5rem;
+  }
+
+  .hero-right-name {
+    top: -2rem;
+    left: 4.25rem;
+    font-size: 1.875rem;
+  }
 }
 
 @media (min-width: 1500px) {
   .hero-right-title {
-    font-size: 9.5rem;
+    font-size: 11rem;
   }
 
   .hero-right-port {
-    left: 4.9rem;
+    left: 5.5rem;
   }
   .hero-right-folio {
-    left: 5.6rem;
+    left: 6.5rem;
+  }
+
+  .hero-right-social {
+    left: 9rem;
+  }
+
+  .hero-right-name {
+    top: -1rem;
+    left: 11.5rem;
+    font-size: 2rem;
   }
 }
 
@@ -76,6 +145,16 @@
   .hero-right-folio {
     left: -5.7rem;
   }
+
+  .hero-right-social {
+    left: -6rem;
+  }
+
+  .hero-right-name {
+    top: -3rem;
+    left: -0.5rem;
+    font-size: 2.5rem;
+  }
 }
 
 @media (min-width: 1800px) {
@@ -87,56 +166,36 @@
   .hero-right-folio {
     left: -12rem;
   }
+
+  .hero-right-social {
+    left: -12rem;
+  }
+
+  .hero-right-name {
+    top: -3.5rem;
+    left: -6rem;
+    font-size: 3rem;
+  }
 }
 
 @media (min-width: 1860px) {
   .hero-right-title {
-    font-size: 16.8rem;
+    font-size: 13.8rem;
   }
 
   .hero-right-port,
   .hero-right-folio {
-    left: -8rem;
-  }
-}
-
-/* Links sociais (GitHub / LinkedIn): visíveis a partir de md, offsets responsivos */
-.hero-right-social {
-  position: relative;
-  top: -1.5rem;
-  left: -2rem;
-  margin-top: 0.75rem;
-  display: none;
-  width: 100%;
-  align-items: center;
-  justify-content: flex-start;
-  gap: 0.75rem;
-  padding-left: 0.375rem;
-  color: #fff;
-}
-
-@media (min-width: 640px) {
-  .hero-right-social {
     left: -3rem;
-    margin-top: -2.25rem;
   }
-}
 
-@media (min-width: 768px) {
   .hero-right-social {
-    left: -4rem;
-    display: flex;
+    left: -2.1rem;
+    top: -1.5rem;
   }
-}
 
-@media (min-width: 1024px) {
-  .hero-right-social {
-    left: -5rem;
-  }
-}
-
-@media (min-width: 1280px) {
-  .hero-right-social {
-    left: -7.5rem;
+  .hero-right-name {
+    top: -1.15rem;
+    left: 6rem;
+    font-size: 3.25rem;
   }
 }
