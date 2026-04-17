@@ -6,6 +6,7 @@ import {
   Outfit,
   Syne,
   Ubuntu,
+  Herr_Von_Muellerhoff,
 } from "next/font/google";
 
 /** Seções abaixo da Hero: geométrica contemporânea, ótima legibilidade */
@@ -46,5 +47,10 @@ export const epilogue = Epilogue({
 
 export const barlow = Barlow({
   weight: ["400", "500", "600", "700", "800", "900"],
+  subsets: ["latin"],
+});
+
+export const herrVonMuellerhoff = Herr_Von_Muellerhoff({
+  weight: ["400"],
   subsets: ["latin"],
 });

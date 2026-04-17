@@ -2,7 +2,7 @@
 
 import { motion } from "motion/react";
 import { orderClass } from "..";
-import { epilogue, fraunces } from "@/utils/fonts";
+import { epilogue, fraunces, herrVonMuellerhoff } from "@/utils/fonts";
 import { urlGithub, urlLinkedin } from "@/utils/linksToGo";
 import Link from "next/link";
 import { SiGithub, SiLinkedin } from "react-icons/si";
@@ -35,30 +35,32 @@ const HeroRightText = ({ order }: HeroRightTextProps) => {
           <span className="hero-right-port relative block">PORT</span>
           <span className="hero-right-folio relative block italic">FOLIO.</span>
         </div>
-        <div>
-          <p className={`${fraunces.className} hero-right-name`}>
-            João Gabriel
-          </p>
-        </div>
-        <div className="hero-right-social">
-          <Link
-            href={urlGithub}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="GitHub"
-            className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/25 bg-white/5 transition hover:border-white/45 hover:bg-white/12"
-          >
-            <SiGithub size={18} />
-          </Link>
-          <Link
-            href={urlLinkedin}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="LinkedIn"
-            className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/25 bg-white/5 transition hover:border-white/45 hover:bg-white/12"
-          >
-            <SiLinkedin size={18} />
-          </Link>
+        <div className="">
+          <div className="">
+            <p className={`${herrVonMuellerhoff.className} hero-right-name`}>
+              João Gabriel
+            </p>
+          </div>
+          <div className="hero-right-social">
+            <Link
+              href={urlGithub}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="GitHub"
+              className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/25 bg-white/5 transition hover:border-white/45 hover:bg-white/12"
+            >
+              <SiGithub size={18} />
+            </Link>
+            <Link
+              href={urlLinkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn"
+              className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/25 bg-white/5 transition hover:border-white/45 hover:bg-white/12"
+            >
+              <SiLinkedin size={18} />
+            </Link>
+          </div>
         </div>
       </div>
     </motion.div>

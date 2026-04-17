@@ -27,7 +27,7 @@ const HeroLeftText = () => {
           <h2
             className={`mb-4 w-full px-0.5 pt-2 text-center text-[1.5rem] leading-[1.08] font-extrabold tracking-[-0.02em] text-balance text-white sm:mb-5 sm:px-1 sm:text-4xl md:mt-0 md:mb-6 md:text-[2.2rem] lg:text-[2.65rem] ${epilogue.className} italic select-none`}
           >
-            DESIGN QUE PENSAM. <br />
+            DESIGN QUE PENSA, <br />
             INTERFACES QUE FUNCIONAM.
           </h2>
           <p
