@@ -3,4 +3,5 @@ ignoredBuiltDependencies:
   - unrs-resolver
 
 onlyBuiltDependencies:
+  - esbuild
   - react-vertical-timeline-component

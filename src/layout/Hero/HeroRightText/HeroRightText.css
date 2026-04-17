@@ -52,6 +52,19 @@
   }
 }
 
+@media (min-width: 1500px) {
+  .hero-right-title {
+    font-size: 9.5rem;
+  }
+
+  .hero-right-port {
+    left: 4.9rem;
+  }
+  .hero-right-folio {
+    left: 5.6rem;
+  }
+}
+
 @media (min-width: 1700px) {
   .hero-right-title {
     font-size: 12.5rem;
@@ -127,4 +140,3 @@
     left: -7.5rem;
   }
 }
-
