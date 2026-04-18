@@ -1,6 +1,7 @@
 "use client";
 
 import { useGSAP } from "@gsap/react";
+import type { LucideIcon } from "lucide-react";
 import { useRef, useState } from "react";
 
 import { processSteps } from "@/assets/data/processSteps";
@@ -8,11 +9,18 @@ import { gsap, ScrollTrigger } from "@/lib/gsap-client";
 import { cn } from "@/lib/utils";
 import { dmSans, outfit } from "@/utils/fonts";
 
+export interface ProcessPinnedTimelineProps {
+  /** Ícone Lucide por `step.id` — exibido nos nós da timeline à esquerda. */
+  stepIcons?: Partial<Record<string, LucideIcon>>;
+}
+
 /**
  * Timeline vertical fixada: pin + linha de progresso + troca de texto in-place (fade).
  * Integração Lenis ↔ ScrollTrigger via ticker global no SmoothScrollProvider.
  */
-export default function ProcessPinnedTimeline() {
+export default function ProcessPinnedTimeline({
+  stepIcons,
+}: ProcessPinnedTimelineProps) {
   const sectionRef = useRef<HTMLElement | null>(null);
   const pinRef = useRef<HTMLDivElement | null>(null);
   const trackRef = useRef<HTMLDivElement | null>(null);
@@ -108,7 +116,7 @@ export default function ProcessPinnedTimeline() {
     <section
       ref={sectionRef}
       id="processos"
-      className="relative scroll-mt-6 bg-[#0a0a0a] text-white"
+      className="relative scroll-mt-6 bg-black text-white"
     >
       <div
         ref={pinRef}
@@ -141,17 +149,39 @@ export default function ProcessPinnedTimeline() {
                 const threshold = n <= 1 ? 0 : index / (n - 1);
                 const isActive =
                   n <= 1 ? true : pinnedProgress + 1e-4 >= threshold;
+                const StepIcon = stepIcons?.[step.id];
+                const withIcons = Boolean(StepIcon);
                 return (
                   <div
                     key={`checkpoint-${step.id}`}
-                    className={cn(
-                      "pointer-events-none absolute left-1/2 z-20 size-4 -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-violet-300/85 bg-[#0a0a0a] shadow-[0_0_0_1px_rgba(255,255,255,0.14),0_4px_14px_rgba(0,0,0,0.35)] transition-[border-color,background-color,box-shadow,transform] duration-300 md:size-4.5",
-                      isActive &&
-                        "scale-110 border-violet-100 bg-linear-to-br from-violet-400 to-[#5b4ba3] shadow-[0_0_0_2px_rgba(167,139,250,0.4),0_0_22px_rgba(139,92,246,0.5)]",
-                    )}
+                    className="pointer-events-none absolute left-1/2 z-20 -translate-x-1/2 -translate-y-1/2"
                     style={{ top: `${topPct}%` }}
                     aria-hidden
-                  />
+                  >
+                    <div
+                      className={cn(
+                        "flex items-center justify-center rounded-full border-2 border-violet-300/85 bg-black shadow-[0_0_0_1px_rgba(255,255,255,0.14),0_4px_14px_rgba(0,0,0,0.35)] transition-[border-color,background-color,box-shadow,transform] duration-300",
+                        withIcons
+                          ? "size-9 md:size-10"
+                          : "size-4 md:size-4.5",
+                        isActive &&
+                          "scale-110 border-violet-100 bg-linear-to-br from-violet-400 to-[#5b4ba3] shadow-[0_0_0_2px_rgba(167,139,250,0.4),0_0_22px_rgba(139,92,246,0.5)]",
+                      )}
+                    >
+                      {StepIcon ? (
+                        <div className="flex size-full items-center justify-center">
+                          <StepIcon
+                            className={cn(
+                              "size-[42%] text-violet-50 drop-shadow-[0_0_10px_rgba(167,139,250,0.35)]",
+                              isActive ? "opacity-100" : "opacity-35",
+                            )}
+                            strokeWidth={1.85}
+                            aria-hidden
+                          />
+                        </div>
+                      ) : null}
+                    </div>
+                  </div>
                 );
               })}
             </div>

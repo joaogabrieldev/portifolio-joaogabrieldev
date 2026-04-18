@@ -1,4 +1,6 @@
 import type { IconType } from "react-icons";
+import type { LucideIcon } from "lucide-react";
+import { Sailboat } from "lucide-react";
 import {
   SiAdobeaftereffects,
   SiAstro,
@@ -29,7 +31,7 @@ import {
 
 export type AboutSkill = {
   name: string;
-  Icon: IconType;
+  Icon: IconType | LucideIcon;
   iconColor?: string;
   iconUrl?: string;
   /** 0–100 */
@@ -55,8 +57,8 @@ export const aboutSkillGroups: AboutSkillGroup[] = [
     id: "stackBase",
     label: "Stack Base",
     skills: [
-      { name: "HTML5", Icon: SiHtml5, iconColor: "#E34F26", level: 100 },
-      { name: "CSS3", Icon: SiCss3, iconColor: "#1572B6", level: 100 },
+      { name: "HTML", Icon: SiHtml5, iconColor: "#E34F26", level: 100 },
+      { name: "CSS", Icon: SiCss3, iconColor: "#1572B6", level: 100 },
       {
         name: "JavaScript",
         Icon: SiJavascript,
@@ -92,7 +94,7 @@ export const aboutSkillGroups: AboutSkillGroup[] = [
         name: "TanStack Query",
         Icon: SiReact,
         iconUrl: "/assets/icons/tanstack-query.png",
-        level: 85,
+        level: 90,
       },
       // {
       //   name: "Motion",
@@ -204,25 +206,25 @@ export const aboutSkillGroups: AboutSkillGroup[] = [
         name: "Claude",
         Icon: SiClaude,
         iconColor: "#D97757",
-        level: 88,
+        level: 90,
       },
       {
         name: "Cursor",
         Icon: SiReact,
         iconUrl: "/assets/icons/cursor.png",
-        level: 90,
+        level: 95,
       },
       {
         name: "Gemini",
         Icon: SiReact,
-        iconUrl: "/assets/icons/gemini.svg",
-        level: 85,
+        iconUrl: "/assets/icons/gemini.png",
+        level: 100,
       },
       {
         name: "Midjourney",
-        Icon: SiReact,
-        iconUrl: "/assets/icons/midjourney.svg",
-        level: 72,
+        Icon: Sailboat,
+        iconColor: "#FFFFFF",
+        level: 80,
       },
     ],
   },

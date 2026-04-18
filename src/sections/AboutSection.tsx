@@ -1,7 +1,7 @@
 import { SkillProgressBar } from "@/components/SkillProgressBar/SkillProgressBar";
 import { dmSans, outfit } from "@/utils/fonts";
 import Image from "next/image";
-import { aboutSkillGroups } from "./aboutContent";
+import { aboutSkillGroups } from "../assets/data/aboutContent";
 import { sectionShell } from "./sectionStyles";
 import { useMemo } from "react";
 
@@ -209,7 +209,7 @@ export default function AboutSection() {
                                     className="size-7 rounded-sm object-contain"
                                   />
                                 ) : (
-                                  <Icon />
+                                  <Icon className="size-[1.35rem] shrink-0" />
                                 )}
                               </span>
                               <span className="text-sm font-medium text-white/92 sm:text-base">
@@ -265,7 +265,7 @@ export default function AboutSection() {
                                     className="size-7 rounded-sm object-contain"
                                   />
                                 ) : (
-                                  <Icon />
+                                  <Icon className="size-[1.35rem] shrink-0" />
                                 )}
                               </span>
                               <span className="text-sm font-medium text-white/92 sm:text-base">
