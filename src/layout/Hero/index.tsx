@@ -84,7 +84,7 @@ const Hero = () => {
         target="page"
         zIndex={30}
         opacity={0.9}
-        height="180px"
+        height="130px"
         width="100vw"
         className="hidden md:block"
       />
