@@ -27,6 +27,7 @@ import {
   SiVite,
   SiBun,
   SiPrisma,
+  SiGoogle,
 } from "react-icons/si";
 
 export type AboutSkill = {
@@ -45,6 +46,8 @@ export type AboutSkillGroup = {
     | "backend"
     | "infra"
     | "frameworks"
+    | "designUI"
+    | "database"
     | "extras"
     | "ai"
     | "tools";
@@ -53,20 +56,20 @@ export type AboutSkillGroup = {
 };
 
 export const aboutSkillGroups: AboutSkillGroup[] = [
-  {
-    id: "stackBase",
-    label: "Stack Base",
-    skills: [
-      { name: "HTML", Icon: SiHtml5, iconColor: "#E34F26", level: 100 },
-      { name: "CSS", Icon: SiCss3, iconColor: "#1572B6", level: 100 },
-      {
-        name: "JavaScript",
-        Icon: SiJavascript,
-        iconColor: "#F7DF1E",
-        level: 100,
-      },
-    ],
-  },
+  // {
+  //   id: "stackBase",
+  //   label: "Stack Base",
+  //   skills: [
+  //     { name: "HTML", Icon: SiHtml5, iconColor: "#E34F26", level: 100 },
+  //     { name: "CSS", Icon: SiCss3, iconColor: "#1572B6", level: 100 },
+  //     {
+  //       name: "JavaScript",
+  //       Icon: SiJavascript,
+  //       iconColor: "#F7DF1E",
+  //       level: 100,
+  //     },
+  //   ],
+  // },
   {
     id: "frontend",
     label: "Stack Front-End",
@@ -123,6 +126,24 @@ export const aboutSkillGroups: AboutSkillGroup[] = [
         iconUrl: "/assets/icons/axios.png",
         level: 95,
       },
+    ],
+  },
+  {
+    id: "infra",
+    label: "Infraestrutura & DevOps",
+    skills: [
+      {
+        name: "BullMQ",
+        Icon: SiNodedotjs,
+        iconUrl: "/assets/icons/bullmq.svg",
+        level: 80,
+      },
+    ],
+  },
+  {
+    id: "database",
+    label: "Banco de Dados",
+    skills: [
       {
         name: "Drizzle",
         Icon: SiFastapi,
@@ -147,31 +168,18 @@ export const aboutSkillGroups: AboutSkillGroup[] = [
         Icon: SiMysql,
         iconUrl: "/assets/icons/mysql.svg",
         iconColor: "#4479A1",
+        level: 100,
+      },
+      {
+        name: "MongoDB",
+        Icon: SiMongodb,
+        iconColor: "#47A248",
         level: 95,
       },
-      { name: "MongoDB", Icon: SiMongodb, iconColor: "#47A248", level: 95 },
-      {
-        name: "BullMQ",
-        Icon: SiNodedotjs,
-        iconUrl: "/assets/icons/bullmq.svg",
-        level: 80,
-      },
-    ],
-  },
-  {
-    id: "infra",
-    label: "Infra / DevOps",
-    skills: [
       {
         name: "Redis",
         Icon: SiReact,
         iconUrl: "/assets/icons/redis.png",
-        level: 80,
-      },
-      {
-        name: "BullMQ",
-        Icon: SiNodedotjs,
-        iconUrl: "/assets/icons/bullmq.svg",
         level: 80,
       },
     ],
@@ -180,16 +188,42 @@ export const aboutSkillGroups: AboutSkillGroup[] = [
     id: "frameworks",
     label: "Frameworks",
     skills: [
-      { name: "Vite", Icon: SiVite, iconColor: "#646CFF", level: 86 },
-      { name: "Next.js", Icon: SiNextdotjs, iconColor: "#FFFFFF", level: 90 },
-      { name: "Astro", Icon: SiAstro, iconColor: "#FF5D01", level: 70 },
+      { name: "Vite", Icon: SiVite, iconColor: "#646CFF", level: 90 },
+      { name: "Next.js", Icon: SiNextdotjs, iconColor: "#FFFFFF", level: 100 },
+      { name: "Astro", Icon: SiAstro, iconColor: "#FF5D01", level: 60 },
+    ],
+  },
+  {
+    id: "designUI",
+    label: "Design & UI/UX",
+    skills: [
+      {
+        name: "Figma",
+        Icon: SiFigma,
+        iconUrl: "/assets/icons/figma.png",
+        iconColor: "#F24E1E",
+        level: 95,
+      },
+      {
+        name: "Claude Design",
+        Icon: SiClaude,
+        iconColor: "#D97757",
+        level: 90,
+      },
+      {
+        name: "Google Stitch",
+        Icon: SiGoogle,
+        iconUrl: "/assets/icons/google.png",
+        iconColor: "#4285F4",
+        level: 90,
+      },
     ],
   },
   {
     id: "extras",
     label: "Extras",
     skills: [
-      { name: "Python", Icon: SiPython, iconColor: "#3776AB", level: 50 },
+      { name: "Python", Icon: SiPython, iconColor: "#3776AB", level: 60 },
       {
         name: "FastAPI",
         Icon: SiFastapi,
@@ -240,7 +274,7 @@ export const aboutSkillGroups: AboutSkillGroup[] = [
       },
       { name: "Git", Icon: SiGit, iconColor: "#F05032", level: 86 },
       { name: "GitHub", Icon: SiGithub, iconColor: "#FFFFFF", level: 86 },
-      { name: "Figma", Icon: SiFigma, iconColor: "#F24E1E", level: 82 },
+
       { name: "Vercel", Icon: SiVercel, iconColor: "#FFFFFF", level: 84 },
       { name: "Postman", Icon: SiPostman, iconColor: "#FF6C37", level: 80 },
       {

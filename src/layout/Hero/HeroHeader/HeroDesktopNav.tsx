@@ -14,7 +14,7 @@ interface HeroDesktopNavProps {
 const HeroDesktopNav = ({ navLinks }: HeroDesktopNavProps) => {
   return (
     <div className="hidden max-w-full justify-self-center md:flex">
-      <ul className="flex h-11 max-w-full items-center gap-1 overflow-x-auto rounded-full border border-white/10 bg-white/6 px-2 shadow-[inset_0_1px_0_rgba(255,255,255,0.25)] backdrop-blur-xl">
+      <ul className="flex max-w-full items-center gap-1 overflow-x-auto rounded-full border border-white/10 bg-white/6 shadow-[inset_0_1px_0_rgba(255,255,255,0.25)] backdrop-blur-xl">
         {navLinks.map((item) => (
           <li key={item.slug} className="list-none">
             <ScrollLink

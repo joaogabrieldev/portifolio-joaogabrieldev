@@ -1,4 +1,4 @@
-import Navbar from "../../Navbar/Navbar";
+import SectionsHeader from "@/components/SectionsHeader/SectionsHeader";
 import Hero from "@/layout/Hero";
 import SiteSections from "@/widgets/Desktop/SiteSections/SiteSections";
 
@@ -10,6 +10,7 @@ const PageContent = () => {
       </header> */}
       <main className="min-h-dvh">
         <Hero />
+        <SectionsHeader />
         <SiteSections />
       </main>
     </div>

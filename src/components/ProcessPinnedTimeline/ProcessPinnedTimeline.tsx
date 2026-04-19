@@ -99,6 +99,11 @@ export default function ProcessPinnedTimeline({
 
   useGSAP(
     () => {
+      if (window.innerWidth < 768) {
+        setPinnedProgress(0);
+        return;
+      }
+
       const section = sectionRef.current;
       const pin = pinRef.current;
       const fill = fillRef.current;
@@ -157,13 +162,13 @@ export default function ProcessPinnedTimeline({
         }
         tl.to(
           texts[i - 1],
-          { opacity: 0, duration: 0.07, ease: "power1.out" },
+          { opacity: 0, duration: 0.32, ease: "power2.out" },
           t,
         );
         tl.fromTo(
           texts[i],
           { opacity: 0 },
-          { opacity: 1, duration: 0.07, ease: "power1.in" },
+          { opacity: 1, duration: 0.28, ease: "power2.in" },
           t,
         );
       }
@@ -189,9 +194,118 @@ export default function ProcessPinnedTimeline({
       id="processos"
       className="relative scroll-mt-6 bg-black text-white"
     >
+      <div className="mx-auto w-full max-w-6xl px-4 py-16 md:hidden">
+        <p
+          className={`mb-4 text-xs font-semibold tracking-[0.2em] text-violet-300/90 uppercase ${outfit.className}`}
+        >
+          Processos
+        </p>
+        <div className="space-y-8">
+          {processSteps.map((step) => {
+            const infoCards = stepInfoCards?.[step.id];
+            const showInfoCards = Array.isArray(infoCards) && infoCards.length > 0;
+            return (
+              <div key={`mobile-${step.id}`}>
+                <p
+                  className={`mb-4 text-xs font-semibold tracking-[0.2em] text-violet-300/90 uppercase ${outfit.className}`}
+                >
+                  Processos
+                </p>
+                <article className="rounded-2xl border border-white/8 bg-[#0f0f0f] p-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.04)]">
+                  <h3
+                    className={`text-xl font-semibold tracking-tight text-white ${outfit.className}`}
+                  >
+                    {step.title}
+                  </h3>
+                  <p
+                    className={`mt-1 text-sm font-medium text-violet-200/85 ${dmSans.className}`}
+                  >
+                    {step.subtitle}
+                  </p>
+                  <p
+                    className={`mt-3 text-sm leading-relaxed text-white/78 ${dmSans.className}`}
+                  >
+                    {step.body}
+                  </p>
+                  {showInfoCards ? (
+                    <div className="mt-4 space-y-3">
+                      {infoCards.map((card, cardIndex) => {
+                        const isRich = Boolean(
+                          card.intro || card.topics?.length,
+                        );
+                        const { icon, heading } = resolveCardIconTitle(card);
+                        return (
+                          <div
+                            key={`mobile-${step.id}-info-${cardIndex}`}
+                            className="rounded-xl border border-white/8 bg-[#151515] p-4"
+                          >
+                            <div className="flex items-start gap-3">
+                              <div
+                                className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md border border-violet-500/45 bg-violet-950/90 text-base leading-none"
+                                aria-hidden
+                              >
+                                {icon}
+                              </div>
+                              <div className="min-w-0">
+                                <p
+                                  className={`text-sm font-semibold text-white ${dmSans.className}`}
+                                >
+                                  {heading}
+                                </p>
+                                {isRich ? (
+                                  <>
+                                    {card.intro ? (
+                                      <p
+                                        className={`mt-1 text-xs leading-relaxed text-gray-400 ${dmSans.className}`}
+                                      >
+                                        {card.intro}
+                                      </p>
+                                    ) : null}
+                                    {card.topics && card.topics.length > 0 ? (
+                                      <ul
+                                        className={`mt-2 space-y-1.5 ${dmSans.className}`}
+                                      >
+                                        {card.topics.map(
+                                          (topic, topicIndex) => (
+                                            <li
+                                              key={topicIndex}
+                                              className="flex gap-2 text-xs leading-snug text-gray-400"
+                                            >
+                                              <span
+                                                className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-violet-500/75"
+                                                aria-hidden
+                                              />
+                                              <span>{topic}</span>
+                                            </li>
+                                          ),
+                                        )}
+                                      </ul>
+                                    ) : null}
+                                  </>
+                                ) : card.subtext ? (
+                                  <p
+                                    className={`mt-1 text-xs leading-relaxed text-gray-400 ${dmSans.className}`}
+                                  >
+                                    {card.subtext}
+                                  </p>
+                                ) : null}
+                              </div>
+                            </div>
+                          </div>
+                        );
+                      })}
+                    </div>
+                  ) : null}
+                </article>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+
       <div
         ref={pinRef}
-        className="relative flex min-h-screen w-full items-center px-4 py-20 sm:px-8 md:px-12"
+        className="relative hidden min-h-screen w-full items-center px-4 py-20 sm:px-8 md:flex md:px-12"
       >
         <div className="mx-auto flex w-full max-w-6xl gap-10 md:gap-16 lg:gap-24">
           <div className="flex shrink-0 flex-col items-center pt-2">
