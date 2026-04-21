@@ -116,16 +116,17 @@ export default function ProcessPinnedTimeline({
       }
 
       gsap.set(fill, {
-        scaleY: 0,
-        transformOrigin: "top center",
+        scaleX: 0,
+        transformOrigin: "left center",
         force3D: true,
       });
       gsap.set(texts, { opacity: 0, force3D: true });
       gsap.set(texts[0], { opacity: 1 });
 
       const stepCount = texts.length;
+      /** Rolagem por etapa: menor = transições mais rápidas entre fases. */
       const scrollDistance = (): number =>
-        window.innerHeight * Math.max(stepCount, 1);
+        window.innerHeight * Math.max(stepCount, 1) * 1.05;
 
       const tl = gsap.timeline({
         scrollTrigger: {
@@ -134,7 +135,7 @@ export default function ProcessPinnedTimeline({
           start: "top top",
           end: () => `+=${scrollDistance()}`,
           pin: true,
-          scrub: 0.65,
+          scrub: 0.4,
           anticipatePin: 1,
           invalidateOnRefresh: true,
           onUpdate(self) {
@@ -146,13 +147,15 @@ export default function ProcessPinnedTimeline({
 
       tl.fromTo(
         fill,
-        { scaleY: 0 },
-        { scaleY: 1, ease: "none", duration: 1 },
+        { scaleX: 0 },
+        { scaleX: 1, ease: "none", duration: 1 },
         0,
       );
 
       const n = stepCount;
       const seg = 1 / n;
+      /** Fração do segmento usada para o crossfade — menor = troca mais seca. */
+      const crossfade = seg * 0.35;
 
       for (let i = 0; i < n; i += 1) {
         const t = i * seg;
@@ -162,13 +165,13 @@ export default function ProcessPinnedTimeline({
         }
         tl.to(
           texts[i - 1],
-          { opacity: 0, duration: 0.32, ease: "power2.out" },
+          { opacity: 0, duration: crossfade, ease: "power2.out" },
           t,
         );
         tl.fromTo(
           texts[i],
           { opacity: 0 },
-          { opacity: 1, duration: 0.28, ease: "power2.in" },
+          { opacity: 1, duration: crossfade, ease: "power2.in" },
           t,
         );
       }
@@ -192,7 +195,7 @@ export default function ProcessPinnedTimeline({
     <section
       ref={sectionRef}
       id="processos"
-      className="relative scroll-mt-6 bg-black text-white"
+      className="relative mt-8 scroll-mt-6 bg-black text-white"
     >
       <div className="mx-auto w-full max-w-6xl px-4 py-16 md:hidden">
         <p
@@ -203,14 +206,17 @@ export default function ProcessPinnedTimeline({
         <div className="space-y-8">
           {processSteps.map((step) => {
             const infoCards = stepInfoCards?.[step.id];
-            const showInfoCards = Array.isArray(infoCards) && infoCards.length > 0;
+            const showInfoCards =
+              Array.isArray(infoCards) && infoCards.length > 0;
             return (
               <div key={`mobile-${step.id}`}>
-                <p
-                  className={`mb-4 text-xs font-semibold tracking-[0.2em] text-violet-300/90 uppercase ${outfit.className}`}
+                <div
+                  className={`mb-4 flex items-center gap-2 text-xs font-semibold tracking-[0.2em] text-violet-300/90 uppercase ${outfit.className}`}
                 >
-                  Processos
-                </p>
+                  <span>Processos</span>
+                  <span>&bull;</span>
+                  <span className="text-white">{step.phase}</span>
+                </div>
                 <article className="rounded-2xl border border-white/8 bg-[#0f0f0f] p-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.04)]">
                   <h3
                     className={`text-xl font-semibold tracking-tight text-white ${outfit.className}`}
@@ -305,187 +311,224 @@ export default function ProcessPinnedTimeline({
 
       <div
         ref={pinRef}
-        className="relative hidden min-h-screen w-full items-center px-4 py-20 sm:px-8 md:flex md:px-12"
+        className="relative hidden min-h-screen w-full flex-col px-4 py-12 sm:px-8 md:flex md:h-[100svh] md:max-h-[100svh] md:min-h-0 md:overflow-hidden md:px-12 md:py-8 lg:py-14 lg:pt-10"
       >
-        <div className="mx-auto flex w-full max-w-6xl gap-10 md:gap-16 lg:gap-24">
-          <div className="flex shrink-0 flex-col items-center pt-2">
-            <div
-              ref={trackRef}
-              className="relative h-[min(28rem,55vh)] w-7 shrink-0 md:h-[min(32rem,60vh)]"
-            >
-              {/* Trilho completo sempre visível (evita “linha quebrada”) */}
-              <div
-                className="absolute top-0 bottom-0 left-1/2 z-1 w-px -translate-x-1/2 rounded-full bg-linear-to-b from-white/18 via-white/12 to-white/8 md:w-0.5"
-                aria-hidden
-              />
-              {/* Progresso animado — mesma altura, scaleY; trilho base fica sempre visível atrás */}
-              <div
-                className="pointer-events-none absolute top-0 bottom-0 left-1/2 z-2 w-px -translate-x-1/2 md:w-0.5"
-                aria-hidden
-              >
+        {/* Conteúdo rolável: fases 2–4 têm mais cards — sem isso a timeline horizontal some abaixo da dobra */}
+        <div className="mx-auto flex min-h-0 w-full max-w-6xl flex-1 flex-col">
+          <div className="relative isolate grid min-h-0 w-full flex-1">
+            {processSteps.map((step, index) => {
+              const infoCards = stepInfoCards?.[step.id];
+              const showInfoCards =
+                activeStepIndex === index &&
+                Array.isArray(infoCards) &&
+                infoCards.length > 0;
+
+              return (
                 <div
-                  ref={fillRef}
-                  className="h-full w-full origin-top rounded-full bg-linear-to-b from-violet-300 via-violet-400/95 to-[#4c3d8a]"
-                />
-              </div>
-              {processSteps.map((step, index) => {
-                const n = processSteps.length;
-                const topPct = n <= 1 ? 50 : (index / (n - 1)) * 100;
-                /** Passo atual ou já “visitado” no progresso: etapas anteriores ao foco também ficam no estilo ativo. */
-                const isReached =
-                  n <= 1 ? true : index <= activeStepIndex;
-                const isCurrent =
-                  n <= 1 ? true : index === activeStepIndex;
-                const StepIcon = stepIcons?.[step.id];
-                const withIcons = Boolean(StepIcon);
-                return (
-                  <button
-                    key={`checkpoint-${step.id}`}
-                    type="button"
-                    onClick={() => goToStep(index)}
-                    className={cn(
-                      "absolute left-1/2 z-20 flex -translate-x-1/2 -translate-y-1/2 cursor-pointer items-center justify-center rounded-full border-0 bg-transparent p-2 transition-[transform] duration-300 outline-none focus-visible:ring-2 focus-visible:ring-violet-400/80 focus-visible:ring-offset-2 focus-visible:ring-offset-black",
-                      withIcons ? "min-h-11 min-w-11 md:min-h-12 md:min-w-12" : "min-h-10 min-w-10",
-                    )}
-                    style={{ top: `${topPct}%` }}
-                    aria-label={`Ir para o passo: ${step.title}`}
-                    aria-current={isCurrent ? "step" : undefined}
-                  >
-                    <span
-                      className={cn(
-                        "flex shrink-0 items-center justify-center rounded-full border-2 border-violet-300/85 bg-black shadow-[0_0_0_1px_rgba(255,255,255,0.14),0_4px_14px_rgba(0,0,0,0.35)] transition-[border-color,background-color,box-shadow,transform] duration-300",
-                        withIcons ? "size-9 md:size-10" : "size-4 md:size-4.5",
-                        isReached &&
-                          "border-violet-100 bg-linear-to-br from-violet-400 to-[#5b4ba3] shadow-[0_0_0_2px_rgba(167,139,250,0.4),0_0_22px_rgba(139,92,246,0.5)]",
-                        isCurrent && "scale-110",
-                      )}
-                      aria-hidden
-                    >
-                      {StepIcon ? (
-                        <div className="flex size-full items-center justify-center">
-                          <StepIcon
-                            className={cn(
-                              "size-[42%] text-violet-50 drop-shadow-[0_0_10px_rgba(167,139,250,0.35)]",
-                              isReached ? "opacity-100" : "opacity-35",
-                            )}
-                            strokeWidth={1.85}
-                            aria-hidden
-                          />
-                        </div>
-                      ) : null}
-                    </span>
-                  </button>
-                );
-              })}
-            </div>
-          </div>
-
-          <div className="relative min-h-[min(24rem,50vh)] min-w-0 flex-1">
-            <p
-              className={`mb-4 text-xs font-semibold tracking-[0.2em] text-violet-300/90 uppercase ${outfit.className}`}
-            >
-              Processos
-            </p>
-            <div className="relative min-h-[12.5rem] sm:min-h-[11rem] md:min-h-[10rem]">
-              {processSteps.map((step, index) => {
-                const infoCards = stepInfoCards?.[step.id];
-                const showInfoCards =
-                  activeStepIndex === index &&
-                  Array.isArray(infoCards) &&
-                  infoCards.length > 0;
-
-                return (
+                  key={step.id}
+                  ref={setTextRef(index)}
+                  className="pointer-events-none col-start-1 row-start-1 flex min-w-0 flex-col justify-start justify-self-stretch"
+                >
                   <div
-                    key={step.id}
-                    ref={setTextRef(index)}
-                    className="pointer-events-none absolute inset-0 flex flex-col justify-start"
+                    className={`mb-4 flex items-center gap-2 text-xs font-semibold tracking-[0.2em] text-violet-300/90 uppercase ${outfit.className}`}
                   >
-                    <h3
-                      className={`text-2xl font-semibold tracking-tight text-white sm:text-3xl ${outfit.className}`}
-                    >
-                      {step.title}
-                    </h3>
-                    <p
-                      className={`mt-2 text-sm font-medium text-violet-200/85 sm:text-base ${dmSans.className}`}
-                    >
-                      {step.subtitle}
-                    </p>
-                    <p
-                      className={`mt-4 max-w-2xl text-base leading-relaxed text-white/78 sm:text-lg ${dmSans.className}`}
-                    >
-                      {step.body}
-                    </p>
-                    {showInfoCards && infoCards ? (
-                      <div className="pointer-events-auto mt-6 flex flex-wrap gap-3">
-                        {infoCards.map((card, cardIndex) => {
-                          const isRich = Boolean(
-                            card.intro || card.topics?.length,
-                          );
-                          const { icon, heading } = resolveCardIconTitle(card);
+                    <span>Processos</span>
+                    <span aria-hidden>&bull;</span>
+                    <span className="text-white">{step.phase}</span>
+                  </div>
+                  <h3
+                    className={`text-3xl font-semibold tracking-tight text-white sm:text-4xl lg:text-5xl ${outfit.className}`}
+                  >
+                    {step.title}
+                  </h3>
+                  <p
+                    className={`mt-3 text-base font-medium text-violet-200/85 sm:text-lg ${dmSans.className}`}
+                  >
+                    {step.subtitle}
+                  </p>
+                  <p
+                    className={`mt-4 max-w-3xl text-base leading-relaxed text-white/78 sm:text-lg ${dmSans.className}`}
+                  >
+                    {step.body}
+                  </p>
+                  {showInfoCards && infoCards ? (
+                    <div className="pointer-events-auto mt-6 flex flex-wrap gap-3">
+                      {infoCards.map((card, cardIndex) => {
+                        const isRich = Boolean(
+                          card.intro || card.topics?.length,
+                        );
+                        const { icon, heading } = resolveCardIconTitle(card);
+
+                        if (isRich) {
                           return (
                             <div
                               key={`${step.id}-info-${cardIndex}`}
                               className={cn(
-                                "group flex flex-col rounded-2xl border border-white/8 bg-[#121212] p-6 shadow-[inset_0_1px_0_rgba(255,255,255,0.04)] transition-all duration-200",
+                                "group flex flex-col rounded-2xl border border-white/8 bg-[#121212] p-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.04)] transition-all duration-200 sm:p-5 lg:p-6",
                                 "hover:-translate-y-0.5 hover:border-violet-500/35 hover:shadow-[0_8px_28px_rgba(0,0,0,0.45)]",
-                                isRich
-                                  ? "min-w-[min(100%,280px)] max-w-sm flex-1 gap-4"
-                                  : "min-w-[min(100%,200px)] max-w-xs flex-1 gap-4",
+                                "max-w-sm min-w-[min(100%,240px)] flex-[1_1_240px] gap-3 sm:min-w-[min(100%,260px)] sm:flex-[1_1_260px] lg:gap-4",
                               )}
                             >
                               <div
-                                className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border border-violet-500/45 bg-violet-950/90 text-lg leading-none shadow-[0_0_0_1px_rgba(139,92,246,0.22),0_0_22px_rgba(124,58,237,0.38)]"
+                                className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-violet-500/45 bg-violet-950/90 text-base leading-none shadow-[0_0_0_1px_rgba(139,92,246,0.22),0_0_22px_rgba(124,58,237,0.38)] sm:h-10 sm:w-10 sm:text-lg"
                                 aria-hidden
                               >
                                 {icon}
                               </div>
-                              <div className="flex min-w-0 flex-col gap-2">
+                              <div className="flex min-w-0 flex-col gap-1.5 sm:gap-2">
                                 <p
-                                  className={`text-lg font-semibold tracking-tight text-white ${dmSans.className}`}
+                                  className={`text-base font-semibold tracking-tight text-white sm:text-lg ${dmSans.className}`}
                                 >
                                   {heading}
                                 </p>
-                                {isRich ? (
-                                  <>
-                                    {card.intro ? (
-                                      <p
-                                        className={`text-sm leading-relaxed text-gray-400 ${dmSans.className}`}
-                                      >
-                                        {card.intro}
-                                      </p>
-                                    ) : null}
-                                    {card.topics && card.topics.length > 0 ? (
-                                      <ul
-                                        className={`mt-1 space-y-2 border-t border-white/6 pt-3 ${dmSans.className}`}
-                                      >
-                                        {card.topics.map((topic, topicIndex) => (
-                                          <li
-                                            key={topicIndex}
-                                            className="flex gap-2.5 text-sm leading-snug text-gray-400"
-                                          >
-                                            <span
-                                              className="mt-2 h-1 w-1 shrink-0 rounded-full bg-violet-500/75"
-                                              aria-hidden
-                                            />
-                                            <span>{topic}</span>
-                                          </li>
-                                        ))}
-                                      </ul>
-                                    ) : null}
-                                  </>
-                                ) : card.subtext ? (
+                                {card.intro ? (
                                   <p
-                                    className={`text-sm leading-relaxed text-gray-400 ${dmSans.className}`}
+                                    className={`text-xs leading-relaxed text-gray-400 sm:text-sm ${dmSans.className}`}
                                   >
-                                    {card.subtext}
+                                    {card.intro}
                                   </p>
+                                ) : null}
+                                {card.topics && card.topics.length > 0 ? (
+                                  <ul
+                                    className={`mt-1 space-y-1.5 border-t border-white/6 pt-2.5 sm:space-y-2 sm:pt-3 ${dmSans.className}`}
+                                  >
+                                    {card.topics.map((topic, topicIndex) => (
+                                      <li
+                                        key={topicIndex}
+                                        className="flex gap-2.5 text-xs leading-snug text-gray-400 sm:text-sm"
+                                      >
+                                        <span
+                                          className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-violet-500/75 sm:mt-2"
+                                          aria-hidden
+                                        />
+                                        <span>{topic}</span>
+                                      </li>
+                                    ))}
+                                  </ul>
                                 ) : null}
                               </div>
                             </div>
                           );
-                        })}
-                      </div>
-                    ) : null}
+                        }
+
+                        return (
+                          <div
+                            key={`${step.id}-info-${cardIndex}`}
+                            className="group flex min-w-[140px] flex-col gap-1 rounded-xl border border-t-2 border-purple-500/20 border-t-purple-500/40 bg-purple-500/5 px-4 py-3 backdrop-blur-sm transition-all duration-200 hover:-translate-y-0.5 hover:border-purple-500/40 hover:bg-purple-500/10"
+                          >
+                            <p
+                              className={`text-sm font-medium text-purple-200 ${dmSans.className}`}
+                            >
+                              {icon} {heading}
+                            </p>
+                            {card.subtext ? (
+                              <p
+                                className={`text-xs text-gray-500 ${dmSans.className}`}
+                              >
+                                {card.subtext}
+                              </p>
+                            ) : null}
+                          </div>
+                        );
+                      })}
+                    </div>
+                  ) : null}
+                </div>
+              );
+            })}
+          </div>
+        </div>
+        {/* Timeline horizontal: shrink-0 para ficar sempre visível; grid evita bolinhas cortadas nas pontas */}
+        <div className="relative top-12 mx-auto w-full max-w-6xl shrink-0 pt-4 md:pt-6">
+          <div
+            ref={trackRef}
+            className="relative w-full pb-1 md:min-h-[6rem] md:pb-2"
+          >
+            {/* Linha ao centro da fileira de ícones (não do bloco inteiro + rótulos) */}
+            <div
+              className="absolute top-[1.375rem] right-3 left-3 z-1 h-px -translate-y-1/2 rounded-full bg-linear-to-r from-white/18 via-white/12 to-white/8 sm:right-5 sm:left-5 md:top-6 md:right-6 md:left-6 md:h-0.5"
+              aria-hidden
+            />
+            <div
+              className="pointer-events-none absolute top-[1.375rem] right-3 left-3 z-2 h-px -translate-y-1/2 sm:right-5 sm:left-5 md:top-6 md:right-6 md:left-6 md:h-0.5"
+              aria-hidden
+            >
+              <div
+                ref={fillRef}
+                className="h-full w-full origin-left rounded-full bg-linear-to-r from-violet-300 via-violet-400/95 to-[#4c3d8a]"
+              />
+            </div>
+            <div
+              className="relative z-20 grid w-full"
+              style={{
+                gridTemplateColumns: `repeat(${Math.max(processSteps.length, 1)}, minmax(0, 1fr))`,
+              }}
+            >
+              {processSteps.map((step, index) => {
+                const n = processSteps.length;
+                /** Passo atual ou já “visitado” no progresso. */
+                const isReached = n <= 1 ? true : index <= activeStepIndex;
+                const isCurrent = n <= 1 ? true : index === activeStepIndex;
+                const StepIcon = stepIcons?.[step.id];
+                const withIcons = Boolean(StepIcon);
+                return (
+                  <div
+                    key={`checkpoint-wrap-${step.id}`}
+                    className="flex flex-col items-center gap-2"
+                  >
+                    <div className="flex h-11 items-center justify-center md:h-12">
+                      <button
+                        type="button"
+                        onClick={() => goToStep(index)}
+                        className={cn(
+                          "flex items-center justify-center rounded-full border-0 bg-transparent p-2 transition-[transform] duration-300 outline-none focus-visible:ring-2 focus-visible:ring-violet-400/80 focus-visible:ring-offset-2 focus-visible:ring-offset-black",
+                          withIcons
+                            ? "min-h-11 min-w-11 md:min-h-12 md:min-w-12"
+                            : "min-h-10 min-w-10",
+                        )}
+                        aria-label={`Ir para o passo: ${step.title}`}
+                        aria-current={isCurrent ? "step" : undefined}
+                      >
+                        <span
+                          className={cn(
+                            "flex shrink-0 items-center justify-center rounded-full border-2 border-violet-300/85 bg-black shadow-[0_0_0_1px_rgba(255,255,255,0.14),0_4px_14px_rgba(0,0,0,0.35)] transition-[border-color,background-color,box-shadow,transform] duration-300",
+                            withIcons
+                              ? "size-9 md:size-10"
+                              : "size-4 md:size-4.5",
+                            isReached &&
+                              "border-violet-100 bg-linear-to-br from-violet-400 to-[#5b4ba3] shadow-[0_0_0_2px_rgba(167,139,250,0.4),0_0_22px_rgba(139,92,246,0.5)]",
+                            isCurrent && "scale-110",
+                          )}
+                          aria-hidden
+                        >
+                          {StepIcon ? (
+                            <div className="flex size-full items-center justify-center">
+                              <StepIcon
+                                className={cn(
+                                  "size-[42%] text-violet-50 drop-shadow-[0_0_10px_rgba(167,139,250,0.35)]",
+                                  isReached ? "opacity-100" : "opacity-35",
+                                )}
+                                strokeWidth={1.85}
+                                aria-hidden
+                              />
+                            </div>
+                          ) : null}
+                        </span>
+                      </button>
+                    </div>
+                    <span
+                      className={cn(
+                        outfit.className,
+                        "max-w-[min(100%,6.5rem)] text-center text-[10px] font-semibold tracking-[0.18em] uppercase transition-colors duration-300 sm:max-w-none sm:whitespace-nowrap",
+                        isCurrent
+                          ? "text-violet-200"
+                          : isReached
+                            ? "text-white/70"
+                            : "text-white/40",
+                      )}
+                    >
+                      {step.phase}
+                    </span>
                   </div>
                 );
               })}

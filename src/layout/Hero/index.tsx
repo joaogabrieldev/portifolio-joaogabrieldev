@@ -68,7 +68,7 @@ const Hero = () => {
           <HeroFooter />
         </div>
       </HeroScrollContext.Provider>
-      <GradualBlur
+      {/* <GradualBlur
         position="bottom"
         strength={3}
         target="page"
@@ -84,10 +84,10 @@ const Hero = () => {
         target="page"
         zIndex={30}
         opacity={0.9}
-        height="130px"
+        height="180px"
         width="100vw"
         className="hidden md:block"
-      />
+      /> */}
     </>
   );
 };

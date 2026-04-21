@@ -7,6 +7,7 @@ import {
   Syne,
   Ubuntu,
   Herr_Von_Muellerhoff,
+  JetBrains_Mono,
 } from "next/font/google";
 
 /** Seções abaixo da Hero: geométrica contemporânea, ótima legibilidade */
@@ -52,5 +53,10 @@ export const barlow = Barlow({
 
 export const herrVonMuellerhoff = Herr_Von_Muellerhoff({
   weight: ["400"],
+  subsets: ["latin"],
+});
+
+export const jetbrainsMono = JetBrains_Mono({
+  weight: ["400", "500", "600", "700", "800"],
   subsets: ["latin"],
 });

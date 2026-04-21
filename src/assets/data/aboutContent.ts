@@ -28,6 +28,10 @@ import {
   SiBun,
   SiPrisma,
   SiGoogle,
+  SiKoyeb,
+  SiRender,
+  SiHeroku,
+  SiHostinger,
 } from "react-icons/si";
 
 export type AboutSkill = {
@@ -49,6 +53,7 @@ export type AboutSkillGroup = {
     | "designUI"
     | "database"
     | "extras"
+    | "deployment"
     | "ai"
     | "tools";
   label: string;
@@ -129,18 +134,6 @@ export const aboutSkillGroups: AboutSkillGroup[] = [
     ],
   },
   {
-    id: "infra",
-    label: "Infraestrutura & DevOps",
-    skills: [
-      {
-        name: "BullMQ",
-        Icon: SiNodedotjs,
-        iconUrl: "/assets/icons/bullmq.svg",
-        level: 80,
-      },
-    ],
-  },
-  {
     id: "database",
     label: "Banco de Dados",
     skills: [
@@ -194,6 +187,22 @@ export const aboutSkillGroups: AboutSkillGroup[] = [
     ],
   },
   {
+    id: "deployment",
+    label: "Deploy",
+    skills: [
+      { name: "Vercel", Icon: SiVercel, iconColor: "#FFFFFF", level: 100 },
+      { name: "Koyeb", Icon: SiKoyeb, iconColor: "#FFFFFF", level: 100 },
+      {
+        name: "Hostinger",
+        Icon: SiHostinger,
+        iconColor: "#FFFFFF",
+        level: 100,
+      },
+      { name: "Render", Icon: SiRender, iconColor: "#FFFFFF", level: 70 },
+      { name: "Heroku", Icon: SiHeroku, iconColor: "#FFFFFF", level: 60 },
+    ],
+  },
+  {
     id: "designUI",
     label: "Design & UI/UX",
     skills: [
@@ -217,18 +226,11 @@ export const aboutSkillGroups: AboutSkillGroup[] = [
         iconColor: "#4285F4",
         level: 90,
       },
-    ],
-  },
-  {
-    id: "extras",
-    label: "Extras",
-    skills: [
-      { name: "Python", Icon: SiPython, iconColor: "#3776AB", level: 60 },
       {
-        name: "FastAPI",
-        Icon: SiFastapi,
-        iconColor: "#009688",
-        level: 45,
+        name: "After Effects",
+        Icon: SiAdobeaftereffects,
+        iconColor: "#9999FF",
+        level: 100,
       },
     ],
   },
@@ -263,6 +265,31 @@ export const aboutSkillGroups: AboutSkillGroup[] = [
     ],
   },
   {
+    id: "extras",
+    label: "Extras",
+    skills: [
+      { name: "Python", Icon: SiPython, iconColor: "#3776AB", level: 60 },
+      {
+        name: "FastAPI",
+        Icon: SiFastapi,
+        iconColor: "#009688",
+        level: 45,
+      },
+    ],
+  },
+  {
+    id: "infra",
+    label: "Infraestrutura & DevOps",
+    skills: [
+      {
+        name: "BullMQ",
+        Icon: SiNodedotjs,
+        iconUrl: "/assets/icons/bullmq.svg",
+        level: 80,
+      },
+    ],
+  },
+  {
     id: "tools",
     label: "Tools, Ferramentas & IDEs",
     skills: [
@@ -272,25 +299,17 @@ export const aboutSkillGroups: AboutSkillGroup[] = [
         iconUrl: "/assets/icons/vscode.png",
         level: 92,
       },
-      { name: "Git", Icon: SiGit, iconColor: "#F05032", level: 86 },
-      { name: "GitHub", Icon: SiGithub, iconColor: "#FFFFFF", level: 86 },
-
-      { name: "Vercel", Icon: SiVercel, iconColor: "#FFFFFF", level: 84 },
-      { name: "Postman", Icon: SiPostman, iconColor: "#FF6C37", level: 80 },
-      {
-        name: "After Effects",
-        Icon: SiAdobeaftereffects,
-        iconColor: "#9999FF",
-        level: 70,
-      },
+      { name: "Git", Icon: SiGit, iconColor: "#F05032", level: 95 },
+      { name: "GitHub", Icon: SiGithub, iconColor: "#FFFFFF", level: 95 },
+      { name: "Postman", Icon: SiPostman, iconColor: "#FF6C37", level: 85 },
       {
         name: "Visual Studio",
         Icon: SiGit,
         iconUrl:
           "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/visualstudio/visualstudio-plain.svg",
-        level: 68,
+        level: 65,
       },
-      { name: "PyCharm", Icon: SiPycharm, iconColor: "#21D789", level: 68 },
+      { name: "PyCharm", Icon: SiPycharm, iconColor: "#21D789", level: 65 },
     ],
   },
 ];

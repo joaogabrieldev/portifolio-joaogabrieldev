@@ -7,6 +7,7 @@ import { Link as ScrollLink } from "react-scroll";
 import { navLinks } from "@/assets/data/navLinks";
 import { useHeaderScroll } from "@/stores/useHeaderScroll";
 import { useHeaderScrollTracking } from "@/hooks/useHeaderScrollTracking";
+import { useProcessosSectionForHeader } from "@/hooks/useProcessosSectionForHeader";
 import { cn } from "@/lib/utils";
 import { dmSans, outfit } from "@/utils/fonts";
 
@@ -15,19 +16,29 @@ const SECTIONS_NAV_LINKS = navLinks.filter((l) => l.title !== "Contato");
 export default function SectionsHeader() {
   useHeaderScrollTracking();
   const isScrolled = useHeaderScroll((s) => s.isScrolled);
+  const isProcessosSection = useProcessosSectionForHeader();
   const [mobileOpen, setMobileOpen] = useState(false);
+
+  const headerProcessosStyle = isScrolled && isProcessosSection;
 
   return (
     <header
       className={cn(
-        "fixed top-0 left-0 z-[100] w-screen max-w-[100vw] transition-[transform,opacity,background-color,border-color,backdrop-filter] duration-300 ease-out",
+        "fixed top-0 left-0 z-[100] w-screen max-w-[100vw] transition-[transform,opacity,background-color,border-color,backdrop-filter,box-shadow] duration-300 ease-out",
         isScrolled
-          ? "translate-y-0 border-b border-white/10 bg-[#050505]/92 opacity-100 shadow-[0_8px_32px_rgba(0,0,0,0.45)] backdrop-blur-xl backdrop-saturate-150"
+          ? headerProcessosStyle
+            ? "translate-y-0 border-b border-transparent bg-transparent opacity-100 shadow-none backdrop-blur-none"
+            : "translate-y-0 border-b border-white/10 bg-[#050505]/92 opacity-100 shadow-[0_8px_32px_rgba(0,0,0,0.45)] backdrop-blur-xl backdrop-saturate-150"
           : "pointer-events-none -translate-y-full opacity-0",
       )}
       aria-hidden={!isScrolled}
     >
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_120%_at_0%_-20%,rgba(88,28,135,0.18),transparent_55%)]" />
+      <div
+        className={cn(
+          "pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_120%_at_0%_-20%,rgba(88,28,135,0.18),transparent_55%)] transition-opacity duration-300",
+          headerProcessosStyle && "opacity-0",
+        )}
+      />
 
       <div className="relative mx-auto flex h-[4.25rem] w-full max-w-[100rem] items-center justify-between gap-4 px-4 sm:h-[4.5rem] sm:px-8 md:px-12">
         <Link
