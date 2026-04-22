@@ -192,12 +192,12 @@ export const aboutSkillGroups: AboutSkillGroup[] = [
     skills: [
       { name: "Vercel", Icon: SiVercel, iconColor: "#FFFFFF", level: 100 },
       { name: "Koyeb", Icon: SiKoyeb, iconColor: "#FFFFFF", level: 100 },
-      {
-        name: "Hostinger",
-        Icon: SiHostinger,
-        iconColor: "#FFFFFF",
-        level: 100,
-      },
+      // {
+      //   name: "Hostinger",
+      //   Icon: SiHostinger,
+      //   iconColor: "#FFFFFF",
+      //   level: 100,
+      // },
       { name: "Render", Icon: SiRender, iconColor: "#FFFFFF", level: 70 },
       { name: "Heroku", Icon: SiHeroku, iconColor: "#FFFFFF", level: 60 },
     ],
@@ -285,6 +285,12 @@ export const aboutSkillGroups: AboutSkillGroup[] = [
         name: "BullMQ",
         Icon: SiNodedotjs,
         iconUrl: "/assets/icons/bullmq.svg",
+        level: 80,
+      },
+      {
+        name: "Redis",
+        Icon: SiReact,
+        iconUrl: "/assets/icons/redis.png",
         level: 80,
       },
     ],

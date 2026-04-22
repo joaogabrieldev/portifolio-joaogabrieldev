@@ -32,7 +32,7 @@ const HeroRightText = ({ order }: HeroRightTextProps) => {
         <div
           className={`${epilogue.className} hero-right-title w-full max-w-full text-center leading-[0.82] font-extrabold tracking-[-0.05em] text-white uppercase`}
         >
-          <span className="hero-right-port relative block">PORT</span>
+          <span className="hero-right-port relative block">PORTI</span>
           <span className="hero-right-folio relative block italic">FOLIO.</span>
         </div>
         <div className="">

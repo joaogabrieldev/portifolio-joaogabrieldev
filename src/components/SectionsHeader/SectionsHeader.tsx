@@ -10,6 +10,10 @@ import { useHeaderScrollTracking } from "@/hooks/useHeaderScrollTracking";
 import { useProcessosSectionForHeader } from "@/hooks/useProcessosSectionForHeader";
 import { cn } from "@/lib/utils";
 import { dmSans, outfit } from "@/utils/fonts";
+import NewLogo from "@/pieces/NewLogo/NewLogo";
+import { useWindowSize } from "@/hooks/useWindowSize";
+import Image from "next/image";
+import newLogo from "@/assets/images/new-logo.png";
 
 const SECTIONS_NAV_LINKS = navLinks.filter((l) => l.title !== "Contato");
 
@@ -20,6 +24,9 @@ export default function SectionsHeader() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   const headerProcessosStyle = isScrolled && isProcessosSection;
+
+  const { width } = useWindowSize();
+  const isMobile = width < 768;
 
   return (
     <header
@@ -43,14 +50,16 @@ export default function SectionsHeader() {
       <div className="relative mx-auto flex h-[4.25rem] w-full max-w-[100rem] items-center justify-between gap-4 px-4 sm:h-[4.5rem] sm:px-8 md:px-12">
         <Link
           href="/#inicio"
-          className="group flex shrink-0 items-center gap-2 outline-none focus-visible:ring-2 focus-visible:ring-violet-400/80 focus-visible:ring-offset-2 focus-visible:ring-offset-[#050505]"
+          className="group flex shrink-0 items-center gap-2 py-4 outline-none focus-visible:ring-2 focus-visible:ring-violet-400/80 focus-visible:ring-offset-2 focus-visible:ring-offset-[#050505]"
         >
-          <span
-            className="flex size-9 items-center justify-center rounded-md bg-white text-sm font-extrabold tracking-tight text-black shadow-sm sm:size-10 sm:text-base"
-            aria-hidden
-          >
-            JG
-          </span>
+          <Image
+            src={newLogo}
+            alt="logo"
+            width={48}
+            height={48}
+            className="my-4 h-[52px] w-[52px] cursor-pointer hover:fill-gray-200"
+            priority
+          />
         </Link>
 
         <nav
