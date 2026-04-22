@@ -10,7 +10,6 @@ import { useHeaderScrollTracking } from "@/hooks/useHeaderScrollTracking";
 import { useProcessosSectionForHeader } from "@/hooks/useProcessosSectionForHeader";
 import { cn } from "@/lib/utils";
 import { dmSans, outfit } from "@/utils/fonts";
-import NewLogo from "@/pieces/NewLogo/NewLogo";
 import { useWindowSize } from "@/hooks/useWindowSize";
 import Image from "next/image";
 import newLogo from "@/assets/images/new-logo.png";
@@ -23,10 +22,11 @@ export default function SectionsHeader() {
   const isProcessosSection = useProcessosSectionForHeader();
   const [mobileOpen, setMobileOpen] = useState(false);
 
-  const headerProcessosStyle = isScrolled && isProcessosSection;
-
   const { width } = useWindowSize();
-  const isMobile = width < 768;
+  /** Desktop (md+): header transparente só na secção Process; mobile mantém barra sólida. */
+  const isDesktop = width >= 768;
+  const headerProcessosStyle =
+    isScrolled && isProcessosSection && isDesktop;
 
   return (
     <header

@@ -198,11 +198,11 @@ export default function ProcessPinnedTimeline({
       className="relative mt-8 scroll-mt-6 bg-black text-white"
     >
       <div className="mx-auto w-full max-w-6xl px-4 py-16 md:hidden">
-        <p
+        {/* <p
           className={`mb-4 text-xs font-semibold tracking-[0.2em] text-violet-300/90 uppercase ${outfit.className}`}
         >
           Processos
-        </p>
+        </p> */}
         <div className="space-y-8">
           {processSteps.map((step) => {
             const infoCards = stepInfoCards?.[step.id];

@@ -1,17 +1,52 @@
 import Link from "next/link";
-import Image from "next/image";
-import { useMemo } from "react";
+import type { ReactNode } from "react";
+import { Mail } from "lucide-react";
+import { SiGithub, SiLinkedin } from "react-icons/si";
 
-import { SkillProgressBar } from "@/components/SkillProgressBar/SkillProgressBar";
 import { dmSans, epilogue } from "@/utils/fonts";
-import { aboutSkillGroups } from "../assets/data/aboutContent";
 import { sectionShell } from "./sectionStyles";
+
+/** Cards 2×2: borda / fundo / hover alinhados ao design editorial */
+const infoCardClass =
+  "group rounded-2xl border border-white/10 bg-white/4 p-6 shadow-[0_20px_48px_rgba(0,0,0,0.35)] transition-[border-color,background-color] duration-300 ease-out hover:border-violet-400/25 hover:bg-white/[0.07] md:p-7";
+
+/** Timeline interna: linha esquerda reage ao hover do card pai (`group`) */
+const timelineRailClass =
+  "border-l border-white/10 pl-5 transition-[border-left-color] duration-300 ease-out group-hover:border-l-violet-500/60";
+
+/** Badge PT / EN */
+const langChipClass =
+  "inline-flex size-9 shrink-0 items-center justify-center rounded-lg bg-white/[0.06] shadow-[inset_0_0_0_1px_rgba(255,255,255,0.1)]";
+
+/** Indicador “ao vivo”: ping + núcleo (substitui keyframes custom) */
+function LiveStatusDot() {
+  return (
+    <span className="relative flex size-2" aria-hidden>
+      <span className="absolute inline-flex size-full animate-ping rounded-full bg-emerald-400/70 motion-reduce:animate-none" />
+      <span className="relative inline-flex size-2 rounded-full bg-emerald-400" />
+    </span>
+  );
+}
 
 type TimelineItem = {
   period: string;
-  title: string;
+  title: ReactNode;
   subtitle: string;
   description: string;
+};
+
+type LanguageItem = {
+  code: string;
+  name: string;
+  level: string;
+};
+
+type ContactLink = {
+  index: string;
+  label: string;
+  display: string;
+  href: string;
+  Icon: React.ComponentType<{ className?: string }>;
 };
 
 const FORMATION: TimelineItem[] = [
@@ -31,313 +66,311 @@ const FORMATION: TimelineItem[] = [
   },
 ];
 
-const EXPERIENCE: TimelineItem[] = [
+const EXPERIENCE_ITEM: TimelineItem = {
+  period: "2022 — Presente",
+  title: (
+    <>
+      Desenvolvedor Frontend <span className="text-white/40">—</span> Freelancer
+    </>
+  ),
+  subtitle: "Projetos independentes",
+  description:
+    "Landing pages e portfólios performáticos, integrações com APIs e CMS headless, com foco em acessibilidade, SEO técnico e DX de manutenção.",
+};
+
+const LANGUAGES: LanguageItem[] = [
+  { code: "PT", name: "Português", level: "Nativo" },
+  { code: "EN", name: "Inglês", level: "Intermediário" },
+];
+
+const CONTACT_LINKS: ContactLink[] = [
   {
-    period: "2022 — Presente",
-    title: "Desenvolvedor Frontend — Freelancer",
-    subtitle: "Projetos independentes",
-    description:
-      "Landing pages e portfólios performáticos, integrações com APIs e CMS headless, com foco em acessibilidade, SEO técnico e DX de manutenção.",
+    index: "01",
+    label: "GitHub",
+    display: "github.com/joaogabriel2r",
+    href: "https://github.com/joaogabriel2r",
+    Icon: SiGithub,
+  },
+  {
+    index: "02",
+    label: "LinkedIn",
+    display: "linkedin.com/in/joaogabrieldev",
+    href: "https://linkedin.com/in/joaogabrieldev",
+    Icon: SiLinkedin,
   },
 ];
 
-function TimelineItemRow({ period, title, subtitle, description }: TimelineItem) {
+const EDITORIAL_EMAIL = "joaogabriel2r.profissional@hotmail.com";
+
+function TimelineEntry({ period, title, subtitle, description }: TimelineItem) {
   return (
-    <li className="flex flex-col gap-2 border-l border-white/10 pl-5">
-      <span
+    <div className={timelineRailClass}>
+      <div
         className={`text-xs font-semibold tracking-[0.18em] text-violet-300/90 uppercase ${epilogue.className}`}
       >
         {period}
-      </span>
-      <h4
-        className={`text-base font-semibold text-white sm:text-lg ${epilogue.className}`}
-      >
-        {title}
-      </h4>
-      <span className={`text-sm text-white/60 ${dmSans.className}`}>
-        {subtitle}
-      </span>
-      <p
-        className={`mt-1 text-sm leading-relaxed text-white/70 ${dmSans.className}`}
-      >
-        {description}
-      </p>
-    </li>
-  );
-}
-
-type InfoCardProps = {
-  title: string;
-  children: React.ReactNode;
-};
-
-function InfoCard({ title, children }: InfoCardProps) {
-  return (
-    <div className="flex h-full flex-col rounded-2xl border border-white/10 bg-white/[0.04] p-6 shadow-[0_20px_48px_rgba(0,0,0,0.35)]">
+      </div>
       <h3
-        className={`mb-5 text-xs font-semibold tracking-[0.2em] text-violet-300/90 uppercase ${epilogue.className}`}
+        className={`mt-2 text-lg font-semibold text-white ${epilogue.className}`}
       >
         {title}
       </h3>
-      {children}
+      <p className={`mt-0.5 text-sm text-white/60 ${dmSans.className}`}>
+        {subtitle}
+      </p>
+      <p
+        className={`mt-3 max-w-md text-sm leading-relaxed text-white/70 ${dmSans.className}`}
+      >
+        {description}
+      </p>
     </div>
   );
 }
 
+type CardIndex = "02" | "03" | "04" | "05";
+
+function CardHeader({ title, index }: { title: string; index: CardIndex }) {
+  return (
+    <header className="mb-6 flex items-center justify-between">
+      <h3
+        className={`text-xs font-semibold tracking-[0.2em] text-violet-300/90 uppercase ${epilogue.className}`}
+      >
+        {title}
+      </h3>
+      <span
+        className={`text-[10px] tracking-[0.2em] text-white/30 uppercase ${epilogue.className}`}
+      >
+        {index}
+      </span>
+    </header>
+  );
+}
+
 export default function AboutSection() {
-  const largeGroups = useMemo(
-    () => aboutSkillGroups.filter((group) => group.skills.length > 5),
-    [],
-  );
-
-  const normalGroups = useMemo(
-    () => aboutSkillGroups.filter((group) => group.skills.length <= 5),
-    [],
-  );
-
   return (
     <section
       id="sobre"
-      className={`${sectionShell} scroll-mt-6`}
       aria-labelledby="sobre-heading"
+      className={`${sectionShell} scroll-mt-6 tabular-nums`}
     >
-      <div className="mx-auto max-w-6xl">
-        <p
-          className={`mb-3 text-xs font-semibold tracking-[0.2em] text-violet-300/90 uppercase ${epilogue.className}`}
-        >
-          Sobre
-        </p>
-        <h2
-          id="sobre-heading"
-          className={`text-3xl font-semibold tracking-tight sm:text-4xl ${epilogue.className}`}
-        >
-          João Gabriel — desenvolvimento de produtos digitais.
-        </h2>
-        <p
-          className={`mt-4 max-w-2xl text-base text-white/75 sm:text-lg ${dmSans.className}`}
-        >
-          Desenvolvedor frontend com foco em{" "}
-          <span className="font-semibold text-white">performance</span> e{" "}
-          <span className="font-semibold text-white">clareza</span>. Construo
-          interfaces acessíveis, rápidas e com manutenção previsível — do
-          conceito visual ao deploy.
-        </p>
-
-        <div className="mt-14 grid gap-6 lg:grid-cols-2">
-          <InfoCard title="Formação Acadêmica">
-            <ul className="flex flex-col gap-6">
-              {FORMATION.map((item) => (
-                <TimelineItemRow key={item.title} {...item} />
-              ))}
-            </ul>
-          </InfoCard>
-
-          <InfoCard title="Experiência Profissional">
-            <ul className="flex flex-col gap-6">
-              {EXPERIENCE.map((item) => (
-                <TimelineItemRow key={item.title} {...item} />
-              ))}
-            </ul>
-            <p
-              className={`mt-6 text-xs leading-relaxed text-white/50 ${dmSans.className}`}
-            >
-              Recorte mais relevante para produtos digitais — detalhes completos
-              no currículo em PDF.
-            </p>
-          </InfoCard>
-        </div>
-
-        <div className="mt-6 grid gap-6 lg:grid-cols-2">
-          <InfoCard title="Idiomas">
-            <ul className={`flex flex-col gap-3 text-sm ${dmSans.className}`}>
-              <li className="flex items-center justify-between gap-4 border-b border-white/5 pb-3">
-                <span className="font-semibold text-white">Português</span>
-                <span
-                  className={`text-xs tracking-[0.18em] text-white/55 uppercase ${epilogue.className}`}
-                >
-                  Nativo
-                </span>
-              </li>
-              <li className="flex items-center justify-between gap-4">
-                <span className="font-semibold text-white">Inglês</span>
-                <span
-                  className={`text-xs tracking-[0.18em] text-white/55 uppercase ${epilogue.className}`}
-                >
-                  Intermediário
-                </span>
-              </li>
-            </ul>
-          </InfoCard>
-
-          <InfoCard title="Redes & Contato">
-            <ul className={`flex flex-col gap-3 text-sm ${dmSans.className}`}>
-              <li>
-                <Link
-                  href="https://github.com/joaogabriel2r"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-violet-300 transition-colors duration-200 hover:text-violet-200"
-                >
-                  github.com/joaogabriel2r
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="https://www.linkedin.com/in/joaogabrieldev"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-violet-300 transition-colors duration-200 hover:text-violet-200"
-                >
-                  linkedin.com/in/joaogabrieldev
-                </Link>
-              </li>
-              <li className="text-xs text-white/55">
-                joaogabriel2r.profissional@hotmail.com
-              </li>
-            </ul>
-          </InfoCard>
-        </div>
-
-        <div className="mt-20">
-          <p
-            className={`mb-3 text-xs font-semibold tracking-[0.2em] text-violet-300/90 uppercase ${epilogue.className}`}
-          >
-            Stack
-          </p>
-          <h3
-            className={`text-2xl font-semibold tracking-tight sm:text-3xl ${epilogue.className}`}
-          >
-            Stack principal.
-          </h3>
-          <p
-            className={`mt-2 max-w-2xl text-sm text-white/60 ${dmSans.className}`}
-          >
-            Níveis indicam familiaridade prática no dia a dia — não substituem
-            certificações nem métricas de projeto.
-          </p>
-
-          <div className="mt-10 flex flex-col gap-10 lg:flex-row lg:items-start lg:gap-12">
-            <div className="grid w-full min-w-0 flex-1 gap-x-10 gap-y-10 sm:gap-y-12 lg:grid-cols-2">
-              {normalGroups.map((group, groupIndex) => (
-                <section
-                  key={group.id}
-                  aria-label={group.label}
-                  className="space-y-5"
-                >
-                  <h4
-                    className={`text-xs font-semibold tracking-[0.18em] text-white/60 uppercase ${epilogue.className}`}
-                  >
-                    {group.label}
-                  </h4>
-                  <ul className="space-y-6" aria-label={group.label}>
-                    {group.skills.map(
-                      ({ name, Icon, iconColor, iconUrl, level }, index) => (
-                        <li key={name} className="grid gap-3">
-                          <div className="flex items-center gap-3">
-                            <span
-                              className="flex size-9 shrink-0 items-center justify-center rounded-lg bg-white/[0.06] ring-1 ring-white/10 text-[1.35rem]"
-                              aria-hidden
-                              style={{ color: iconColor ?? "#e5e7eb" }}
-                            >
-                              {iconUrl ? (
-                                <Image
-                                  src={iconUrl}
-                                  alt=""
-                                  width={28}
-                                  height={28}
-                                  unoptimized={
-                                    iconUrl.endsWith(".svg") ||
-                                    iconUrl.includes(".svg?")
-                                  }
-                                  className="size-7 rounded-sm object-contain"
-                                />
-                              ) : (
-                                <Icon className="size-[1.35rem] shrink-0" />
-                              )}
-                            </span>
-                            <span
-                              className={`text-sm font-medium text-white/92 sm:text-base ${epilogue.className}`}
-                            >
-                              {name}
-                            </span>
-                            <span
-                              className={`ml-auto text-xs text-white/50 tabular-nums sm:text-sm ${dmSans.className}`}
-                            >
-                              {level}%
-                            </span>
-                          </div>
-                          <SkillProgressBar
-                            value={level}
-                            delay={groupIndex * 0.12 + index * 0.06}
-                          />
-                        </li>
-                      ),
-                    )}
-                  </ul>
-                </section>
-              ))}
+      <div className="relative mx-auto max-w-[1200px]">
+        <header className="relative">
+          <div className="relative flex flex-wrap items-center justify-between gap-y-3 border-b border-white/10 pb-8">
+            <div className="inline-flex items-center gap-3 before:h-px before:w-6 before:shrink-0 before:bg-violet-300/60 before:content-['']">
+              <span
+                className={`text-xs font-semibold tracking-[0.2em] text-violet-300/90 uppercase ${epilogue.className}`}
+              >
+                Sobre
+              </span>
             </div>
-            <div className="flex w-full min-w-0 flex-1 flex-col gap-12 lg:max-w-[min(100%,28rem)] xl:max-w-none xl:flex-[0.6]">
-              {largeGroups.map((group, groupIndex) => (
-                <section
-                  key={group.id}
-                  aria-label={group.label}
-                  className="space-y-5"
-                >
-                  <h4
-                    className={`text-xs font-semibold tracking-[0.18em] text-white/60 uppercase ${epilogue.className}`}
-                  >
-                    {group.label}
-                  </h4>
-                  <ul className="space-y-6" aria-label={group.label}>
-                    {group.skills.map(
-                      ({ name, Icon, iconColor, iconUrl, level }, index) => (
-                        <li key={name} className="grid gap-3">
-                          <div className="flex items-center gap-3">
-                            <span
-                              className="flex size-9 shrink-0 items-center justify-center rounded-lg bg-white/[0.06] ring-1 ring-white/10 text-[1.35rem]"
-                              aria-hidden
-                              style={{ color: iconColor ?? "#e5e7eb" }}
-                            >
-                              {iconUrl ? (
-                                <Image
-                                  src={iconUrl}
-                                  alt=""
-                                  width={28}
-                                  height={28}
-                                  unoptimized={
-                                    iconUrl.endsWith(".svg") ||
-                                    iconUrl.includes(".svg?")
-                                  }
-                                  className="size-7 rounded-sm object-contain"
-                                />
-                              ) : (
-                                <Icon className="size-[1.35rem] shrink-0" />
-                              )}
-                            </span>
-                            <span
-                              className={`text-sm font-medium text-white/92 sm:text-base ${epilogue.className}`}
-                            >
-                              {name}
-                            </span>
-                            <span
-                              className={`ml-auto text-xs text-white/50 tabular-nums sm:text-sm ${dmSans.className}`}
-                            >
-                              {level}%
-                            </span>
-                          </div>
-                          <SkillProgressBar
-                            value={level}
-                            delay={groupIndex * 0.12 + index * 0.06}
-                          />
-                        </li>
-                      ),
-                    )}
-                  </ul>
-                </section>
-              ))}
+            <div
+              className={`hidden items-center gap-6 text-[10px] tracking-[0.22em] text-white/40 uppercase sm:flex ${epilogue.className}`}
+            >
+              <span>Brasília / BR</span>
+              <span className="h-1 w-1 rounded-full bg-white/20" />
+              <span>Ref. 0024</span>
+              <span className="h-1 w-1 rounded-full bg-white/20" />
+              <span>
+                Ed. <span>02 / 2026</span>
+              </span>
             </div>
           </div>
+
+          <div className="relative grid grid-cols-12 gap-6 pt-10 pb-14 md:gap-10">
+            <div className="col-span-12 md:col-span-2">
+              <div
+                className={`text-[clamp(3.5rem,10vw,7rem)] leading-[0.9] font-extrabold tracking-[-0.04em] text-transparent [-webkit-text-stroke:1px_rgba(167,139,250,0.35)] ${epilogue.className}`}
+              >
+                01
+              </div>
+              <div
+                className={`mt-3 text-[10px] tracking-[0.22em] text-white/35 uppercase ${epilogue.className}`}
+              >
+                Perfil
+              </div>
+            </div>
+
+            <div className="col-span-12 md:col-span-10">
+              <h2
+                id="sobre-heading"
+                className={`text-[2.2rem] leading-[1.02] font-semibold tracking-[-0.025em] sm:text-5xl md:text-[3.5rem] lg:text-[4.25rem] ${epilogue.className}`}
+              >
+                <span className="text-white">João Gabriel</span>
+                <span className="text-white/25"> — </span>
+                <span className="text-white/90">desenvolvimento</span>
+                <span className="text-white/90"> de produtos</span>
+                <span className="text-white"> digitais</span>
+                <span className="bg-linear-to-r from-violet-400 via-fuchsia-400 to-violet-400 bg-clip-text text-transparent">
+                  .
+                </span>
+              </h2>
+
+              <div className="mt-8 grid grid-cols-12 gap-6 md:gap-10">
+                <p
+                  className={`col-span-12 text-base leading-relaxed text-white/70 md:col-span-7 md:text-[1.0625rem] ${dmSans.className}`}
+                >
+                  Desenvolvedor frontend com foco em performance e clareza.
+                  Construo interfaces acessíveis, rápidas e com manutenção
+                  previsível — do conceito visual ao deploy.
+                </p>
+
+                <aside className="col-span-12 md:col-span-4 md:col-start-9">
+                  <div className="border-l border-white/10 pl-5">
+                    <div
+                      className={`text-[10px] font-semibold tracking-[0.22em] text-violet-300/90 uppercase ${epilogue.className}`}
+                    >
+                      Assinatura
+                    </div>
+                    <p
+                      className={`mt-3 text-sm leading-relaxed text-white/55 ${dmSans.className}`}
+                    >
+                      Interfaces tratadas como artefatos editoriais — precisas,
+                      legíveis, duráveis.
+                    </p>
+                  </div>
+                </aside>
+              </div>
+            </div>
+          </div>
+        </header>
+
+        <section
+          aria-label="Perfil profissional"
+          className="mt-4 grid grid-cols-1 gap-5 md:grid-cols-2 md:gap-6"
+        >
+          <article className={infoCardClass}>
+            <CardHeader title="Formação Acadêmica" index="02" />
+            <div className="space-y-7">
+              {FORMATION.map((item) => (
+                <TimelineEntry key={item.subtitle} {...item} />
+              ))}
+            </div>
+          </article>
+
+          <article className={`${infoCardClass} flex flex-col`}>
+            <CardHeader title="Experiência Profissional" index="03" />
+            <div className="flex-1">
+              <div className={timelineRailClass}>
+                <div className="flex flex-wrap items-center gap-2">
+                  <span
+                    className={`text-xs font-semibold tracking-[0.18em] text-violet-300/90 uppercase ${epilogue.className}`}
+                  >
+                    {EXPERIENCE_ITEM.period}
+                  </span>
+                  <span
+                    className={`inline-flex items-center gap-1.5 text-[10px] tracking-[0.2em] text-emerald-300/90 uppercase ${epilogue.className}`}
+                  >
+                    <span className="h-1 w-1 rounded-full bg-emerald-400" />
+                    Ativo
+                  </span>
+                </div>
+                <h3
+                  className={`mt-2 text-lg font-semibold text-white ${epilogue.className}`}
+                >
+                  {EXPERIENCE_ITEM.title}
+                </h3>
+                <p
+                  className={`mt-0.5 text-sm text-white/60 ${dmSans.className}`}
+                >
+                  {EXPERIENCE_ITEM.subtitle}
+                </p>
+                <p
+                  className={`mt-3 text-sm leading-relaxed text-white/70 ${dmSans.className}`}
+                >
+                  {EXPERIENCE_ITEM.description}
+                </p>
+              </div>
+            </div>
+            <footer className="mt-7 border-t border-white/5 pt-5">
+              <p className={`text-xs text-white/50 italic ${dmSans.className}`}>
+                Recorte mais relevante para produtos digitais — detalhes
+                completos no currículo em PDF.
+              </p>
+            </footer>
+          </article>
+
+          <article className={infoCardClass}>
+            <CardHeader title="Idiomas" index="04" />
+            <div>
+              {LANGUAGES.map((lang, i) => (
+                <div
+                  key={lang.code}
+                  className={`flex items-center justify-between ${
+                    i === 0 ? "border-b border-white/5 pb-3" : "pt-3"
+                  }`}
+                >
+                  <div className="flex items-center gap-3">
+                    <span
+                      className={`font-semibold text-white ${epilogue.className}`}
+                    >
+                      {lang.name}
+                    </span>
+                  </div>
+                  <span
+                    className={`text-xs tracking-[0.18em] text-white/55 uppercase ${epilogue.className}`}
+                  >
+                    {lang.level}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </article>
+
+          <article className={infoCardClass}>
+            <CardHeader title="Redes & Contato" index="05" />
+
+            <div className="mb-5 flex items-center gap-3">
+              <LiveStatusDot />
+              <span
+                className={`text-xs tracking-[0.18em] text-white/55 uppercase ${epilogue.className}`}
+              >
+                Disponível para projetos
+              </span>
+            </div>
+
+            <ul className="space-y-3">
+              {CONTACT_LINKS.map(({ index, label, display, href, Icon }) => (
+                <li key={index}>
+                  <Link
+                    href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`group/link flex items-center gap-3 text-sm text-violet-300 transition-colors duration-200 hover:text-violet-200 ${dmSans.className}`}
+                    aria-label={`${label}: ${display}`}
+                  >
+                    <Icon className="h-4 w-4 text-violet-300/80" />
+                    <span>{display}</span>
+                    <span className="ml-auto text-white/25 transition-all duration-200 group-hover/link:translate-x-0.5 group-hover/link:text-violet-300">
+                      ↗
+                    </span>
+                  </Link>
+                </li>
+              ))}
+
+              <li aria-hidden className="my-1 h-px bg-white/5" />
+
+              <li>
+                <Link
+                  href={`mailto:${EDITORIAL_EMAIL}`}
+                  className={`flex items-center gap-3 text-xs text-white/55 transition-colors hover:text-white/80 ${dmSans.className}`}
+                  aria-label={`Enviar e-mail para ${EDITORIAL_EMAIL}`}
+                >
+                  <Mail className="h-4 w-4 text-white/40" strokeWidth={1.8} />
+                  <span className="truncate">{EDITORIAL_EMAIL}</span>
+                </Link>
+              </li>
+            </ul>
+          </article>
+        </section>
+
+        <div
+          className={`mt-14 flex flex-wrap items-center justify-between gap-4 text-[10px] tracking-[0.22em] text-white/30 uppercase ${epilogue.className}`}
+        >
+          <span>§ About</span>
+          <span className="hidden md:inline">
+            Press / to search · Esc to close
+          </span>
+          <span>v. 2.6.0</span>
         </div>
       </div>
     </section>
