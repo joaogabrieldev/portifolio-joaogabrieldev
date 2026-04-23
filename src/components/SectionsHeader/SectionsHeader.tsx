@@ -9,6 +9,7 @@ import { Link as ScrollLink } from "react-scroll";
 import newLogo from "@/assets/images/new-logo.png";
 import { navLinks } from "@/assets/data/navLinks";
 import { useProcessosSectionForHeader } from "@/hooks/useProcessosSectionForHeader";
+import { useSectionScrollSpy } from "@/hooks/useSectionScrollSpy";
 import { useWindowSize } from "@/hooks/useWindowSize";
 import { cn } from "@/lib/utils";
 import { dmSans, outfit } from "@/utils/fonts";
@@ -19,6 +20,7 @@ const TRANSITION = { duration: 0.55, ease: [0.22, 1, 0.36, 1] as const };
 
 export default function SectionsHeader() {
   const isProcessosSection = useProcessosSectionForHeader();
+  const activeId = useSectionScrollSpy();
   const [mobileOpen, setMobileOpen] = useState(false);
 
   const { width } = useWindowSize();
@@ -28,6 +30,7 @@ export default function SectionsHeader() {
 
   return (
     <motion.header
+      id="site-primary-nav"
       initial={{ opacity: 0, y: -16 }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -16 }}
@@ -74,10 +77,12 @@ export default function SectionsHeader() {
                   to={item.slug}
                   smooth
                   duration={800}
-                  spy
+                  spy={false}
                   offset={-72}
-                  activeClass="bg-white/12 text-white"
-                  className="inline-flex cursor-pointer items-center rounded-full px-3 py-2 text-sm font-semibold text-white/90 transition hover:bg-white/8 hover:text-white lg:px-4"
+                  className={cn(
+                    "inline-flex cursor-pointer items-center rounded-full px-3 py-2 text-sm font-semibold text-white/90 transition hover:bg-white/8 hover:text-white lg:px-4",
+                    activeId === item.slug && "bg-white/12 text-white",
+                  )}
                 >
                   {item.title}
                 </ScrollLink>

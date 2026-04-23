@@ -1,6 +1,8 @@
 "use client";
 
 import LangSelect from "@/pieces/LangSelect/LangSelect";
+import { useSectionScrollSpy } from "@/hooks/useSectionScrollSpy";
+import { cn } from "@/lib/utils";
 import { dmSans } from "@/utils/fonts";
 import { motion } from "motion/react";
 import { Link as ScrollLink } from "react-scroll";
@@ -17,6 +19,8 @@ interface HeroDesktopNavProps {
 }
 
 const HeroDesktopNav = ({ navLinks }: HeroDesktopNavProps) => {
+  const activeId = useSectionScrollSpy();
+
   return (
     <div className="hidden max-w-full justify-self-center md:flex">
       <ul className="flex max-w-full items-center gap-1 overflow-x-auto rounded-full border border-white/10 bg-white/6 shadow-[inset_0_1px_0_rgba(255,255,255,0.25)] backdrop-blur-xl">
@@ -26,9 +30,11 @@ const HeroDesktopNav = ({ navLinks }: HeroDesktopNavProps) => {
               to={item.slug}
               smooth={true}
               duration={800}
-              spy={true}
-              activeClass="bg-white/13 text-white"
-              className="inline-flex h-9 cursor-pointer items-center justify-center rounded-full px-4 text-sm font-semibold text-white/90 transition hover:bg-white/8 hover:text-white"
+              spy={false}
+              className={cn(
+                "inline-flex h-9 cursor-pointer items-center justify-center rounded-full px-4 text-sm font-semibold text-white/90 transition hover:bg-white/8 hover:text-white",
+                activeId === item.slug && "bg-white/13 text-white",
+              )}
             >
               {item.title}
             </ScrollLink>

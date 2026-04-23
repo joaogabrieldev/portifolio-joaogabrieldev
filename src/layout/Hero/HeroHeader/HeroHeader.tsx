@@ -19,6 +19,7 @@ const HeroHeader = () => {
     <AnimatePresence initial={false}>
       {!scrolled ? (
         <motion.header
+          id="site-hero-nav"
           key="hero-header"
           initial={{ opacity: 0, y: -12 }}
           animate={{ opacity: 1, y: 0 }}
