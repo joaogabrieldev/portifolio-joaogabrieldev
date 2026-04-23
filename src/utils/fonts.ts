@@ -8,6 +8,7 @@ import {
   Ubuntu,
   Herr_Von_Muellerhoff,
   JetBrains_Mono,
+  Geist_Mono,
 } from "next/font/google";
 
 /** Seções abaixo da Hero: geométrica contemporânea, ótima legibilidade */
@@ -57,6 +58,11 @@ export const herrVonMuellerhoff = Herr_Von_Muellerhoff({
 });
 
 export const jetbrainsMono = JetBrains_Mono({
+  weight: ["400", "500", "600", "700", "800"],
+  subsets: ["latin"],
+});
+
+export const geistMono = Geist_Mono({
   weight: ["400", "500", "600", "700", "800"],
   subsets: ["latin"],
 });

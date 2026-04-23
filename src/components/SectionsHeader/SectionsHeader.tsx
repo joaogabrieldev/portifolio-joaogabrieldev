@@ -17,6 +17,7 @@ import { dmSans, outfit } from "@/utils/fonts";
 const SECTIONS_NAV_LINKS = navLinks.filter((l) => l.title !== "Contato");
 
 const TRANSITION = { duration: 0.55, ease: [0.22, 1, 0.36, 1] as const };
+const LOGO_TRANSITION = { duration: 0.75, ease: [0.2, 1, 0.22, 1] as const };
 
 export default function SectionsHeader() {
   const isProcessosSection = useProcessosSectionForHeader();
@@ -50,7 +51,7 @@ export default function SectionsHeader() {
       />
 
       <div className="relative mx-auto flex h-[4.25rem] w-full max-w-[100rem] items-center justify-between gap-4 px-4 sm:h-[4.5rem] sm:px-8 md:px-12">
-        <motion.div layoutId="global-header-logo" transition={TRANSITION}>
+        <motion.div layoutId="global-header-logo" transition={LOGO_TRANSITION}>
           <Link
             href="/#inicio"
             className="group flex shrink-0 items-center gap-2 py-4 outline-none focus-visible:ring-2 focus-visible:ring-violet-400/80 focus-visible:ring-offset-2 focus-visible:ring-offset-[#050505]"

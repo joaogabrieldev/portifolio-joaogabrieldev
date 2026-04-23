@@ -3,7 +3,21 @@
 import ProcessPinnedTimeline, {
   type ProcessStepInfoCard,
 } from "@/components/ProcessPinnedTimeline/ProcessPinnedTimeline";
-import { Code2, PenTool, Rocket, Target, type LucideIcon } from "lucide-react";
+import {
+  Clock3,
+  Code2,
+  Compass,
+  FileText,
+  Laptop2,
+  Palette,
+  PenTool,
+  Rocket,
+  Ruler,
+  Target,
+  CheckCircle2,
+  Zap,
+  type LucideIcon,
+} from "lucide-react";
 
 /** Lucide por etapa (`processSteps.ts`): briefing, UX/UI, dev, go-live. */
 const PROCESS_STEP_ICONS: Record<string, LucideIcon> = {
@@ -18,7 +32,7 @@ const PROCESS_STEP_INFO_CARDS: Partial<Record<string, ProcessStepInfoCard[]>> =
   {
     briefing: [
       {
-        icon: "📄",
+        icon: FileText,
         title: "Documento de briefing",
         intro:
           "Tudo que foi dito na reunião, transformado em um registro objetivo que guia cada decisão do projeto.",
@@ -30,7 +44,7 @@ const PROCESS_STEP_INFO_CARDS: Partial<Record<string, ProcessStepInfoCard[]>> =
         ],
       },
       {
-        icon: "🗺️",
+        icon: Compass,
         title: "Mapa de referências",
         intro:
           "Uma curadoria visual e estratégica que alinha estética, tom e direção criativa antes de qualquer pixel ser desenhado.",
@@ -42,7 +56,7 @@ const PROCESS_STEP_INFO_CARDS: Partial<Record<string, ProcessStepInfoCard[]>> =
         ],
       },
       {
-        icon: "⏱",
+        icon: Clock3,
         title: "~ 3 dias",
         intro:
           "Um prazo enxuto e respeitado — tempo suficiente para ouvir com atenção, processar e entregar algo concreto.",
@@ -56,7 +70,7 @@ const PROCESS_STEP_INFO_CARDS: Partial<Record<string, ProcessStepInfoCard[]>> =
     ],
     "ux-ui": [
       {
-        icon: "🎨",
+        icon: Palette,
         title: "Protótipo navegável",
         intro:
           "Uma versão interativa do projeto no Figma que permite sentir o fluxo, testar decisões e validar ideias antes de virar código.",
@@ -68,7 +82,7 @@ const PROCESS_STEP_INFO_CARDS: Partial<Record<string, ProcessStepInfoCard[]>> =
         ],
       },
       {
-        icon: "📐",
+        icon: Ruler,
         title: "UI kit & tokens",
         intro:
           "A base visual do projeto organizada em um sistema consistente, pronta para ser consumida pelo desenvolvimento sem ambiguidade.",
@@ -80,7 +94,7 @@ const PROCESS_STEP_INFO_CARDS: Partial<Record<string, ProcessStepInfoCard[]>> =
         ],
       },
       {
-        icon: "⏱",
+        icon: Clock3,
         title: "~ 5–8 dias",
         intro:
           "Uma janela focada para pensar a interface com calma, validar com o cliente e evitar retrabalho na fase de desenvolvimento.",
@@ -94,7 +108,7 @@ const PROCESS_STEP_INFO_CARDS: Partial<Record<string, ProcessStepInfoCard[]>> =
     ],
     dev: [
       {
-        icon: "💻",
+        icon: Laptop2,
         title: "Código em produção",
         intro:
           "Implementação robusta em React / Next.js com TypeScript, componentes reutilizáveis e uma arquitetura pensada para durar.",
@@ -106,7 +120,7 @@ const PROCESS_STEP_INFO_CARDS: Partial<Record<string, ProcessStepInfoCard[]>> =
         ],
       },
       {
-        icon: "⚡",
+        icon: Zap,
         title: "Build otimizado",
         intro:
           "Um site rápido por padrão, com boas métricas de Core Web Vitals e SEO técnico cuidado desde a primeira linha de código.",
@@ -118,7 +132,7 @@ const PROCESS_STEP_INFO_CARDS: Partial<Record<string, ProcessStepInfoCard[]>> =
         ],
       },
       {
-        icon: "⏱",
+        icon: Clock3,
         title: "~ 10–15 dias",
         intro:
           "Tempo para escrever código com calma, testar no caminho e não entregar nada que não passaria no seu próprio aceite.",
@@ -132,7 +146,7 @@ const PROCESS_STEP_INFO_CARDS: Partial<Record<string, ProcessStepInfoCard[]>> =
     ],
     "qa-launch": [
       {
-        icon: "✅",
+        icon: CheckCircle2,
         title: "Relatório de QA",
         intro:
           "Uma passagem minuciosa por cada fluxo, dispositivo e breakpoint para pegar o que escapou antes do site ir ao ar.",
@@ -144,7 +158,7 @@ const PROCESS_STEP_INFO_CARDS: Partial<Record<string, ProcessStepInfoCard[]>> =
         ],
       },
       {
-        icon: "🚀",
+        icon: Rocket,
         title: "Deploy + handoff",
         intro:
           "O projeto no ar com ambiente configurado, domínio apontado e a documentação que você precisa para tocar sozinho depois.",
@@ -156,7 +170,7 @@ const PROCESS_STEP_INFO_CARDS: Partial<Record<string, ProcessStepInfoCard[]>> =
         ],
       },
       {
-        icon: "⏱",
+        icon: Clock3,
         title: "~ 3–5 dias",
         intro:
           "Um fechamento sem pressa, com tempo para testar, ajustar e garantir que tudo sobe estável no dia combinado.",

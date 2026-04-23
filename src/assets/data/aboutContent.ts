@@ -312,7 +312,7 @@ export const aboutSkillGroups: AboutSkillGroup[] = [
         name: "Turso",
         Icon: SiTurso,
         iconColor: "#4DA8A9",
-        level: 80,
+        level: 90,
       },
     ],
   },

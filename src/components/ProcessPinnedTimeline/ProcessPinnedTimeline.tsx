@@ -12,8 +12,8 @@ import { dmSans, outfit } from "@/utils/fonts";
 
 /** Card compacto (`subtext`) ou expandido (`intro` + `topics`). */
 export type ProcessStepInfoCard = {
-  /** Emoji/ícone na caixa roxa; se omitido, tenta-se extrair do início do `title`. */
-  icon?: string;
+  /** Ícone visual na caixa roxa (emoji ou Lucide SVG). */
+  icon?: string | LucideIcon;
   title: string;
   subtext?: string;
   intro?: string;
@@ -21,7 +21,7 @@ export type ProcessStepInfoCard = {
 };
 
 function resolveCardIconTitle(card: ProcessStepInfoCard): {
-  icon: string;
+  icon: string | LucideIcon;
   heading: string;
 } {
   if (card.icon) {
@@ -34,6 +34,14 @@ function resolveCardIconTitle(card: ProcessStepInfoCard): {
     return { icon: m[1], heading: card.title.slice(m[0].length).trim() };
   }
   return { icon: "◆", heading: card.title };
+}
+
+function renderCardIcon(icon: string | LucideIcon, className: string) {
+  if (typeof icon === "string") {
+    return <span className={className}>{icon}</span>;
+  }
+  const Icon = icon;
+  return <Icon className={className} strokeWidth={1.9} aria-hidden />;
 }
 
 export interface ProcessPinnedTimelineProps {
@@ -250,7 +258,10 @@ export default function ProcessPinnedTimeline({
                                 className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md border border-violet-500/45 bg-violet-950/90 text-base leading-none"
                                 aria-hidden
                               >
-                                {icon}
+                                {renderCardIcon(
+                                  icon,
+                                  "size-[68%] text-violet-200",
+                                )}
                               </div>
                               <div className="min-w-0">
                                 <p
@@ -364,16 +375,41 @@ export default function ProcessPinnedTimeline({
                             <div
                               key={`${step.id}-info-${cardIndex}`}
                               className={cn(
-                                "group flex flex-col rounded-2xl border border-white/8 bg-[#121212] p-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.04)] transition-all duration-200 sm:p-5 lg:p-6",
-                                "hover:-translate-y-0.5 hover:border-violet-500/35 hover:shadow-[0_8px_28px_rgba(0,0,0,0.45)]",
+                                "group relative flex flex-col overflow-hidden rounded-2xl border border-white/10 bg-[#111111] p-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.04)] transition-all duration-300 sm:p-5 lg:p-6",
+                                "hover:-translate-y-1 hover:border-violet-400/50 hover:shadow-[0_8px_32px_rgba(124,58,237,0.15)]",
                                 "max-w-sm min-w-[min(100%,240px)] flex-[1_1_240px] gap-3 sm:min-w-[min(100%,260px)] sm:flex-[1_1_260px] lg:gap-4",
+                                cardIndex === 1 &&
+                                  "scale-[1.03] border-violet-500/65 bg-[#131013] shadow-[0_0_40px_rgba(124,58,237,0.14)] hover:scale-[1.04] hover:border-violet-400/70 hover:shadow-[0_8px_48px_rgba(124,58,237,0.25)]",
                               )}
                             >
                               <div
-                                className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-violet-500/45 bg-violet-950/90 text-base leading-none shadow-[0_0_0_1px_rgba(139,92,246,0.22),0_0_22px_rgba(124,58,237,0.38)] sm:h-10 sm:w-10 sm:text-lg"
+                                className={cn(
+                                  "absolute top-0 left-6 right-6 bg-white/10",
+                                  cardIndex === 1
+                                    ? "h-[2px] bg-violet-500/60"
+                                    : "h-[1px]",
+                                )}
+                              />
+                              <span
+                                className={cn(
+                                  "absolute top-4 right-4 text-[11px] font-mono tracking-[0.15em] text-white/15",
+                                  cardIndex === 1 && "text-white/30",
+                                )}
+                              >
+                                Nº {(cardIndex + 1).toString().padStart(2, "0")}
+                              </span>
+                              <div
+                                className={cn(
+                                  "flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-violet-500/45 bg-violet-950/90 text-base leading-none shadow-[0_0_0_1px_rgba(139,92,246,0.22),0_0_22px_rgba(124,58,237,0.38)] sm:h-10 sm:w-10 sm:text-lg",
+                                  cardIndex === 1 &&
+                                    "shadow-[0_0_0_1px_rgba(139,92,246,0.22),0_0_22px_rgba(124,58,237,0.38),0_0_20px_rgba(124,58,237,0.3)]",
+                                )}
                                 aria-hidden
                               >
-                                {icon}
+                                {renderCardIcon(
+                                  icon,
+                                  "size-[68%] text-violet-200",
+                                )}
                               </div>
                               <div className="flex min-w-0 flex-col gap-1.5 sm:gap-2">
                                 <p
@@ -419,7 +455,13 @@ export default function ProcessPinnedTimeline({
                             <p
                               className={`text-sm font-medium text-purple-200 ${dmSans.className}`}
                             >
-                              {icon} {heading}
+                              <span className="inline-flex items-center gap-1.5">
+                                {renderCardIcon(
+                                  icon,
+                                  "size-3.5 text-violet-300",
+                                )}
+                                <span>{heading}</span>
+                              </span>
                             </p>
                             {card.subtext ? (
                               <p

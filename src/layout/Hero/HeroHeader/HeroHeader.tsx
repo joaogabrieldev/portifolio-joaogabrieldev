@@ -10,6 +10,10 @@ import HeroDesktopNav, { HeroDesktopNavActions } from "./HeroDesktopNav";
 import HeroMobileNav from "./HeroMobileNav";
 
 const MORPH_TRANSITION = { duration: 0.55, ease: [0.22, 1, 0.36, 1] as const };
+const LOGO_MORPH_TRANSITION = {
+  duration: 0.75,
+  ease: [0.2, 1, 0.22, 1] as const,
+};
 
 const HeroHeader = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -30,7 +34,7 @@ const HeroHeader = () => {
           <div className="mx-auto flex w-full max-w-7xl min-w-0 items-center justify-between gap-2 px-4 py-3 sm:gap-3 sm:px-6 sm:py-4 md:grid md:grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] md:gap-x-3 md:gap-y-2 md:px-10 md:py-3 lg:px-12">
             <motion.div
               layoutId="global-header-logo"
-              transition={MORPH_TRANSITION}
+              transition={LOGO_MORPH_TRANSITION}
               className="min-w-0 justify-self-start text-base font-bold tracking-wider text-white sm:text-lg md:text-xl"
             >
               <Link href="/">
