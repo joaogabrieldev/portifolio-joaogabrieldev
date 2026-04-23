@@ -47,31 +47,25 @@ type ContactLink = {
 
 const FORMATION: TimelineItem[] = [
   {
-    period: "2023 — Atual",
+    period: "2025 — Atual",
     title: "Engenharia de Software",
     subtitle: "UniCEUB",
     description:
       "Ênfase em desenvolvimento web, arquitetura de software e boas práticas de engenharia.",
   },
-  {
-    period: "2020 — 2022",
-    title: "Técnico em Informática",
-    subtitle: "Formação técnica",
-    description:
-      "Base em lógica, redes e fundamentos de programação, aplicada a projetos práticos.",
-  },
 ];
 
 const EXPERIENCE_ITEM: TimelineItem = {
-  period: "2022 — Presente",
+  period: "2025 — Atual",
   title: (
     <>
-      Desenvolvedor Frontend <span className="text-white/40">—</span> Freelancer
+      Desenvolvedor Full Stack <span className="text-white/40">—</span>{" "}
+      Freelancer
     </>
   ),
   subtitle: "Projetos independentes",
   description:
-    "Landing pages e portfólios performáticos, integrações com APIs e CMS headless, com foco em acessibilidade, SEO técnico e DX de manutenção.",
+    "Desenvolvimento de produtos digitais, integrações com APIs e banco de dados, com foco em SEO técnico e DX de manutenção.",
 };
 
 const LANGUAGES: LanguageItem[] = [
@@ -120,7 +114,7 @@ export default function AboutSection() {
             <div
               className={`hidden items-center gap-6 text-[10px] tracking-[0.22em] text-white/40 uppercase sm:flex ${epilogue.className}`}
             >
-              <span>Brasília / BR</span>
+              <span>Brasília / DF</span>
               <span className="h-1 w-1 rounded-full bg-white/20" />
               <span>Ref. 0024</span>
               <span className="h-1 w-1 rounded-full bg-white/20" />
@@ -133,7 +127,7 @@ export default function AboutSection() {
           <div className="relative grid grid-cols-12 gap-6 pt-10 pb-14 md:gap-10">
             <div className="col-span-12 md:col-span-2">
               <div
-                className={`text-[clamp(3.5rem,10vw,7rem)] leading-[0.9] font-extrabold tracking-[-0.04em] text-transparent [-webkit-text-stroke:1px_rgba(167,139,250,0.35)] ${epilogue.className}`}
+                className={`w-fit cursor-default text-[clamp(3.5rem,10vw,7rem)] leading-[0.9] font-extrabold tracking-[-0.04em] text-transparent antialiased select-none [-webkit-text-stroke:1px_rgba(167,139,250,0.35)] ${epilogue.className}`}
               >
                 01
               </div>
@@ -163,9 +157,9 @@ export default function AboutSection() {
                 <p
                   className={`col-span-12 text-base leading-relaxed text-white/70 md:col-span-7 md:text-[1.0625rem] ${dmSans.className}`}
                 >
-                  Desenvolvedor frontend com foco em performance e clareza.
-                  Construo interfaces acessíveis, rápidas e com manutenção
-                  previsível — do conceito visual ao deploy.
+                  Desenvolvedor fullstack com foco em produto completo. Da
+                  interface ao banco de dados, cuido de cada camada, garantindo
+                  que o produto funcione tão bem quanto o que o usuário vê.
                 </p>
 
                 <aside className="col-span-12 md:col-span-4 md:col-start-9">
@@ -192,7 +186,7 @@ export default function AboutSection() {
           aria-label="Perfil profissional"
           className="mt-4 grid grid-cols-1 gap-5 md:grid-cols-2 md:gap-6"
         >
-          <article className={infoCardClass} onMouseEnter={() => {}}>
+          <article className={infoCardClass}>
             <CardHeader title="Formação Acadêmica" index="02" />
             <div className="space-y-7">
               {FORMATION.map((item) => (
@@ -389,7 +383,7 @@ export default function AboutSection() {
                               {skill.name}
                             </span>
                             <span
-                              className={`shrink-0 text-[12px] font-semibold text-white/55 tabular-nums sm:text-base ${epilogue.className}`}
+                              className={`shrink-0 text-[11px] font-semibold text-white/55 tabular-nums sm:text-sm ${epilogue.className}`}
                             >
                               {skill.level}%
                             </span>

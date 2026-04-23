@@ -1,6 +1,11 @@
+"use client";
+
 import LangSelect from "@/pieces/LangSelect/LangSelect";
 import { dmSans } from "@/utils/fonts";
+import { motion } from "motion/react";
 import { Link as ScrollLink } from "react-scroll";
+
+const MORPH_TRANSITION = { duration: 0.55, ease: [0.22, 1, 0.36, 1] as const };
 
 interface HeroNavLink {
   title: string;
@@ -38,14 +43,16 @@ export function HeroDesktopNavActions() {
   return (
     <div className="hidden flex-row gap-2 md:flex">
       <LangSelect />
-      <ScrollLink
-        to="contato"
-        smooth={true}
-        duration={800}
-        className={`flex h-11 cursor-pointer items-center justify-center rounded-full border border-violet-400/25 bg-[#413b72] px-6 text-sm font-bold tracking-wide text-white uppercase shadow-[0_8px_24px_rgba(65,59,114,0.45)] transition hover:border-violet-300/35 hover:bg-[#4f4790] hover:shadow-[0_10px_28px_rgba(65,59,114,0.5)] ${dmSans.className}`}
-      >
-        Contato
-      </ScrollLink>
+      <motion.div layoutId="global-header-cta" transition={MORPH_TRANSITION}>
+        <ScrollLink
+          to="contato"
+          smooth={true}
+          duration={800}
+          className={`flex h-11 cursor-pointer items-center justify-center rounded-full border border-violet-400/25 bg-[#413b72] px-6 text-sm font-bold tracking-wide text-white uppercase shadow-[0_8px_24px_rgba(65,59,114,0.45)] transition hover:border-violet-300/35 hover:bg-[#4f4790] hover:shadow-[0_10px_28px_rgba(65,59,114,0.5)] ${dmSans.className}`}
+        >
+          Contato
+        </ScrollLink>
+      </motion.div>
     </div>
   );
 }

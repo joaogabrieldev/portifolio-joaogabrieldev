@@ -1,44 +1,43 @@
 "use client";
 
-import { useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
+import { useState } from "react";
+import { motion } from "motion/react";
 import { Link as ScrollLink } from "react-scroll";
 
+import newLogo from "@/assets/images/new-logo.png";
 import { navLinks } from "@/assets/data/navLinks";
-import { useHeaderScroll } from "@/stores/useHeaderScroll";
-import { useHeaderScrollTracking } from "@/hooks/useHeaderScrollTracking";
 import { useProcessosSectionForHeader } from "@/hooks/useProcessosSectionForHeader";
+import { useWindowSize } from "@/hooks/useWindowSize";
 import { cn } from "@/lib/utils";
 import { dmSans, outfit } from "@/utils/fonts";
-import { useWindowSize } from "@/hooks/useWindowSize";
-import Image from "next/image";
-import newLogo from "@/assets/images/new-logo.png";
 
 const SECTIONS_NAV_LINKS = navLinks.filter((l) => l.title !== "Contato");
 
+const TRANSITION = { duration: 0.55, ease: [0.22, 1, 0.36, 1] as const };
+
 export default function SectionsHeader() {
-  useHeaderScrollTracking();
-  const isScrolled = useHeaderScroll((s) => s.isScrolled);
   const isProcessosSection = useProcessosSectionForHeader();
   const [mobileOpen, setMobileOpen] = useState(false);
 
   const { width } = useWindowSize();
   /** Desktop (md+): header transparente só na secção Process; mobile mantém barra sólida. */
   const isDesktop = width >= 768;
-  const headerProcessosStyle =
-    isScrolled && isProcessosSection && isDesktop;
+  const headerProcessosStyle = isProcessosSection && isDesktop;
 
   return (
-    <header
+    <motion.header
+      initial={{ opacity: 0, y: -16 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -16 }}
+      transition={TRANSITION}
       className={cn(
-        "fixed top-0 left-0 z-[100] w-screen max-w-[100vw] transition-[transform,opacity,background-color,border-color,backdrop-filter,box-shadow] duration-300 ease-out",
-        isScrolled
-          ? headerProcessosStyle
-            ? "translate-y-0 border-b border-transparent bg-transparent opacity-100 shadow-none backdrop-blur-none"
-            : "translate-y-0 border-b border-white/10 bg-[#050505]/92 opacity-100 shadow-[0_8px_32px_rgba(0,0,0,0.45)] backdrop-blur-xl backdrop-saturate-150"
-          : "pointer-events-none -translate-y-full opacity-0",
+        "fixed top-0 left-0 z-[100] w-screen max-w-[100vw] transition-[background-color,border-color,backdrop-filter,box-shadow] duration-300 ease-out",
+        headerProcessosStyle
+          ? "border-b border-transparent bg-transparent shadow-none backdrop-blur-none"
+          : "border-b border-white/10 bg-[#050505]/92 shadow-[0_8px_32px_rgba(0,0,0,0.45)] backdrop-blur-xl backdrop-saturate-150",
       )}
-      aria-hidden={!isScrolled}
     >
       <div
         className={cn(
@@ -48,19 +47,21 @@ export default function SectionsHeader() {
       />
 
       <div className="relative mx-auto flex h-[4.25rem] w-full max-w-[100rem] items-center justify-between gap-4 px-4 sm:h-[4.5rem] sm:px-8 md:px-12">
-        <Link
-          href="/#inicio"
-          className="group flex shrink-0 items-center gap-2 py-4 outline-none focus-visible:ring-2 focus-visible:ring-violet-400/80 focus-visible:ring-offset-2 focus-visible:ring-offset-[#050505]"
-        >
-          <Image
-            src={newLogo}
-            alt="logo"
-            width={48}
-            height={48}
-            className="my-4 h-[52px] w-[52px] cursor-pointer hover:fill-gray-200"
-            priority
-          />
-        </Link>
+        <motion.div layoutId="global-header-logo" transition={TRANSITION}>
+          <Link
+            href="/#inicio"
+            className="group flex shrink-0 items-center gap-2 py-4 outline-none focus-visible:ring-2 focus-visible:ring-violet-400/80 focus-visible:ring-offset-2 focus-visible:ring-offset-[#050505]"
+          >
+            <Image
+              src={newLogo}
+              alt="logo"
+              width={48}
+              height={48}
+              className="my-4 h-[52px] w-[52px] cursor-pointer hover:fill-gray-200"
+              priority
+            />
+          </Link>
+        </motion.div>
 
         <nav
           className={`hidden min-w-0 flex-1 items-center justify-end gap-2 md:flex md:gap-1 lg:gap-2 ${outfit.className}`}
@@ -83,15 +84,17 @@ export default function SectionsHeader() {
               </li>
             ))}
           </ul>
-          <ScrollLink
-            to="contato"
-            smooth
-            duration={800}
-            offset={-72}
-            className={`ml-2 inline-flex shrink-0 cursor-pointer items-center justify-center rounded-full border border-violet-400/30 bg-[#5b4f9e] px-5 py-2.5 text-sm font-bold tracking-wide text-white uppercase shadow-[0_6px_20px_rgba(91,79,158,0.45)] transition hover:border-violet-300/45 hover:bg-[#6d5fb5] hover:shadow-[0_8px_24px_rgba(91,79,158,0.5)] ${dmSans.className}`}
-          >
-            Contato
-          </ScrollLink>
+          <motion.div layoutId="global-header-cta" transition={TRANSITION}>
+            <ScrollLink
+              to="contato"
+              smooth
+              duration={800}
+              offset={-72}
+              className={`ml-2 inline-flex shrink-0 cursor-pointer items-center justify-center rounded-full border border-violet-400/30 bg-[#5b4f9e] px-5 py-2.5 text-sm font-bold tracking-wide text-white uppercase shadow-[0_6px_20px_rgba(91,79,158,0.45)] transition hover:border-violet-300/45 hover:bg-[#6d5fb5] hover:shadow-[0_8px_24px_rgba(91,79,158,0.5)] ${dmSans.className}`}
+            >
+              Contato
+            </ScrollLink>
+          </motion.div>
         </nav>
 
         <div className="flex items-center gap-2 md:hidden">
@@ -120,7 +123,7 @@ export default function SectionsHeader() {
         </div>
       </div>
 
-      {mobileOpen && isScrolled ? (
+      {mobileOpen ? (
         <div className="border-t border-white/10 bg-[#0a0a0a]/98 px-4 py-4 backdrop-blur-xl md:hidden">
           <ul className={`flex flex-col gap-1 ${outfit.className}`}>
             {SECTIONS_NAV_LINKS.map((item) => (
@@ -140,6 +143,6 @@ export default function SectionsHeader() {
           </ul>
         </div>
       ) : null}
-    </header>
+    </motion.header>
   );
 }

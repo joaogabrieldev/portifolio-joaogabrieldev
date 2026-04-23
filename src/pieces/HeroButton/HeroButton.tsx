@@ -1,5 +1,8 @@
+"use client";
+
 import { cn } from "@/lib/utils";
 import React from "react";
+import { Link as ScrollLink } from "react-scroll";
 
 export type HeroButtonVariant = "primary" | "secondary" | "outline";
 
@@ -8,6 +11,10 @@ interface IHeroButton {
   button_label: string;
   button_icon?: React.ReactNode;
   button_variant?: HeroButtonVariant;
+  /** Usa `react-scroll` com `to={button_href}` (slug do `id` da secção). */
+  scrollToSection?: boolean;
+  /** Abre noutro separador (ex.: PDF). */
+  openInNewTab?: boolean;
 }
 
 const button_variants: Record<HeroButtonVariant, string> = {
@@ -25,22 +32,26 @@ const icon_circle_variants: Record<HeroButtonVariant, string> = {
   outline: "bg-white text-black group-hover:bg-white/85",
 };
 
+const heroButtonClassName = (
+  button_variant: HeroButtonVariant,
+) =>
+  cn(
+    "group mt-4 inline-flex cursor-pointer items-center gap-2 rounded-full border px-3 py-1.5 text-base font-medium transition-all duration-300 hover:-translate-y-0.5 sm:px-4 sm:py-2 sm:text-[14px]",
+    button_variants[button_variant],
+  );
+
 const HeroButton = ({
   button_href,
   button_label,
   button_icon,
   button_variant = "primary",
+  scrollToSection = false,
+  openInNewTab = false,
 }: IHeroButton) => {
-  return (
-    <a
-      href={button_href}
-      className={cn(
-        "group mt-4 inline-flex items-center gap-2 rounded-full border px-3 py-1.5 text-base font-medium transition-all duration-300 hover:-translate-y-0.5 sm:px-4 sm:py-2 sm:text-[14px]",
-        button_variants[button_variant],
-      )}
-    >
+  const inner = (
+    <>
       <span className="text-[16px] font-medium">{button_label}</span>
-      {button_icon && (
+      {button_icon ? (
         <span
           aria-hidden="true"
           className={cn(
@@ -50,7 +61,33 @@ const HeroButton = ({
         >
           {button_icon}
         </span>
-      )}
+      ) : null}
+    </>
+  );
+
+  if (scrollToSection) {
+    return (
+      <ScrollLink
+        to={button_href}
+        smooth
+        duration={800}
+        offset={-72}
+        href={`#${button_href}`}
+        className={heroButtonClassName(button_variant)}
+      >
+        {inner}
+      </ScrollLink>
+    );
+  }
+
+  return (
+    <a
+      href={button_href}
+      target={openInNewTab ? "_blank" : undefined}
+      rel={openInNewTab ? "noopener noreferrer" : undefined}
+      className={heroButtonClassName(button_variant)}
+    >
+      {inner}
     </a>
   );
 };

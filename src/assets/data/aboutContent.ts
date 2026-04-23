@@ -32,6 +32,9 @@ import {
   SiRender,
   SiHeroku,
   SiHostinger,
+  SiSupabase,
+  SiSqlite,
+  SiTurso,
 } from "react-icons/si";
 
 export type AboutSkill = {
@@ -143,12 +146,19 @@ export const aboutSkillGroups: AboutSkillGroup[] = [
         iconUrl: "https://avatars.githubusercontent.com/u/108468352?s=64",
         level: 95,
       },
-
       {
         name: "Prisma",
         Icon: SiPrisma,
         iconColor: "#8164e3",
         level: 85,
+      },
+
+      {
+        name: "MySQL",
+        Icon: SiMysql,
+        iconUrl: "/assets/icons/mysql.svg",
+        iconColor: "#4479A1",
+        level: 100,
       },
       {
         name: "PostgreSQL",
@@ -157,11 +167,10 @@ export const aboutSkillGroups: AboutSkillGroup[] = [
         level: 90,
       },
       {
-        name: "MySQL",
-        Icon: SiMysql,
-        iconUrl: "/assets/icons/mysql.svg",
-        iconColor: "#4479A1",
-        level: 100,
+        name: "SQLite",
+        Icon: SiSqlite,
+        iconColor: "#FFF",
+        level: 90,
       },
       {
         name: "MongoDB",
@@ -291,6 +300,18 @@ export const aboutSkillGroups: AboutSkillGroup[] = [
         name: "Redis",
         Icon: SiReact,
         iconUrl: "/assets/icons/redis.png",
+        level: 80,
+      },
+      {
+        name: "Supabase",
+        Icon: SiSupabase,
+        iconColor: "#3ECF8E",
+        level: 90,
+      },
+      {
+        name: "Turso",
+        Icon: SiTurso,
+        iconColor: "#4DA8A9",
         level: 80,
       },
     ],

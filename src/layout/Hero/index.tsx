@@ -55,7 +55,7 @@ const Hero = () => {
         <div
           ref={heroRef}
           id="inicio"
-          className="relative flex min-h-screen w-full scroll-mt-0 flex-col items-center justify-between overflow-hidden bg-black px-4 py-5 font-sans sm:px-6 sm:py-6 md:px-10 md:py-8 lg:top-0 lg:px-12"
+          className="relative flex min-h-screen w-full scroll-mt-0 flex-col items-center justify-between overflow-hidden bg-black px-4 pt-20 pb-5 font-sans sm:px-6 sm:pt-24 sm:pb-6 md:px-10 md:pt-24 md:pb-8 lg:top-0 lg:px-12"
         >
           <HeroHeader />
 

@@ -1,5 +1,4 @@
 "use client";
-import { HERO_CONTENT } from "@/layout/Hero";
 import { useHeroParallaxY } from "@/hooks/useHeroParallaxY";
 import HeroButton from "@/pieces/HeroButton/HeroButton";
 import { dmSans, epilogue } from "@/utils/fonts";
@@ -43,13 +42,15 @@ const HeroLeftText = () => {
           <div className="mt-4 h-px w-full bg-linear-to-r from-white/25 via-white/5 to-transparent" />
           <div className="flex flex-wrap justify-center gap-3 sm:gap-4">
             <HeroButton
-              button_href={HERO_CONTENT.readMoreLink}
+              button_href="projetos"
+              scrollToSection
               button_label="Ver Projetos"
               button_icon={<ArrowDown size={18} />}
               button_variant="primary"
             />{" "}
             <HeroButton
-              button_href={HERO_CONTENT.readMoreLink}
+              button_href="/curriculo-joao-gabriel.pdf"
+              openInNewTab
               button_label="Ver CV"
               button_variant="secondary"
               button_icon={<ArrowUpRight size={18} />}
