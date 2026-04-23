@@ -303,7 +303,7 @@ export const aboutSkillGroups: AboutSkillGroup[] = [
         name: "VS Code",
         Icon: SiGithub,
         iconUrl: "/assets/icons/vscode.png",
-        level: 92,
+        level: 100,
       },
       { name: "Git", Icon: SiGit, iconColor: "#F05032", level: 95 },
       { name: "GitHub", Icon: SiGithub, iconColor: "#FFFFFF", level: 95 },

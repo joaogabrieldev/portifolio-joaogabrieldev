@@ -3,7 +3,13 @@ import type { ReactNode } from "react";
 import { Mail } from "lucide-react";
 import { SiGithub, SiLinkedin } from "react-icons/si";
 
+import { aboutSkillGroups } from "@/assets/data/aboutContent";
+import CardHeader from "@/components/CardHeader/CardHeader";
+import { SkillProgressBar } from "@/components/SkillProgressBar/SkillProgressBar";
+import TimelineEntry from "@/components/TimelineEntry/TimelineEntry";
+import LiveStatusDot from "@/pieces/LiveStatusDot/LiveStatusDot";
 import { dmSans, epilogue } from "@/utils/fonts";
+
 import { sectionShell } from "./sectionStyles";
 
 /** Cards 2×2: borda / fundo / hover alinhados ao design editorial */
@@ -17,16 +23,6 @@ const timelineRailClass =
 /** Badge PT / EN */
 const langChipClass =
   "inline-flex size-9 shrink-0 items-center justify-center rounded-lg bg-white/[0.06] shadow-[inset_0_0_0_1px_rgba(255,255,255,0.1)]";
-
-/** Indicador “ao vivo”: ping + núcleo (substitui keyframes custom) */
-function LiveStatusDot() {
-  return (
-    <span className="relative flex size-2" aria-hidden>
-      <span className="absolute inline-flex size-full animate-ping rounded-full bg-emerald-400/70 motion-reduce:animate-none" />
-      <span className="relative inline-flex size-2 rounded-full bg-emerald-400" />
-    </span>
-  );
-}
 
 type TimelineItem = {
   period: string;
@@ -102,49 +98,7 @@ const CONTACT_LINKS: ContactLink[] = [
 
 const EDITORIAL_EMAIL = "joaogabriel2r.profissional@hotmail.com";
 
-function TimelineEntry({ period, title, subtitle, description }: TimelineItem) {
-  return (
-    <div className={timelineRailClass}>
-      <div
-        className={`text-xs font-semibold tracking-[0.18em] text-violet-300/90 uppercase ${epilogue.className}`}
-      >
-        {period}
-      </div>
-      <h3
-        className={`mt-2 text-lg font-semibold text-white ${epilogue.className}`}
-      >
-        {title}
-      </h3>
-      <p className={`mt-0.5 text-sm text-white/60 ${dmSans.className}`}>
-        {subtitle}
-      </p>
-      <p
-        className={`mt-3 max-w-md text-sm leading-relaxed text-white/70 ${dmSans.className}`}
-      >
-        {description}
-      </p>
-    </div>
-  );
-}
-
-type CardIndex = "02" | "03" | "04" | "05";
-
-function CardHeader({ title, index }: { title: string; index: CardIndex }) {
-  return (
-    <header className="mb-6 flex items-center justify-between">
-      <h3
-        className={`text-xs font-semibold tracking-[0.2em] text-violet-300/90 uppercase ${epilogue.className}`}
-      >
-        {title}
-      </h3>
-      <span
-        className={`text-[10px] tracking-[0.2em] text-white/30 uppercase ${epilogue.className}`}
-      >
-        {index}
-      </span>
-    </header>
-  );
-}
+const semester = new Date().getMonth() + 1 > 6 ? "02" : "01";
 
 export default function AboutSection() {
   return (
@@ -171,7 +125,7 @@ export default function AboutSection() {
               <span>Ref. 0024</span>
               <span className="h-1 w-1 rounded-full bg-white/20" />
               <span>
-                Ed. <span>02 / 2026</span>
+                Ed. <span>{semester} / 2026</span>
               </span>
             </div>
           </div>
@@ -195,11 +149,11 @@ export default function AboutSection() {
                 id="sobre-heading"
                 className={`text-[2.2rem] leading-[1.02] font-semibold tracking-[-0.025em] sm:text-5xl md:text-[3.5rem] lg:text-[4.25rem] ${epilogue.className}`}
               >
-                <span className="text-white">João Gabriel</span>
+                <span className="font-extrabold text-white">João Gabriel</span>
                 <span className="text-white/25"> — </span>
-                <span className="text-white/90">desenvolvimento</span>
-                <span className="text-white/90"> de produtos</span>
-                <span className="text-white"> digitais</span>
+                <span className="text-white/90 italic">desenvolvimento</span>
+                <span className="text-white/90 italic"> de produtos</span>
+                <span className="text-white/90 italic"> digitais</span>
                 <span className="bg-linear-to-r from-violet-400 via-fuchsia-400 to-violet-400 bg-clip-text text-transparent">
                   .
                 </span>
@@ -238,7 +192,7 @@ export default function AboutSection() {
           aria-label="Perfil profissional"
           className="mt-4 grid grid-cols-1 gap-5 md:grid-cols-2 md:gap-6"
         >
-          <article className={infoCardClass}>
+          <article className={infoCardClass} onMouseEnter={() => {}}>
             <CardHeader title="Formação Acadêmica" index="02" />
             <div className="space-y-7">
               {FORMATION.map((item) => (
@@ -363,14 +317,103 @@ export default function AboutSection() {
           </article>
         </section>
 
+        <section
+          aria-labelledby="sobre-skills-heading"
+          className="mt-14 border-t border-white/10 pt-12 md:mt-16 md:pt-14"
+        >
+          <div className="mb-8 flex flex-wrap items-end justify-between gap-4 border-b border-white/10 pb-6">
+            <div>
+              <p
+                className={`text-xs font-semibold tracking-[0.2em] text-violet-300/90 uppercase ${epilogue.className}`}
+              >
+                Stack & ferramentas
+              </p>
+              <h2
+                id="sobre-skills-heading"
+                className={`mt-2 text-xl font-semibold tracking-tight text-white sm:text-2xl ${epilogue.className}`}
+              >
+                Conhecimentos
+              </h2>
+            </div>
+            <p className={`max-w-md text-sm text-white/50 ${dmSans.className}`}>
+              Níveis indicativos (0–100%) com base em projetos reais e rotina de
+              uso.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-3 xl:gap-6">
+            {aboutSkillGroups.map((group, groupIndex) => {
+              const baseDelay =
+                aboutSkillGroups
+                  .slice(0, groupIndex)
+                  .reduce((acc, g) => acc + g.skills.length, 0) * 0.035;
+
+              return (
+                <article key={group.id} className={infoCardClass}>
+                  <h3
+                    className={`text-xs font-semibold tracking-[0.18em] text-violet-300/90 uppercase ${epilogue.className}`}
+                  >
+                    {group.label}
+                  </h3>
+                  <ul className="mt-5 space-y-4">
+                    {group.skills.map((skill, skillIndex) => {
+                      const Icon = skill.Icon;
+                      const delay = baseDelay + skillIndex * 0.035;
+
+                      return (
+                        <li key={`${group.id}-${skill.name}`}>
+                          <div className="flex items-center gap-2.5">
+                            {skill.iconUrl ? (
+                              // eslint-disable-next-line @next/next/no-img-element -- URLs externas e ícones locais mistos
+                              <img
+                                src={skill.iconUrl}
+                                alt=""
+                                width={18}
+                                height={18}
+                                className="size-[18px] shrink-0 object-contain"
+                              />
+                            ) : (
+                              <Icon
+                                className="size-[18px] shrink-0"
+                                style={
+                                  skill.iconColor
+                                    ? { color: skill.iconColor }
+                                    : undefined
+                                }
+                                aria-hidden
+                              />
+                            )}
+                            <span
+                              className={`min-w-0 flex-1 truncate text-sm font-medium text-white/90 ${dmSans.className}`}
+                            >
+                              {skill.name}
+                            </span>
+                            <span
+                              className={`shrink-0 text-[12px] font-semibold text-white/55 tabular-nums sm:text-base ${epilogue.className}`}
+                            >
+                              {skill.level}%
+                            </span>
+                          </div>
+                          <SkillProgressBar
+                            value={skill.level}
+                            delay={Math.min(delay, 1.2)}
+                            className="mt-2"
+                          />
+                        </li>
+                      );
+                    })}
+                  </ul>
+                </article>
+              );
+            })}
+          </div>
+        </section>
+
         <div
-          className={`mt-14 flex flex-wrap items-center justify-between gap-4 text-[10px] tracking-[0.22em] text-white/30 uppercase ${epilogue.className}`}
+          className={`mt-14 flex flex-wrap items-center justify-between gap-4 text-[10px] tracking-[0.22em] text-white/40 uppercase ${epilogue.className}`}
         >
           <span>§ About</span>
-          <span className="hidden md:inline">
-            Press / to search · Esc to close
-          </span>
-          <span>v. 2.6.0</span>
+          <span>v. 2.0.0</span>
         </div>
       </div>
     </section>
