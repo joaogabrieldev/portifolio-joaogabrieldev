@@ -1,12 +1,15 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { motion } from "motion/react";
 import { Link as ScrollLink } from "react-scroll";
 
-import newLogo from "@/assets/images/new-logo.png";
+import NewLogo from "@/pieces/NewLogo/NewLogo";
+import {
+  HEADER_LOGO_LAYOUT_TRANSITION,
+  HEADER_SHELL_OPACITY_TRANSITION,
+} from "@/constants/headerLogoMotion";
 import { navLinks } from "@/assets/data/navLinks";
 import { useProcessosSectionForHeader } from "@/hooks/useProcessosSectionForHeader";
 import { useSectionScrollSpy } from "@/hooks/useSectionScrollSpy";
@@ -17,7 +20,6 @@ import { dmSans, outfit } from "@/utils/fonts";
 const SECTIONS_NAV_LINKS = navLinks.filter((l) => l.title !== "Contato");
 
 const TRANSITION = { duration: 0.55, ease: [0.22, 1, 0.36, 1] as const };
-const LOGO_TRANSITION = { duration: 0.75, ease: [0.2, 1, 0.22, 1] as const };
 
 export default function SectionsHeader() {
   const isProcessosSection = useProcessosSectionForHeader();
@@ -32,10 +34,10 @@ export default function SectionsHeader() {
   return (
     <motion.header
       id="site-primary-nav"
-      initial={{ opacity: 0, y: -16 }}
-      animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: -16 }}
-      transition={TRANSITION}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={HEADER_SHELL_OPACITY_TRANSITION}
       className={cn(
         "fixed top-0 left-0 z-[100] w-screen max-w-[100vw] transition-[background-color,border-color,backdrop-filter,box-shadow] duration-300 ease-out",
         headerProcessosStyle
@@ -51,19 +53,16 @@ export default function SectionsHeader() {
       />
 
       <div className="relative mx-auto flex h-[4.25rem] w-full max-w-[100rem] items-center justify-between gap-4 px-4 sm:h-[4.5rem] sm:px-8 md:px-12">
-        <motion.div layoutId="global-header-logo" transition={LOGO_TRANSITION}>
+        <motion.div
+          layoutId="global-header-logo"
+          transition={HEADER_LOGO_LAYOUT_TRANSITION}
+          className="flex shrink-0 items-center"
+        >
           <Link
             href="/#inicio"
-            className="group flex shrink-0 items-center gap-2 py-4 outline-none focus-visible:ring-2 focus-visible:ring-violet-400/80 focus-visible:ring-offset-2 focus-visible:ring-offset-[#050505]"
+            className="inline-flex items-center outline-none focus-visible:ring-2 focus-visible:ring-violet-400/80 focus-visible:ring-offset-2 focus-visible:ring-offset-[#050505]"
           >
-            <Image
-              src={newLogo}
-              alt="logo"
-              width={48}
-              height={48}
-              className="my-4 h-[52px] w-[52px] cursor-pointer hover:fill-gray-200"
-              priority
-            />
+            <NewLogo variant="compact" />
           </Link>
         </motion.div>
 

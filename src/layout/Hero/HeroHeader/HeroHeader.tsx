@@ -3,17 +3,15 @@
 import { HERO_CONTENT } from "@/layout/Hero";
 import NewLogo from "@/pieces/NewLogo/NewLogo";
 import { useScrolledPastHero } from "@/hooks/useScrolledPastHero";
+import {
+  HEADER_LOGO_LAYOUT_TRANSITION,
+  HEADER_SHELL_OPACITY_TRANSITION,
+} from "@/constants/headerLogoMotion";
 import Link from "next/link";
 import { useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import HeroDesktopNav, { HeroDesktopNavActions } from "./HeroDesktopNav";
 import HeroMobileNav from "./HeroMobileNav";
-
-const MORPH_TRANSITION = { duration: 0.55, ease: [0.22, 1, 0.36, 1] as const };
-const LOGO_MORPH_TRANSITION = {
-  duration: 0.75,
-  ease: [0.2, 1, 0.22, 1] as const,
-};
 
 const HeroHeader = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -25,20 +23,23 @@ const HeroHeader = () => {
         <motion.header
           id="site-hero-nav"
           key="hero-header"
-          initial={{ opacity: 0, y: -12 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -12 }}
-          transition={MORPH_TRANSITION}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={HEADER_SHELL_OPACITY_TRANSITION}
           className="fixed top-0 right-0 left-0 z-30 w-full"
         >
           <div className="mx-auto flex w-full max-w-7xl min-w-0 items-center justify-between gap-2 px-4 py-3 sm:gap-3 sm:px-6 sm:py-4 md:grid md:grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] md:gap-x-3 md:gap-y-2 md:px-10 md:py-3 lg:px-12">
             <motion.div
               layoutId="global-header-logo"
-              transition={LOGO_MORPH_TRANSITION}
-              className="min-w-0 justify-self-start text-base font-bold tracking-wider text-white sm:text-lg md:text-xl"
+              transition={HEADER_LOGO_LAYOUT_TRANSITION}
+              className="flex min-w-0 shrink-0 items-center justify-self-start"
             >
-              <Link href="/">
-                <NewLogo />
+              <Link
+                href="/"
+                className="inline-flex items-center outline-none focus-visible:ring-2 focus-visible:ring-violet-400/80 focus-visible:ring-offset-2 focus-visible:ring-offset-black"
+              >
+                <NewLogo variant="hero" />
               </Link>
             </motion.div>
             <HeroDesktopNav navLinks={HERO_CONTENT.navLinks} />

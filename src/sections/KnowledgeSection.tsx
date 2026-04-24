@@ -4,7 +4,7 @@ import { dmSans, epilogue, geistMono } from "@/utils/fonts";
 import { sectionShell } from "./sectionStyles";
 
 const infoCardClass =
-  "group relative overflow-hidden rounded-2xl border border-violet-500/65 bg-[#131013] p-6 shadow-[0_0_40px_rgba(124,58,237,0.14)] transition-all duration-300 hover:-translate-y-1 hover:scale-[1.02] hover:border-violet-400/70 hover:shadow-[0_8px_48px_rgba(124,58,237,0.25)] md:p-7";
+  "group relative overflow-hidden rounded-2xl border border-white/10 bg-[#111111] p-6 shadow-[inset_0_1px_0_rgba(255,255,255,0.04)] transition-all duration-300 hover:-translate-y-0.5 hover:border-white/18 md:p-7";
 
 export default function KnowledgeSection() {
   return (
@@ -44,7 +44,6 @@ export default function KnowledgeSection() {
 
             return (
               <article key={group.id} className={infoCardClass}>
-                <div className="absolute top-0 right-6 left-6 h-[2px] bg-violet-500/60" />
                 <h3
                   className={`text-xs font-semibold tracking-[0.18em] text-violet-300/90 uppercase ${epilogue.className}`}
                 >
@@ -84,7 +83,7 @@ export default function KnowledgeSection() {
                             {skill.name}
                           </span>
                           <span
-                            className={`shrink-0 text-[11px] tabular-nums text-white/55 transition-colors duration-300 ease-out group-hover:text-violet-200 sm:text-sm ${geistMono.className}`}
+                            className={`shrink-0 text-[11px] tabular-nums text-white/55 transition-colors duration-300 ease-out group-hover:text-white/75 sm:text-sm ${geistMono.className}`}
                           >
                             {skill.level}%
                           </span>

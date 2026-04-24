@@ -57,7 +57,7 @@ const PROCESS_STEP_INFO_CARDS: Partial<Record<string, ProcessStepInfoCard[]>> =
       },
       {
         icon: Clock3,
-        title: "~ 3 dias",
+        title: "Até 3 dias",
         intro:
           "Um prazo enxuto e respeitado — tempo suficiente para ouvir com atenção, processar e entregar algo concreto.",
         topics: [
@@ -95,7 +95,7 @@ const PROCESS_STEP_INFO_CARDS: Partial<Record<string, ProcessStepInfoCard[]>> =
       },
       {
         icon: Clock3,
-        title: "~ 5–8 dias",
+        title: "3–5 dias",
         intro:
           "Uma janela focada para pensar a interface com calma, validar com o cliente e evitar retrabalho na fase de desenvolvimento.",
         topics: [
@@ -133,7 +133,7 @@ const PROCESS_STEP_INFO_CARDS: Partial<Record<string, ProcessStepInfoCard[]>> =
       },
       {
         icon: Clock3,
-        title: "~ 10–15 dias",
+        title: "Até 10 dias",
         intro:
           "Tempo para escrever código com calma, testar no caminho e não entregar nada que não passaria no seu próprio aceite.",
         topics: [
@@ -171,7 +171,7 @@ const PROCESS_STEP_INFO_CARDS: Partial<Record<string, ProcessStepInfoCard[]>> =
       },
       {
         icon: Clock3,
-        title: "~ 3–5 dias",
+        title: "Até 3 dias",
         intro:
           "Um fechamento sem pressa, com tempo para testar, ajustar e garantir que tudo sobe estável no dia combinado.",
         topics: [

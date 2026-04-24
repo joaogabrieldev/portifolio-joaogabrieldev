@@ -251,11 +251,12 @@ export default function ProcessPinnedTimeline({
                         return (
                           <div
                             key={`mobile-${step.id}-info-${cardIndex}`}
-                            className="rounded-xl border border-white/8 bg-[#151515] p-4"
+                            className="relative overflow-hidden rounded-2xl border border-violet-500/65 bg-[#131013] p-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.04),0_0_40px_rgba(124,58,237,0.14)]"
                           >
-                            <div className="flex items-start gap-3">
+                            <div className="absolute top-0 right-4 left-4 h-[2px] bg-violet-500/60" />
+                            <div className="flex items-start gap-3 pt-1">
                               <div
-                                className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md border border-violet-500/45 bg-violet-950/90 text-base leading-none"
+                                className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md border border-violet-500/45 bg-violet-950/90 text-base leading-none shadow-[0_0_0_1px_rgba(139,92,246,0.22),0_0_18px_rgba(124,58,237,0.35)]"
                                 aria-hidden
                               >
                                 {renderCardIcon(
@@ -375,35 +376,17 @@ export default function ProcessPinnedTimeline({
                             <div
                               key={`${step.id}-info-${cardIndex}`}
                               className={cn(
-                                "group relative flex flex-col overflow-hidden rounded-2xl border border-white/10 bg-[#111111] p-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.04)] transition-all duration-300 sm:p-5 lg:p-6",
-                                "hover:-translate-y-1 hover:border-violet-400/50 hover:shadow-[0_8px_32px_rgba(124,58,237,0.15)]",
+                                "group relative flex flex-col overflow-hidden rounded-2xl border border-violet-500/65 bg-[#131013] p-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.04),0_0_40px_rgba(124,58,237,0.14)] transition-all duration-300 sm:p-5 lg:p-6",
+                                "hover:-translate-y-1 hover:border-violet-400/70 hover:shadow-[0_8px_48px_rgba(124,58,237,0.25)]",
                                 "max-w-sm min-w-[min(100%,240px)] flex-[1_1_240px] gap-3 sm:min-w-[min(100%,260px)] sm:flex-[1_1_260px] lg:gap-4",
-                                cardIndex === 1 &&
-                                  "scale-[1.03] border-violet-500/65 bg-[#131013] shadow-[0_0_40px_rgba(124,58,237,0.14)] hover:scale-[1.04] hover:border-violet-400/70 hover:shadow-[0_8px_48px_rgba(124,58,237,0.25)]",
                               )}
                             >
-                              <div
-                                className={cn(
-                                  "absolute top-0 left-6 right-6 bg-white/10",
-                                  cardIndex === 1
-                                    ? "h-[2px] bg-violet-500/60"
-                                    : "h-[1px]",
-                                )}
-                              />
-                              <span
-                                className={cn(
-                                  "absolute top-4 right-4 text-[11px] font-mono tracking-[0.15em] text-white/15",
-                                  cardIndex === 1 && "text-white/30",
-                                )}
-                              >
+                              <div className="absolute top-0 right-6 left-6 h-[2px] bg-violet-500/60" />
+                              <span className="absolute top-4 right-4 text-[11px] font-mono tracking-[0.15em] text-white/30">
                                 Nº {(cardIndex + 1).toString().padStart(2, "0")}
                               </span>
                               <div
-                                className={cn(
-                                  "flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-violet-500/45 bg-violet-950/90 text-base leading-none shadow-[0_0_0_1px_rgba(139,92,246,0.22),0_0_22px_rgba(124,58,237,0.38)] sm:h-10 sm:w-10 sm:text-lg",
-                                  cardIndex === 1 &&
-                                    "shadow-[0_0_0_1px_rgba(139,92,246,0.22),0_0_22px_rgba(124,58,237,0.38),0_0_20px_rgba(124,58,237,0.3)]",
-                                )}
+                                className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-violet-500/45 bg-violet-950/90 text-base leading-none shadow-[0_0_0_1px_rgba(139,92,246,0.22),0_0_22px_rgba(124,58,237,0.38),0_0_20px_rgba(124,58,237,0.3)] sm:h-10 sm:w-10 sm:text-lg"
                                 aria-hidden
                               >
                                 {renderCardIcon(
