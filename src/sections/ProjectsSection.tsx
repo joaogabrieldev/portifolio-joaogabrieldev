@@ -8,7 +8,7 @@ export default function ProjectsSection() {
   return (
     <section
       id="projetos"
-      className={`${sectionShell} scroll-mt-6`}
+      className={`scroll-mt-6 bg-black px-4 py-20 text-white sm:px-8 md:px-12`}
       aria-labelledby="projetos-heading"
     >
       <div className="mx-auto max-w-6xl">

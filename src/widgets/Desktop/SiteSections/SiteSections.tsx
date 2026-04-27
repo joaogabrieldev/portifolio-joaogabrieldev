@@ -15,9 +15,9 @@ export default function SiteSections() {
     <div className="relative z-20 bg-black">
       <AboutSection />
       <KnowledgeSection />
+      <ProjectsSection />
       <ProcessSection />
       <PlansSection />
-      <ProjectsSection />
       <FAQSection />
       <ContactSection />
     </div>

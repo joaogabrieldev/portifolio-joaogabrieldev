@@ -11,7 +11,6 @@ import {
   HEADER_SHELL_OPACITY_TRANSITION,
 } from "@/constants/headerLogoMotion";
 import { navLinks } from "@/assets/data/navLinks";
-import { useProcessosSectionForHeader } from "@/hooks/useProcessosSectionForHeader";
 import { useSectionScrollSpy } from "@/hooks/useSectionScrollSpy";
 import { useWindowSize } from "@/hooks/useWindowSize";
 import { cn } from "@/lib/utils";
@@ -22,14 +21,13 @@ const SECTIONS_NAV_LINKS = navLinks.filter((l) => l.title !== "Contato");
 const TRANSITION = { duration: 0.55, ease: [0.22, 1, 0.36, 1] as const };
 
 export default function SectionsHeader() {
-  const isProcessosSection = useProcessosSectionForHeader();
   const activeId = useSectionScrollSpy();
   const [mobileOpen, setMobileOpen] = useState(false);
 
   const { width } = useWindowSize();
-  /** Desktop (md+): header transparente só na secção Process; mobile mantém barra sólida. */
+  /** Desktop (md+): header transparente só em `#processos` (alinha ao scroll-spy / ordem no DOM). */
   const isDesktop = width >= 768;
-  const headerProcessosStyle = isProcessosSection && isDesktop;
+  const headerProcessosStyle = activeId === "processos" && isDesktop;
 
   return (
     <motion.header

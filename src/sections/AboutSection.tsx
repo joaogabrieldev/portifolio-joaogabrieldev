@@ -203,12 +203,12 @@ export default function AboutSection() {
                   >
                     {EXPERIENCE_ITEM.period}
                   </span>
-                  <span
-                    className={`inline-flex items-center gap-1.5 text-[10px] tracking-[0.2em] text-emerald-300/90 uppercase ${epilogue.className}`}
+                  <div
+                    className={`flex flex-row items-center gap-1.5 `}
                   >
-                    <span className="h-1 w-1 rounded-full bg-emerald-400" />
-                    Ativo
-                  </span>
+                    <LiveStatusDot />
+                    <span className={`text-[10px] tracking-[0.2em] text-emerald-300/90 uppercase ${epilogue.className}`}>Ativo</span>
+                  </div>
                 </div>
                 <h3
                   className={`mt-2 text-lg font-semibold text-white ${epilogue.className}`}
@@ -265,14 +265,14 @@ export default function AboutSection() {
           <article className={infoCardClass}>
             <CardHeader title="Redes & Contato" index="05" />
 
-            <div className="mb-5 flex items-center gap-3">
+            {/* <div className="mb-5 flex items-center gap-3">
               <LiveStatusDot />
               <span
                 className={`text-xs tracking-[0.18em] text-white/55 uppercase ${epilogue.className}`}
               >
                 Disponível para projetos
               </span>
-            </div>
+            </div> */}
 
             <ul className="space-y-3">
               {CONTACT_LINKS.map(({ index, label, display, href, Icon }) => (

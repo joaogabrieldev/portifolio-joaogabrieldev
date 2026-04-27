@@ -2,6 +2,7 @@
 
 import { useGSAP } from "@gsap/react";
 import type { LucideIcon } from "lucide-react";
+import { motion, type Transition } from "framer-motion";
 import { useCallback, useRef, useState } from "react";
 import { useLenis } from "lenis/react";
 
@@ -9,6 +10,12 @@ import { processSteps } from "@/assets/data/processSteps";
 import { gsap, ScrollTrigger } from "@/lib/gsap-client";
 import { cn } from "@/lib/utils";
 import { dmSans, outfit } from "@/utils/fonts";
+
+const cardLiftTransition: Transition = {
+  type: "tween",
+  duration: 0.72,
+  ease: [0.16, 1, 0.32, 1],
+};
 
 /** Card compacto (`subtext`) ou expandido (`intro` + `topics`). */
 export type ProcessStepInfoCard = {
@@ -251,9 +258,8 @@ export default function ProcessPinnedTimeline({
                         return (
                           <div
                             key={`mobile-${step.id}-info-${cardIndex}`}
-                            className="relative overflow-hidden rounded-2xl border border-violet-500/65 bg-[#131013] p-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.04),0_0_40px_rgba(124,58,237,0.14)]"
+                            className="relative overflow-hidden rounded-2xl border border-violet-500/65 bg-[linear-gradient(180deg,rgba(167,139,246,0.55)_0px,rgba(167,139,246,0.55)_2px,transparent_2px),#131013] p-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.04),0_0_40px_rgba(124,58,237,0.14),0_6px_24px_rgba(124,58,237,0.08)]"
                           >
-                            <div className="absolute top-0 right-4 left-4 h-[2px] bg-violet-500/60" />
                             <div className="flex items-start gap-3 pt-1">
                               <div
                                 className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md border border-violet-500/45 bg-violet-950/90 text-base leading-none shadow-[0_0_0_1px_rgba(139,92,246,0.22),0_0_18px_rgba(124,58,237,0.35)]"
@@ -373,16 +379,18 @@ export default function ProcessPinnedTimeline({
 
                         if (isRich) {
                           return (
-                            <div
+                            <motion.div
                               key={`${step.id}-info-${cardIndex}`}
+                              initial={false}
+                              whileHover={{ y: -4 }}
+                              transition={cardLiftTransition}
                               className={cn(
-                                "group relative flex flex-col overflow-hidden rounded-2xl border border-violet-500/65 bg-[#131013] p-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.04),0_0_40px_rgba(124,58,237,0.14)] transition-all duration-300 sm:p-5 lg:p-6",
-                                "hover:-translate-y-1 hover:border-violet-400/70 hover:shadow-[0_8px_48px_rgba(124,58,237,0.25)]",
+                                "group relative flex flex-col overflow-hidden rounded-2xl border border-violet-500/65 bg-[linear-gradient(180deg,rgba(167,139,246,0.55)_0px,rgba(167,139,246,0.55)_2px,transparent_2px),#131013] p-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.04),0_0_40px_rgba(124,58,237,0.14),0_6px_24px_rgba(124,58,237,0.08)] transition-[box-shadow,border-color] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] will-change-transform sm:p-5 lg:p-6",
+                                "hover:border-violet-400/70 hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.06),0_0_52px_rgba(124,58,237,0.18),0_14px_44px_rgba(124,58,237,0.16)]",
                                 "max-w-sm min-w-[min(100%,240px)] flex-[1_1_240px] gap-3 sm:min-w-[min(100%,260px)] sm:flex-[1_1_260px] lg:gap-4",
                               )}
                             >
-                              <div className="absolute top-0 right-6 left-6 h-[2px] bg-violet-500/60" />
-                              <span className="absolute top-4 right-4 text-[11px] font-mono tracking-[0.15em] text-white/30">
+                              <span className="absolute top-4 right-4 font-mono text-[11px] tracking-[0.15em] text-white/30">
                                 Nº {(cardIndex + 1).toString().padStart(2, "0")}
                               </span>
                               <div
@@ -426,14 +434,17 @@ export default function ProcessPinnedTimeline({
                                   </ul>
                                 ) : null}
                               </div>
-                            </div>
+                            </motion.div>
                           );
                         }
 
                         return (
-                          <div
+                          <motion.div
                             key={`${step.id}-info-${cardIndex}`}
-                            className="group flex min-w-[140px] flex-col gap-1 rounded-xl border border-t-2 border-purple-500/20 border-t-purple-500/40 bg-purple-500/5 px-4 py-3 backdrop-blur-sm transition-all duration-200 hover:-translate-y-0.5 hover:border-purple-500/40 hover:bg-purple-500/10"
+                            initial={false}
+                            whileHover={{ y: -2 }}
+                            transition={cardLiftTransition}
+                            className="group flex min-w-[140px] flex-col gap-1 rounded-xl border border-purple-500/25 bg-[linear-gradient(180deg,rgba(168,85,247,0.38)_0px,rgba(168,85,247,0.38)_2px,transparent_2px),rgba(168,85,247,0.05)] px-4 py-3 shadow-[inset_0_1px_0_rgba(255,255,255,0.04),0_4px_20px_rgba(88,28,135,0.09)] backdrop-blur-sm transition-[box-shadow,border-color,background] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] will-change-transform hover:border-purple-500/40 hover:bg-[linear-gradient(180deg,rgba(192,132,252,0.42)_0px,rgba(192,132,252,0.42)_2px,transparent_2px),rgba(168,85,247,0.1)] hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.05),0_10px_36px_rgba(124,58,237,0.16)]"
                           >
                             <p
                               className={`text-sm font-medium text-purple-200 ${dmSans.className}`}
@@ -453,7 +464,7 @@ export default function ProcessPinnedTimeline({
                                 {card.subtext}
                               </p>
                             ) : null}
-                          </div>
+                          </motion.div>
                         );
                       })}
                     </div>
@@ -516,12 +527,12 @@ export default function ProcessPinnedTimeline({
                       >
                         <span
                           className={cn(
-                            "flex shrink-0 items-center justify-center rounded-full border-2 border-violet-300/85 bg-black shadow-[0_0_0_1px_rgba(255,255,255,0.14),0_4px_14px_rgba(0,0,0,0.35)] transition-[border-color,background-color,box-shadow,transform] duration-300",
+                            "flex shrink-0 scale-100 items-center justify-center rounded-full border-2 border-violet-300/85 bg-black shadow-[0_0_0_1px_rgba(255,255,255,0.14),0_4px_14px_rgba(0,0,0,0.35),0_0_0_0_rgba(139,92,246,0)] will-change-[transform,box-shadow] [transition:border-color_520ms_cubic-bezier(0.22,1,0.36,1),background-color_520ms_cubic-bezier(0.22,1,0.36,1),box-shadow_520ms_cubic-bezier(0.22,1,0.36,1),transform_700ms_cubic-bezier(0.33,1,0.68,1)]",
                             withIcons
                               ? "size-9 md:size-10"
                               : "size-4 md:size-4.5",
                             isReached &&
-                              "border-violet-100 bg-linear-to-br from-violet-400 to-[#5b4ba3] shadow-[0_0_0_2px_rgba(167,139,250,0.4),0_0_22px_rgba(139,92,246,0.5)]",
+                              "border-violet-100 bg-linear-to-br from-violet-400 to-[#5b4ba3] shadow-[0_0_0_2px_rgba(167,139,250,0.4),0_4px_14px_rgba(0,0,0,0.28),0_0_22px_rgba(139,92,246,0.5)]",
                             isCurrent && "scale-110",
                           )}
                           aria-hidden

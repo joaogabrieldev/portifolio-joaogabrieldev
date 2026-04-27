@@ -3,13 +3,14 @@
 import { useLenis } from "lenis/react";
 import { useCallback, useSyncExternalStore } from "react";
 
-/** Ordem de leitura: a última secção cujo topo já passou da linha do nav fica ativa. */
+/** Ordem de leitura (fluxo no DOM): a última secção cujo topo já passou da linha do nav fica ativa. */
 export const SECTION_SCROLL_SPY_ORDER = [
   "inicio",
   "sobre",
+  "conhecimentos",
+  "projetos",
   "processos",
   "planos",
-  "projetos",
   "faq",
   "contato",
 ] as const;
