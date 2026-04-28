@@ -139,9 +139,17 @@ export default function ProcessPinnedTimeline({
       gsap.set(texts[0], { opacity: 1 });
 
       const stepCount = texts.length;
-      /** Rolagem por etapa: menor = transições mais rápidas entre fases. */
-      const scrollDistance = (): number =>
-        window.innerHeight * Math.max(stepCount, 1) * 1.05;
+      /**
+       * Distância total do pin:
+       * - baseada na quantidade de transições (n-1), não na quantidade de passos.
+       * - evita "travar" tempo demais e mantém a saída da seção no timing certo.
+       */
+      const scrollDistance = (): number => {
+        const transitions = Math.max(stepCount - 1, 1);
+        const perTransition = window.innerHeight * 0.62;
+        const initialHold = window.innerHeight * 0.36;
+        return initialHold + transitions * perTransition;
+      };
 
       const tl = gsap.timeline({
         scrollTrigger: {
@@ -150,7 +158,7 @@ export default function ProcessPinnedTimeline({
           start: "top top",
           end: () => `+=${scrollDistance()}`,
           pin: true,
-          scrub: 0.4,
+          scrub: 0.35,
           anticipatePin: 1,
           invalidateOnRefresh: true,
           onUpdate(self) {
@@ -210,11 +218,11 @@ export default function ProcessPinnedTimeline({
     <section
       ref={sectionRef}
       id="processos"
-      className="relative mt-8 scroll-mt-6 bg-black text-white"
+      className="relative mt-8 scroll-mt-6 bg-white text-black"
     >
       <div className="mx-auto w-full max-w-6xl px-4 py-16 md:hidden">
         {/* <p
-          className={`mb-4 text-xs font-semibold tracking-[0.2em] text-violet-300/90 uppercase ${outfit.className}`}
+          className={`mb-4 text-xs font-semibold tracking-[0.2em] text-black/55 uppercase ${outfit.className}`}
         >
           Processos
         </p> */}
@@ -226,25 +234,25 @@ export default function ProcessPinnedTimeline({
             return (
               <div key={`mobile-${step.id}`}>
                 <div
-                  className={`mb-4 flex items-center gap-2 text-xs font-semibold tracking-[0.2em] text-violet-300/90 uppercase ${outfit.className}`}
+                  className={`mb-4 flex items-center gap-2 text-xs font-semibold tracking-[0.2em] text-black/55 uppercase ${outfit.className}`}
                 >
                   <span>Processos</span>
                   <span>&bull;</span>
-                  <span className="text-white">{step.phase}</span>
+                  <span className="text-black">{step.phase}</span>
                 </div>
-                <article className="rounded-2xl border border-white/8 bg-[#0f0f0f] p-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.04)]">
+                <article className="rounded-2xl border border-black/12 bg-[#f7f7f7] p-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.7)]">
                   <h3
-                    className={`text-xl font-semibold tracking-tight text-white ${outfit.className}`}
+                    className={`text-xl font-semibold tracking-tight text-black ${outfit.className}`}
                   >
                     {step.title}
                   </h3>
                   <p
-                    className={`mt-1 text-sm font-medium text-violet-200/85 ${dmSans.className}`}
+                    className={`mt-1 text-sm font-medium text-black/55 ${dmSans.className}`}
                   >
                     {step.subtitle}
                   </p>
                   <p
-                    className={`mt-3 text-sm leading-relaxed text-white/78 ${dmSans.className}`}
+                    className={`mt-3 text-sm leading-relaxed text-black/75 ${dmSans.className}`}
                   >
                     {step.body}
                   </p>
@@ -258,21 +266,21 @@ export default function ProcessPinnedTimeline({
                         return (
                           <div
                             key={`mobile-${step.id}-info-${cardIndex}`}
-                            className="relative overflow-hidden rounded-2xl border border-violet-500/65 bg-[linear-gradient(180deg,rgba(167,139,246,0.55)_0px,rgba(167,139,246,0.55)_2px,transparent_2px),#131013] p-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.04),0_0_40px_rgba(124,58,237,0.14),0_6px_24px_rgba(124,58,237,0.08)]"
+                            className="relative overflow-hidden rounded-2xl border border-black/20 bg-[linear-gradient(180deg,rgba(0,0,0,0.2)_0px,rgba(0,0,0,0.2)_2px,transparent_2px),#f6f6f6] p-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.8),0_0_24px_rgba(0,0,0,0.08),0_6px_24px_rgba(0,0,0,0.06)]"
                           >
                             <div className="flex items-start gap-3 pt-1">
                               <div
-                                className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md border border-violet-500/45 bg-violet-950/90 text-base leading-none shadow-[0_0_0_1px_rgba(139,92,246,0.22),0_0_18px_rgba(124,58,237,0.35)]"
+                                className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md border border-black/25 bg-black/90 text-base leading-none shadow-[0_0_0_1px_rgba(0,0,0,0.2),0_0_14px_rgba(0,0,0,0.25)]"
                                 aria-hidden
                               >
                                 {renderCardIcon(
                                   icon,
-                                  "size-[68%] text-violet-200",
+                                  "size-[68%] text-black/85",
                                 )}
                               </div>
                               <div className="min-w-0">
                                 <p
-                                  className={`text-sm font-semibold text-white ${dmSans.className}`}
+                                  className={`text-sm font-semibold text-black ${dmSans.className}`}
                                 >
                                   {heading}
                                 </p>
@@ -296,7 +304,7 @@ export default function ProcessPinnedTimeline({
                                               className="flex gap-2 text-xs leading-snug text-gray-400"
                                             >
                                               <span
-                                                className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-violet-500/75"
+                                                className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-black/45"
                                                 aria-hidden
                                               />
                                               <span>{topic}</span>
@@ -348,24 +356,24 @@ export default function ProcessPinnedTimeline({
                   className="pointer-events-none col-start-1 row-start-1 flex min-w-0 flex-col justify-start justify-self-stretch"
                 >
                   <div
-                    className={`mb-4 flex items-center gap-2 text-xs font-semibold tracking-[0.2em] text-violet-300/90 uppercase ${outfit.className}`}
+                    className={`mb-4 flex items-center gap-2 text-xs font-semibold tracking-[0.2em] text-black/55 uppercase ${outfit.className}`}
                   >
                     <span>Processos</span>
                     <span aria-hidden>&bull;</span>
-                    <span className="text-white">{step.phase}</span>
+                    <span className="text-black">{step.phase}</span>
                   </div>
                   <h3
-                    className={`text-3xl font-semibold tracking-tight text-white sm:text-4xl lg:text-5xl ${outfit.className}`}
+                    className={`text-3xl font-semibold tracking-tight text-black sm:text-4xl lg:text-5xl ${outfit.className}`}
                   >
                     {step.title}
                   </h3>
                   <p
-                    className={`mt-3 text-base font-medium text-violet-200/85 sm:text-lg ${dmSans.className}`}
+                    className={`mt-3 text-base font-medium text-black/55 sm:text-lg ${dmSans.className}`}
                   >
                     {step.subtitle}
                   </p>
                   <p
-                    className={`mt-4 max-w-3xl text-base leading-relaxed text-white/78 sm:text-lg ${dmSans.className}`}
+                    className={`mt-4 max-w-3xl text-base leading-relaxed text-black/75 sm:text-lg ${dmSans.className}`}
                   >
                     {step.body}
                   </p>
@@ -385,26 +393,26 @@ export default function ProcessPinnedTimeline({
                               whileHover={{ y: -4 }}
                               transition={cardLiftTransition}
                               className={cn(
-                                "group relative flex flex-col overflow-hidden rounded-2xl border border-violet-500/65 bg-[linear-gradient(180deg,rgba(167,139,246,0.55)_0px,rgba(167,139,246,0.55)_2px,transparent_2px),#131013] p-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.04),0_0_40px_rgba(124,58,237,0.14),0_6px_24px_rgba(124,58,237,0.08)] transition-[box-shadow,border-color] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] will-change-transform sm:p-5 lg:p-6",
-                                "hover:border-violet-400/70 hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.06),0_0_52px_rgba(124,58,237,0.18),0_14px_44px_rgba(124,58,237,0.16)]",
+                                "group relative flex flex-col overflow-hidden rounded-2xl border border-black/20 bg-[linear-gradient(180deg,rgba(0,0,0,0.2)_0px,rgba(0,0,0,0.2)_2px,transparent_2px),#f6f6f6] p-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.8),0_0_24px_rgba(0,0,0,0.08),0_6px_24px_rgba(0,0,0,0.06)] transition-[box-shadow,border-color] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] will-change-transform sm:p-5 lg:p-6",
+                                "hover:border-black/35 hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.95),0_0_30px_rgba(0,0,0,0.12),0_14px_44px_rgba(0,0,0,0.14)]",
                                 "max-w-sm min-w-[min(100%,240px)] flex-[1_1_240px] gap-3 sm:min-w-[min(100%,260px)] sm:flex-[1_1_260px] lg:gap-4",
                               )}
                             >
-                              <span className="absolute top-4 right-4 font-mono text-[11px] tracking-[0.15em] text-white/30">
+                              <span className="absolute top-4 right-4 font-mono text-[11px] tracking-[0.15em] text-black/35">
                                 Nº {(cardIndex + 1).toString().padStart(2, "0")}
                               </span>
                               <div
-                                className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-violet-500/45 bg-violet-950/90 text-base leading-none shadow-[0_0_0_1px_rgba(139,92,246,0.22),0_0_22px_rgba(124,58,237,0.38),0_0_20px_rgba(124,58,237,0.3)] sm:h-10 sm:w-10 sm:text-lg"
+                                className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-black/25 bg-black/90 text-base leading-none shadow-[0_0_0_1px_rgba(0,0,0,0.2),0_0_18px_rgba(0,0,0,0.25)] sm:h-10 sm:w-10 sm:text-lg"
                                 aria-hidden
                               >
                                 {renderCardIcon(
                                   icon,
-                                  "size-[68%] text-violet-200",
+                                  "size-[68%] text-black/85",
                                 )}
                               </div>
                               <div className="flex min-w-0 flex-col gap-1.5 sm:gap-2">
                                 <p
-                                  className={`text-base font-semibold tracking-tight text-white sm:text-lg ${dmSans.className}`}
+                                  className={`text-base font-semibold tracking-tight text-black sm:text-lg ${dmSans.className}`}
                                 >
                                   {heading}
                                 </p>
@@ -417,7 +425,7 @@ export default function ProcessPinnedTimeline({
                                 ) : null}
                                 {card.topics && card.topics.length > 0 ? (
                                   <ul
-                                    className={`mt-1 space-y-1.5 border-t border-white/6 pt-2.5 sm:space-y-2 sm:pt-3 ${dmSans.className}`}
+                                    className={`mt-1 space-y-1.5 border-t border-black/10 pt-2.5 sm:space-y-2 sm:pt-3 ${dmSans.className}`}
                                   >
                                     {card.topics.map((topic, topicIndex) => (
                                       <li
@@ -425,7 +433,7 @@ export default function ProcessPinnedTimeline({
                                         className="flex gap-2.5 text-xs leading-snug text-gray-400 sm:text-sm"
                                       >
                                         <span
-                                          className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-violet-500/75 sm:mt-2"
+                                          className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-black/45 sm:mt-2"
                                           aria-hidden
                                         />
                                         <span>{topic}</span>
@@ -444,15 +452,15 @@ export default function ProcessPinnedTimeline({
                             initial={false}
                             whileHover={{ y: -2 }}
                             transition={cardLiftTransition}
-                            className="group flex min-w-[140px] flex-col gap-1 rounded-xl border border-purple-500/25 bg-[linear-gradient(180deg,rgba(168,85,247,0.38)_0px,rgba(168,85,247,0.38)_2px,transparent_2px),rgba(168,85,247,0.05)] px-4 py-3 shadow-[inset_0_1px_0_rgba(255,255,255,0.04),0_4px_20px_rgba(88,28,135,0.09)] backdrop-blur-sm transition-[box-shadow,border-color,background] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] will-change-transform hover:border-purple-500/40 hover:bg-[linear-gradient(180deg,rgba(192,132,252,0.42)_0px,rgba(192,132,252,0.42)_2px,transparent_2px),rgba(168,85,247,0.1)] hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.05),0_10px_36px_rgba(124,58,237,0.16)]"
+                            className="group flex min-w-[140px] flex-col gap-1 rounded-xl border border-black/15 bg-[linear-gradient(180deg,rgba(0,0,0,0.15)_0px,rgba(0,0,0,0.15)_2px,transparent_2px),rgba(0,0,0,0.02)] px-4 py-3 shadow-[inset_0_1px_0_rgba(255,255,255,0.8),0_4px_20px_rgba(0,0,0,0.06)] backdrop-blur-sm transition-[box-shadow,border-color,background] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] will-change-transform hover:border-black/25 hover:bg-[linear-gradient(180deg,rgba(0,0,0,0.2)_0px,rgba(0,0,0,0.2)_2px,transparent_2px),rgba(0,0,0,0.05)] hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.95),0_10px_36px_rgba(0,0,0,0.12)]"
                           >
                             <p
-                              className={`text-sm font-medium text-purple-200 ${dmSans.className}`}
+                              className={`text-sm font-medium text-black/75 ${dmSans.className}`}
                             >
                               <span className="inline-flex items-center gap-1.5">
                                 {renderCardIcon(
                                   icon,
-                                  "size-3.5 text-violet-300",
+                                  "size-3.5 text-black/75",
                                 )}
                                 <span>{heading}</span>
                               </span>
@@ -491,7 +499,7 @@ export default function ProcessPinnedTimeline({
             >
               <div
                 ref={fillRef}
-                className="h-full w-full origin-left rounded-full bg-linear-to-r from-violet-300 via-violet-400/95 to-[#4c3d8a]"
+                className="h-full w-full origin-left rounded-full bg-linear-to-r from-black/35 via-black/55 to-black/75"
               />
             </div>
             <div
@@ -517,7 +525,7 @@ export default function ProcessPinnedTimeline({
                         type="button"
                         onClick={() => goToStep(index)}
                         className={cn(
-                          "flex items-center justify-center rounded-full border-0 bg-transparent p-2 transition-[transform] duration-300 outline-none focus-visible:ring-2 focus-visible:ring-violet-400/80 focus-visible:ring-offset-2 focus-visible:ring-offset-black",
+                          "flex items-center justify-center rounded-full border-0 bg-transparent p-2 transition-[transform] duration-300 outline-none focus-visible:ring-2 focus-visible:ring-black/35 focus-visible:ring-offset-2 focus-visible:ring-offset-white",
                           withIcons
                             ? "min-h-11 min-w-11 md:min-h-12 md:min-w-12"
                             : "min-h-10 min-w-10",
@@ -527,12 +535,12 @@ export default function ProcessPinnedTimeline({
                       >
                         <span
                           className={cn(
-                            "flex shrink-0 scale-100 items-center justify-center rounded-full border-2 border-violet-300/85 bg-black shadow-[0_0_0_1px_rgba(255,255,255,0.14),0_4px_14px_rgba(0,0,0,0.35),0_0_0_0_rgba(139,92,246,0)] will-change-[transform,box-shadow] [transition:border-color_520ms_cubic-bezier(0.22,1,0.36,1),background-color_520ms_cubic-bezier(0.22,1,0.36,1),box-shadow_520ms_cubic-bezier(0.22,1,0.36,1),transform_700ms_cubic-bezier(0.33,1,0.68,1)]",
+                            "flex shrink-0 scale-100 items-center justify-center rounded-full border-2 border-black/35 bg-white shadow-[0_0_0_1px_rgba(0,0,0,0.18),0_4px_14px_rgba(0,0,0,0.15),0_0_0_0_rgba(0,0,0,0)] will-change-[transform,box-shadow] [transition:border-color_520ms_cubic-bezier(0.22,1,0.36,1),background-color_520ms_cubic-bezier(0.22,1,0.36,1),box-shadow_520ms_cubic-bezier(0.22,1,0.36,1),transform_700ms_cubic-bezier(0.33,1,0.68,1)]",
                             withIcons
                               ? "size-9 md:size-10"
                               : "size-4 md:size-4.5",
                             isReached &&
-                              "border-violet-100 bg-linear-to-br from-violet-400 to-[#5b4ba3] shadow-[0_0_0_2px_rgba(167,139,250,0.4),0_4px_14px_rgba(0,0,0,0.28),0_0_22px_rgba(139,92,246,0.5)]",
+                              "border-black/55 bg-linear-to-br from-black/70 to-black/45 shadow-[0_0_0_2px_rgba(0,0,0,0.16),0_4px_14px_rgba(0,0,0,0.28),0_0_18px_rgba(0,0,0,0.2)]",
                             isCurrent && "scale-110",
                           )}
                           aria-hidden
@@ -541,7 +549,7 @@ export default function ProcessPinnedTimeline({
                             <div className="flex size-full items-center justify-center">
                               <StepIcon
                                 className={cn(
-                                  "size-[42%] text-violet-50 drop-shadow-[0_0_10px_rgba(167,139,250,0.35)]",
+                                  "size-[42%] text-black/85 drop-shadow-[0_0_10px_rgba(0,0,0,0.18)]",
                                   isReached ? "opacity-100" : "opacity-35",
                                 )}
                                 strokeWidth={1.85}
@@ -557,10 +565,10 @@ export default function ProcessPinnedTimeline({
                         outfit.className,
                         "max-w-[min(100%,6.5rem)] text-center text-[10px] font-semibold tracking-[0.18em] uppercase transition-colors duration-300 sm:max-w-none sm:whitespace-nowrap",
                         isCurrent
-                          ? "text-violet-200"
+                          ? "text-black/85"
                           : isReached
-                            ? "text-white/70"
-                            : "text-white/40",
+                            ? "text-black/65"
+                            : "text-black/40",
                       )}
                     >
                       {step.phase}

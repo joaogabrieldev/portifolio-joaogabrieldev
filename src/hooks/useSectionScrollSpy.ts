@@ -9,6 +9,7 @@ export const SECTION_SCROLL_SPY_ORDER = [
   "sobre",
   "conhecimentos",
   "projetos",
+  "processos-transition",
   "processos",
   "planos",
   "faq",

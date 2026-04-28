@@ -6,12 +6,12 @@ export default function FAQSection() {
   return (
     <section
       id="faq"
-      className={`${sectionShell} scroll-mt-6`}
+      className={`${sectionShell} scroll-mt-6 border-black/10 bg-white text-black`}
       aria-labelledby="faq-heading"
     >
       <div className="mx-auto max-w-6xl">
         <p
-          className={`mb-3 text-xs font-semibold tracking-[0.2em] text-violet-300/90 uppercase ${outfit.className}`}
+          className={`mb-3 text-xs font-semibold tracking-[0.2em] text-black/55 uppercase ${outfit.className}`}
         >
           FAQ
         </p>

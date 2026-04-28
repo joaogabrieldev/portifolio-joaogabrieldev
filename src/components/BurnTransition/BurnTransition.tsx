@@ -1,11 +1,6 @@
 "use client";
 
-import {
-  CSSProperties,
-  useEffect,
-  useRef,
-  useState,
-} from "react";
+import { CSSProperties, useEffect, useRef, useState } from "react";
 
 /* =============================================================================
  * Port fiel do componente "Burn Transition" do Framer (Framer University):
@@ -79,7 +74,9 @@ function resolveCssVar(input: string): string {
   const match = VAR_REGEX.exec(input);
   if (!match) return input;
   const fallback = (match[2] || "").trim();
-  return fallback.startsWith("var(") ? resolveCssVar(fallback) : fallback || input;
+  return fallback.startsWith("var(")
+    ? resolveCssVar(fallback)
+    : fallback || input;
 }
 
 function parseColor(input: string): RGBA {
@@ -366,7 +363,10 @@ function compileShader(
   gl.shaderSource(shader, source);
   gl.compileShader(shader);
   if (!gl.getShaderParameter(shader, gl.COMPILE_STATUS)) {
-    console.error("BurnTransition shader compile error:", gl.getShaderInfoLog(shader));
+    console.error(
+      "BurnTransition shader compile error:",
+      gl.getShaderInfoLog(shader),
+    );
     gl.deleteShader(shader);
     return null;
   }
@@ -384,7 +384,10 @@ function linkProgram(
   gl.attachShader(program, fs);
   gl.linkProgram(program);
   if (!gl.getProgramParameter(program, gl.LINK_STATUS)) {
-    console.error("BurnTransition program link error:", gl.getProgramInfoLog(program));
+    console.error(
+      "BurnTransition program link error:",
+      gl.getProgramInfoLog(program),
+    );
     gl.deleteProgram(program);
     return null;
   }
@@ -477,7 +480,11 @@ export function BurnTransition({
   const parallaxEnabledRef = useRef(parallaxEnabled);
   const previewRef = useRef(preview);
   const horizontalRef = useRef(
-    movement.horizontal === "left" ? 1 : movement.horizontal === "right" ? -1 : 0,
+    movement.horizontal === "left"
+      ? 1
+      : movement.horizontal === "right"
+        ? -1
+        : 0,
   );
   const verticalRef = useRef(movement.vertical ?? 0.5);
 
@@ -535,7 +542,11 @@ export function BurnTransition({
   }, [preview]);
   useEffect(() => {
     horizontalRef.current =
-      movement.horizontal === "left" ? 1 : movement.horizontal === "right" ? -1 : 0;
+      movement.horizontal === "left"
+        ? 1
+        : movement.horizontal === "right"
+          ? -1
+          : 0;
     verticalRef.current = movement.vertical ?? 0.5;
   }, [movement.horizontal, movement.vertical]);
 
@@ -561,7 +572,11 @@ export function BurnTransition({
     const fsMain = compileShader(gl, gl.FRAGMENT_SHADER, FRAGMENT_MAIN);
     const fsMask = compileShader(gl, gl.FRAGMENT_SHADER, FRAGMENT_BLOOM_MASK);
     const fsBlur = compileShader(gl, gl.FRAGMENT_SHADER, FRAGMENT_BLUR);
-    const fsComposite = compileShader(gl, gl.FRAGMENT_SHADER, FRAGMENT_COMPOSITE);
+    const fsComposite = compileShader(
+      gl,
+      gl.FRAGMENT_SHADER,
+      FRAGMENT_COMPOSITE,
+    );
 
     if (!vs || !fsMain || !fsMask || !fsBlur || !fsComposite) {
       setSupported(false);
@@ -606,7 +621,11 @@ export function BurnTransition({
       gl.viewport(0, 0, w, h);
       const dw = Math.max(1, Math.floor(w / DOWNSAMPLE));
       const dh = Math.max(1, Math.floor(h / DOWNSAMPLE));
-      const resizeTexture = (tex: WebGLTexture | null, tw: number, th: number) => {
+      const resizeTexture = (
+        tex: WebGLTexture | null,
+        tw: number,
+        th: number,
+      ) => {
         if (!tex) return;
         gl.bindTexture(gl.TEXTURE_2D, tex);
         gl.texImage2D(
@@ -646,7 +665,7 @@ export function BurnTransition({
       } else {
         s = clamp(1 - (vh - top) / (vh + h), 0, 1);
       }
-      parallaxOffsetRef.current = (1 - s) - 0.5;
+      parallaxOffsetRef.current = 1 - s - 0.5;
     };
 
     /* Passes de render. */
@@ -710,7 +729,10 @@ export function BurnTransition({
         sizeRef.current.height > 0
           ? sizeRef.current.width / sizeRef.current.height
           : 1;
-      gl.uniform1f(gl.getUniformLocation(programMain, "u_aspect_ratio"), aspect);
+      gl.uniform1f(
+        gl.getUniformLocation(programMain, "u_aspect_ratio"),
+        aspect,
+      );
 
       gl.clearColor(0, 0, 0, 0);
       gl.clear(gl.COLOR_BUFFER_BIT);

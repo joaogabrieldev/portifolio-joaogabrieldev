@@ -9,7 +9,7 @@ function planCardVariant(plan: (typeof plans)[number]): PlanCardVariant {
 }
 
 const plansSectionShell =
-  "border-t border-white/10 bg-[#050507] px-4 py-20 text-white sm:px-8 md:px-12";
+  "border-t border-black/10 bg-white px-4 py-20 text-black sm:px-8 md:px-12";
 
 export default function PlansSection() {
   return (
@@ -48,7 +48,7 @@ export default function PlansSection() {
       <div className="relative z-10 mx-auto w-full max-w-[1800px] px-4 sm:px-6 lg:px-0">
         <div className="mx-auto w-full max-w-[1200px]">
           <p
-            className={`mb-3 text-xs font-semibold tracking-[0.2em] text-violet-300/90 uppercase ${outfit.className}`}
+            className={`mb-3 text-xs font-semibold tracking-[0.2em] text-black/55 uppercase ${outfit.className}`}
           >
             Planos
           </p>

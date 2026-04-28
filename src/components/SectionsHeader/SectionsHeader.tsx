@@ -28,6 +28,12 @@ export default function SectionsHeader() {
   /** Desktop (md+): header transparente só em `#processos` (alinha ao scroll-spy / ordem no DOM). */
   const isDesktop = width >= 768;
   const headerProcessosStyle = activeId === "processos" && isDesktop;
+  const isLightPaletteZone =
+    activeId === "processos-transition" ||
+    activeId === "processos" ||
+    activeId === "planos" ||
+    activeId === "faq" ||
+    activeId === "contato";
 
   return (
     <motion.header
@@ -40,13 +46,15 @@ export default function SectionsHeader() {
         "fixed top-0 left-0 z-[100] w-screen max-w-[100vw] transition-[background-color,border-color,backdrop-filter,box-shadow] duration-300 ease-out",
         headerProcessosStyle
           ? "border-b border-transparent bg-transparent shadow-none backdrop-blur-none"
-          : "border-b border-white/10 bg-[#050505]/92 shadow-[0_8px_32px_rgba(0,0,0,0.45)] backdrop-blur-xl backdrop-saturate-150",
+          : isLightPaletteZone
+            ? "border-b border-black/12 bg-white/92 shadow-[0_8px_24px_rgba(0,0,0,0.12)] backdrop-blur-xl backdrop-saturate-150"
+            : "border-b border-white/10 bg-[#050505]/92 shadow-[0_8px_32px_rgba(0,0,0,0.45)] backdrop-blur-xl backdrop-saturate-150",
       )}
     >
       <div
         className={cn(
           "pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_120%_at_0%_-20%,rgba(88,28,135,0.18),transparent_55%)] transition-opacity duration-300",
-          headerProcessosStyle && "opacity-0",
+          (headerProcessosStyle || isLightPaletteZone) && "opacity-0",
         )}
       />
 
@@ -60,7 +68,7 @@ export default function SectionsHeader() {
             href="/#inicio"
             className="inline-flex items-center outline-none focus-visible:ring-2 focus-visible:ring-violet-400/80 focus-visible:ring-offset-2 focus-visible:ring-offset-[#050505]"
           >
-            <NewLogo variant="compact" />
+            <NewLogo variant="compact" className={cn(isLightPaletteZone && "invert")} />
           </Link>
         </motion.div>
 
@@ -78,8 +86,12 @@ export default function SectionsHeader() {
                   spy={false}
                   offset={-72}
                   className={cn(
-                    "inline-flex cursor-pointer items-center rounded-full px-3 py-2 text-sm font-semibold text-white/90 transition hover:bg-white/8 hover:text-white lg:px-4",
-                    activeId === item.slug && "bg-white/12 text-white",
+                    "inline-flex cursor-pointer items-center rounded-full px-3 py-2 text-sm font-semibold transition lg:px-4",
+                    isLightPaletteZone
+                      ? "text-black/85 hover:bg-black/6 hover:text-black"
+                      : "text-white/90 hover:bg-white/8 hover:text-white",
+                    activeId === item.slug &&
+                      (isLightPaletteZone ? "bg-black/8 text-black" : "bg-white/12 text-white"),
                   )}
                 >
                   {item.title}
@@ -93,7 +105,12 @@ export default function SectionsHeader() {
               smooth
               duration={800}
               offset={-72}
-              className={`ml-2 inline-flex shrink-0 cursor-pointer items-center justify-center rounded-full border border-violet-400/30 bg-[#5b4f9e] px-5 py-2.5 text-sm font-bold tracking-wide text-white uppercase shadow-[0_6px_20px_rgba(91,79,158,0.45)] transition hover:border-violet-300/45 hover:bg-[#6d5fb5] hover:shadow-[0_8px_24px_rgba(91,79,158,0.5)] ${dmSans.className}`}
+              className={cn(
+                `ml-2 inline-flex shrink-0 cursor-pointer items-center justify-center rounded-full px-5 py-2.5 text-sm font-bold tracking-wide uppercase transition ${dmSans.className}`,
+                isLightPaletteZone
+                  ? "border border-black/15 bg-black text-white shadow-[0_6px_18px_rgba(0,0,0,0.18)] hover:bg-black/85"
+                  : "border border-violet-400/30 bg-[#5b4f9e] text-white shadow-[0_6px_20px_rgba(91,79,158,0.45)] hover:border-violet-300/45 hover:bg-[#6d5fb5] hover:shadow-[0_8px_24px_rgba(91,79,158,0.5)]",
+              )}
             >
               Contato
             </ScrollLink>
@@ -106,28 +123,45 @@ export default function SectionsHeader() {
             smooth
             duration={800}
             offset={-72}
-            className={`inline-flex h-10 shrink-0 items-center justify-center rounded-full border border-violet-400/30 bg-[#5b4f9e] px-4 text-xs font-bold tracking-wide text-white uppercase ${dmSans.className}`}
+            className={cn(
+              `inline-flex h-10 shrink-0 items-center justify-center rounded-full border px-4 text-xs font-bold tracking-wide uppercase ${dmSans.className}`,
+              isLightPaletteZone
+                ? "border-black/15 bg-black text-white"
+                : "border-violet-400/30 bg-[#5b4f9e] text-white",
+            )}
           >
             Contato
           </ScrollLink>
           <button
             type="button"
-            className="flex h-11 w-11 items-center justify-center rounded-full border border-white/15 bg-white/8 text-white backdrop-blur-md"
+            className={cn(
+              "flex h-11 w-11 items-center justify-center rounded-full border backdrop-blur-md",
+              isLightPaletteZone
+                ? "border-black/15 bg-black/6 text-black"
+                : "border-white/15 bg-white/8 text-white",
+            )}
             aria-expanded={mobileOpen}
             aria-label={mobileOpen ? "Fechar menu" : "Abrir menu"}
             onClick={() => setMobileOpen((o) => !o)}
           >
             <span className="flex flex-col gap-1">
-              <span className="block h-0.5 w-5 bg-white" />
-              <span className="block h-0.5 w-5 bg-white" />
-              <span className="block h-0.5 w-4 bg-white" />
+              <span className={cn("block h-0.5 w-5", isLightPaletteZone ? "bg-black" : "bg-white")} />
+              <span className={cn("block h-0.5 w-5", isLightPaletteZone ? "bg-black" : "bg-white")} />
+              <span className={cn("block h-0.5 w-4", isLightPaletteZone ? "bg-black" : "bg-white")} />
             </span>
           </button>
         </div>
       </div>
 
       {mobileOpen ? (
-        <div className="border-t border-white/10 bg-[#0a0a0a]/98 px-4 py-4 backdrop-blur-xl md:hidden">
+        <div
+          className={cn(
+            "border-t px-4 py-4 backdrop-blur-xl md:hidden",
+            isLightPaletteZone
+              ? "border-black/10 bg-white/98"
+              : "border-white/10 bg-[#0a0a0a]/98",
+          )}
+        >
           <ul className={`flex flex-col gap-1 ${outfit.className}`}>
             {SECTIONS_NAV_LINKS.map((item) => (
               <li key={item.slug}>
@@ -137,7 +171,12 @@ export default function SectionsHeader() {
                   duration={800}
                   offset={-72}
                   onClick={() => setMobileOpen(false)}
-                  className="block rounded-xl px-3 py-3 text-sm font-semibold text-white/95 transition hover:bg-white/8"
+                  className={cn(
+                    "block rounded-xl px-3 py-3 text-sm font-semibold transition",
+                    isLightPaletteZone
+                      ? "text-black/85 hover:bg-black/6"
+                      : "text-white/95 hover:bg-white/8",
+                  )}
                 >
                   {item.title}
                 </ScrollLink>
