@@ -68,7 +68,10 @@ export default function SectionsHeader() {
             href="/#inicio"
             className="inline-flex items-center outline-none focus-visible:ring-2 focus-visible:ring-violet-400/80 focus-visible:ring-offset-2 focus-visible:ring-offset-[#050505]"
           >
-            <NewLogo variant="compact" className={cn(isLightPaletteZone && "invert")} />
+            <NewLogo
+              variant="compact"
+              className={cn(isLightPaletteZone && "invert")}
+            />
           </Link>
         </motion.div>
 
@@ -91,7 +94,9 @@ export default function SectionsHeader() {
                       ? "text-black/85 hover:bg-black/6 hover:text-black"
                       : "text-white/90 hover:bg-white/8 hover:text-white",
                     activeId === item.slug &&
-                      (isLightPaletteZone ? "bg-black/8 text-black" : "bg-white/12 text-white"),
+                      (isLightPaletteZone
+                        ? "bg-black/8 text-black"
+                        : "bg-white/12 text-white"),
                   )}
                 >
                   {item.title}
@@ -145,9 +150,24 @@ export default function SectionsHeader() {
             onClick={() => setMobileOpen((o) => !o)}
           >
             <span className="flex flex-col gap-1">
-              <span className={cn("block h-0.5 w-5", isLightPaletteZone ? "bg-black" : "bg-white")} />
-              <span className={cn("block h-0.5 w-5", isLightPaletteZone ? "bg-black" : "bg-white")} />
-              <span className={cn("block h-0.5 w-4", isLightPaletteZone ? "bg-black" : "bg-white")} />
+              <span
+                className={cn(
+                  "block h-0.5 w-5",
+                  isLightPaletteZone ? "bg-black" : "bg-white",
+                )}
+              />
+              <span
+                className={cn(
+                  "block h-0.5 w-5",
+                  isLightPaletteZone ? "bg-black" : "bg-white",
+                )}
+              />
+              <span
+                className={cn(
+                  "block h-0.5 w-4",
+                  isLightPaletteZone ? "bg-black" : "bg-white",
+                )}
+              />
             </span>
           </button>
         </div>

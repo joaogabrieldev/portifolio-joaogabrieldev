@@ -146,8 +146,8 @@ export default function ProcessPinnedTimeline({
        */
       const scrollDistance = (): number => {
         const transitions = Math.max(stepCount - 1, 1);
-        const perTransition = window.innerHeight * 0.62;
-        const initialHold = window.innerHeight * 0.36;
+        const perTransition = window.innerHeight * 0.52;
+        const initialHold = window.innerHeight * 0.28;
         return initialHold + transitions * perTransition;
       };
 
@@ -273,10 +273,7 @@ export default function ProcessPinnedTimeline({
                                 className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md border border-black/25 bg-black/90 text-base leading-none shadow-[0_0_0_1px_rgba(0,0,0,0.2),0_0_14px_rgba(0,0,0,0.25)]"
                                 aria-hidden
                               >
-                                {renderCardIcon(
-                                  icon,
-                                  "size-[68%] text-black/85",
-                                )}
+                                {renderCardIcon(icon, "size-[68%] text-white")}
                               </div>
                               <div className="min-w-0">
                                 <p
@@ -405,10 +402,7 @@ export default function ProcessPinnedTimeline({
                                 className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-black/25 bg-black/90 text-base leading-none shadow-[0_0_0_1px_rgba(0,0,0,0.2),0_0_18px_rgba(0,0,0,0.25)] sm:h-10 sm:w-10 sm:text-lg"
                                 aria-hidden
                               >
-                                {renderCardIcon(
-                                  icon,
-                                  "size-[68%] text-black/85",
-                                )}
+                                {renderCardIcon(icon, "size-[68%] text-white")}
                               </div>
                               <div className="flex min-w-0 flex-col gap-1.5 sm:gap-2">
                                 <p
@@ -458,10 +452,7 @@ export default function ProcessPinnedTimeline({
                               className={`text-sm font-medium text-black/75 ${dmSans.className}`}
                             >
                               <span className="inline-flex items-center gap-1.5">
-                                {renderCardIcon(
-                                  icon,
-                                  "size-3.5 text-black/75",
-                                )}
+                                {renderCardIcon(icon, "size-3.5 text-black/75")}
                                 <span>{heading}</span>
                               </span>
                             </p>
@@ -549,7 +540,10 @@ export default function ProcessPinnedTimeline({
                             <div className="flex size-full items-center justify-center">
                               <StepIcon
                                 className={cn(
-                                  "size-[42%] text-black/85 drop-shadow-[0_0_10px_rgba(0,0,0,0.18)]",
+                                  "size-[42%]",
+                                  isReached
+                                    ? "text-white drop-shadow-[0_0_8px_rgba(0,0,0,0.35)]"
+                                    : "text-black/85 drop-shadow-[0_0_10px_rgba(0,0,0,0.18)]",
                                   isReached ? "opacity-100" : "opacity-35",
                                 )}
                                 strokeWidth={1.85}

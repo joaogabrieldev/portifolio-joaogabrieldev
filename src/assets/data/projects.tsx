@@ -1,3 +1,4 @@
+import { StaticImageData } from "next/image";
 import { JSX } from "react";
 
 import {
@@ -9,18 +10,61 @@ import {
   SiTailwindcss,
   SiTypescript,
   SiNextdotjs,
-  SiVite
+  SiVite,
 } from "react-icons/si";
 
 export type Projects = {
   url: string;
   title: string;
+  favicon?: StaticImageData;
   date: string;
   description: string;
   icons: JSX.Element[];
 };
 
 export const projects: Projects[] = [
+  {
+    url: "https://projeto-kino.vercel.app/",
+    title: "Clone do Airbnb",
+    date: "14/11/2025",
+    description:
+      "Clone da Interface Principal do site Airbnb, utilizando as melhores práticas de design e performance, e as tecnologias mais modernas do mercado.",
+    icons: [
+      <SiReact key={"React"} />,
+      <SiTailwindcss key={"TailwindCSS"} />,
+      <SiTypescript key={"Typescript"} />,
+      <SiNextdotjs key={"Next"} />,
+      <SiVercel key={"Vercel"} />,
+    ],
+  },
+  {
+    url: "https://projeto-site-formiguinhas-web.vercel.app/",
+    title: "Site - Formiguinhas da Alegria",
+    date: "14/11/2025",
+    description:
+      "Clone da Interface Principal do site Airbnb, utilizando as melhores práticas de design e performance, e as tecnologias mais modernas do mercado.",
+    icons: [
+      <SiReact key={"React"} />,
+      <SiTailwindcss key={"TailwindCSS"} />,
+      <SiTypescript key={"Typescript"} />,
+      <SiNextdotjs key={"Next"} />,
+      <SiVercel key={"Vercel"} />,
+    ],
+  },
+  {
+    url: "https://projeto-kino.vercel.app/",
+    title: "Clone do Airbnb",
+    date: "14/11/2025",
+    description:
+      "Clone da Interface Principal do site Airbnb, utilizando as melhores práticas de design e performance, e as tecnologias mais modernas do mercado.",
+    icons: [
+      <SiReact key={"React"} />,
+      <SiTailwindcss key={"TailwindCSS"} />,
+      <SiTypescript key={"Typescript"} />,
+      <SiNextdotjs key={"Next"} />,
+      <SiVercel key={"Vercel"} />,
+    ],
+  },
   {
     url: "https://projeto-airbnb.vercel.app/",
     title: "Clone do Airbnb",
@@ -61,5 +105,5 @@ export const projects: Projects[] = [
       <SiVite key={"Vite"} />,
       <SiVercel key={"Vercel"} />,
     ],
-  }
+  },
 ];
