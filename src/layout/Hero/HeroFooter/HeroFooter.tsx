@@ -19,7 +19,7 @@ const HeroFooter = () => {
         className="z-30 flex w-full max-w-7xl min-w-0 flex-wrap items-center justify-center gap-2 px-0 sm:justify-between sm:px-0"
       >
         <div className="hidden items-center space-x-4 sm:flex" />
-        <div className="text-foreground/80 text-xs font-medium sm:text-sm">
+        <div className="text-white text-xs font-medium sm:text-sm">
           {HERO_CONTENT.locationText}
         </div>
       </motion.footer>

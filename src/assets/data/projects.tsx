@@ -2,6 +2,7 @@ import { StaticImageData } from "next/image";
 import { JSX } from "react";
 
 import {
+  SiSqlite,
   SiHtml5,
   SiCss3,
   SiJavascript,
@@ -11,12 +12,19 @@ import {
   SiTypescript,
   SiNextdotjs,
   SiVite,
+  SiSupabase,
+  SiStripe,
+  SiDrizzle,
+  SiPostgresql,
+  SiNodedotjs,
+  SiFastify,
 } from "react-icons/si";
+import { LucideIcon } from "lucide-react";
 
 export type Projects = {
   url: string;
   title: string;
-  favicon?: StaticImageData;
+  projectImage?: StaticImageData | LucideIcon;
   date: string;
   description: string;
   icons: JSX.Element[];
@@ -24,44 +32,52 @@ export type Projects = {
 
 export const projects: Projects[] = [
   {
-    url: "https://projeto-kino.vercel.app/",
-    title: "Clone do Airbnb",
+    url: "fintrack-omega-snowy.vercel.app",
+    title: "Projeto - FinTrack (MVP)",
     date: "14/11/2025",
     description:
-      "Clone da Interface Principal do site Airbnb, utilizando as melhores práticas de design e performance, e as tecnologias mais modernas do mercado.",
+      "Aplicação web multi-usuário para gestão de finanças pessoais, com autenticação segura, CRUD de gastos, categorias customizadas, orçamentos por categoria, metas de economia e dashboard interativo com gráficos e alertas visuais. Desenvolvido com Next.js, TypeScript, Tailwind, shadcn/ui, Drizzle + SQLite e Auth.js, com foco em performance, simplicidade de arquitetura e experiência responsiva.",
     icons: [
       <SiReact key={"React"} />,
       <SiTailwindcss key={"TailwindCSS"} />,
       <SiTypescript key={"Typescript"} />,
       <SiNextdotjs key={"Next"} />,
-      <SiVercel key={"Vercel"} />,
+      <SiDrizzle key={"Drizzle"} />,
+      <SiSqlite key={"SQLite"} />,
     ],
   },
   {
-    url: "https://projeto-site-formiguinhas-web.vercel.app/",
+    url: "https://www.formiguinhasdaalegria.com.br",
     title: "Site - Formiguinhas da Alegria",
-    date: "14/11/2025",
+    date: "26/03/2026",
     description:
-      "Clone da Interface Principal do site Airbnb, utilizando as melhores práticas de design e performance, e as tecnologias mais modernas do mercado.",
+      "Site institucional da ONG Formiguinhas da Alegria, com o objetivo de divulgar a causa e ajudar a causa a alcançar mais pessoas.",
     icons: [
       <SiReact key={"React"} />,
       <SiTailwindcss key={"TailwindCSS"} />,
       <SiTypescript key={"Typescript"} />,
       <SiNextdotjs key={"Next"} />,
       <SiVercel key={"Vercel"} />,
+      <SiSupabase key={"Supabase"} />,
+      <SiStripe key={"Stripe"} />,
+      <SiDrizzle key={"Drizzle"} />,
+      <SiPostgresql key={"PostgreSQL"} />,
+      <SiNodedotjs key={"Node.js"} />,
+      <SiFastify key={"Fastify"} />,
     ],
   },
   {
     url: "https://projeto-kino.vercel.app/",
-    title: "Clone do Airbnb",
+    title: "Projeto - Kino",
     date: "14/11/2025",
     description:
-      "Clone da Interface Principal do site Airbnb, utilizando as melhores práticas de design e performance, e as tecnologias mais modernas do mercado.",
+      "Projeto desenvolvido APENAS PARA ESTUDO: catálogo de filmes e séries integrado à API do TMDB, com busca em tempo real, páginas de detalhes, carrosséis interativos e suporte a tema claro/escuro. Construído com Next.js, React, TypeScript e Tailwind CSS, focando em organização de arquitetura, responsividade e performance.",
     icons: [
       <SiReact key={"React"} />,
       <SiTailwindcss key={"TailwindCSS"} />,
       <SiTypescript key={"Typescript"} />,
       <SiNextdotjs key={"Next"} />,
+
       <SiVercel key={"Vercel"} />,
     ],
   },

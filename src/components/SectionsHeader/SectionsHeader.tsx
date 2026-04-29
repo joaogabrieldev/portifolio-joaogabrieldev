@@ -11,29 +11,22 @@ import {
   HEADER_SHELL_OPACITY_TRANSITION,
 } from "@/constants/headerLogoMotion";
 import { navLinks } from "@/assets/data/navLinks";
+import { useHeaderPaletteTracking } from "@/hooks/useHeaderPaletteTracking";
+import { useHeaderTransparencyTracking } from "@/hooks/useHeaderTransparencyTracking";
 import { useSectionScrollSpy } from "@/hooks/useSectionScrollSpy";
-import { useWindowSize } from "@/hooks/useWindowSize";
 import { cn } from "@/lib/utils";
+import { useHeaderPalette } from "@/stores/useHeaderPalette";
 import { dmSans, outfit } from "@/utils/fonts";
 
 const SECTIONS_NAV_LINKS = navLinks.filter((l) => l.title !== "Contato");
 
 const TRANSITION = { duration: 0.55, ease: [0.22, 1, 0.36, 1] as const };
-
 export default function SectionsHeader() {
   const activeId = useSectionScrollSpy();
   const [mobileOpen, setMobileOpen] = useState(false);
-
-  const { width } = useWindowSize();
-  /** Desktop (md+): header transparente só em `#processos` (alinha ao scroll-spy / ordem no DOM). */
-  const isDesktop = width >= 768;
-  const headerProcessosStyle = activeId === "processos" && isDesktop;
-  const isLightPaletteZone =
-    activeId === "processos-transition" ||
-    activeId === "processos" ||
-    activeId === "planos" ||
-    activeId === "faq" ||
-    activeId === "contato";
+  useHeaderPaletteTracking();
+  const isLightPaletteZone = useHeaderPalette((s) => s.isLightPaletteZone);
+  const headerProcessosStyle = useHeaderTransparencyTracking();
 
   return (
     <motion.header

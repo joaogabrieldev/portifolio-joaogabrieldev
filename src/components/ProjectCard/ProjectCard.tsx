@@ -1,9 +1,23 @@
 import { Projects } from "@/assets/data/projects";
 import { dmSans, outfit } from "@/utils/fonts";
+import Image from "next/image";
 import Link from "next/link";
-import React from "react";
 
-const ProjectCard = ({ url, title, date, description, icons }: Projects) => {
+const ProjectCard = ({
+  url,
+  title,
+  date,
+  description,
+  icons,
+  projectImage,
+}: Projects) => {
+  const isStaticImageData =
+    !!projectImage &&
+    typeof projectImage === "object" &&
+    "src" in projectImage;
+  const isLucideIcon = typeof projectImage === "function";
+  const ProjectImage = isLucideIcon ? projectImage : null;
+
   return (
     <li key={title}>
       <Link
@@ -12,6 +26,18 @@ const ProjectCard = ({ url, title, date, description, icons }: Projects) => {
         rel="noreferrer"
         className="group flex h-full flex-col rounded-2xl border border-white/10 bg-white/[0.04] p-6 shadow-[0_20px_48px_rgba(0,0,0,0.35)] transition hover:border-violet-400/35 hover:bg-white/[0.07]"
       >
+        <div>
+          {isStaticImageData ? (
+            <Image
+              src={projectImage}
+              alt={title}
+              width={100}
+              height={100}
+            />
+          ) : ProjectImage ? (
+            <ProjectImage className="size-8 text-white/80" />
+          ) : null}
+        </div>
         <span
           className={`text-lg font-semibold text-white group-hover:text-violet-200 ${outfit.className}`}
         >

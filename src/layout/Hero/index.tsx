@@ -31,7 +31,7 @@ export const HERO_CONTENT = {
     part1: "João",
     part2: "Gabriel",
   },
-  locationText: "Sao Paulo, Brazil",
+  locationText: "Distrito Federal, Brasil",
   className: "bg-black",
 };
 
@@ -65,7 +65,7 @@ const Hero = () => {
             <HeroLeftText />
           </div>
 
-          <HeroFooter />
+          {/* <HeroFooter /> */}
         </div>
       </HeroScrollContext.Provider>
       {/* <GradualBlur

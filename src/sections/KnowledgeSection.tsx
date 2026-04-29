@@ -9,8 +9,8 @@ const infoCardClass =
 export default function KnowledgeSection() {
   return (
     <section
-      id="conhecimentos"
-      aria-labelledby="conhecimentos-heading"
+      id="habilidades"
+      aria-labelledby="habilidades-heading"
       className={`${sectionShell} scroll-mt-6`}
     >
       <div className="relative mx-auto max-w-[1200px]">
@@ -22,10 +22,10 @@ export default function KnowledgeSection() {
               Stack & ferramentas
             </p>
             <h2
-              id="conhecimentos-heading"
+              id="habilidades-heading"
               className={`mt-2 text-xl font-semibold tracking-tight text-white sm:text-2xl ${epilogue.className}`}
             >
-              Conhecimentos
+              Habilidades
             </h2>
           </div>
           <p className={`max-w-md text-sm text-white/50 ${dmSans.className}`}>
@@ -39,8 +39,10 @@ export default function KnowledgeSection() {
             const baseDelay =
               aboutSkillGroups
                 .slice(0, groupIndex)
-                .reduce((acc, currentGroup) => acc + currentGroup.skills.length, 0) *
-              0.035;
+                .reduce(
+                  (acc, currentGroup) => acc + currentGroup.skills.length,
+                  0,
+                ) * 0.035;
 
             return (
               <article key={group.id} className={infoCardClass}>
@@ -53,19 +55,38 @@ export default function KnowledgeSection() {
                   {group.skills.map((skill, skillIndex) => {
                     const Icon = skill.Icon;
                     const delay = baseDelay + skillIndex * 0.035;
+                    const isSvgIconUrl = skill.iconUrl?.endsWith(".svg") ?? false;
 
                     return (
                       <li key={`${group.id}-${skill.name}`}>
                         <div className="flex items-center gap-2.5">
                           {skill.iconUrl ? (
-                            // eslint-disable-next-line @next/next/no-img-element -- URLs externas e ícones locais mistos
-                            <img
-                              src={skill.iconUrl}
-                              alt=""
-                              width={18}
-                              height={18}
-                              className="size-[18px] shrink-0 object-contain"
-                            />
+                            skill.iconColor && isSvgIconUrl ? (
+                              <span
+                                className="size-[18px] shrink-0"
+                                aria-hidden
+                                style={{
+                                  backgroundColor: skill.iconColor,
+                                  WebkitMaskImage: `url(${skill.iconUrl})`,
+                                  maskImage: `url(${skill.iconUrl})`,
+                                  WebkitMaskRepeat: "no-repeat",
+                                  maskRepeat: "no-repeat",
+                                  WebkitMaskSize: "contain",
+                                  maskSize: "contain",
+                                  WebkitMaskPosition: "center",
+                                  maskPosition: "center",
+                                }}
+                              />
+                            ) : (
+                              // eslint-disable-next-line @next/next/no-img-element -- URLs externas e ícones locais mistos
+                              <img
+                                src={skill.iconUrl}
+                                alt=""
+                                width={18}
+                                height={18}
+                                className="size-[18px] shrink-0 object-contain"
+                              />
+                            )
                           ) : (
                             <Icon
                               className="size-[18px] shrink-0"
@@ -83,7 +104,7 @@ export default function KnowledgeSection() {
                             {skill.name}
                           </span>
                           <span
-                            className={`shrink-0 text-[11px] tabular-nums text-white/55 transition-colors duration-300 ease-out group-hover:text-white/75 sm:text-sm ${geistMono.className}`}
+                            className={`shrink-0 text-[11px] text-white/55 tabular-nums transition-colors duration-300 ease-out group-hover:text-white/75 sm:text-sm ${geistMono.className}`}
                           >
                             {skill.level}%
                           </span>

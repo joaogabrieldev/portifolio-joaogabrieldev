@@ -7,7 +7,7 @@ import { useCallback, useSyncExternalStore } from "react";
 export const SECTION_SCROLL_SPY_ORDER = [
   "inicio",
   "sobre",
-  "conhecimentos",
+  "habilidades",
   "projetos",
   "processos-transition",
   "processos",

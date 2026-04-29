@@ -4,6 +4,7 @@ import { motion } from "motion/react";
 import { orderClass } from "..";
 import { epilogue, fraunces, herrVonMuellerhoff } from "@/utils/fonts";
 import { urlGithub, urlLinkedin } from "@/utils/linksToGo";
+import { openGithubTab, openLinkedinTab } from "@/utils/singleTabNavigation";
 import Link from "next/link";
 import { SiGithub, SiLinkedin } from "react-icons/si";
 import "./HeroRightText.css";
@@ -46,6 +47,10 @@ const HeroRightText = ({ order }: HeroRightTextProps) => {
               href={urlGithub}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={(event) => {
+                event.preventDefault();
+                openGithubTab();
+              }}
               aria-label="GitHub"
               className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/25 bg-white/5 transition hover:border-white/45 hover:bg-white/12"
             >
@@ -55,6 +60,10 @@ const HeroRightText = ({ order }: HeroRightTextProps) => {
               href={urlLinkedin}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={(event) => {
+                event.preventDefault();
+                openLinkedinTab();
+              }}
               aria-label="LinkedIn"
               className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/25 bg-white/5 transition hover:border-white/45 hover:bg-white/12"
             >

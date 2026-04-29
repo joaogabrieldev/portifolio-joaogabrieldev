@@ -11,7 +11,7 @@ export interface INavLinkProps {
 
 const NavLink = ({ title, slug, onClick }: INavLinkProps) => {
   return (
-    <li className="list-none">
+    <li className="list-none select-none">
       <Link
         to={slug}
         smooth={true}
@@ -19,7 +19,7 @@ const NavLink = ({ title, slug, onClick }: INavLinkProps) => {
         spy={true}
         onClick={onClick}
         activeClass="activeLink"
-        className={`cursor-pointer select-none text-[17px] font-semibold text-white hover:text-white/80 ${defaultTransition}`}
+        className={`cursor-pointer text-[17px] font-semibold text-white select-none hover:text-white/80 ${defaultTransition}`}
       >
         {title}
       </Link>

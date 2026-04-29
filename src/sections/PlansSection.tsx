@@ -9,7 +9,7 @@ function planCardVariant(plan: (typeof plans)[number]): PlanCardVariant {
 }
 
 const plansSectionShell =
-  "border-t border-black/10 bg-white px-4 py-20 text-black sm:px-8 md:px-12";
+  "scroll-mt-6  border-black/10 bg-white px-4 py-20 text-black sm:px-8 md:px-12";
 
 export default function PlansSection() {
   return (

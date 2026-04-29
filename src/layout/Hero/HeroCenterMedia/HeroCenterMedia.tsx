@@ -23,7 +23,7 @@ const HeroCenterMedia = ({ order }: HeroCenterMediaProps) => {
 
   return (
     <div
-      className={`relative -top-6 z-0 flex h-[34vh] min-h-[200px] w-full min-w-0 items-center justify-center sm:-top-8 sm:h-[40vh] sm:min-h-[240px] md:top-0 md:h-[42vh] md:min-h-[260px] ${orderClass[order]} ml-0 sm:ml-1.5 lg:ml-0`}
+      className={`relative -top-6 z-0 flex h-[34vh] min-h-[200px] w-full min-w-0 items-center justify-center sm:-top-8 sm:h-[40vh] sm:min-h-[240px] md:top-0 md:h-[42vh] md:min-h-[260px] ${orderClass[order]} ml-0 select-none sm:ml-1.5 lg:ml-0`}
     >
       <motion.div
         className="absolute z-0 h-[92vw] max-h-[360px] min-h-[220px] w-[94vw] max-w-[360px] min-w-[220px] sm:h-[100vw] sm:max-h-[420px] sm:min-h-[260px] sm:w-[96vw] sm:max-w-[420px] sm:min-w-[260px] md:h-[56vw] md:max-h-[700px] md:w-[84vw] md:max-w-[1180px] lg:h-[50vw] lg:max-h-[820px] lg:w-screen lg:max-w-[1920px]"
@@ -46,7 +46,7 @@ const HeroCenterMedia = ({ order }: HeroCenterMediaProps) => {
           transition={{ duration: 1.15, ease: easeMedia }}
         >
           <video
-            className="mt-4 h-full w-full object-cover md:mt-0 md:object-contain"
+            className="mt-4 h-full w-full object-cover select-none md:mt-0 md:object-contain"
             style={{ backgroundColor: "transparent" }}
             src="/assets/animations/sunrise-2.webm"
             autoPlay
@@ -67,7 +67,7 @@ const HeroCenterMedia = ({ order }: HeroCenterMediaProps) => {
             width={HERO_PORTRAIT_WIDTH}
             height={HERO_PORTRAIT_HEIGHT}
             alt={HERO_IMAGE_ALT}
-            className="profile-image relative top-1 mx-auto h-auto w-[min(100%,17.5rem)] max-w-[92vw] scale-[1.25] cursor-pointer object-cover sm:top-2 sm:w-[min(100%,20rem)] sm:scale-[1.2] md:top-18 md:w-[min(100%,26rem)] md:max-w-none md:scale-[1.55] lg:w-[min(100%,28rem)] lg:scale-[1.8] xl:w-[28.75rem] xl:scale-[2.05]"
+            className="profile-image relative top-1 mx-auto h-auto w-[min(100%,17.5rem)] max-w-[92vw] scale-[1.25] cursor-pointer object-cover select-none sm:top-2 sm:w-[min(100%,20rem)] sm:scale-[1.2] md:top-18 md:w-[min(100%,26rem)] md:max-w-none md:scale-[1.55] lg:w-[min(100%,28rem)] lg:scale-[1.8] xl:w-[28.75rem] xl:scale-[2.05]"
             initial={{
               filter: "blur(6px) grayscale(1)",
             }}

@@ -146,8 +146,8 @@ export default function ProcessPinnedTimeline({
        */
       const scrollDistance = (): number => {
         const transitions = Math.max(stepCount - 1, 1);
-        const perTransition = window.innerHeight * 0.52;
-        const initialHold = window.innerHeight * 0.28;
+        const perTransition = window.innerHeight * 0.78;
+        const initialHold = window.innerHeight * 0.42;
         return initialHold + transitions * perTransition;
       };
 
@@ -158,7 +158,7 @@ export default function ProcessPinnedTimeline({
           start: "top top",
           end: () => `+=${scrollDistance()}`,
           pin: true,
-          scrub: 0.35,
+          scrub: 0.68,
           anticipatePin: 1,
           invalidateOnRefresh: true,
           onUpdate(self) {

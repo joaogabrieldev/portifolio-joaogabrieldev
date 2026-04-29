@@ -1,9 +1,10 @@
-import React, { useRef } from "react";
+import React from "react";
 import "./InformationFooter.css";
 import { SiGithub, SiLinkedin } from "react-icons/si";
 import { ubuntu } from "@/utils/fonts";
 import Link from "next/link";
 import { urlGithub, urlLinkedin } from "@/utils/linksToGo";
+import { openGithubTab, openLinkedinTab } from "@/utils/singleTabNavigation";
 import { motion } from "motion/react";
 import {
   SiNextdotjs,
@@ -15,25 +16,6 @@ import { icons } from "lucide-react";
 import { defaultSelection } from "@/utils/defaults";
 
 const InformationFooter = () => {
-  const linkedinRef = useRef<Window | null>(null);
-  const githubWindowRef = useRef<Window | null>(null);
-
-  const handleLinkedinClick = () => {
-    if (linkedinRef.current && !linkedinRef.current.closed) {
-      linkedinRef.current.focus();
-    } else {
-      linkedinRef.current = window.open(urlLinkedin, "linkedinWindow");
-    }
-  };
-
-  const handleGithubClick = () => {
-    if (githubWindowRef.current && !githubWindowRef.current.closed) {
-      githubWindowRef.current.focus();
-    } else {
-      githubWindowRef.current = window.open(urlGithub, "githubWindow");
-    }
-  };
-
   const stackIcons = [
     <SiNextdotjs />,
     <SiReact />,
@@ -78,7 +60,14 @@ const InformationFooter = () => {
       </div>
       <div className="flex flex-row justify-center gap-2 px-14 py-2 text-4xl text-gray-500 min-[1200px]:pt-7 md:pb-0">
         <span>
-          <Link href={urlGithub} target="_blank" onClick={handleGithubClick}>
+          <Link
+            href={urlGithub}
+            target="_blank"
+            onClick={(event) => {
+              event.preventDefault();
+              openGithubTab();
+            }}
+          >
             <SiGithub className="cursor-pointer hover:text-[#948ad5]" />
           </Link>
         </span>
@@ -86,7 +75,10 @@ const InformationFooter = () => {
           <Link
             href={urlLinkedin}
             target="_blank"
-            onClick={handleLinkedinClick}
+            onClick={(event) => {
+              event.preventDefault();
+              openLinkedinTab();
+            }}
           >
             <SiLinkedin className="cursor-pointer hover:text-[#948ad5]" />
           </Link>

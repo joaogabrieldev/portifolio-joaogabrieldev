@@ -27,9 +27,9 @@ const HeroHeader = () => {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={HEADER_SHELL_OPACITY_TRANSITION}
-          className="fixed top-0 right-0 left-0 z-30 w-full"
+          className="fixed top-0 right-0 left-0 z-30 w-full select-none"
         >
-          <div className="mx-auto flex w-full max-w-7xl min-w-0 items-center justify-between gap-2 px-4 py-3 sm:gap-3 sm:px-6 sm:py-4 md:grid md:grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] md:gap-x-3 md:gap-y-2 md:px-10 md:py-3 lg:px-12">
+          <div className="mx-auto flex w-full max-w-7xl min-w-0 items-center justify-between gap-2 px-4 py-3 sm:gap-3 sm:px-6 sm:py-4 md:grid md:grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] md:gap-x-3 md:gap-y-2 md:px-10 md:py-3 lg:px-12 ">
             <motion.div
               layoutId="global-header-logo"
               transition={HEADER_LOGO_LAYOUT_TRANSITION}

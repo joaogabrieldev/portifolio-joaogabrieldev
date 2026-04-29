@@ -25,14 +25,14 @@ const HeroDesktopNav = ({ navLinks }: HeroDesktopNavProps) => {
     <div className="hidden max-w-full justify-self-center md:flex">
       <ul className="flex max-w-full items-center gap-1 overflow-x-auto rounded-full border border-white/10 bg-white/6 shadow-[inset_0_1px_0_rgba(255,255,255,0.25)] backdrop-blur-xl">
         {navLinks.map((item) => (
-          <li key={item.slug} className="list-none">
+          <li key={item.slug} className="list-none select-none">
             <ScrollLink
               to={item.slug}
               smooth={true}
               duration={800}
               spy={false}
               className={cn(
-                "inline-flex h-9 cursor-pointer items-center justify-center rounded-full px-4 text-sm font-semibold text-white/90 transition hover:bg-white/8 hover:text-white",
+                "inline-flex h-9 cursor-pointer items-center justify-center rounded-full px-4 text-sm font-semibold text-white/90 transition select-none hover:bg-white/8 hover:text-white",
                 activeId === item.slug && "bg-white/13 text-white",
               )}
             >

@@ -35,6 +35,7 @@ import {
   SiSupabase,
   SiSqlite,
   SiTurso,
+  SiFramer,
 } from "react-icons/si";
 
 export type AboutSkill = {
@@ -58,6 +59,7 @@ export type AboutSkillGroup = {
     | "extras"
     | "deployment"
     | "ai"
+    | "ai-knowledge"
     | "tools";
   label: string;
   skills: AboutSkill[];
@@ -212,40 +214,28 @@ export const aboutSkillGroups: AboutSkillGroup[] = [
     ],
   },
   {
-    id: "designUI",
-    label: "Design & UI/UX",
+    id: "ai-knowledge",
+    label: "Conhecimento sobre IA",
     skills: [
       {
-        name: "Figma",
-        Icon: SiFigma,
-        iconUrl: "/assets/icons/figma.png",
-        iconColor: "#F24E1E",
-        level: 95,
-      },
-      {
-        name: "Claude Design",
-        Icon: SiClaude,
+        name: "MCP",
+        Icon: SiReact,
+        iconUrl: "/assets/icons/mcp.png",
         iconColor: "#D97757",
         level: 90,
       },
       {
-        name: "Google Stitch",
-        Icon: SiGoogle,
-        iconUrl: "/assets/icons/google.png",
-        iconColor: "#4285F4",
-        level: 90,
-      },
-      {
-        name: "After Effects",
-        Icon: SiAdobeaftereffects,
-        iconColor: "#9999FF",
-        level: 100,
+        name: "RAG",
+        Icon: SiReact,
+        iconUrl: "/assets/icons/rag.svg",
+        iconColor: "#FFFFFF",
+        level: 95,
       },
     ],
   },
   {
     id: "ai",
-    label: "IA",
+    label: "Habilidade em IA",
     skills: [
       {
         name: "Claude",
@@ -313,6 +303,51 @@ export const aboutSkillGroups: AboutSkillGroup[] = [
         Icon: SiTurso,
         iconColor: "#4DA8A9",
         level: 90,
+      },
+    ],
+  },
+  {
+    id: "designUI",
+    label: "Design & UI/UX",
+    skills: [
+      {
+        name: "Figma",
+        Icon: SiFigma,
+        iconUrl: "/assets/icons/figma.png",
+        iconColor: "#F24E1E",
+        level: 95,
+      },
+      {
+        name: "Framer",
+        Icon: SiFramer,
+        iconColor: "#0055FF",
+        level: 85,
+      },
+      {
+        name: "Spline",
+        Icon: SiFramer,
+        iconUrl: "/assets/icons/spline.png",
+        iconColor: "#000000",
+        level: 80,
+      },
+      {
+        name: "Claude Design",
+        Icon: SiClaude,
+        iconColor: "#D97757",
+        level: 90,
+      },
+      {
+        name: "Google Stitch",
+        Icon: SiGoogle,
+        iconUrl: "/assets/icons/google.png",
+        iconColor: "#4285F4",
+        level: 90,
+      },
+      {
+        name: "After Effects",
+        Icon: SiAdobeaftereffects,
+        iconColor: "#9999FF",
+        level: 100,
       },
     ],
   },

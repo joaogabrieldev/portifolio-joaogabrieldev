@@ -5,6 +5,7 @@ import {
   AboutSection,
   ContactSection,
   FAQSection,
+  HireSection,
   KnowledgeSection,
   PlansSection,
   ProcessSection,
@@ -17,6 +18,7 @@ export default function SiteSections() {
       <AboutSection />
       <KnowledgeSection />
       <ProjectsSection />
+      <HireSection />
       {/*
        * Seção vazia dedicada para a transição entre Projects e Process.
        * Altura pensada para dar tempo da Burn completar no scroll.

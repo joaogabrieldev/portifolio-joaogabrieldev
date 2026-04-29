@@ -94,8 +94,8 @@ export default function SmoothScrollProvider({
     <ReactLenis
       root
       options={{
-        lerp: 0.1,
-        duration: 1.2,
+        lerp: 0.05,
+        duration: 1.8,
         smoothWheel: true,
         autoRaf: false,
       }}

@@ -2,6 +2,7 @@ import Link from "next/link";
 
 import { projects } from "@/assets/data/projects";
 import { dmSans, outfit } from "@/utils/fonts";
+import { openProjectsTab } from "@/utils/singleTabNavigation";
 import { sectionShell } from "./sectionStyles";
 import ProjectCard from "@/components/ProjectCard/ProjectCard";
 import { HoverButton } from "@/components/ui/hover-button";
@@ -31,13 +32,18 @@ export default function ProjectsSection() {
             <ProjectCard key={project.title} {...project} />
           ))}
         </ul>
-        <div className="mt-8 lg:mt-12 flex items-center justify-center">
-          <ShinyButton>
-            <Link href="/projetos" className="text-white">
-              Ver todos os projetos
-            </Link>
+        <div className="mt-8 flex items-center justify-center lg:mt-12">
+          <ShinyButton
+            onClick={() => {
+              openProjectsTab();
+            }}
+          >
+            Ver todos os projetos
           </ShinyButton>
         </div>
+      </div>
+      <div>
+        
       </div>
     </section>
   );

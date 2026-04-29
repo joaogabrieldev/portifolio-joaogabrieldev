@@ -13,6 +13,14 @@ export const navLinks: INavLinks[] = [
     slug: "sobre",
   },
   {
+    title: "Habilidades",
+    slug: "habilidades",
+  },
+  {
+    title: "Projetos",
+    slug: "projetos",
+  },
+  {
     title: "Processos",
     slug: "processos",
   },
@@ -20,10 +28,7 @@ export const navLinks: INavLinks[] = [
     title: "Planos",
     slug: "planos",
   },
-  {
-    title: "Projetos",
-    slug: "projetos",
-  },
+
   {
     title: "FAQ",
     slug: "faq",
