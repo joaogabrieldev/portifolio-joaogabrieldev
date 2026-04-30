@@ -1,14 +1,24 @@
-"use client"
+"use client";
 
-import type React from "react"
+import type React from "react";
+import { Link as ScrollLink } from "react-scroll";
 
 interface ShinyButtonProps {
-  children: React.ReactNode
-  onClick?: () => void
-  className?: string
+  children: React.ReactNode;
+  onClick?: () => void;
+  className?: string;
+  mode?: "scroll" | "navigation";
+  /** Alvo do `react-scroll` quando `mode` é `"scroll"`. */
+  to?: string;
 }
 
-export function ShinyButton({ children, onClick, className = "" }: ShinyButtonProps) {
+export function ShinyButton({
+  children,
+  onClick,
+  className = "",
+  mode = "scroll",
+  to,
+}: ShinyButtonProps) {
   return (
     <>
       <style jsx>{`
@@ -48,7 +58,7 @@ export function ShinyButton({ children, onClick, className = "" }: ShinyButtonPr
           --duration: 3s;
           --shadow-size: 2px;
           --transition: 800ms cubic-bezier(0.25, 1, 0.5, 1);
-          
+
           isolation: isolate;
           position: relative;
           overflow: hidden;
@@ -62,18 +72,22 @@ export function ShinyButton({ children, onClick, className = "" }: ShinyButtonPr
           border: 1px solid transparent;
           border-radius: 360px;
           color: var(--shiny-cta-fg);
-          background: linear-gradient(var(--shiny-cta-bg), var(--shiny-cta-bg)) padding-box,
+          background:
+            linear-gradient(var(--shiny-cta-bg), var(--shiny-cta-bg))
+              padding-box,
             conic-gradient(
-              from calc(var(--gradient-angle) - var(--gradient-angle-offset)),
-              transparent,
-              var(--shiny-cta-highlight) var(--gradient-percent),
-              var(--gradient-shine) calc(var(--gradient-percent) * 2),
-              var(--shiny-cta-highlight) calc(var(--gradient-percent) * 3),
-              transparent calc(var(--gradient-percent) * 4)
-            ) border-box;
+                from calc(var(--gradient-angle) - var(--gradient-angle-offset)),
+                transparent,
+                var(--shiny-cta-highlight) var(--gradient-percent),
+                var(--gradient-shine) calc(var(--gradient-percent) * 2),
+                var(--shiny-cta-highlight) calc(var(--gradient-percent) * 3),
+                transparent calc(var(--gradient-percent) * 4)
+              )
+              border-box;
           box-shadow: inset 0 0 0 1px var(--shiny-cta-bg-subtle);
           transition: var(--transition);
-          transition-property: --gradient-angle-offset, --gradient-percent, --gradient-shine;
+          transition-property:
+            --gradient-angle-offset, --gradient-percent, --gradient-shine;
         }
 
         .shiny-cta::before,
@@ -100,10 +114,11 @@ export function ShinyButton({ children, onClick, className = "" }: ShinyButtonPr
           width: var(--size);
           height: var(--size);
           background: radial-gradient(
-            circle at var(--position) var(--position),
-            rgba(196, 181, 253, 0.55) calc(var(--position) / 4),
-            transparent 0
-          ) padding-box;
+              circle at var(--position) var(--position),
+              rgba(196, 181, 253, 0.55) calc(var(--position) / 4),
+              transparent 0
+            )
+            padding-box;
           background-size: var(--space) var(--space);
           background-repeat: space;
           mask-image: conic-gradient(
@@ -150,7 +165,8 @@ export function ShinyButton({ children, onClick, className = "" }: ShinyButtonPr
         .shiny-cta,
         .shiny-cta::before,
         .shiny-cta::after {
-          animation: var(--animation) var(--duration),
+          animation:
+            var(--animation) var(--duration),
             var(--animation) calc(var(--duration) / 0.4) reverse paused;
           animation-composition: add;
         }
@@ -184,7 +200,8 @@ export function ShinyButton({ children, onClick, className = "" }: ShinyButtonPr
         }
 
         @keyframes breathe {
-          from, to {
+          from,
+          to {
             scale: 1;
           }
           50% {
@@ -193,9 +210,28 @@ export function ShinyButton({ children, onClick, className = "" }: ShinyButtonPr
         }
       `}</style>
 
-      <button className={`shiny-cta ${className}`} onClick={onClick}>
-        <span>{children}</span>
-      </button>
+      {mode === "navigation" ? (
+        <>
+          <button className={`shiny-cta ${className}`} onClick={onClick}>
+            <span>{children}</span>
+          </button>
+        </>
+      ) : to ? (
+        <ScrollLink
+          to={to}
+          smooth
+          duration={800}
+          spy={false}
+          className={`shiny-cta ${className}`}
+          onClick={onClick}
+        >
+          <span>{children}</span>
+        </ScrollLink>
+      ) : (
+        <button type="button" className={`shiny-cta ${className}`} onClick={onClick}>
+          <span>{children}</span>
+        </button>
+      )}
     </>
-  )
+  );
 }

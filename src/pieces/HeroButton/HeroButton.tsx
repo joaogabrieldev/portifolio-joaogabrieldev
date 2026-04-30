@@ -70,8 +70,8 @@ const HeroButton = ({
       <ScrollLink
         to={button_href}
         smooth
-        duration={800}
-        offset={-72}
+        duration={1500}
+        offset={-70}
         href={`#${button_href}`}
         className={heroButtonClassName(button_variant)}
       >

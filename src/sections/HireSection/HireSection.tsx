@@ -1,7 +1,7 @@
 "use client";
 
 import dynamic from "next/dynamic";
-import { ArrowRight } from "lucide-react";
+import { ArrowDown, ArrowRight } from "lucide-react";
 import { Link as ScrollLink } from "react-scroll";
 
 import { cn } from "@/lib/utils";
@@ -22,7 +22,7 @@ export default function HireSection() {
       id="contratar"
       aria-labelledby="contratar-heading"
       className={cn(
-        "hire-section relative isolate scroll-mt-6 overflow-hidden bg-black px-4 py-16 text-white sm:px-8 md:px-12 md:py-24 lg:py-28",
+        "hire-section relative isolate scroll-mt-6 overflow-hidden bg-black px-4 py-16 mt-12 text-white sm:px-8 md:px-12 md:py-24 lg:py-28",
       )}
     >
       {/* Spline ORB — decorativo, pointer-events-none */}
@@ -74,7 +74,7 @@ export default function HireSection() {
               color: "var(--hire-text)",
             }}
           >
-            <span className="block">Quer me</span>
+            <span className="block">Deseja me</span>
             <span className="block flex flex-row gap-2 italic">
               <span className="text-white">contratar</span>
               <span className="text-white">?</span>
@@ -84,19 +84,21 @@ export default function HireSection() {
           {/* Corpo: uma medida confortável, contraste ≥ leitura (WCAG em texto grande) */}
           <p
             className={cn(
-              "mx-auto mt-8 max-w-prose text-base leading-relaxed text-white/65 md:mt-6 md:text-lg",
+              "mx-auto mt-8 max-w-120 text-base leading-relaxed text-white/65 md:mt-2 md:text-lg",
               dmSans.className,
             )}
             style={{ fontWeight: 400 }}
           >
-            Depois dos projetos, o próximo passo é a{" "}
-            <span className="font-medium text-white/85">metodologia</span> — do
-            briefing ao deploy — antes de falar valores fechados.
+            Aqui você conhece a{" "}
+            <span className="font-medium text-white/85">
+              metodologia completa
+            </span>{" "}
+            antes de qualquer conversa sobre valores ou prazos.
           </p>
 
           {/* Ação principal única — alvo ≥ 44px (UI/UX Pro Max) */}
           <div className="mt-10 flex w-full flex-col items-stretch gap-3 sm:mt-12 sm:max-w-md sm:items-center">
-            <ScrollLink
+            {/* <ScrollLink
               to={PROCESS_TRANSITION_ID}
               smooth
               duration={800}
@@ -142,27 +144,31 @@ export default function HireSection() {
                 strokeWidth={2.2}
                 aria-hidden
               />
-            </ScrollLink>
+            </ScrollLink> */}
 
             {/* Secundário: linguagem clara, não compete com o primário (Krug) */}
             <ScrollLink
               to="processos"
               smooth
-              duration={800}
-              offset={-80}
+              duration={2700}
+              offset={0}
+              spy={false}
               className={cn(
-                "min-h-11 py-2 text-center text-sm text-white/55 underline decoration-white/25 decoration-1 underline-offset-[6px] transition-colors duration-200",
-                "hover:text-white/80 hover:decoration-white/40",
-                "focus-visible:rounded-sm focus-visible:text-white focus-visible:ring-2 focus-visible:ring-[var(--hire-lavender)]/70 focus-visible:ring-offset-2 focus-visible:ring-offset-black focus-visible:outline-none",
-                dmSans.className,
+                "shiny-cta inline-flex min-h-11 w-full items-center justify-center gap-1.5 no-underline sm:w-auto",
+                "focus-visible:ring-2 focus-visible:ring-[var(--hire-lavender)]/70 focus-visible:ring-offset-2 focus-visible:ring-offset-black focus-visible:outline-none",
               )}
-              style={{ fontWeight: 500 }}
             >
-              Ir direto às etapas da linha do tempo
+              <span>
+                <ArrowDown />
+              </span>
+              <span>Ir direto às etapas da linha do tempo</span>
+              <span>
+                <ArrowDown />
+              </span>
             </ScrollLink>
           </div>
 
-          <p
+          {/* <p
             className={cn(
               "mt-8 text-[11px] tracking-[0.16em] text-white/40 uppercase",
               geistMono.className,
@@ -170,7 +176,7 @@ export default function HireSection() {
             style={{ fontWeight: 500 }}
           >
             Disponível · Q3 — Q4 / 2026
-          </p>
+          </p> */}
 
           {/* Ritmo visual de scroll — decorativo; ação explícita já está no botão (evita dois CTAs iguais) */}
           <div

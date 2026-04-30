@@ -19,6 +19,8 @@ export default function SiteSections() {
       <KnowledgeSection />
       <ProjectsSection />
       <HireSection />
+      {/* Peso de scroll local: apenas entre Projects e transição de Process */}
+      <div aria-hidden className="h-[36vh] bg-black" />
       {/*
        * Seção vazia dedicada para a transição entre Projects e Process.
        * Altura pensada para dar tempo da Burn completar no scroll.

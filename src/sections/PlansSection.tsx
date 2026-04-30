@@ -9,7 +9,7 @@ function planCardVariant(plan: (typeof plans)[number]): PlanCardVariant {
 }
 
 const plansSectionShell =
-  "scroll-mt-6  border-black/10 bg-white px-4 py-20 text-black sm:px-8 md:px-12";
+  "scroll-mt-6 border-t border-black/10 bg-white px-4 py-20 text-black sm:px-8 md:px-12";
 
 export default function PlansSection() {
   return (
@@ -18,43 +18,16 @@ export default function PlansSection() {
       className={`${plansSectionShell} relative scroll-mt-6 overflow-hidden`}
       aria-labelledby="planos-heading"
     >
-      <div
-        className="pointer-events-none absolute inset-0 z-0 opacity-90"
-        aria-hidden
-        style={{
-          backgroundImage: `
-            radial-gradient(1.3px 1.3px at 12% 18%, rgba(255,255,255,0.55), transparent 60%),
-            radial-gradient(1px 1px at 78% 8%, rgba(255,255,255,0.4), transparent 60%),
-            radial-gradient(1.5px 1.5px at 92% 22%, rgba(255,255,255,0.55), transparent 60%),
-            radial-gradient(1px 1px at 30% 72%, rgba(255,255,255,0.3), transparent 60%),
-            radial-gradient(1.2px 1.2px at 88% 78%, rgba(255,255,255,0.35), transparent 60%),
-            radial-gradient(1px 1px at 55% 30%, rgba(255,255,255,0.25), transparent 60%),
-            radial-gradient(1px 1px at 66% 88%, rgba(255,255,255,0.3), transparent 60%),
-            radial-gradient(1.4px 1.4px at 96% 50%, rgba(255,255,255,0.5), transparent 60%)
-          `,
-        }}
-      />
-      <div
-        className="pointer-events-none absolute inset-0 z-0"
-        aria-hidden
-        style={{
-          background: `
-            radial-gradient(1100px 700px at 85% 20%, rgba(255,255,255,0.035), transparent 60%),
-            radial-gradient(700px 500px at 10% 90%, rgba(255,255,255,0.02), transparent 60%)
-          `,
-        }}
-      />
-
       <div className="relative z-10 mx-auto w-full max-w-[1800px] px-4 sm:px-6 lg:px-0">
         <div className="mx-auto w-full max-w-[1200px]">
           <p
-            className={`mb-3 text-xs font-semibold tracking-[0.2em] text-black/55 uppercase ${outfit.className}`}
+            className={`mb-3 text-xs font-medium tracking-[0.08em] text-[#7170ff] uppercase ${outfit.className}`}
           >
             Planos
           </p>
           <h2
             id="planos-heading"
-            className={`mb-12 text-3xl font-semibold tracking-tight sm:text-4xl ${outfit.className}`}
+            className={`mb-12 text-5xl leading-none font-medium tracking-[-0.022em] text-black ${outfit.className}`}
           >
             Escolha o pacote que combina com o estágio do seu negócio.
           </h2>

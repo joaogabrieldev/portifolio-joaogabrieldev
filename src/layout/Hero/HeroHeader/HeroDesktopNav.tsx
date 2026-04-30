@@ -30,6 +30,7 @@ const HeroDesktopNav = ({ navLinks }: HeroDesktopNavProps) => {
               to={item.slug}
               smooth={true}
               duration={800}
+              offset={-75}
               spy={false}
               className={cn(
                 "inline-flex h-9 cursor-pointer items-center justify-center rounded-full px-4 text-sm font-semibold text-white/90 transition select-none hover:bg-white/8 hover:text-white",

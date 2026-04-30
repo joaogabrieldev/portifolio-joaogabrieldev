@@ -3,6 +3,7 @@
 import { useGSAP } from "@gsap/react";
 import "lenis/dist/lenis.css";
 import { ReactLenis, useLenis } from "lenis/react";
+import { usePathname } from "next/navigation";
 import { type ReactNode } from "react";
 
 import { gsap, ScrollTrigger } from "@/lib/gsap-client";
@@ -66,7 +67,9 @@ function LenisScrollTriggerBridge() {
             document.documentElement.scrollHeight,
             document.body.scrollHeight,
           ),
-        pinType: document.documentElement.style.transform ? "transform" : "fixed",
+        pinType: document.documentElement.style.transform
+          ? "transform"
+          : "fixed",
       });
 
       ScrollTrigger.defaults({ scroller });
@@ -90,12 +93,18 @@ function LenisScrollTriggerBridge() {
 export default function SmoothScrollProvider({
   children,
 }: SmoothScrollProviderProps) {
+  const pathname = usePathname();
+  const isProjectsPage = pathname?.startsWith("/projetos");
+
   return (
     <ReactLenis
       root
       options={{
-        lerp: 0.05,
-        duration: 1.8,
+        // Scroll global mais pesado; em /projetos fica ainda mais inercial.
+        lerp: isProjectsPage ? 0.02 : 0.03,
+        duration: isProjectsPage ? 3.8 : 2.6,
+        wheelMultiplier: isProjectsPage ? 0.55 : 0.8,
+        touchMultiplier: isProjectsPage ? 0.7 : 0.9,
         smoothWheel: true,
         autoRaf: false,
       }}
