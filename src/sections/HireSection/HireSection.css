@@ -1,0 +1,123 @@
+/* HireSection — animações v6 + tokens locais (escopo .hire-section) */
+
+.hire-section {
+  /* Preto explícito: fundo uniforme por baixo do canvas WebGL */
+  background-color: #000000;
+  --hire-text: rgba(255, 255, 255, 0.95);
+  --hire-muted: rgba(255, 255, 255, 0.68);
+  --hire-faint: rgba(255, 255, 255, 0.42);
+  --hire-hairline: rgba(255, 255, 255, 0.1);
+  --hire-lavender: #cbb7fb;
+  --hire-violet-mid: #a78bfa;
+  --hire-violet-deep: #7c3aed;
+}
+
+/*
+ * Spline em tela cheia gera grain/banding nas áreas “vazias” do WebGL.
+ * Máscara radial: só o centro mostra o 3D; o resto fica transparente → #000 da section.
+ */
+.hire-spline-decor {
+  opacity: 0.28;
+  -webkit-mask-image: radial-gradient(
+    ellipse 62% 52% at 50% 44%,
+    #000 0%,
+    transparent 70%
+  );
+  mask-image: radial-gradient(
+    ellipse 62% 52% at 50% 44%,
+    #000 0%,
+    transparent 70%
+  );
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+}
+
+@keyframes hire-v6-dot {
+  0%,
+  100% {
+    opacity: 1;
+    box-shadow: 0 0 0 0 rgba(203, 183, 251, 0.55);
+  }
+  50% {
+    opacity: 0.5;
+    box-shadow: 0 0 0 5px rgba(203, 183, 251, 0);
+  }
+}
+
+@keyframes hire-v6-scroll-dot {
+  0% {
+    transform: translate(-50%, -8px);
+    opacity: 0;
+  }
+  15% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, 60px);
+    opacity: 0;
+  }
+}
+
+.hire-v6-dot {
+  animation: hire-v6-dot 2.4s ease-in-out infinite;
+}
+
+.hire-v6-scroll-dot {
+  animation: hire-v6-scroll-dot 2.4s cubic-bezier(0.55, 0.05, 0.65, 0.7) infinite;
+}
+
+/* CTA: halo / sheen só com CSS (hover), sem JS */
+.hire-cta-halo {
+  opacity: 0;
+  transform: scale(1);
+  transition:
+    opacity 350ms cubic-bezier(0.2, 0.8, 0.2, 1),
+    transform 450ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+@media (hover: hover) {
+  .hire-cta-root:hover .hire-cta-halo {
+    opacity: 1;
+    transform: scale(1.12);
+  }
+
+  .hire-cta-root:hover .hire-cta-sheen {
+    opacity: 1;
+  }
+}
+
+.hire-cta-sheen {
+  opacity: 0;
+  transition: opacity 300ms ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hire-v6-dot,
+  .hire-v6-scroll-dot {
+    animation: none;
+  }
+
+  .hire-v6-scroll-dot {
+    opacity: 1;
+    transform: translate(-50%, 28px);
+  }
+
+  .hire-cta-halo,
+  .hire-cta-sheen {
+    transition: none;
+  }
+
+  @media (hover: hover) {
+    .hire-cta-root:hover .hire-cta-halo {
+      opacity: 0;
+      transform: scale(1);
+    }
+
+    .hire-cta-root:hover .hire-cta-sheen {
+      opacity: 0;
+    }
+  }
+}
