@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { motion } from "motion/react";
 import { Link as ScrollLink } from "react-scroll";
-
+import negativeLogo from "@/assets/images/new-logo-negative.png";
 import NewLogo from "@/pieces/NewLogo/NewLogo";
 import {
   HEADER_LOGO_LAYOUT_TRANSITION,
@@ -17,6 +17,8 @@ import { useSectionScrollSpy } from "@/hooks/useSectionScrollSpy";
 import { cn } from "@/lib/utils";
 import { useHeaderPalette } from "@/stores/useHeaderPalette";
 import { dmSans, outfit } from "@/utils/fonts";
+import Image from "next/image";
+import { useWindowSize } from "@/hooks/useWindowSize";
 
 const SECTIONS_NAV_LINKS = navLinks.filter((l) => l.title !== "Contato");
 
@@ -27,6 +29,9 @@ export default function SectionsHeader() {
   useHeaderPaletteTracking();
   const isLightPaletteZone = useHeaderPalette((s) => s.isLightPaletteZone);
   const headerProcessosStyle = useHeaderTransparencyTracking();
+
+  const { width } = useWindowSize();
+  const isMobile = width <= 768;
 
   return (
     <motion.header
@@ -40,7 +45,7 @@ export default function SectionsHeader() {
         headerProcessosStyle
           ? "border-b border-transparent bg-transparent shadow-none backdrop-blur-none"
           : isLightPaletteZone
-            ? "border-b border-black/12 bg-white/92 shadow-[0_8px_24px_rgba(0,0,0,0.12)] backdrop-blur-xl backdrop-saturate-150"
+            ? "border-b border-[#1a1c2e]/12 bg-white/92 shadow-[0_8px_24px_rgba(0,0,0,0.12)] backdrop-blur-xl backdrop-saturate-150"
             : "border-b border-white/10 bg-[#050505]/92 shadow-[0_8px_32px_rgba(0,0,0,0.45)] backdrop-blur-xl backdrop-saturate-150",
       )}
     >
@@ -61,10 +66,16 @@ export default function SectionsHeader() {
             href="/#inicio"
             className="inline-flex items-center outline-none focus-visible:ring-2 focus-visible:ring-violet-400/80 focus-visible:ring-offset-2 focus-visible:ring-offset-[#050505]"
           >
-            <NewLogo
-              variant="compact"
-              className={cn(isLightPaletteZone && "invert")}
-            />
+            {isLightPaletteZone ? (
+              <Image
+                src={negativeLogo}
+                alt="negative logo"
+                width={isMobile ? 44 : 48}
+                height={isMobile ? 44 : 48}
+              />
+            ) : (
+              <NewLogo variant="compact" className={""} />
+            )}
           </Link>
         </motion.div>
 
@@ -84,11 +95,11 @@ export default function SectionsHeader() {
                   className={cn(
                     "inline-flex cursor-pointer items-center rounded-full px-3 py-2 text-sm font-semibold transition lg:px-4",
                     isLightPaletteZone
-                      ? "text-black/85 hover:bg-black/6 hover:text-black"
+                      ? "text-[#1e2240]/85 hover:bg-[#1e2240]/6 hover:text-[#1e2240]"
                       : "text-white/90 hover:bg-white/8 hover:text-white",
                     activeId === item.slug &&
                       (isLightPaletteZone
-                        ? "bg-black/8 text-black"
+                        ? "bg-[#1e2240]/8 text-[#1e2240]"
                         : "bg-white/12 text-white"),
                   )}
                 >

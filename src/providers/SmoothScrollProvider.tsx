@@ -100,11 +100,11 @@ export default function SmoothScrollProvider({
     <ReactLenis
       root
       options={{
-        // Scroll global mais pesado; em /projetos fica ainda mais inercial.
-        lerp: isProjectsPage ? 0.02 : 0.03,
-        duration: isProjectsPage ? 3.8 : 2.6,
-        wheelMultiplier: isProjectsPage ? 0.55 : 0.8,
-        touchMultiplier: isProjectsPage ? 0.7 : 0.9,
+        // Em /projetos, scroll mais leve e responsivo.
+        lerp: isProjectsPage ? 0.08 : 0.03,
+        duration: isProjectsPage ? 1.2 : 2.6,
+        wheelMultiplier: isProjectsPage ? 1 : 0.8,
+        touchMultiplier: isProjectsPage ? 1 : 0.9,
         smoothWheel: true,
         autoRaf: false,
       }}

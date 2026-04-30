@@ -1,7 +1,7 @@
 "use client";
 
 import dynamic from "next/dynamic";
-import { ArrowDown, ArrowRight } from "lucide-react";
+import { ArrowDown, ArrowRight, ChevronDown } from "lucide-react";
 import { Link as ScrollLink } from "react-scroll";
 
 import { cn } from "@/lib/utils";
@@ -22,7 +22,7 @@ export default function HireSection() {
       id="contratar"
       aria-labelledby="contratar-heading"
       className={cn(
-        "hire-section relative isolate scroll-mt-6 overflow-hidden bg-black px-4 py-16 mt-12 text-white sm:px-8 md:px-12 md:py-24 lg:py-28",
+        "hire-section relative isolate mt-12 scroll-mt-6 overflow-hidden bg-black px-4 py-16 text-white sm:px-8 md:px-12 md:py-24 lg:py-28",
       )}
     >
       {/* Spline ORB — decorativo, pointer-events-none */}
@@ -93,7 +93,7 @@ export default function HireSection() {
             <span className="font-medium text-white/85">
               metodologia completa
             </span>{" "}
-            antes de qualquer conversa sobre valores ou prazos.
+            antes de qualquer conversa sobre valores.
           </p>
 
           {/* Ação principal única — alvo ≥ 44px (UI/UX Pro Max) */}
@@ -158,12 +158,12 @@ export default function HireSection() {
                 "focus-visible:ring-2 focus-visible:ring-[var(--hire-lavender)]/70 focus-visible:ring-offset-2 focus-visible:ring-offset-black focus-visible:outline-none",
               )}
             >
-              <span>
+              {/* <span>
                 <ArrowDown />
-              </span>
-              <span>Ir direto às etapas da linha do tempo</span>
+              </span> */}
+              <span>Conhecer a metodologia</span>
               <span>
-                <ArrowDown />
+                <ChevronDown />
               </span>
             </ScrollLink>
           </div>
