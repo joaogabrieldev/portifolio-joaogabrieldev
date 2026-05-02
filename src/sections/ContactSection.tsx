@@ -1,7 +1,12 @@
 import Link from "next/link";
 
 import { dmSans, outfit } from "@/utils/fonts";
-import { emailGmail, urlGithub, urlLinkedin, urlWhatsapp } from "@/utils/linksToGo";
+import {
+  emailGmail,
+  urlGithub,
+  urlLinkedin,
+  urlWhatsapp,
+} from "@/utils/linksToGo";
 import { sectionShell } from "./sectionStyles";
 
 export default function ContactSection() {
