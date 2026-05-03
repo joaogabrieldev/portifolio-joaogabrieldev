@@ -66,16 +66,10 @@ export default function SectionsHeader() {
             href="/#inicio"
             className="inline-flex items-center outline-none focus-visible:ring-2 focus-visible:ring-violet-400/80 focus-visible:ring-offset-2 focus-visible:ring-offset-[#050505]"
           >
-            {isLightPaletteZone ? (
-              <Image
-                src={negativeLogo}
-                alt="negative logo"
-                width={isMobile ? 44 : 48}
-                height={isMobile ? 44 : 48}
-              />
-            ) : (
-              <NewLogo variant="compact" className={""} />
-            )}
+            <NewLogo
+              variant="compact"
+              className={cn(isLightPaletteZone && "invert")}
+            />
           </Link>
         </motion.div>
 

@@ -218,7 +218,7 @@ export default function ProcessPinnedTimeline({
     <section
       ref={sectionRef}
       id="processos"
-      className="relative mt-8 scroll-mt-6 bg-white text-black"
+      className="relative mt-8 scroll-mt-6 bg-transparent text-black"
     >
       <div className="mx-auto w-full max-w-6xl px-4 py-16 md:hidden">
         {/* <p

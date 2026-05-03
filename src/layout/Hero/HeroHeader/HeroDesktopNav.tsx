@@ -6,6 +6,7 @@ import { cn } from "@/lib/utils";
 import { dmSans } from "@/utils/fonts";
 import { motion } from "motion/react";
 import { Link as ScrollLink } from "react-scroll";
+import { ShinyButton } from "@/components/ui/shiny-button";
 
 const MORPH_TRANSITION = { duration: 0.55, ease: [0.22, 1, 0.36, 1] as const };
 

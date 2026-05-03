@@ -1,0 +1,75 @@
+/* Mouse + chevron (portado de Mouse Scroll Indicator.html) */
+
+.hire-scroll-icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.hire-scroll-icon .hire-mouse-scroll-mouse {
+  display: block;
+  filter: drop-shadow(0 0 8px rgba(124, 58, 237, 0.25));
+}
+
+.hire-scroll-icon .hire-mouse-scroll-chevron {
+  display: block;
+  margin-top: 2px;
+}
+
+.hire-scroll-icon .hire-mouse-scroll-wheel-dot {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: hire-ms-wheel 1.6s ease-in-out infinite;
+  filter: drop-shadow(0 0 3px rgba(167, 139, 250, 0.95));
+}
+
+.hire-scroll-icon .hire-mouse-scroll-chevron-path {
+  animation: hire-ms-arrow 2s ease-in-out infinite;
+}
+
+@keyframes hire-ms-wheel {
+  0% {
+    transform: translateY(-2px);
+    opacity: 0;
+  }
+  25% {
+    opacity: 1;
+  }
+  75% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(2.5px);
+    opacity: 0;
+  }
+}
+
+@keyframes hire-ms-arrow {
+  0%,
+  100% {
+    opacity: 0.15;
+    transform: translateY(0);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(2px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hire-scroll-icon .hire-mouse-scroll-wheel-dot,
+  .hire-scroll-icon .hire-mouse-scroll-chevron-path {
+    animation: none;
+  }
+
+  .hire-scroll-icon .hire-mouse-scroll-wheel-dot {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .hire-scroll-icon .hire-mouse-scroll-chevron-path {
+    opacity: 0.55;
+    transform: translateY(0);
+  }
+}

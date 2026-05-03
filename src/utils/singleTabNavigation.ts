@@ -1,21 +1,18 @@
 import { urlGithub, urlLinkedin } from "@/utils/linksToGo";
 
-const TAB_FEATURES = "noopener,noreferrer";
-
-function openOrFocusNamedTab(url: string, tabName: string): Window | null {
-  if (typeof window === "undefined") return null;
-  return window.open(url, tabName, TAB_FEATURES);
+function navigateSameTab(url: string): void {
+  if (typeof window === "undefined") return;
+  window.location.href = url;
 }
 
-export function openGithubTab(): Window | null {
-  return openOrFocusNamedTab(urlGithub, "portfolio-github");
+export function openGithubTab(): void {
+  navigateSameTab(urlGithub);
 }
 
-export function openLinkedinTab(): Window | null {
-  return openOrFocusNamedTab(urlLinkedin, "portfolio-linkedin");
+export function openLinkedinTab(): void {
+  navigateSameTab(urlLinkedin);
 }
 
-export function openProjectsTab(): Window | null {
-  return openOrFocusNamedTab("/projetos", "portfolio-projetos");
+export function openProjectsTab(): void {
+  navigateSameTab("/projetos");
 }
-

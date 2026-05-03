@@ -33,19 +33,12 @@ export default function ProjectsSection() {
           ))}
         </ul>
         <div className="mt-8 flex items-center justify-center lg:mt-12">
-          <ShinyButton
-            mode="navigation"
-            onClick={() => {
-              openProjectsTab();
-            }}
-          >
+          <ShinyButton mode="navigation" href="/projetos">
             Ver todos os projetos
           </ShinyButton>
         </div>
       </div>
-      <div>
-        
-      </div>
+      <div></div>
     </section>
   );
 }

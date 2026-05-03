@@ -10,6 +10,7 @@ interface ShinyButtonProps {
   mode?: "scroll" | "navigation";
   /** Alvo do `react-scroll` quando `mode` é `"scroll"`. */
   to?: string;
+  href?: string;
 }
 
 export function ShinyButton({
@@ -18,6 +19,7 @@ export function ShinyButton({
   className = "",
   mode = "scroll",
   to,
+  href,
 }: ShinyButtonProps) {
   return (
     <>
@@ -61,8 +63,10 @@ export function ShinyButton({
 
           isolation: isolate;
           position: relative;
+          display: inline-block;
           overflow: hidden;
           cursor: pointer;
+          text-decoration: none;
           outline-offset: 4px;
           padding: 1rem 2rem;
           font-family: "Inter", sans-serif;
@@ -228,9 +232,27 @@ export function ShinyButton({
           <span>{children}</span>
         </ScrollLink>
       ) : (
-        <button type="button" className={`shiny-cta ${className}`} onClick={onClick}>
-          <span>{children}</span>
-        </button>
+        <>
+          {href ? (
+            <a
+              href={href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`shiny-cta ${className}`}
+              onClick={onClick}
+            >
+              <span>{children}</span>
+            </a>
+          ) : (
+            <button
+              type="button"
+              className={`shiny-cta ${className}`}
+              onClick={onClick}
+            >
+              <span>{children}</span>
+            </button>
+          )}
+        </>
       )}
     </>
   );

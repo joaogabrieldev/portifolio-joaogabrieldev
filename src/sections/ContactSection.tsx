@@ -7,16 +7,14 @@ import {
   urlLinkedin,
   urlWhatsapp,
 } from "@/utils/linksToGo";
-import { sectionShell } from "./sectionStyles";
-
 export default function ContactSection() {
   return (
     <section
       id="contato"
-      className={`${sectionShell} scroll-mt-6 border-black/10 bg-white pb-28 text-black`}
+      className="relative scroll-mt-6 overflow-hidden border-t border-black/10 bg-transparent px-4 py-20 pb-28 text-black sm:px-8 md:px-12"
       aria-labelledby="contato-heading"
     >
-      <div className="mx-auto max-w-6xl">
+      <div className="relative mx-auto max-w-6xl">
         <p
           className={`mb-3 text-xs font-semibold tracking-[0.2em] text-black/55 uppercase ${outfit.className}`}
         >

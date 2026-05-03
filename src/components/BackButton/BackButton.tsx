@@ -1,9 +1,13 @@
 import React from "react";
 import "./BackButton.css";
 
-const BackButton = () => {
+interface BackButtonProps {
+  href: string;
+}
+
+const BackButton = ({ href }: BackButtonProps) => {
   return (
-    <a className="buttonBack" href="/">
+    <a className="buttonBack" href={href}>
       <div className="buttonBack-box">
         <span className="buttonBack-elem">
           <svg viewBox="0 0 46 40" xmlns="http://www.w3.org/2000/svg">

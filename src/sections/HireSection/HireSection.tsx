@@ -1,10 +1,11 @@
 "use client";
 
 import dynamic from "next/dynamic";
-import { ArrowDown, ArrowRight, ChevronDown } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 import { Link as ScrollLink } from "react-scroll";
 
 import { cn } from "@/lib/utils";
+import HireScrollIcon from "@/pieces/HireScrollIcon/HireScrollIcon";
 
 import { dmSans, epilogue, geistMono, syne } from "@/utils/fonts";
 
@@ -178,29 +179,21 @@ export default function HireSection() {
             Disponível · Q3 — Q4 / 2026
           </p> */}
 
-          {/* Ritmo visual de scroll — decorativo; ação explícita já está no botão (evita dois CTAs iguais) */}
+          {/* Indicador de scroll (mouse) — baseado em Mouse Scroll Indicator.html */}
           <div
-            className="mt-10 flex flex-col items-center gap-4 md:mt-12"
+            className="mt-10 flex flex-col items-center gap-7 md:mt-12"
             aria-hidden
           >
             <span
               className={cn(
-                "text-[11px] tracking-widest text-white/35 uppercase",
+                "text-[11px] tracking-[0.24em] text-white/45 uppercase select-none",
                 geistMono.className,
               )}
               style={{ fontWeight: 400 }}
             >
-              Rolar continua a jornada
+              Role para continuar
             </span>
-            <div className="relative mx-auto h-[60px] w-px bg-[var(--hire-hairline)]">
-              <span
-                className="hire-v6-scroll-dot absolute top-0 left-1/2 size-1 rounded-full bg-[var(--hire-violet-mid)]"
-                style={{
-                  boxShadow:
-                    "0 0 8px rgba(167,139,250,0.75), 0 0 16px rgba(124,58,237,0.5)",
-                }}
-              />
-            </div>
+            <HireScrollIcon />
           </div>
         </div>
       </div>

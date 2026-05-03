@@ -28,7 +28,7 @@ const ProjectsPageContent = () => {
               transition={{ duration: 0.45, ease: "easeOut" }}
               className="justify-self-start"
             >
-              <BackButton />
+              <BackButton href="/#projetos" />
             </motion.div>
 
             <motion.h1
