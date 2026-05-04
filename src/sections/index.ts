@@ -6,3 +6,5 @@ export { default as ProjectsSection } from "./ProjectsSection";
 export { default as HireSection } from "./HireSection/HireSection";
 export { default as FAQSection } from "./FAQSection";
 export { default as ContactSection } from "./ContactSection";
+export { default as SchedulingSection } from "./SchedulingSection";
+export { default as FooterSection } from "./FooterSection";

@@ -10,10 +10,10 @@ const Content = () => {
       <div className="pointer-events-none fixed inset-0 z-50 min-h-screen w-full opacity-40">
         <Noise
           patternSize={100}
-          patternScaleX={0.5}
-          patternScaleY={0.5}
+          patternScaleX={0.4}
+          patternScaleY={0.4}
           patternRefreshInterval={5}
-          patternAlpha={40}
+          patternAlpha={50}
         />
       </div>
     </div>

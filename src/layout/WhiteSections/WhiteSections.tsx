@@ -1,17 +1,14 @@
-import {
-  ContactSection,
-  FAQSection,
-  PlansSection,
-  ProcessSection,
-} from "@/sections";
+import { FooterSection, ProcessSection, SchedulingSection } from "@/sections";
 
 const WhiteSections = () => {
   return (
-    <div className="relative bg-white">
+    <div className="relative">
       <ProcessSection />
-      <PlansSection />
-      <FAQSection />
-      <ContactSection />
+      <div className="bg-white">
+        <SchedulingSection />
+        <FooterSection />
+        {/* <FAQSection /> */}
+      </div>
     </div>
   );
 };

@@ -7,6 +7,7 @@ import { usePathname } from "next/navigation";
 import { type ReactNode } from "react";
 
 import { gsap, ScrollTrigger } from "@/lib/gsap-client";
+import { PaletteRootSync } from "@/providers/PaletteRootSync";
 
 interface SmoothScrollProviderProps {
   children: ReactNode;
@@ -110,6 +111,7 @@ export default function SmoothScrollProvider({
       }}
     >
       <LenisScrollTriggerBridge />
+      <PaletteRootSync />
       {children}
     </ReactLenis>
   );

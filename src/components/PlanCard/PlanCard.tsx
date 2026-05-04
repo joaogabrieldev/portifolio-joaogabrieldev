@@ -77,11 +77,15 @@ const PlanCard = ({
       ? "px-[22px] pb-[34px] pt-[22px]"
       : "px-[22px] pb-[30px] pt-[22px]";
 
-  const orbClass = isFeatured ? "bg-[#5e6ad2]" : "bg-white/10";
+  const orbClass = isFeatured ? "bg-[#000000]" : "bg-white/10";
   const watermarkOpacityClass = "opacity-[0.2]";
 
+  // const cardBgClass = isFeatured
+  //   ? "bg-[rgba(94,106,210,0.08)] border-[rgba(113,112,255,0.25)] shadow-[0_0_0_1px_rgba(113,112,255,0.15)]"
+  //   : "bg-[rgba(255,255,255,0.02)] border-black/12 shadow-[0_1px_2px_rgba(0,0,0,0.04)]";
+
   const cardBgClass = isFeatured
-    ? "bg-[rgba(94,106,210,0.08)] border-[rgba(113,112,255,0.25)] shadow-[0_0_0_1px_rgba(113,112,255,0.15)]"
+    ? "bg-[rgba(24, 24, 24)] border-[rgba(24, 24, 24, 0.40)] shadow-[0_0_0_1px_rgba(24, 24, 24, 0.40)]"
     : "bg-[rgba(255,255,255,0.02)] border-black/12 shadow-[0_1px_2px_rgba(0,0,0,0.04)]";
 
   const metaSecondLine =
@@ -98,7 +102,7 @@ const PlanCard = ({
       duration={800}
       offset={scrollOffset}
       className={cn(
-        "inline-flex w-full cursor-pointer items-center justify-center gap-2 rounded-md border-0 bg-[#5e6ad2] px-4 py-2.5 text-sm font-medium text-white transition-all duration-150 ease-out hover:bg-[#7170ff]",
+        "inline-flex w-full cursor-pointer items-center justify-center gap-2 rounded-md border-0 bg-[#242424] px-4 py-2.5 text-sm font-medium text-white transition-all duration-150 ease-out hover:bg-[#424242]",
       )}
     >
       <IconMail className="size-3.5 shrink-0 text-white/90" />
@@ -147,7 +151,7 @@ const PlanCard = ({
             />
           </div>
           {isFeatured ? (
-            <span className="absolute top-[18px] right-[18px] z-20 rounded-full border border-[rgba(113,112,255,0.30)] bg-[rgba(113,112,255,0.15)] px-[10px] py-[3px] text-[11px] font-medium tracking-[0.02em] text-[#828fff]">
+            <span className="absolute top-[18px] right-[18px] z-20 rounded-full border border-[rgba(113,112,255,0.30)] bg-[#181818] px-[10px] py-[3px] text-[11px] font-medium tracking-[0.02em] text-[#fff]">
               Mais escolhido
             </span>
           ) : null}
@@ -243,7 +247,7 @@ const PlanCard = ({
           >
             <span className="grid size-4 shrink-0 place-items-center">
               <IconCheck
-                className={cn(isFeatured ? "text-[#7170ff]" : "text-zinc-700")}
+                className={cn(isFeatured ? "text-[#000000]" : "text-zinc-700")}
               />
             </span>
             <span className="min-w-0 flex-1">{item.title}</span>

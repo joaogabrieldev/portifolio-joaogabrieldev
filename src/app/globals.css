@@ -13,19 +13,39 @@ body {
   overflow-y: auto;
 }
 
+:root {
+  --scrollbar-track: #000000;
+  --scrollbar-thumb: #413b72;
+  --scrollbar-thumb-border: #000000;
+}
+
+html {
+  scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
+}
+
+html.palette-light {
+  --scrollbar-track: #f4f4f5;
+  --scrollbar-thumb: #171717;
+  --scrollbar-thumb-border: #ffffff;
+}
+
 ::-webkit-scrollbar {
   width: 14px;
   transition: background-color 0.4s ease-in-out;
 }
 
 ::-webkit-scrollbar-track {
-  background: #161616;
+  background: var(--scrollbar-track);
+  transition: background-color 0.35s ease;
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #413b72;
+  background-color: var(--scrollbar-thumb);
   border-radius: 5px;
-  border: 2px solid #0d0d0d;
+  border: 2px solid var(--scrollbar-thumb-border);
+  transition:
+    background-color 0.35s ease,
+    border-color 0.35s ease;
 }
 
 @layer components {

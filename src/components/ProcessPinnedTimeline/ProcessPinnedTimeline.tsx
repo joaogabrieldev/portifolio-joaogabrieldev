@@ -218,7 +218,7 @@ export default function ProcessPinnedTimeline({
     <section
       ref={sectionRef}
       id="processos"
-      className="relative mt-8 scroll-mt-6 bg-transparent text-black"
+      className="relative mt-8 scroll-mt-6 bg-white text-black"
     >
       <div className="mx-auto w-full max-w-6xl px-4 py-16 md:hidden">
         {/* <p
@@ -234,7 +234,7 @@ export default function ProcessPinnedTimeline({
             return (
               <div key={`mobile-${step.id}`}>
                 <div
-                  className={`mb-4 flex items-center gap-2 text-xs font-semibold tracking-[0.2em] text-black/55 uppercase ${outfit.className}`}
+                  className={`mb-4 flex items-center gap-2 bg-white text-xs font-semibold tracking-[0.2em] text-black/55 uppercase ${outfit.className}`}
                 >
                   <span>Processos</span>
                   <span>&bull;</span>

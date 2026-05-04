@@ -11,7 +11,6 @@ import {
   HEADER_SHELL_OPACITY_TRANSITION,
 } from "@/constants/headerLogoMotion";
 import { navLinks } from "@/assets/data/navLinks";
-import { useHeaderPaletteTracking } from "@/hooks/useHeaderPaletteTracking";
 import { useHeaderTransparencyTracking } from "@/hooks/useHeaderTransparencyTracking";
 import { useSectionScrollSpy } from "@/hooks/useSectionScrollSpy";
 import { cn } from "@/lib/utils";
@@ -26,7 +25,6 @@ const TRANSITION = { duration: 0.55, ease: [0.22, 1, 0.36, 1] as const };
 export default function SectionsHeader() {
   const activeId = useSectionScrollSpy();
   const [mobileOpen, setMobileOpen] = useState(false);
-  useHeaderPaletteTracking();
   const isLightPaletteZone = useHeaderPalette((s) => s.isLightPaletteZone);
   const headerProcessosStyle = useHeaderTransparencyTracking();
 

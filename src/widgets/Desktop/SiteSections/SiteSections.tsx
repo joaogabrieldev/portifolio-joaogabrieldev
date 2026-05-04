@@ -1,14 +1,11 @@
 "use client";
 
 import BurnTransition from "@/components/BurnTransition/BurnTransition";
+import WhiteSections from "@/layout/WhiteSections/WhiteSections";
 import {
   AboutSection,
-  ContactSection,
-  FAQSection,
   HireSection,
   KnowledgeSection,
-  PlansSection,
-  ProcessSection,
   ProjectsSection,
 } from "@/sections";
 
@@ -45,12 +42,7 @@ export default function SiteSections() {
           />
         </div>
       </section>
-      <div className="bg-white">
-        <ProcessSection />
-        <PlansSection />
-        <FAQSection />
-        <ContactSection />
-      </div>
+      <WhiteSections />
     </div>
   );
 }

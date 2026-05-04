@@ -24,15 +24,15 @@ export const navLinks: INavLinks[] = [
     title: "Processos",
     slug: "processos",
   },
-  {
-    title: "Planos",
-    slug: "planos",
-  },
+  // {
+  //   title: "Planos",
+  //   slug: "planos",
+  // },
 
-  {
-    title: "FAQ",
-    slug: "faq",
-  },
+  // {
+  //   title: "FAQ",
+  //   slug: "faq",
+  // },
   {
     title: "Contato",
     slug: "contato",

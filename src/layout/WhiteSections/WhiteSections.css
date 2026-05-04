@@ -1,0 +1,10 @@
+.white-sections-grunge {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  z-index: 50;
+  background-image: var(--white-sections-grunge-url);
+  background-repeat: repeat;
+  opacity: 0.55;
+  mix-blend-mode: multiply;
+}

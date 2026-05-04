@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import type React from "react";
 import { Link as ScrollLink } from "react-scroll";
 
@@ -215,14 +216,19 @@ export function ShinyButton({
       `}</style>
 
       {mode === "navigation" ? (
-        <>
-          <button className={`shiny-cta ${className}`} onClick={onClick}>
+        <div className={`shiny-cta ${className}`}>
+          <Link
+            href={href || ""}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={onClick}
+          >
             <span>{children}</span>
-          </button>
-        </>
-      ) : to ? (
+          </Link>
+        </div>
+      ) : (
         <ScrollLink
-          to={to}
+          to={to || "#inicio"}
           smooth
           duration={800}
           spy={false}
@@ -231,28 +237,6 @@ export function ShinyButton({
         >
           <span>{children}</span>
         </ScrollLink>
-      ) : (
-        <>
-          {href ? (
-            <a
-              href={href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={`shiny-cta ${className}`}
-              onClick={onClick}
-            >
-              <span>{children}</span>
-            </a>
-          ) : (
-            <button
-              type="button"
-              className={`shiny-cta ${className}`}
-              onClick={onClick}
-            >
-              <span>{children}</span>
-            </button>
-          )}
-        </>
       )}
     </>
   );
