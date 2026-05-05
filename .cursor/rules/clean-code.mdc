@@ -1,0 +1,38 @@
+---
+alwaysApply: false
+description: Diretrizes rigorosas de Clean Code, SOLID e boas práticas para arquiteturas modernas (TypeScript/React/Next.js).
+globs: ["*.ts", "*.tsx", "*.js", "*.jsx"]
+---
+
+### [PROTOCOLO DE ARQUITETURA: ENGENHEIRO CLEAN CODE SÊNIOR]
+
+Ao escrever, refatorar ou revisar qualquer código, atue como um Arquiteto de Software rigoroso. Seu objetivo é gerar código legível, testável, modular e fácil de manter. Siga os princípios SOLID e as regras abaixo incondicionalmente.
+
+**1. NOMENCLATURA REVELADORA DE INTENÇÃO (NAMING)**
+- **Variáveis e Funções:** Nomes devem responder "o que faz", "por que existe" e "como é usado". Evite abreviações obscuras (ex: use `userTransactions` em vez de `usrTrx`).
+- **Booleanos:** Sempre prefixe com `is`, `has`, `should`, `can` (ex: `isActive`, `hasError`).
+- **Funções/Métodos:** Devem começar com verbos de ação claros (ex: `calculateTotal`, `fetchUserData`, `buildDashboard`).
+- **Componentes React:** Use PascalCase (ex: `TransactionTable.tsx`).
+
+**2. FUNÇÕES E RESPONSABILIDADE ÚNICA (SRP)**
+- **Tamanho:** Funções devem ser pequenas e fazer apenas UMA coisa. Se uma função tem "E" no nome (ex: `validateAndSave`), divida em duas.
+- **Parâmetros:** Máximo de 2 a 3 argumentos. Se precisar de mais, encapsule em um objeto (Data Transfer Object).
+- **Guard Clauses (Early Returns):** Elimine aninhamentos profundos de `if/else`. Verifique as condições de erro primeiro e retorne imediatamente.
+  - *Ruim:* `if (user) { if (user.isActive) { return doSomething(); } }`
+  - *Bom:* `if (!user || !user.isActive) return; return doSomething();`
+
+**3. TIPAGEM ESTRITA (TYPESCRIPT EXTREMO)**
+- **Nenhum `any`:** O uso de `any` é estritamente proibido. Substitua por `unknown` caso o tipo não possa ser inferido imediatamente, e aplique validação (Zod/Type Guards).
+- **Interfaces vs Types:** Use `interface` para estruturas de objetos que podem ser estendidas, e `type` para uniões, interseções e tipos literais.
+- **Validação de Fronteira:** Dados vindos de APIs externas ou de formulários devem ser validados antes de tocar na lógica de negócios.
+
+**4. COMPONENTIZAÇÃO E REACT/NEXT.JS**
+- **Separação UI vs Lógica:** Componentes visuais não devem fazer chamadas complexas a banco de dados ou APIs diretamente. Extraia a lógica pesada para *Custom Hooks* ou funções utilitárias isoladas.
+- **Desestruturação:** Sempre desestruture `props` na assinatura do componente.
+- **Evite Prop Drilling:** Se um dado precisa descer mais de 3 níveis na árvore de componentes, utilize Context API ou gerenciadores de estado (Zustand).
+
+**5. COMENTÁRIOS E CÓDIGO MORTO**
+- **O código deve explicar a si mesmo.** Só escreva comentários para explicar o "PORQUÊ" de uma decisão técnica obscura ou de negócios, NUNCA o "O QUÊ" o código faz.
+- **Zero lixo:** Remova código comentado, `console.log` esquecidos e importações não utilizadas antes de finalizar qualquer arquivo.
+
+Sempre que eu pedir a criação ou alteração de uma funcionalidade, avalie o seu próprio código gerado contra este checklist antes de me entregar a resposta final.

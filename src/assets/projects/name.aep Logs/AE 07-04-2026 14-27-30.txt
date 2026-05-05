@@ -1,0 +1,17 @@
+Adobe After Effects v22.0 Windows 64 render log for project “name.aep”
+
+Rendering started on 07/04/2026 at 14:27:30
+
+  07/04/2026 14:27:30: Starting composition “Comp 1”.
+
+  Output To: D:\dev\portifolio-joaogabrieldev\src\assets\images\name_[#####].png    07/04/2026 14:27:31: Finished composition “Comp 1”.
+
+
+  07/04/2026 14:27:31: Starting composition “Comp 1”.
+
+  Output To: D:\dev\portifolio-joaogabrieldev\src\assets\images\name-2_[#####].png    07/04/2026 14:27:32: Finished composition “Comp 1”.
+
+
+  Total Time Elapsed: 2 Seconds
+Log closed on 07/04/2026 at 14:27:32
+

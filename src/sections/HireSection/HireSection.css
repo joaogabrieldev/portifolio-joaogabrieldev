@@ -1,0 +1,292 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,500&display=swap");
+
+@property --gradient-angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@property --gradient-angle-offset {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@property --gradient-percent {
+  syntax: "<percentage>";
+  initial-value: 5%;
+  inherits: false;
+}
+
+@property --gradient-shine {
+  syntax: "<color>";
+  initial-value: #e9d5ff;
+  inherits: false;
+}
+
+/* HireSection — animações v6 + tokens locais (escopo .hire-section) */
+
+.hire-section {
+  /* Preto explícito: fundo uniforme por baixo do canvas WebGL */
+  background-color: #000000;
+  --hire-text: rgba(255, 255, 255, 0.95);
+  --hire-muted: rgba(255, 255, 255, 0.68);
+  --hire-faint: rgba(255, 255, 255, 0.42);
+  --hire-hairline: rgba(255, 255, 255, 0.1);
+  --hire-lavender: #cbb7fb;
+  --hire-violet-mid: #a78bfa;
+  --hire-violet-deep: #7c3aed;
+}
+
+/*
+ * Spline em tela cheia gera grain/banding nas áreas “vazias” do WebGL.
+ * Máscara radial: só o centro mostra o 3D; o resto fica transparente → #000 da section.
+ */
+.hire-spline-decor {
+  opacity: 0.7;
+  -webkit-mask-image: radial-gradient(
+    ellipse 62% 52% at 50% 44%,
+    #000 0%,
+    transparent 70%
+  );
+  mask-image: radial-gradient(
+    ellipse 62% 52% at 50% 44%,
+    #000 0%,
+    transparent 70%
+  );
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+}
+
+@keyframes hire-v6-dot {
+  0%,
+  100% {
+    opacity: 1;
+    box-shadow: 0 0 0 0 rgba(203, 183, 251, 0.55);
+  }
+  50% {
+    opacity: 0.5;
+    box-shadow: 0 0 0 5px rgba(203, 183, 251, 0);
+  }
+}
+
+.hire-v6-dot {
+  animation: hire-v6-dot 2.4s ease-in-out infinite;
+}
+
+/* CTA: halo / sheen só com CSS (hover), sem JS */
+.hire-cta-halo {
+  opacity: 0;
+  transform: scale(1);
+  transition:
+    opacity 350ms cubic-bezier(0.2, 0.8, 0.2, 1),
+    transform 450ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+@media (hover: hover) {
+  .hire-cta-root:hover .hire-cta-halo {
+    opacity: 1;
+    transform: scale(1.12);
+  }
+
+  .hire-cta-root:hover .hire-cta-sheen {
+    opacity: 1;
+  }
+}
+
+.hire-cta-sheen {
+  opacity: 0;
+  transition: opacity 300ms ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hire-v6-dot {
+    animation: none;
+  }
+
+  .hire-cta-halo,
+  .hire-cta-sheen {
+    transition: none;
+  }
+
+  @media (hover: hover) {
+    .hire-cta-root:hover .hire-cta-halo {
+      opacity: 0;
+      transform: scale(1);
+    }
+
+    .hire-cta-root:hover .hire-cta-sheen {
+      opacity: 0;
+    }
+  }
+
+  .hire-section .shiny-cta,
+  .hire-section .shiny-cta::before,
+  .hire-section .shiny-cta::after {
+    animation: none;
+  }
+
+  .hire-section .shiny-cta span::before {
+    animation: none;
+  }
+}
+
+/*
+ * CTA secundário “shiny” (mesmo visual do shiny-button), isolado em .hire-section
+ */
+.hire-section .shiny-cta {
+  --shiny-cta-bg: #050505;
+  --shiny-cta-bg-subtle: #1e1830;
+  --shiny-cta-fg: #faf5ff;
+  --shiny-cta-highlight: #8b5cf6;
+  --shiny-cta-highlight-subtle: #c4b5fd;
+  --animation: hire-shiny-gradient-angle linear infinite;
+  --duration: 3s;
+  --shadow-size: 2px;
+  --transition: 800ms cubic-bezier(0.25, 1, 0.5, 1);
+
+  isolation: isolate;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  outline-offset: 4px;
+  padding: 1rem 2rem;
+  font-family: "Inter", sans-serif;
+  font-size: 0.875rem;
+  line-height: 1.25;
+  font-weight: 500;
+  border: 1px solid transparent;
+  border-radius: 360px;
+  color: var(--shiny-cta-fg);
+  background:
+    linear-gradient(var(--shiny-cta-bg), var(--shiny-cta-bg)) padding-box,
+    conic-gradient(
+        from calc(var(--gradient-angle) - var(--gradient-angle-offset)),
+        transparent,
+        var(--shiny-cta-highlight) var(--gradient-percent),
+        var(--gradient-shine) calc(var(--gradient-percent) * 2),
+        var(--shiny-cta-highlight) calc(var(--gradient-percent) * 3),
+        transparent calc(var(--gradient-percent) * 4)
+      )
+      border-box;
+  box-shadow: inset 0 0 0 1px var(--shiny-cta-bg-subtle);
+  transition: var(--transition);
+  transition-property:
+    --gradient-angle-offset, --gradient-percent, --gradient-shine;
+}
+
+.hire-section .shiny-cta::before,
+.hire-section .shiny-cta::after,
+.hire-section .shiny-cta span::before {
+  content: "";
+  pointer-events: none;
+  position: absolute;
+  inset-inline-start: 50%;
+  inset-block-start: 50%;
+  translate: -50% -50%;
+  z-index: -1;
+}
+
+.hire-section .shiny-cta:active {
+  translate: 0 1px;
+}
+
+.hire-section .shiny-cta::before {
+  --size: calc(100% - var(--shadow-size) * 3);
+  --position: 2px;
+  --space: calc(var(--position) * 2);
+  width: var(--size);
+  height: var(--size);
+  background: radial-gradient(
+      circle at var(--position) var(--position),
+      rgba(196, 181, 253, 0.55) calc(var(--position) / 4),
+      transparent 0
+    )
+    padding-box;
+  background-size: var(--space) var(--space);
+  background-repeat: space;
+  mask-image: conic-gradient(
+    from calc(var(--gradient-angle) + 45deg),
+    black,
+    transparent 10% 90%,
+    black
+  );
+  border-radius: inherit;
+  opacity: 0.4;
+  z-index: -1;
+}
+
+.hire-section .shiny-cta::after {
+  --animation: hire-shiny-shimmer linear infinite;
+  width: 100%;
+  aspect-ratio: 1;
+  background: linear-gradient(
+    -50deg,
+    transparent,
+    var(--shiny-cta-highlight),
+    transparent
+  );
+  mask-image: radial-gradient(circle at bottom, transparent 40%, black);
+  opacity: 0.6;
+}
+
+.hire-section .shiny-cta span {
+  z-index: 1;
+}
+
+.hire-section .shiny-cta span::before {
+  --size: calc(100% + 1rem);
+  width: var(--size);
+  height: var(--size);
+  box-shadow: inset 0 -1ex 2rem 4px var(--shiny-cta-highlight);
+  opacity: 0;
+  transition: opacity var(--transition);
+  animation: calc(var(--duration) * 1.5) hire-shiny-breathe linear infinite;
+}
+
+.hire-section .shiny-cta,
+.hire-section .shiny-cta::before,
+.hire-section .shiny-cta::after {
+  animation:
+    var(--animation) var(--duration),
+    var(--animation) calc(var(--duration) / 0.4) reverse paused;
+  animation-composition: add;
+}
+
+.hire-section .shiny-cta:is(:hover, :focus-visible) {
+  --gradient-percent: 20%;
+  --gradient-angle-offset: 95deg;
+  --gradient-shine: var(--shiny-cta-highlight-subtle);
+}
+
+.hire-section .shiny-cta:is(:hover, :focus-visible),
+.hire-section .shiny-cta:is(:hover, :focus-visible)::before,
+.hire-section .shiny-cta:is(:hover, :focus-visible)::after {
+  animation-play-state: running;
+}
+
+.hire-section .shiny-cta:is(:hover, :focus-visible) span::before {
+  opacity: 1;
+}
+
+@keyframes hire-shiny-gradient-angle {
+  to {
+    --gradient-angle: 360deg;
+  }
+}
+
+@keyframes hire-shiny-shimmer {
+  to {
+    rotate: 360deg;
+  }
+}
+
+@keyframes hire-shiny-breathe {
+  from,
+  to {
+    scale: 1;
+  }
+  50% {
+    scale: 1.2;
+  }
+}

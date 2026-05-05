@@ -1,0 +1,158 @@
+---
+description: "Glassmorfismo (efeito vidro fosco) em React/TypeScript — backdrop-blur, gradientes translúcidos, borda/sombra, estados hover/focus e tipagem de props. Use ao criar ou estilizar cards, modais, navbars ou quando o pedido mencionar glassmorphism, vidro ou frosted UI."
+alwaysApply: false
+globs:
+  - "**/*.tsx"
+  - "**/*.jsx"
+  - "**/*.ts"
+  - "**/*.js"
+  - "**/*.css"
+  - "**/tailwind.config.*"
+---
+### [PROTOCOLO DE DESIGN: GLASSMORFISMO SÊNIOR v2.1 — TypeScript Edition]
+
+Sempre que eu solicitar a criação de um elemento com "glassmorfismo" (efeito de vidro), você está estritamente proibido de usar apenas `opacity`. Você deve construir o componente (React/Next.js + TypeScript com Tailwind ou CSS-in-JS) aplicando as **três camadas obrigatórias** abaixo:
+
+---
+
+#### TYPESCRIPT — REGRAS DE TIPAGEM (Aplicadas Antes de Qualquer Código)
+
+Estas regras se aplicam a **todo** componente entregue neste protocolo:
+
+1. **Proibições absolutas:**
+   - Nunca use `any`. Se o tipo for incerto, use `unknown` e faça narrowing explícito.
+   - Nunca use asserções de tipo desnecessárias (`as SomeType`) sem comentário justificando.
+   - Nunca use `React.FC` — declare o tipo das props diretamente na função com destructuring.
+
+2. **Interface de Props Obrigatória:**
+   Todo componente de vidro deve expor uma interface pública tipada. Variações visuais devem ser modeladas com **union types literais**, nunca com booleanos soltos:
+
+```typescript
+// ✅ Correto — variante como union type
+type GlassVariant = "subtle" | "medium" | "strong";
+type GlassTheme = "dark" | "light";
+
+interface GlassCardProps {
+  variant?: GlassVariant;
+  theme?: GlassTheme;
+  className?: string;
+  children: React.ReactNode;
+  onClick?: () => void;
+}
+
+// ❌ Proibido — booleanos que explodem em combinações
+interface GlassCardProps {
+  isStrong?: boolean;
+  isDark?: boolean;
+}
+```
+
+3. **Extensibilidade com `ComponentPropsWithoutRef`:**
+   Sempre que o componente de vidro for um elemento HTML nativo (div, button, section), estenda as props nativas para não bloquear atributos padrão:
+
+```typescript
+interface GlassCardProps extends React.ComponentPropsWithoutRef<"div"> {
+  variant?: GlassVariant;
+  theme?: GlassTheme;
+}
+```
+
+4. **Utilitário de Variante Tipado:**
+   Use um objeto de configuração com `satisfies` ou `Record` para mapear variantes a estilos — nunca use if/else chains para lógica de estilo:
+
+```typescript
+const glassVariants = {
+  subtle: "backdrop-blur-md bg-white/5",
+  medium: "backdrop-blur-xl bg-white/10",
+  strong: "backdrop-blur-2xl bg-white/20",
+} satisfies Record<GlassVariant, string>;
+```
+
+5. **Tipagem de Refs:**
+   Se o componente expuser um `ref`, use `React.forwardRef` com tipagem explícita do elemento:
+
+```typescript
+   const GlassCard = React.forwardRef<HTMLDivElement, GlassCardProps>(
+     ({ variant = 'medium', children, className, ...rest }, ref) => { ... }
+   )
+   GlassCard.displayName = 'GlassCard'
+```
+
+---
+
+#### CAMADA 1 — FÍSICA DO VIDRO (Propriedades Base Imutáveis)
+
+Estas propriedades constroem a ilusão física. Nenhuma pode ser omitida:
+
+1. **Backdrop Blur (O Desfoque Real):**
+   Use `backdrop-filter: blur(16px)` como mínimo. Para vidros mais espessos (modais, sidebars), suba para `blur(24px)` ou `blur(32px)`. Esta é a propriedade que cria a ilusão de vidro — não a transparência. Sempre adicione o prefixo `-webkit-backdrop-filter` para compatibilidade cross-browser.
+
+2. **Fundo Translúcido com Gradiente de Reflexo:**
+   O background nunca deve ser uma cor sólida ou `opacity` simples. Use gradientes sutis para simular a forma como vidro real capta e reflete a luz ambiente:
+   - **Dark Mode:** `background: linear-gradient(135deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0.03) 100%)`
+   - **Light Mode:** `background: linear-gradient(135deg, rgba(255,255,255,0.6) 0%, rgba(255,255,255,0.3) 100%)`
+
+3. **Borda Iluminada (Inner Stroke Físico):**
+   Vidro real tem espessura e reflete luz com maior intensidade nas bordas superiores. Implemente com duas propriedades simultâneas:
+   - `border: 1px solid rgba(255, 255, 255, 0.18)` — borda base
+   - `box-shadow: inset 0 1px 0 rgba(255,255,255,0.3)` — reflexo de luz concentrado no topo
+
+4. **Sombra de Afastamento (Depth Shadow):**
+   `box-shadow: 0 4px 30px rgba(0, 0, 0, 0.12), 0 1px 3px rgba(0, 0, 0, 0.08)`
+
+---
+
+#### CAMADA 2 — CONTEXTO DE SUPERFÍCIE (Adaptação Obrigatória ao Fundo)
+
+- **Fundo com gradiente ou imagem:** Use as propriedades da Camada 1 sem modificação.
+- **Fundo sólido (cor única):** Alerte o usuário e forneça um snippet de fundo mínimo viável.
+- **Vidro sobre vidro:** Adicione `backdrop-filter: blur(16px) saturate(180%)` para manter contraste entre camadas.
+
+---
+
+#### CAMADA 3 — ESTADOS DINÂMICOS (Comportamento Interativo)
+
+1. **Estado Hover:**
+
+```css
+&:hover {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.13) 0%,
+    rgba(255, 255, 255, 0.06) 100%
+  );
+  box-shadow:
+    0 8px 40px rgba(0, 0, 0, 0.16),
+    0 2px 6px rgba(0, 0, 0, 0.1);
+  transform: translateY(-1px);
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+```
+
+2. **Transição Base:**
+   `transition: background 0.25s ease, box-shadow 0.25s ease, transform 0.25s cubic-bezier(0.4, 0, 0.2, 1)`
+
+3. **Estado Focus (inputs de vidro):**
+   `border-color: rgba(255,255,255,0.4)` + `box-shadow: 0 0 0 2px rgba(255,255,255,0.1), 0 4px 30px rgba(0,0,0,0.12)`
+
+---
+
+#### LEGIBILIDADE (Regra Inviolável)
+
+- **Dark Mode:** texto `#FFFFFF` ou `rgba(255,255,255,0.92)`. Nunca use cinza claro.
+- **Light Mode:** texto `#0F172A` (slate-900). Nunca use cinza médio.
+- **Labels secundários:** máximo `rgba(255,255,255,0.7)` no dark.
+- **Texto sobre imagem:** adicione `text-shadow: 0 1px 3px rgba(0,0,0,0.3)`.
+
+---
+
+#### ENTREGA OBRIGATÓRIA
+
+Ao responder qualquer solicitação com glassmorfismo:
+
+1. Componente `.tsx` pronto para uso com todas as propriedades acima aplicadas
+2. Interface de props tipada seguindo as regras TypeScript deste protocolo
+3. Snippet mínimo de fundo (`body` ou wrapper) para garantir que o efeito seja visível
+4. Se usar Tailwind, fornecer as extensões necessárias no `tailwind.config.ts` (não `.js`)
+5. Sinalizar explicitamente qualquer propriedade que exija polyfill ou configuração adicional
+6. Zero `any`, zero `React.FC`, zero booleanos de variante soltos

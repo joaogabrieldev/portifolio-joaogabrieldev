@@ -1,11 +1,11 @@
 import { mobileNavLinks } from "@/assets/data/navLinks";
 import HamburguerMenu from "@/components/UIverse/HamburguerMenu/HamburguerMenu";
-import NavLink from "@/pieces/NavLink/NavLink";
 import { motion } from "motion/react";
 import { useState } from "react";
+import { ArrowUpRight } from "lucide-react";
+import { Link } from "react-scroll";
 
 import "./MobileNavbar.css";
-import { scroller } from "react-scroll";
 
 const MobileNavbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState<boolean | null>(false);
@@ -30,35 +30,47 @@ const MobileNavbar = () => {
   };
 
   return (
-    <div className="relative flex w-50 max-w-100 justify-end max-[500px]:pr-4 min-[750px]:w-85">
+    <div className="relative flex w-20 justify-end">
       <HamburguerMenu onClick={toggleMenu} isOpen={isMenuOpen!} />
       {isMenuOpen && (
         <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.25 }}
-          className="dropdownMenu absolute top-full right-0 mt-7 h-80 w-40 rounded-b-2xl border border-gray-600 border-t-gray-800 p-4 text-sm text-white md:mt-7"
+          initial={{ opacity: 0, y: -12, scale: 0.98 }}
+          animate={{ opacity: 1, y: 0, scale: 1 }}
+          exit={{ opacity: 0, y: -8, scale: 0.98 }}
+          transition={{ duration: 0.25, ease: "easeOut" }}
+          className="dropdownMenu absolute top-full right-0 mt-4 w-72 rounded-3xl border border-white/15 p-4 text-sm text-white"
         >
-          <div className="flex flex-col gap-4">
+          <div className="mb-2 flex items-center justify-between rounded-2xl border border-white/10 bg-white/5 px-3 py-2">
+            <span className="text-xs font-semibold tracking-[0.2em] text-white/70">
+              NAVEGAÇÃO
+            </span>
+            <span className="text-xs font-medium text-white/50">Menu</span>
+          </div>
+
+          <div className="flex flex-col gap-2">
             {mobileNavLinks.map((item, index) => {
               return (
-                // <NavLink
-                //   key={index}
-                //   title={item.title}
-                //   slug={item.slug}
-                //   onClick={() => handleMobileClick(item.slug)}
-                // />
                 <div
                   key={index}
                   onClick={() => handleMobileScroll(item.slug)}
-                  className="text-lg font-semibold"
+                  className="mobileNavItem"
                 >
                   {item.title}
                 </div>
               );
             })}
           </div>
+
+          <Link
+            to="mobile-contato"
+            smooth={true}
+            duration={800}
+            onClick={toggleMenu}
+            className="mt-4 flex h-11 cursor-pointer items-center justify-center gap-2 rounded-full bg-[#f46f1f] px-5 text-sm font-semibold text-white transition hover:bg-[#ff7d2f]"
+          >
+            Let's Chat
+            <ArrowUpRight size={16} />
+          </Link>
         </motion.div>
       )}
     </div>

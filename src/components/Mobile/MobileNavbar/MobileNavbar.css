@@ -1,6 +1,36 @@
 .dropdownMenu {
-  background-color: rgba(21, 21, 21, 0.9);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  -webkit-backdrop-filter: blur(40px);
-  backdrop-filter: blur(40px);
+  background:
+    radial-gradient(
+      130% 130% at 100% 0%,
+      rgba(255, 115, 56, 0.25),
+      rgba(255, 115, 56, 0) 42%
+    ),
+    linear-gradient(145deg, rgba(23, 7, 12, 0.95), rgba(31, 8, 16, 0.92));
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.2),
+    0 20px 48px rgba(0, 0, 0, 0.42);
+  -webkit-backdrop-filter: blur(22px);
+  backdrop-filter: blur(22px);
+}
+
+.mobileNavItem {
+  display: flex;
+  width: 100%;
+  cursor: pointer;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background-color: rgba(255, 255, 255, 0.04);
+  padding: 10px 14px;
+  color: rgba(255, 255, 255, 0.92);
+  font-size: 14px;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.mobileNavItem:hover {
+  border-color: rgba(255, 255, 255, 0.18);
+  background-color: rgba(255, 255, 255, 0.09);
+  color: white;
 }

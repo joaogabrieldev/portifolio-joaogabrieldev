@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-label="Gemini">
+  <defs>
+    <linearGradient id="gemini-g" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4f8ff7" />
+      <stop offset="50%" stop-color="#a78bfa" />
+      <stop offset="100%" stop-color="#f472b6" />
+    </linearGradient>
+  </defs>
+  <path
+    fill="url(#gemini-g)"
+    d="M12 1.5l2.4 7.4h7.8l-6.3 4.6 2.4 7.4L12 16.9l-6.3 4.6 2.4-7.4L1.8 8.9h7.8L12 1.5z"
+  />
+</svg>

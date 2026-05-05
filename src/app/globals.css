@@ -1,11 +1,32 @@
+/* Hero tipografia: Syne 800 (headline / name mark) + Satoshi 400/500 (card + botões) */
+@import url("https://fonts.googleapis.com/css2?family=Syne:wght@800&display=swap");
+@import url("https://api.fontshare.com/v2/css?f[]=satoshi@400,500&display=swap");
+
 @import "tailwindcss";
 @import "tw-animate-css";
 
 html,
 body {
+  position: relative;
   overflow-x: hidden;
   height: 100%;
   overflow-y: auto;
+}
+
+:root {
+  --scrollbar-track: #000000;
+  --scrollbar-thumb: #413b72;
+  --scrollbar-thumb-border: #000000;
+}
+
+html {
+  scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
+}
+
+html.palette-light {
+  --scrollbar-track: #f4f4f5;
+  --scrollbar-thumb: #171717;
+  --scrollbar-thumb-border: #ffffff;
 }
 
 ::-webkit-scrollbar {
@@ -14,13 +35,44 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: #161616;
+  background: var(--scrollbar-track);
+  transition: background-color 0.35s ease;
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #413b72;
+  background-color: var(--scrollbar-thumb);
   border-radius: 5px;
-  border: 2px solid #0d0d0d;
+  border: 2px solid var(--scrollbar-thumb-border);
+  transition:
+    background-color 0.35s ease,
+    border-color 0.35s ease;
+}
+
+@layer components {
+  /* Card: headline — sem stroke; peso 800 explícito */
+  .hero-card-headline {
+    font-family: "Syne", sans-serif;
+    font-weight: 800;
+  }
+
+  /* Card: corpo */
+  .hero-card-body {
+    font-family: "Satoshi", sans-serif;
+    font-weight: 400;
+    line-height: 1.6;
+  }
+
+  /* Botões do card */
+  .hero-button-label {
+    font-family: "Satoshi", sans-serif;
+    font-weight: 500;
+  }
+
+  /* Wordmark à direita (substitui PNG): mesma família/peso da headline */
+  .hero-name-mark {
+    font-family: "Syne", sans-serif;
+    font-weight: 800;
+  }
 }
 
 @layer utilities {

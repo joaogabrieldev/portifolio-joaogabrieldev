@@ -1,0 +1,37 @@
+---
+description: "Neumorfismo (Soft UI) no projeto — sombras duplas, estados pressed com inset, contraste em texto/ícones e tema via Tailwind/CSS. Use ao estilizar componentes, temas ou quando o pedido mencionar neumorfismo ou Soft UI."
+alwaysApply: false
+globs:
+  - "**/*.tsx"
+  - "**/*.jsx"
+  - "**/*.ts"
+  - "**/*.js"
+  - "**/*.css"
+  - "**/tailwind.config.*"
+---
+
+# Protocolo Universal de Neumorfismo (Soft UI)
+
+Sempre que atuar em arquivos de UI ou estilos englobados por esta regra, e o contexto exigir ou sugerir "Neumorfismo" ou "Soft UI", aplique OBRIGATORIAMENTE os seguintes princípios físicos e visuais.
+
+## 1. Fundamentos Core (A Regra do Camaleão)
+- **Cores Idênticas:** A cor de fundo do elemento (botão, card, input) DEVE ser matematicamente idêntica à cor de fundo do container pai. O Neumorfismo não usa bordas para separar elementos, apenas elevação óptica.
+- **Formas Macias:** Proibido o uso de quinas secas (border-radius: 0). Todos os elementos interativos devem ter bordas arredondadas (ex: `rounded-xl`, `rounded-2xl` ou `rounded-full` no Tailwind).
+
+## 2. Motor de Sombras (Física da Luz)
+O efeito 3D é gerado pela projeção de duas sombras opostas. Assuma sempre que a fonte de luz vem do canto superior esquerdo (Top-Left).
+- **Sombra Clara (Top-Left):** Projeta luz. A cor deve ser a Base Color com 10% a 20% mais luminosidade (ou branco translúcido `rgba(255,255,255, 0.7)`).
+- **Sombra Escura (Bottom-Right):** Projeta a ausência de luz. A cor deve ser a Base Color com 15% a 30% menos luminosidade (ou preto/cinza translúcido `rgba(0,0,0, 0.15)`).
+
+## 3. Estados Interativos (Botões e Inputs)
+A transição de estado deve emular a física real de algo sendo "pressionado" contra a superfície.
+- **Estado Padrão (Default):** Sombras projetadas para fora (Drop Shadow), fazendo o elemento parecer saltar da tela.
+- **Estado Pressionado/Ativo (Active, Focus, Checked):** As sombras DEVEM ser invertidas para internas (`box-shadow: inset`). A sombra escura vai para o Top-Left e a clara para o Bottom-Right, criando o efeito de baixo-relevo/buraco.
+
+## 4. Acessibilidade e Contraste
+- O Neumorfismo tem baixo contraste por natureza. **NUNCA** aplique o efeito de sombras em tipografias ou ícones.
+- Textos e Ícones devem ter alto contraste em relação ao fundo (use cinza chumbo escuro, escalas escuras da cor primária ou cores vibrantes).
+
+## 5. Diretriz de Implementação (Tailwind & CSS)
+- **Evite sujeira no JSX:** Não aplique dezenas de valores arbitrários de sombra diretamente no `className` dos componentes.
+- **Configuração Global:** Quando solicitado para criar o tema, configure as sombras no `tailwind.config.ts` ou gere variáveis globais no arquivo `.css` principal (ex: `--shadow-neu-flat` e `--shadow-neu-pressed`), e apenas aplique as classes utilitárias limpas nos componentes.

@@ -1,25 +1,46 @@
 import { navLinks } from "@/assets/data/navLinks";
-import NavLink from "@/pieces/NavLink/NavLink";
 import { Link } from "react-scroll";
+import { ArrowUpRight } from "lucide-react";
 
 const Nav = () => {
+  const desktopLinks = navLinks.filter((item) => item.title !== "Contato");
+
   return (
-    <ul className="flex w-180 flex-row items-center justify-center gap-8">
-      {navLinks.map((item, index) =>
-        item.title === "Contato" ? (
-          <Link
-            key={index}
-            to={item.slug}
-            smooth={true}
-            className="-ml-1 flex cursor-pointer items-center justify-center rounded-md bg-[#948ad5] px-4 py-1.5 text-[16px] font-semibold text-white shadow-xs shadow-gray-500 transition duration-150 ease-out hover:bg-[#948ad5a9]"
-          >
-            {item.title}
-          </Link>
-        ) : (
-          <NavLink key={index} title={item.title} slug={item.slug} />
-        ),
-      )}
-    </ul>
+    <div className="flex items-center gap-3">
+      <ul className="flex h-11 items-center gap-1 rounded-full border border-white/10 bg-white/6 px-2 shadow-[inset_0_1px_0_rgba(255,255,255,0.25)] backdrop-blur-xl">
+        {desktopLinks.map((item) => (
+          <li key={item.slug} className="list-none">
+            <Link
+              to={item.slug}
+              smooth={true}
+              duration={800}
+              spy={true}
+              activeClass="desktopNavActive"
+              className="desktopNavLink"
+            >
+              {item.title}
+            </Link>
+          </li>
+        ))}
+      </ul>
+
+      <Link
+        to="contato"
+        smooth={true}
+        duration={800}
+        className="flex h-11 cursor-pointer items-center justify-center rounded-full bg-[#f46f1f] px-6 text-sm font-semibold text-white transition hover:bg-[#ff7d2f]"
+      >
+        Let's Chat
+      </Link>
+
+      <button
+        type="button"
+        aria-label="Acessar contato"
+        className="flex h-11 w-11 items-center justify-center rounded-full bg-white text-black transition hover:bg-white/85"
+      >
+        <ArrowUpRight size={18} />
+      </button>
+    </div>
   );
 };
 

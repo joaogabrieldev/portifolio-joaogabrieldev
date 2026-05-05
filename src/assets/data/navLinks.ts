@@ -13,27 +13,31 @@ export const navLinks: INavLinks[] = [
     slug: "sobre",
   },
   {
-    title: "Processos",
-    slug: "processos",
-  },
-  {
-    title: "Planos",
-    slug: "planos",
+    title: "Habilidades",
+    slug: "habilidades",
   },
   {
     title: "Projetos",
     slug: "projetos",
   },
   {
-    title: "FAQ",
-    slug: "faq",
+    title: "Processos",
+    slug: "processos",
   },
+  // {
+  //   title: "Planos",
+  //   slug: "planos",
+  // },
+
+  // {
+  //   title: "FAQ",
+  //   slug: "faq",
+  // },
   {
     title: "Contato",
     slug: "contato",
   },
 ];
-
 export const mobileNavLinks: INavLinks[] = [
   {
     title: "Início",

@@ -1,0 +1,10 @@
+export { default as AboutSection } from "./AboutSection";
+export { default as KnowledgeSection } from "./KnowledgeSection";
+export { default as ProcessSection } from "./ProcessSection";
+export { default as PlansSection } from "./PlansSection";
+export { default as ProjectsSection } from "./ProjectsSection";
+export { default as HireSection } from "./HireSection/HireSection";
+export { default as FAQSection } from "./FAQSection";
+export { default as ContactSection } from "./ContactSection";
+export { default as SchedulingSection } from "./SchedulingSection";
+export { default as FooterSection } from "./FooterSection";

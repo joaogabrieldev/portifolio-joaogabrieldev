@@ -53,3 +53,12 @@ my-components.md
 build-storybook.log
 repomix-output.xml
 src/app/projetos/repomix-output.xml
+
+# Fontes de vídeo pesadas (GitHub bloqueia >100MB; use apenas webm em public/assets)
+src/assets/animations/*.mov
+
+# Artefatos de Inteligência Artificial
+repomix-output.xml
+repomix-output.txt
+*storybook.log
+storybook-static

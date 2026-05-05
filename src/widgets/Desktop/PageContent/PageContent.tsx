@@ -1,31 +1,25 @@
-import Navbar from "../../Navbar/Navbar";
-import Hero from "@/sections/DesktopSections/Hero/Hero";
+"use client";
 
-import About from "@/sections/DesktopSections/About/About";
-
-import Processes from "@/sections/DesktopSections/Processes/Processes";
-import Plans from "@/sections/DesktopSections/Plans/Plans";
-import Projects from "@/sections/DesktopSections/Projects/Projects";
-import FAQ from "@/sections/DesktopSections/FAQ/FAQ";
-import Contact from "../../../sections/DesktopSections/Contact/Contact";
+import SectionsHeader from "@/components/SectionsHeader/SectionsHeader";
+import { useScrolledPastHero } from "@/hooks/useScrolledPastHero";
+import Hero from "@/layout/Hero";
+import SiteSections from "@/widgets/Desktop/SiteSections/SiteSections";
+import { AnimatePresence, LayoutGroup } from "motion/react";
 
 const PageContent = () => {
+  const scrolled = useScrolledPastHero();
+
   return (
-    <div className="absolute top-0 left-0 z-10 h-full w-full">
-      <header>
-        <Navbar />
-      </header>
-      <main>
-        <Hero />
-        <About />
-        <Processes />
-        <Plans />
-        <Projects />
+    <div className="relative z-10 min-h-dvh w-full">
+      <main className="min-h-dvh">
+        <LayoutGroup id="global-header">
+          <Hero />
+          <AnimatePresence initial={false}>
+            {scrolled ? <SectionsHeader key="sections-header" /> : null}
+          </AnimatePresence>
+        </LayoutGroup>
+        <SiteSections />
       </main>
-      <footer>
-        <FAQ />
-        <Contact />
-      </footer>
     </div>
   );
 };
