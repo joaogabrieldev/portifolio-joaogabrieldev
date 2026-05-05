@@ -9,6 +9,7 @@ import LiveStatusDot from "@/pieces/LiveStatusDot/LiveStatusDot";
 import { dmSans, epilogue } from "@/utils/fonts";
 
 import { sectionShell } from "./sectionStyles";
+import { cn } from "@/lib/utils";
 
 /** Cards 2×2: borda / fundo / hover alinhados ao design editorial */
 const infoCardClass =
@@ -88,6 +89,23 @@ const CONTACT_LINKS: ContactLink[] = [
   },
 ];
 
+type AvailabilityItem = {
+  label: string;
+  value: string;
+  highlight?: boolean;
+};
+
+const AVAILABILITY: AvailabilityItem[] = [
+  {
+    label: "Aberto a projetos",
+    value: `Mai – Dez / ${new Date().getFullYear()}`,
+    highlight: true,
+  },
+  { label: "Freelance", value: "Sim" },
+  { label: "Remoto", value: "Sim" },
+  { label: "Presencial", value: "Brasília, DF" },
+];
+
 const EDITORIAL_EMAIL = "joaogabriel2r.profissional@hotmail.com";
 
 const semester = new Date().getMonth() + 1 > 6 ? "02" : "01";
@@ -110,13 +128,17 @@ export default function AboutSection() {
               </span>
             </div>
             <div
-              className={`hidden items-center gap-6 text-[10px] tracking-[0.22em] text-white/40 uppercase sm:flex ${epilogue.className}`}
+              className={`hidden items-center gap-6 text-[10px] tracking-[0.22em] text-white/50 uppercase sm:flex ${epilogue.className} select-none`}
             >
-              <span>Brasília / DF</span>
+              <span className="transition-all duration-300 ease-in-out hover:text-emerald-300/90">
+                Brasília / DF
+              </span>
               <span className="h-1 w-1 rounded-full bg-white/20" />
-              <span>Ref. 0024</span>
+              <span className="transition-all duration-300 ease-in-out hover:text-emerald-300/90">
+                Ref. 0024
+              </span>
               <span className="h-1 w-1 rounded-full bg-white/20" />
-              <span>
+              <span className="transition-all duration-300 ease-in-out hover:text-emerald-300/90">
                 Ed. <span>{semester} / 2026</span>
               </span>
             </div>
@@ -125,7 +147,7 @@ export default function AboutSection() {
           <div className="relative grid grid-cols-12 gap-6 pt-10 pb-14 md:gap-10">
             <div className="col-span-12 md:col-span-2">
               <div
-                className={`w-fit cursor-default text-[clamp(3.5rem,10vw,7rem)] leading-[0.9] font-extrabold tracking-[-0.04em] text-transparent antialiased select-none [-webkit-text-stroke:1px_rgba(167,139,250,0.35)] ${epilogue.className}`}
+                className={`w-fit cursor-default text-[clamp(3.5rem,10vw,7rem)] leading-[0.9] font-extrabold tracking-[-0.04em] text-transparent antialiased select-none [-webkit-text-stroke:1px_rgba(167,139,250,0.7)] transition-all duration-300 ease-in-out hover:[-webkit-text-stroke:1px_rgba(94,233,181,0.65)] ${epilogue.className}`}
               >
                 01
               </div>
@@ -203,11 +225,13 @@ export default function AboutSection() {
                   >
                     {EXPERIENCE_ITEM.period}
                   </span>
-                  <div
-                    className={`flex flex-row items-center gap-1.5 `}
-                  >
+                  <div className={`flex flex-row items-center gap-1.5`}>
                     <LiveStatusDot />
-                    <span className={`text-[10px] tracking-[0.2em] text-emerald-300/90 uppercase ${epilogue.className}`}>Ativo</span>
+                    <span
+                      className={`text-[10px] tracking-[0.2em] text-emerald-300/90 uppercase ${epilogue.className}`}
+                    >
+                      Ativo
+                    </span>
                   </div>
                 </div>
                 <h3
@@ -253,7 +277,7 @@ export default function AboutSection() {
                     </span>
                   </div>
                   <span
-                    className={`text-xs tracking-[0.18em] text-white/55 uppercase ${epilogue.className}`}
+                    className={`text-xs tracking-[0.18em] text-white/55 uppercase ${epilogue.className} transition-all duration-300 ease-in-out group-hover:text-emerald-300/90`}
                   >
                     {lang.level}
                   </span>
@@ -263,48 +287,32 @@ export default function AboutSection() {
           </article>
 
           <article className={infoCardClass}>
-            <CardHeader title="Redes & Contato" index="05" />
+            <CardHeader title="Disponibilidade" index="05" />
 
-            {/* <div className="mb-5 flex items-center gap-3">
-              <LiveStatusDot />
-              <span
-                className={`text-xs tracking-[0.18em] text-white/55 uppercase ${epilogue.className}`}
-              >
-                Disponível para projetos
-              </span>
-            </div> */}
-
-            <ul className="space-y-3">
-              {CONTACT_LINKS.map(({ index, label, display, href, Icon }) => (
-                <li key={index}>
-                  <Link
-                    href={href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={`group/link flex items-center gap-3 text-sm text-violet-300 transition-colors duration-200 hover:text-violet-200 ${dmSans.className}`}
-                    aria-label={`${label}: ${display}`}
+            <ul className="mt-1 space-y-0">
+              {AVAILABILITY.map((item, i) => (
+                <li
+                  key={item.label}
+                  className={`flex items-center justify-between ${
+                    i < AVAILABILITY.length - 1
+                      ? "mb-3 border-b border-white/5 pb-3"
+                      : ""
+                  }`}
+                >
+                  <span className={`text-sm text-white/60 ${dmSans.className}`}>
+                    {item.label}
+                  </span>
+                  <span
+                    className={`text-xs font-semibold tracking-[0.14em] uppercase tabular-nums ${
+                      item.highlight
+                        ? `text-white/55 group-hover:text-emerald-300/90 ${epilogue.className}`
+                        : `text-white/55 ${epilogue.className}`
+                    } transition-all duration-300 ease-in-out`}
                   >
-                    <Icon className="h-4 w-4 text-violet-300/80" />
-                    <span>{display}</span>
-                    <span className="ml-auto text-white/25 transition-all duration-200 group-hover/link:translate-x-0.5 group-hover/link:text-violet-300">
-                      ↗
-                    </span>
-                  </Link>
+                    {item.value}
+                  </span>
                 </li>
               ))}
-
-              <li aria-hidden className="my-1 h-px bg-white/5" />
-
-              <li>
-                <Link
-                  href={`mailto:${EDITORIAL_EMAIL}`}
-                  className={`flex items-center gap-3 text-xs text-white/55 transition-colors hover:text-white/80 ${dmSans.className}`}
-                  aria-label={`Enviar e-mail para ${EDITORIAL_EMAIL}`}
-                >
-                  <Mail className="h-4 w-4 text-white/40" strokeWidth={1.8} />
-                  <span className="truncate">{EDITORIAL_EMAIL}</span>
-                </Link>
-              </li>
             </ul>
           </article>
         </section>

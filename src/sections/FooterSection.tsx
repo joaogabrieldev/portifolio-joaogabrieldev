@@ -8,7 +8,16 @@ import {
 } from "@/utils/linksToGo";
 import { dmSans, outfit } from "@/utils/fonts";
 import { MdOutlineEmail } from "react-icons/md";
-import { SiGithub, SiLinkedin, SiWhatsapp } from "react-icons/si";
+import {
+  SiGithub,
+  SiLinkedin,
+  SiWhatsapp,
+  SiReact,
+  SiNextdotjs,
+  SiTailwindcss,
+  SiTypescript,
+  SiFramer,
+} from "react-icons/si";
 import Image from "next/image";
 
 const SITE_LINKS = [
@@ -53,7 +62,7 @@ const SOCIAL_ICON_CLASS = "size-4.5";
 
 export default function FooterSection() {
   const year = new Date().getFullYear();
-
+  const logoSize = "size-5.5";
   return (
     <footer className="bg-white">
       <div className="mx-auto max-w-6xl px-4 py-16 pb-20 sm:px-8 md:px-12">
@@ -185,12 +194,20 @@ export default function FooterSection() {
         <div
           className={`mt-14 flex flex-col gap-3 border-t border-black/8 pt-8 sm:flex-row sm:items-center sm:justify-between ${dmSans.className}`}
         >
-          <p className="text-xs text-black/75">
+          <p className="text-xs text-black/75 select-none">
             © {year} João Gabriel. Todos os direitos reservados.
           </p>
-          <p className="text-xs text-black/75">
-            Feito com 🖤
-          </p>
+          <p className=""> </p>
+          <div className="flex flex-row items-center gap-2 text-2xl text-black/75 select-none">
+            <span className="text-xs text-black/75">Projeto feito com:</span>
+            <div className="flex flex-row items-center gap-2">
+              <SiReact className={logoSize} />
+              <SiNextdotjs className={logoSize} />
+              <SiTailwindcss className={logoSize} />
+              <SiTypescript className={logoSize} />
+              {/* <SiFramer className={logoSize} /> */}
+            </div>
+          </div>
         </div>
       </div>
     </footer>

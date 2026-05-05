@@ -1,19 +1,18 @@
 "use client";
 
-import dynamic from "next/dynamic";
-
 import { dmSans, outfit } from "@/utils/fonts";
 import { urlGithub, urlLinkedin, urlWhatsapp } from "@/utils/linksToGo";
 import { SiLinkedin, SiGithub, SiWhatsapp } from "react-icons/si";
 import ContactButton from "@/pieces/ContactButton/ContactButton";
 import SendEmailMenu from "@/pieces/SendEmailMenu/SendEmailMenu";
 
-const Cal = dynamic(
-  () => import("@calcom/embed-react").then((m) => m.default),
-  { ssr: false },
-);
-
 export default function SchedulingSection() {
+  const baseCalLink = process.env.NEXT_PUBLIC_CAL_LINK ?? "";
+  const normalizedCalLink = baseCalLink.replace(/^\/+|\/+$/g, "");
+  const bookingPath = normalizedCalLink.includes("/")
+    ? normalizedCalLink
+    : `${normalizedCalLink}/30min`;
+
   return (
     <section
       id="contato"
@@ -70,11 +69,12 @@ export default function SchedulingSection() {
 
           {/* RIGHT — Cal.com embed */}
           <div className="min-h-[720px] min-w-0 flex-1 overflow-hidden rounded-2xl border border-[#d0d4e8]">
-            <Cal
-              namespace="30min"
-              calLink={process.env.NEXT_PUBLIC_CAL_LINK!}
-              style={{ width: "100%", height: "100%", overflow: "scroll" }}
-              config={{ layout: "month_view", theme: "light" }}
+            <iframe
+              title="Agendamento Cal.com"
+              src={`https://app.cal.com/${bookingPath}?layout=month_view&theme=light`}
+              className="h-full min-h-[720px] w-full border-0"
+              loading="lazy"
+              referrerPolicy="strict-origin-when-cross-origin"
             />
           </div>
         </div>

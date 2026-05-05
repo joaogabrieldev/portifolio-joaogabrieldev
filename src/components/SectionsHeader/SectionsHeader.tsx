@@ -107,10 +107,10 @@ export default function SectionsHeader() {
               duration={800}
               offset={-72}
               className={cn(
-                `ml-2 inline-flex shrink-0 cursor-pointer items-center justify-center rounded-full px-5 py-2.5 text-sm font-bold tracking-wide uppercase transition ${dmSans.className}`,
+                `ml-2 inline-flex shrink-0 cursor-pointer items-center justify-center gap-2 rounded-full px-5 py-2.5 text-sm font-bold tracking-[0.06em] uppercase transition-all duration-300 ${dmSans.className}`,
                 isLightPaletteZone
-                  ? "border border-black/15 bg-black text-white shadow-[0_6px_18px_rgba(0,0,0,0.18)] hover:bg-black/85"
-                  : "border border-violet-400/30 bg-[#5b4f9e] text-white shadow-[0_6px_20px_rgba(91,79,158,0.45)] hover:border-violet-300/45 hover:bg-[#6d5fb5] hover:shadow-[0_8px_24px_rgba(91,79,158,0.5)]",
+                  ? "border border-black/15 bg-black text-white shadow-[0_8px_22px_rgba(0,0,0,0.2)] hover:-translate-y-px hover:bg-black/90 hover:shadow-[0_10px_26px_rgba(0,0,0,0.24)]"
+                  : "border border-violet-300/40 bg-linear-to-r from-[#524596] to-[#6c5db8] text-white shadow-[0_8px_24px_rgba(82,69,150,0.46)] hover:-translate-y-px hover:border-violet-200/55 hover:from-[#5d4faa] hover:to-[#7868c7] hover:shadow-[0_10px_28px_rgba(93,79,170,0.52)]",
               )}
             >
               Contato

@@ -43,7 +43,7 @@
  * Máscara radial: só o centro mostra o 3D; o resto fica transparente → #000 da section.
  */
 .hire-spline-decor {
-  opacity: 0.28;
+  opacity: 0.7;
   -webkit-mask-image: radial-gradient(
     ellipse 62% 52% at 50% 44%,
     #000 0%,

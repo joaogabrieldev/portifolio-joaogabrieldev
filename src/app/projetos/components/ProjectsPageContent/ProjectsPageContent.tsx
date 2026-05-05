@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { projects } from "@/assets/data/projects";
 import { dmSans, outfit } from "@/utils/fonts";
 import { motion } from "motion/react";
@@ -7,8 +8,59 @@ import BackButton from "../../../../components/BackButton/BackButton";
 import Noise from "@/components/ReactBits/Noise/Noise";
 import { GridPattern } from "../GridPattern/GridPattern";
 import { ProjectThumbCard } from "../ProjectThumbCard/ProjectThumbCard";
+import { useWindowSize } from "@/hooks/useWindowSize";
+import type { ComponentPropsWithoutRef } from "react";
+
+
+
+type GlassVariant = "subtle" | "medium" | "strong";
+type GlassTheme = "dark" | "light";
+
+interface GlassMobileBackButtonProps extends ComponentPropsWithoutRef<"a"> {
+  variant?: GlassVariant;
+  theme?: GlassTheme;
+  href: string;
+  label: string;
+}
+
+const glassVariants = {
+  subtle:
+    "backdrop-blur-[16px] [backdrop-filter:blur(16px)] [-webkit-backdrop-filter:blur(16px)] bg-[linear-gradient(135deg,rgba(255,255,255,0.06)_0%,rgba(255,255,255,0.025)_100%)] border-white/14 shadow-[inset_0_1px_0_rgba(255,255,255,0.26),0_4px_30px_rgba(0,0,0,0.12),0_1px_3px_rgba(0,0,0,0.08)] hover:bg-[linear-gradient(135deg,rgba(255,255,255,0.11)_0%,rgba(255,255,255,0.05)_100%)]",
+  medium:
+    "backdrop-blur-[18px] [backdrop-filter:blur(18px)] [-webkit-backdrop-filter:blur(18px)] bg-[linear-gradient(135deg,rgba(255,255,255,0.08)_0%,rgba(255,255,255,0.03)_100%)] border-white/18 shadow-[inset_0_1px_0_rgba(255,255,255,0.3),0_4px_30px_rgba(0,0,0,0.12),0_1px_3px_rgba(0,0,0,0.08)] hover:bg-[linear-gradient(135deg,rgba(255,255,255,0.13)_0%,rgba(255,255,255,0.06)_100%)]",
+  strong:
+    "backdrop-blur-[24px] [backdrop-filter:blur(24px)] [-webkit-backdrop-filter:blur(24px)] bg-[linear-gradient(135deg,rgba(255,255,255,0.1)_0%,rgba(255,255,255,0.045)_100%)] border-white/22 shadow-[inset_0_1px_0_rgba(255,255,255,0.33),0_4px_30px_rgba(0,0,0,0.12),0_1px_3px_rgba(0,0,0,0.08)] hover:bg-[linear-gradient(135deg,rgba(255,255,255,0.14)_0%,rgba(255,255,255,0.07)_100%)]",
+} satisfies Record<GlassVariant, string>;
+
+const glassThemes = {
+  dark: "text-white [text-shadow:0_1px_3px_rgba(0,0,0,0.3)]",
+  light: "text-slate-900",
+} satisfies Record<GlassTheme, string>;
+
+function GlassMobileBackButton({
+  variant = "medium",
+  theme = "dark",
+  href,
+  label,
+  className,
+  ...rest
+}: GlassMobileBackButtonProps) {
+  return (
+    <Link
+      href={href}
+      className={`inline-flex h-10 items-center justify-center rounded-full border px-4 text-xs font-semibold tracking-[0.15em] uppercase transition-[background,box-shadow,transform] duration-[250ms] ease-[cubic-bezier(0.4,0,0.2,1)] hover:-translate-y-px ${glassVariants[variant]} ${glassThemes[theme]} ${dmSans.className} ${className ?? ""}`}
+      {...rest}
+    >
+      {label}
+    </Link>
+  );
+}
 
 const ProjectsPageContent = () => {
+
+  const { width } = useWindowSize();
+  const isMobile = width <= 768;
+  
   return (
     <div
       className="relative min-h-screen w-full overflow-hidden"
@@ -28,7 +80,11 @@ const ProjectsPageContent = () => {
               transition={{ duration: 0.45, ease: "easeOut" }}
               className="justify-self-start"
             >
-              <BackButton href="/#projetos" />
+              {isMobile ? (
+                <GlassMobileBackButton href="/" label="Voltar" />
+              ) : (
+                <BackButton href="/" />
+              )}
             </motion.div>
 
             <motion.h1

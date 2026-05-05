@@ -67,6 +67,25 @@ type SkillIconProps = { slug?: string; iconUrl?: string; name: string };
 const iconWrapClass = "size-4 shrink-0 opacity-60";
 
 function SkillIcon({ slug, iconUrl, name }: SkillIconProps) {
+  if (name === "Git") {
+    return (
+      // eslint-disable-next-line @next/next/no-img-element
+      <img
+        src="/assets/icons/gemini.png"
+        alt=""
+        width={16}
+        height={16}
+        style={{
+          width: 16,
+          height: 16,
+          objectFit: "contain",
+          opacity: 0.78,
+          flexShrink: 0,
+        }}
+      />
+    );
+  }
+
   const inlineKey = getInlineKey(name);
   const iconColor =
     SKILL_ICON_COLORS[name] ??
@@ -213,50 +232,58 @@ export default function KnowledgeSection() {
         </div>
 
         {/* HORIZONTAL RULE */}
-        <div aria-hidden className="my-16 h-px w-full bg-white/8" />
+        <div aria-hidden className="my-8 h-px w-full bg-white/8" />
 
         {/* COLUMNS */}
-        <div
-          className="grid"
-          style={{
-            gridTemplateColumns: `repeat(${aboutSkillGroups.length}, minmax(0, 1fr))`,
-          }}
-        >
+        <div className="grid grid-cols-2 gap-0 sm:grid-cols-3 lg:grid-cols-5">
           {aboutSkillGroups.map((group, i) => {
+            const isLastInRow2Col = (i + 1) % 2 === 0;
+            const isLastInRow3Col = (i + 1) % 3 === 0;
             const isLast = i === aboutSkillGroups.length - 1;
+
             return (
               <div
                 key={group.id}
                 onMouseEnter={() => setHovered(i)}
                 onMouseLeave={() => setHovered(null)}
+                className={[
+                  "flex flex-col p-5 transition-[opacity,background-color] duration-300",
+                  "rounded-xl hover:!bg-white/[0.02]",
+                  !isLast && !isLastInRow2Col
+                    ? "border-r border-white/6 sm:border-r-0"
+                    : "",
+                  !isLast && !isLastInRow3Col
+                    ? "sm:border-r sm:border-white/6 lg:border-r-0"
+                    : "",
+                  !isLast ? "lg:border-r lg:border-white/6" : "",
+                ].join(" ")}
                 style={{
-                  padding: "20px 28px",
-                  boxShadow: !isLast
-                    ? "1px 0 0 rgba(255,255,255,0.06)"
-                    : undefined,
                   opacity: hovered === null || hovered === i ? 1 : 0.78,
-                  transition: "opacity 300ms ease, background-color 300ms ease",
-                  borderRadius: 12,
-                  backgroundColor: "transparent",
                 }}
-                className="hover:!bg-white/[0.02]"
               >
                 {/* Category label */}
                 <div
-                  className={`mb-4 flex items-center gap-2.5 text-[10px] font-medium tracking-[0.18em] text-white/85 uppercase ${dmSans.className}`}
+                  className={`mb-4 flex items-center gap-2.5 text-[10px]
+                      font-medium tracking-[0.18em] text-white/35
+                      uppercase ${dmSans.className}`}
                 >
-                  <span className="font-mono text-[9px] font-normal tracking-normal text-white/75">
+                  <span
+                    className="font-mono text-[9px] font-normal
+                           tracking-normal text-white/22"
+                  >
                     {String(i + 1).padStart(2, "0")}
                   </span>
                   <span>{group.label}</span>
                 </div>
 
                 {/* Skills list */}
-                <ul className="m-0 flex list-none flex-col p-0">
+                <ul className="m-0 flex list-none flex-col space-y-1 p-0">
                   {group.skills.map((skill) => (
                     <li
                       key={skill.name}
-                      className={`flex items-center gap-3 text-[14.5px] leading-[2.0] font-medium text-white ${dmSans.className}`}
+                      className={`flex items-center gap-3 text-[14px]
+                          font-medium leading-[2.0] text-white/75
+                          ${dmSans.className}`}
                     >
                       <SkillIcon
                         slug={skill.slug}
@@ -274,13 +301,13 @@ export default function KnowledgeSection() {
 
         {/* FOOTNOTE */}
         <div
-          className={`mt-24 flex flex-wrap items-start gap-3 text-[14px] text-white/65 ${dmSans.className}`}
+          className={`mt-16 flex flex-wrap items-start gap-3 text-[14px] text-white/65 ${dmSans.className}`}
         >
           <span
             aria-hidden
-            className="mt-[0.55em] inline-block h-px w-6 shrink-0 bg-white/18"
+            className="mt-[0.55em] inline-block h-px w-6 shrink-0 bg-white/65"
           />
-          <p className="m-0 max-w-2xl leading-relaxed">
+          <div className="m-0 max-w-3xl leading-relaxed">
             <span>
               Aberto a novas ferramentas conforme o projeto exige. Para ver a
               lista completa de tecnologias{" "}
@@ -289,12 +316,12 @@ export default function KnowledgeSection() {
               onClick={() => {
                 window.open("/curriculo-joao-gabriel-r.-rocha.pdf", "_blank");
               }}
-              className="inline-block font-medium whitespace-nowrap text-violet-300/95 underline decoration-violet-400/45 underline-offset-[3px] transition hover:text-violet-200"
+              className="cursor-pointer font-medium whitespace-nowrap text-violet-300/95 underline decoration-violet-400/45 underline-offset-[3px] transition hover:text-violet-200"
             >
               veja o meu currículo
             </span>
-            .
-          </p>
+            <span>.</span>
+          </div>
         </div>
       </div>
     </section>

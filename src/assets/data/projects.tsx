@@ -33,6 +33,8 @@ export type Projects = {
   date: string;
   description: string;
   icons: JSX.Element[];
+  repoUrl?: string;
+  collaborators?: { name: string; url?: string }[];
 };
 
 export const projects: Projects[] = [
@@ -87,9 +89,9 @@ export const projects: Projects[] = [
       <SiTailwindcss key={"TailwindCSS"} />,
       <SiTypescript key={"Typescript"} />,
       <SiNextdotjs key={"Next"} />,
-
       <SiVercel key={"Vercel"} />,
     ],
+    repoUrl: "https://github.com/joaogabrieldev/projeto-kino",
   },
   {
     url: "https://projeto-landing-page-ashy.vercel.app/",
