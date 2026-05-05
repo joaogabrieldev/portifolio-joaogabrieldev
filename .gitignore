@@ -50,3 +50,6 @@ libs.md
 my-components.md
 /.unlighthouse
 # /references
+build-storybook.log
+repomix-output.xml
+src/app/projetos/repomix-output.xml
