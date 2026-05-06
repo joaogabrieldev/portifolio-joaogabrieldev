@@ -14,5 +14,5 @@ export function openLinkedinTab(): void {
 }
 
 export function openProjectsTab(): void {
-  navigateSameTab("/projetos");
+  window.open("/projetos", "_blank");
 }
