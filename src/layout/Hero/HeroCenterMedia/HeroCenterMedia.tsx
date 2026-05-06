@@ -48,12 +48,14 @@ const HeroCenterMedia = ({ order }: HeroCenterMediaProps) => {
           <video
             className="mt-4 h-full w-full object-cover select-none md:mt-0 md:object-contain"
             style={{ backgroundColor: "transparent" }}
-            src="/assets/animations/sunrise-2.webm"
             autoPlay
             muted
             loop
             playsInline
-          />
+          >
+            <source src="/assets/animations/sunrise-2.webm" type="video/webm" />
+            <source src="/assets/animations/sunrise-2.mp4" type="video/mp4" />
+          </video>
         </motion.div>
       </motion.div>
       <motion.div className="relative z-[10]" style={{ y: imageParallaxY }}>
