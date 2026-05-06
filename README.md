@@ -1,514 +1,193 @@
 <div align="center">
 
-# 🚀 Portfólio João Gabriel
+# 💼 Portfólio João Gabriel Dev
 
-![Next.js](https://img.shields.io/badge/Next.js-16.0.1-000000?style=for-the-badge&logo=next.js&logoColor=white)
+![Next.js](https://img.shields.io/badge/Next.js-16.1.0-000000?style=for-the-badge&logo=next.js&logoColor=white)
 ![React](https://img.shields.io/badge/React-19.2.3-61DAFB?style=for-the-badge&logo=react&logoColor=black)
-![TypeScript](https://img.shields.io/badge/TypeScript-5.9.3-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
-![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4.0-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-5.x-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4.x-06B6D4?style=for-the-badge&logo=tailwind-css&logoColor=white)
 
+[![Deploy](https://img.shields.io/badge/Deploy-joaogabriel.dev-111111?style=for-the-badge&logo=vercel&logoColor=white)](https://joaogabriel.dev)
 [![GitHub](https://img.shields.io/badge/GitHub-joaogabrieldev-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/joaogabrieldev)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-João_Gabriel-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/joaogabrielrocha)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-joaogabrielrocha-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/joaogabrielrocha)
 
-**Portfólio pessoal moderno desenvolvido com Next.js, React e TypeScript, apresentando projetos, habilidades e serviços oferecidos como desenvolvedor freelancer**
+Portfólio pessoal com foco em front-end moderno, animações avançadas e apresentação de projetos/serviços.
 
 </div>
 
 ---
 
-## 📋 Índice
+## 📑 Índice
 
 - [🌐 Deploy](#-deploy)
-- [📖 Sobre o Projeto](#-sobre-o-projeto)
-- [🚀 Tecnologias Utilizadas](#-tecnologias-utilizadas)
-- [📦 Bibliotecas e Dependências](#-bibliotecas-e-dependências)
-- [🏗️ Arquitetura e Padrões de Projeto](#️-arquitetura-e-padrões-de-projeto)
-- [📁 Estrutura do Projeto](#-estrutura-do-projeto)
-- [⚙️ Como Executar](#️-como-executar)
-- [👨‍💻 Autor](#-autor)
+- [📖 Sobre](#-sobre)
+- [🧱 Padrões e Fundamentos](#-padrões-e-fundamentos)
+- [🛠️ Tecnologias e Bibliotecas](#️-tecnologias-e-bibliotecas)
+- [🗂️ Estrutura do Projeto](#️-estrutura-do-projeto)
+- [⚙️ Como rodar localmente](#️-como-rodar-localmente)
+- [📌 Evento](#-evento)
+- [👨‍💻 Contato](#-contato)
 
 ---
 
 ## 🌐 Deploy
 
-<div align="center">
+Projeto em produção:
 
-[![Deploy](https://img.shields.io/badge/Deploy-Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://portifolio-joaogabrieldev.vercel.app/)
-
-</div>
-
-A aplicação está hospedada na **Vercel** e pode ser acessada através do link:
-
-### 🔗 [https://www.joaogabriel.dev/](https://www.joaogabriel.dev/)
+### 🔗 [https://joaogabriel.dev](https://joaogabriel.dev)
 
 ---
 
-## 📖 Sobre o Projeto
+## 📖 Sobre
 
-Este projeto é um portfólio pessoal profissional desenvolvido para apresentar projetos, habilidades técnicas e serviços oferecidos como desenvolvedor web freelancer. A aplicação apresenta uma interface moderna, responsiva e com animações avançadas, demonstrando expertise em desenvolvimento front-end moderno.
+Este repositório contém meu site portfólio, desenvolvido para apresentar:
 
-### ✨ Funcionalidades Principais
+- projetos reais;
+- stack técnica e habilidades;
+- serviços/propostas para freelas;
+- canais de contato profissional.
 
-- 🎨 **Design Responsivo** - Interface totalmente adaptável para diferentes tamanhos de tela (mobile-first)
-- ✨ **Animações Avançadas** - Transições suaves com Framer Motion, GSAP e Motion
-- 📜 **Navegação Suave** - Scroll suave entre seções com React Scroll
-- 🎯 **Seções Interativas** - Hero, Sobre, Processos, Planos, Projetos, FAQ e Contato
-- 🎪 **Carrossel de Projetos** - Exibição dinâmica de projetos com Embla Carousel
-- 🎭 **Efeitos Visuais** - Aurora effects, gradientes animados e blur effects
-- 📱 **Menu Mobile** - Menu hambúrguer responsivo e intuitivo
-- 🧩 **Componentes Reutilizáveis** - Arquitetura modular e escalável
-- 🔒 **Type Safety** - TypeScript em todo o projeto
-- ⚡ **Performance Otimizada** - Next.js com App Router e otimizações de build
+### 🖼️ Preview
 
-### 🎯 Seções do Portfólio
+<div align="center">
+  <img src="./public/assets/images/hero-2-alpha.png" alt="Preview da home do portfólio" width="820" />
+</div>
 
-- **Hero** - Apresentação pessoal com animações de texto
-- **Sobre** - Informações sobre o desenvolvedor e habilidades
-- **Processos** - Timeline vertical com fases de desenvolvimento
-- **Planos** - Apresentação de pacotes e serviços oferecidos
-- **Projetos** - Galeria de projetos desenvolvidos
-- **FAQ** - Perguntas frequentes sobre serviços
-- **Contato** - Links e formas de contato
+<div align="center">
+  <img src="./src/assets/thumbs/kino-thumb.png" alt="Thumb de projeto do portfólio" width="260" />
+  <img src="./src/assets/thumbs/fintrack-thumb.png" alt="Thumb de projeto Fintrack" width="260" />
+  <img src="./src/assets/thumbs/airbnb-thumb.png" alt="Thumb de projeto Airbnb clone" width="260" />
+</div>
 
 ---
 
-## 🚀 Tecnologias Utilizadas
+## 🧱 Padrões e Fundamentos
 
-<div align="center">
+O projeto segue fundamentos importantes de arquitetura front-end:
 
-### 🔧 Framework e Core
+- **Arquitetura baseada em componentes** (componentes pequenos, reutilizáveis e compostos);
+- **Separation of Concerns** (separação entre `sections`, `widgets`, `components`, `pieces`, `utils`);
+- **Responsividade mobile-first** com utilitários do Tailwind;
+- **Tipagem estática com TypeScript** para maior segurança e manutenção;
+- **Organização por domínio visual** (seções de página + widgets de composição);
+- **Padronização de código** com ESLint + Prettier.
 
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" width="50" height="50" alt="Next.js" />
-<img width="20" />
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" width="50" height="50" alt="React" />
-<img width="20" />
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" width="50" height="50" alt="TypeScript" />
-<img width="20" />
-<img src="https://cdn.simpleicons.org/tailwindcss/06B6D4" width="50" height="50" alt="Tailwind CSS" />
-
-</div>
-
-- **Next.js 16.0.1** - Framework React com App Router para aplicações server-side rendering
-- **React 19.2.3** - Biblioteca JavaScript para construção de interfaces de usuário
-- **React DOM 19.2.3** - Renderizador DOM para React
-- **TypeScript 5** - Superset do JavaScript com tipagem estática
-- **Tailwind CSS 4** - Framework CSS utility-first para estilização rápida
+> Caso este projeto faça parte de algum curso/evento específico, você pode atualizar a seção **Evento** abaixo.
 
 ---
 
-## 📦 Bibliotecas e Dependências
+## 🛠️ Tecnologias e Bibliotecas
 
 <div align="center">
-
-### 🎨 UI e Componentes
-
-<img src="https://cdn.simpleicons.org/shadcnui/000000" width="50" height="50" alt="ShadCN UI" />
-<img width="20" />
-<img src="https://cdn.simpleicons.org/radixui/161618" width="50" height="50" alt="Radix UI" />
-<img width="20" />
-<img src="https://cdn.simpleicons.org/framer/0055FF" width="50" height="50" alt="Framer Motion" />
-<img width="20" />
-<img src="https://cdn.simpleicons.org/lucide/FF6B6B" width="50" height="50" alt="Lucide React" />
-
+  <img src="https://skillicons.dev/icons?i=nextjs,react,ts,tailwind,vercel,git,vscode" alt="Stack principal" />
 </div>
 
-- **ShadCN UI** - Biblioteca de componentes reutilizáveis construída com Radix UI
-- **Radix UI** - Biblioteca de componentes acessíveis e não-estilizados (Accordion)
-- **Framer Motion** - Biblioteca de animações para React (Motion 12.23.26)
-- **Lucide React** - Biblioteca de ícones SVG moderna e leve
-- **React Icons** - Biblioteca completa de ícones populares
+### 🚀 Stack principal
+
+- **Next.js** (`16.1.0`)
+- **React** (`19.2.3`)
+- **TypeScript** (`^5`)
+- **Tailwind CSS** (`^4`)
+
+### 📚 Bibliotecas utilizadas
+
+- **Animações/UI**: `framer-motion`, `motion`, `gsap`, `@gsap/react`, `lottie-react`
+- **3D/visual**: `three`, `@react-three/fiber`, `@react-three/drei`, `@splinetool/react-spline`
+- **Componentes e acessibilidade**: `@headlessui/react`, `@radix-ui/react-accordion`
+- **Carrossel e interação**: `embla-carousel`, `embla-carousel-react`, `react-scroll`
+- **Estado/utilitários**: `zustand`, `clsx`, `class-variance-authority`, `tailwind-merge`, `mathjs`
+- **Contato/agendamento**: `@calcom/embed-react`
+- **Ícones**: `lucide-react`, `react-icons`
+
+### 🧪 Dev tooling
+
+- `eslint`, `eslint-config-next`, `eslint-plugin-simple-import-sort`
+- `prettier`, `prettier-plugin-tailwindcss`
+- `vitest`, `@vitest/coverage-v8`, `@vitest/browser-playwright`
+
+### 🧩 Ícones das stacks (estilo devicon/simpleicons)
 
 <div align="center">
-
-### 🎭 Animações e Efeitos
-
-<img src="https://cdn.simpleicons.org/greensock/88CE02" width="50" height="50" alt="GSAP" />
-<img width="20" />
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" width="50" height="50" alt="React" />
-<img width="20" />
-<img src="https://cdn.simpleicons.org/lottiefiles/00D88F" width="50" height="50" alt="Lottie" />
-
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" width="44" height="44" alt="Next.js" />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" width="44" height="44" alt="React" />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" width="44" height="44" alt="TypeScript" />
+  <img src="https://cdn.simpleicons.org/tailwindcss/06B6D4" width="44" height="44" alt="Tailwind CSS" />
+  <img src="https://cdn.simpleicons.org/framer/0055FF" width="44" height="44" alt="Framer Motion" />
+  <img src="https://cdn.simpleicons.org/greensock/88CE02" width="44" height="44" alt="GSAP" />
+  <img src="https://cdn.simpleicons.org/vercel/000000" width="44" height="44" alt="Vercel" />
 </div>
-
-- **GSAP 3.14.2** - Biblioteca de animações JavaScript de alta performance
-- **Motion** - Biblioteca de animações para React (Framer Motion)
-- **Lottie React** - Renderização de animações Lottie no React
-
-<div align="center">
-
-### 📱 Carrossel e Navegação
-
-<img src="https://cdn.simpleicons.org/embla/FF6B6B" width="50" height="50" alt="Embla Carousel" />
-<img width="20" />
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" width="50" height="50" alt="React Scroll" />
-
-</div>
-
-- **Embla Carousel** - Biblioteca de carrossel moderna e acessível
-- **Embla Carousel React** - Wrapper React para Embla Carousel
-- **React Scroll** - Componentes de navegação suave entre seções
-- **React Vertical Timeline Component** - Timeline vertical para processos
-
-<div align="center">
-
-### 🛠️ Utilitários
-
-<img src="https://cdn.simpleicons.org/classvarianceauthority/FF6B6B" width="50" height="50" alt="CVA" />
-<img width="20" />
-<img src="https://cdn.simpleicons.org/clsx/FF6B6B" width="50" height="50" alt="CLSX" />
-<img width="20" />
-<img src="https://cdn.simpleicons.org/tailwindmerge/FF6B6B" width="50" height="50" alt="Tailwind Merge" />
-
-</div>
-
-- **Class Variance Authority** - API para construção de componentes variantes
-- **CLSX** - Utilitário para construção condicional de strings de classe
-- **Tailwind Merge** - Mesclagem inteligente de classes Tailwind CSS
-- **Math.js** - Biblioteca matemática para JavaScript
-
-<div align="center">
-
-### 🛠️ Dependências de Desenvolvimento
-
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" width="50" height="50" alt="TypeScript" />
-<img width="20" />
-<img src="https://cdn.simpleicons.org/tailwindcss/06B6D4" width="50" height="50" alt="Tailwind CSS" />
-<img width="20" />
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/eslint/eslint-original.svg" width="50" height="50" alt="ESLint" />
-<img width="20" />
-<img src="https://cdn.simpleicons.org/prettier/F7B93E" width="50" height="50" alt="Prettier" />
-
-</div>
-
-- **TypeScript** - Superset do JavaScript com tipagem estática
-- **Tailwind CSS** - Framework CSS utility-first
-- **ESLint** - Ferramenta de linting para JavaScript/TypeScript
-- **ESLint Config Next** - Configuração oficial do ESLint para Next.js
-- **Prettier** - Formatador de código opinativo
-- **Prettier Plugin Tailwind** - Plugin Prettier para ordenação de classes Tailwind
-- **Simple Import Sort** - Plugin ESLint para ordenação automática de imports
-
-### 📚 Bibliotecas de Componentes Utilizadas
-
-Este projeto utiliza componentes de várias bibliotecas modernas:
-
-- **ShadCN UI** - [https://ui.shadcn.com/](https://ui.shadcn.com/) (Accordion)
-- **React Bits** - [https://reactbits.dev/](https://reactbits.dev/) (Noise, Aurora)
-- **Magic UI** - [https://magicui.design/](https://magicui.design/) (Animated Shiny Text, Aurora Text, Border Beam, Morphing Text, Shine Border)
-- **UIverse** - [https://uiverse.io/](https://uiverse.io/) (Button To Top, Glow Button, Hamburguer Menu)
-- **Aceternity UI** - [https://ui.aceternity.com/](https://ui.aceternity.com/)
-- **Untitled UI** - [https://www.untitledui.com/](https://www.untitledui.com/) (Inspiração para FAQ)
 
 ---
 
-## 🏗️ Arquitetura e Padrões de Projeto
+## 🗂️ Estrutura do Projeto
 
-### 🎯 Padrões Implementados
-
-#### 1. **Feature-Sliced Design (FSD)**
-
-Organização de código em camadas bem definidas:
-
-- **Components**: Componentes reutilizáveis (Card, Button, Accordion, etc.)
-- **Sections**: Seções principais da página (Hero, About, Projects, FAQ, etc.)
-- **Widgets**: Componentes complexos compostos (Navbar, Content, Carousel, Timeline, etc.)
-- **Pieces**: Peças pequenas e específicas (Logo, Badge, CheckIcon, NavLink, etc.)
-- **Assets**: Dados estáticos e tipos (data, images, icons, fonts, types)
-- **Lib/Utils**: Funções utilitárias e helpers (cn, defaults, formatProjectDate, etc.)
-- **Hooks**: Custom hooks reutilizáveis (useWindowSize)
-
-#### 2. **Component-Based Architecture**
-
-- Arquitetura baseada em componentes reutilizáveis
-- Separação clara de responsabilidades
-- Componentes pequenos e focados em uma única funcionalidade
-- Composição de componentes complexos a partir de componentes simples
-
-#### 3. **Next.js App Router**
-
-- Uso do novo App Router do Next.js 13+
-- Server Components por padrão
-- Client Components quando necessário (animações, interatividade)
-- Roteamento baseado em pastas
-- Otimização automática de imagens e assets
-
-#### 4. **TypeScript Strict Mode**
-
-- Tipagem estática rigorosa
-- Interfaces e tipos definidos em `src/assets/data/types/`
-- Type safety em componentes, props e dados
-- Reduz erros em tempo de execução
-
-#### 5. **Path Aliases**
-
-- Uso de aliases de caminho (`@/*`) para imports mais limpos
-- Configurado no `tsconfig.json`
-- Melhora a legibilidade do código
-- Facilita refatoração e manutenção
-
-#### 6. **Responsive Design**
-
-- Design mobile-first com Tailwind CSS
-- Breakpoints responsivos (sm, md, lg, xl, 2xl)
-- Layout adaptativo para diferentes tamanhos de tela
-- Componentes específicos para mobile e desktop quando necessário
-
-#### 7. **Performance Optimization**
-
-- Next.js com otimizações automáticas
-- Code splitting automático
-- Lazy loading de componentes e imagens
-- Animações performáticas com Framer Motion e GSAP
-- Otimização de assets estáticos
-
-#### 8. **Code Quality**
-
-- ESLint para linting
-- Prettier para formatação consistente
-- Import sorting automático (simple-import-sort)
-- TypeScript para type safety
-- Configurações padronizadas para toda a equipe
-
-#### 9. **Separation of Concerns**
-
-- **Sections**: Seções principais da página
-- **Components**: Componentes reutilizáveis genéricos
-- **Widgets**: Componentes complexos e compostos
-- **Pieces**: Elementos pequenos e específicos
-- **Assets**: Dados e recursos estáticos
-- **Hooks**: Lógica reutilizável
-- **Utils**: Funções auxiliares
-
-#### 10. **Modern CSS Practices**
-
-- Tailwind CSS utility-first
-- CSS Modules para estilos específicos
-- Variáveis CSS para temas e cores
-- Animações CSS quando apropriado
-- Gradientes e efeitos visuais modernos
-
----
-
-## 📁 Estrutura do Projeto
-
-```
-portifolio-joaogabrieldev/
-├── public/                 # Arquivos estáticos
-│
-├── src/
-│   ├── app/               # Next.js App Router
-│   │   ├── layout.tsx     # Layout principal
-│   │   ├── page.tsx       # Página inicial
-│   │   ├── projetos/      # Página de projetos
-│   │   ├── globals.css    # Estilos globais
-│   │   ├── sitemap.ts     # Sitemap gerado
-│   │   └── robots.ts      # Robots.txt
-│   │
-│   ├── assets/            # Dados e recursos
-│   │   ├── data/          # Dados estáticos
-│   │   │   ├── types/     # Definições de tipos
-│   │   │   │   └── assets.types.tsx
-│   │   │   ├── characteristics.tsx
-│   │   │   ├── faq.tsx
-│   │   │   ├── navLinks.ts
-│   │   │   ├── phases.tsx
-│   │   │   ├── plans.ts
-│   │   │   └── projects.tsx
-│   │   ├── fonts/         # Fontes customizadas
-│   │   │   └── Hendrigo.otf
-│   │   ├── icons/         # Ícones e SVGs
-│   │   └── images/        # Imagens estáticas
-│   │       ├── logo.png
-│   │       └── profile-pic.jpg
-│   │
-│   ├── components/        # Componentes reutilizáveis
-│   │   ├── Animation/
-│   │   ├── BackButton/
-│   │   ├── Button/
-│   │   ├── CharCard/
-│   │   ├── Desktop/       # Componentes desktop
-│   │   │   ├── DesktopFAQElement/
-│   │   │   ├── DesktopProjects/
-│   │   │   └── DxtopContactButtons/
-│   │   ├── InformationFooter/
-│   │   ├── Mobile/        # Componentes mobile
-│   │   │   ├── MobileContactButtons/
-│   │   │   ├── MobileGlowButton/
-│   │   │   ├── MobileNavbar/
-│   │   │   ├── MobileProjects/
-│   │   │   └── NonDesktopFAQ/
-│   │   ├── Nav/
-│   │   ├── PhotoSpace/
-│   │   ├── PlanCard/
-│   │   ├── ProjectPreview/
-│   │   ├── QuestionBlock/
-│   │   ├── ReactBits/     # Componentes de efeitos
-│   │   │   ├── Aurora/
-│   │   │   ├── GradualBlur/
-│   │   │   ├── Noise/
-│   │   │   └── TextType/
-│   │   ├── Section/
-│   │   ├── TimelineElement/
-│   │   ├── ui/            # Componentes shadcn/ui
-│   │   │   ├── accordion.tsx
-│   │   │   ├── animated-shiny-text.tsx
-│   │   │   ├── aurora-text.tsx
-│   │   │   ├── border-beam.tsx
-│   │   │   ├── morphing-text.tsx
-│   │   │   └── shine-border.tsx
-│   │   └── UIverse/       # Componentes UIverse
-│   │       ├── ButtonToTop/
-│   │       ├── GlowButton/
-│   │       └── HamburguerMenu/
-│   │
-│   ├── sections/          # Seções principais
-│   │   ├── About/
-│   │   ├── Contact/
-│   │   ├── FAQ/
-│   │   ├── Hero/
-│   │   ├── Plans/
-│   │   ├── Processes/
-│   │   └── Projects/
-│   │
-│   ├── widgets/           # Widgets complexos
-│   │   ├── Carousel/      # Carrossel de projetos
-│   │   ├── Content/       # Conteúdo principal
-│   │   ├── DesktopFAQ/
-│   │   ├── Gradients/     # Gradientes animados
-│   │   │   ├── AcrossGradient/
-│   │   │   ├── LeftGradient/
-│   │   │   └── RightBottomGradient/
-│   │   ├── Navbar/        # Barra de navegação
-│   │   ├── PageContent/   # Conteúdo da página inicial
-│   │   ├── ProjectsPageContent/
-│   │   └── VerticalTimeLine/
-│   │
-│   ├── pieces/            # Peças pequenas
-│   │   ├── Badge/
-│   │   ├── CheckIcon/
-│   │   ├── CheckIListItem/
-│   │   ├── ItemAccordion/
-│   │   ├── Logo/
-│   │   ├── NavLink/
-│   │   └── StarFilled/
-│   │
-│   ├── hooks/             # Custom hooks
-│   │   └── useWindowSize.ts
-│   │
-│   ├── lib/               # Utilitários
-│   │   └── utils.ts       # Funções helper (cn, etc.)
-│   │
-│   └── utils/             # Utilitários adicionais
-│       ├── defaults.ts
-│       ├── fonts.ts
-│       ├── formatProjectDate.ts
-│       └── linksToGo.ts
-│
-├── .gitignore
-├── .prettierrc.cjs
-├── components.json        # Configuração shadcn/ui
-├── eslint.config.mjs
-├── next.config.ts         # Configuração Next.js
-├── package.json
-├── pnpm-lock.yaml
-├── pnpm-workspace.yaml
-├── postcss.config.mjs
-├── tsconfig.json
-└── README.md
+```bash
+src/
+├── app/             # Rotas e layout (Next App Router)
+├── layout/          # Blocos de layout principais
+├── sections/        # Seções da landing (Hero, About, Process, etc.)
+├── widgets/         # Composições complexas de UI
+├── components/      # Componentes reutilizáveis
+├── pieces/          # Peças menores e especializadas
+├── assets/          # Imagens, ícones, thumbs e dados estáticos
+├── hooks/           # Hooks customizados
+├── lib/             # Helpers compartilhados
+└── utils/           # Utilitários gerais
 ```
 
 ---
 
-## ⚙️ Como Executar
+## ⚙️ Como rodar localmente
 
-### 📋 Pré-requisitos
+### Pré-requisitos
 
-- Node.js 18+ instalado
-- pnpm, npm, yarn ou bun (recomendado: pnpm)
+- Node.js 18+
+- `pnpm` (recomendado) ou `npm`
 
-### 🚀 Instalação e Execução
-
-1. **Clone o repositório**
+### Passos
 
 ```bash
 git clone https://github.com/joaogabrieldev/portifolio-joaogabrieldev.git
 cd portifolio-joaogabrieldev
-```
-
-2. **Instale as dependências**
-
-```bash
 pnpm install
-
-# ou
-
-npm install
-
-# ou
-
-yarn install
-```
-
-3. **Execute o servidor de desenvolvimento**
-
-```bash
 pnpm dev
-
-# ou
-
-npm run dev
-
-# ou
-
-yarn dev
 ```
 
-4. **Acesse a aplicação**
+Aplicação local: `http://localhost:3000`
 
-```
-http://localhost:3000
-```
+### Scripts úteis
 
-### 🛠️ Scripts Disponíveis
-
-| Script            | Descrição                              |
-| ----------------- | -------------------------------------- |
-| `pnpm dev`        | Inicia o servidor de desenvolvimento   |
-| `pnpm build`      | Cria build de produção                 |
-| `pnpm start`      | Inicia o servidor de produção          |
-| `pnpm lint`       | Executa o ESLint para verificar código |
-
-### 🏗️ Build de Produção
-
-Para criar um build de produção:
-
-```bash
-pnpm build
-pnpm start
-```
+- `pnpm dev` -> desenvolvimento
+- `pnpm build` -> build de produção
+- `pnpm start` -> iniciar build
+- `pnpm lint` -> validação de código
+- `pnpm storybook` -> Storybook local
+- `pnpm build-storybook` -> build do Storybook
 
 ---
 
-## 👨‍💻 Autor
+## 📌 Evento
+
+**Evento/curso relacionado:** `não informado no repositório`
+
+> Se quiser, substitua por algo como: `NLW`, `Imersão`, `Bootcamp` ou o nome do curso/evento real.
+
+---
+
+## 👨‍💻 Contato
 
 <div align="center">
 
 ### João Gabriel R. Rocha
 
-**Fullstack Developer & Freelancer**
-
 [![GitHub](https://img.shields.io/badge/GitHub-joaogabrieldev-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/joaogabrieldev)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-João_Gabriel-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/joaogabrielrocha)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-joaogabrielrocha-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/joaogabrielrocha)
+[![Portfólio](https://img.shields.io/badge/Site-joaogabriel.dev-0A0A0A?style=for-the-badge&logo=googlechrome&logoColor=white)](https://joaogabriel.dev)
+
+</div>
 
 ---
 
 <div align="center">
-
-**Desenvolvido com ❤️ usando Next.js, React, TypeScript e Tailwind CSS**
-
-![Made with](https://img.shields.io/badge/Made%20with-Next.js-000000?style=flat-square&logo=next.js)
-![Made with](https://img.shields.io/badge/Made%20with-React-61DAFB?style=flat-square&logo=react)
-![Made with](https://img.shields.io/badge/Made%20with-TypeScript-3178C6?style=flat-square&logo=typescript)
-![Made with](https://img.shields.io/badge/Made%20with-Tailwind%20CSS-38B2AC?style=flat-square&logo=tailwind-css)
-
+Feito com ❤️, Next.js e muito café.
 </div>

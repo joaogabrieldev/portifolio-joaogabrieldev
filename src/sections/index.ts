@@ -7,4 +7,4 @@ export { default as HireSection } from "./HireSection/HireSection";
 export { default as FAQSection } from "./FAQSection";
 export { default as ContactSection } from "./ContactSection";
 export { default as SchedulingSection } from "./SchedulingSection";
-export { default as FooterSection } from "../layout/FooterSection";
+export { default as FooterSection } from "../layout/FooterSection/FooterSection";
