@@ -37,7 +37,6 @@ export default function ProjectsSection() {
             mode="navigation"
             href="/projetos"
             onClick={() => openProjectsTab()}
-            scrollToSection
           >
             Ver todos os projetos
           </ShinyButton>
