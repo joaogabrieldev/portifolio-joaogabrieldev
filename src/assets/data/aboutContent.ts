@@ -54,7 +54,7 @@ export const aboutSkillGroups: AboutSkillGroup[] = [
       { name: "Cursor", isInline: true },
       { name: "MCP", isInline: true },
       { name: "RAG" },
-      { name: "Git", slug: "git" },
+      { name: "Gemini", slug: "gemini" },
     ],
   },
   {
