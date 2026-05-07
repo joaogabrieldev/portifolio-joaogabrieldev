@@ -64,7 +64,7 @@ const HeroMobileNav = ({
                 {item.title}
               </ScrollLink>
             ))}
-            <LangSelect />
+            {/* <LangSelect /> */}
             <ScrollLink
               to="contato"
               smooth={true}
