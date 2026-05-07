@@ -43,7 +43,7 @@ const SKILL_ICON_COLORS: Record<string, string> = {
   Cursor: "#3B82F6",
   MCP: "#8B5CF6",
   RAG: "#22D3EE",
-  Git: "#F05032",
+  Gemini: "#886FB8",
   Figma: "#F24E1E",
   Spline: "#A78BFA",
   "Google Stitch": "#4285F4",
@@ -67,7 +67,7 @@ type SkillIconProps = { slug?: string; iconUrl?: string; name: string };
 const iconWrapClass = "size-4 shrink-0 opacity-60";
 
 function SkillIcon({ slug, iconUrl, name }: SkillIconProps) {
-  if (name === "Git") {
+  if (name === "Gemini") {
     return (
       // eslint-disable-next-line @next/next/no-img-element
       <img
