@@ -46,19 +46,7 @@ Este repositório contém meu site portfólio, desenvolvido para apresentar:
 - stack técnica e habilidades;
 - serviços/propostas para freelas;
 - canais de contato profissional.
-
-### 🖼️ Preview
-
-<div align="center">
-  <img src="./public/assets/images/hero-2-alpha.png" alt="Preview da home do portfólio" width="820" />
-</div>
-
-<div align="center">
-  <img src="./src/assets/thumbs/kino-thumb.png" alt="Thumb de projeto do portfólio" width="260" />
-  <img src="./src/assets/thumbs/fintrack-thumb.png" alt="Thumb de projeto Fintrack" width="260" />
-  <img src="./src/assets/thumbs/airbnb-thumb.png" alt="Thumb de projeto Airbnb clone" width="260" />
-</div>
-
+  
 ---
 
 ## 🧱 Padrões e Fundamentos
