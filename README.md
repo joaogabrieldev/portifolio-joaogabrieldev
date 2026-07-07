@@ -67,7 +67,8 @@ O projeto segue fundamentos importantes de arquitetura front-end:
 ## 🛠️ Tecnologias e Bibliotecas
 
 <div align="center">
-  <img src="https://skillicons.dev/icons?i=nextjs,react,ts,tailwind,vercel,git,vscode" alt="Stack principal" />
+   <!-- <img src="https://skillicons.dev/icons?i=nextjs,react,ts,tailwind,vercel,git,vscode" alt="Stack principal" /> -->
+  <img src="https://skillicons.dev/icons?i=nextjs,react,ts,tailwind" alt="Stack principal" />
 </div>
 
 ### 🚀 Stack principal
