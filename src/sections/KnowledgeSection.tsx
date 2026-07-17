@@ -314,7 +314,7 @@ export default function KnowledgeSection() {
             </span>
             <span
               onClick={() => {
-                window.open("/curriculo-joao-gabriel-r.-rocha.pdf", "_blank");
+                window.open("/curriculo-joao-gabriel.pdf", "_blank");
               }}
               className="cursor-pointer font-medium whitespace-nowrap text-violet-300/95 underline decoration-violet-400/45 underline-offset-[3px] transition hover:text-violet-200"
             >
