@@ -24,6 +24,8 @@ import {
   SiPostgresql,
   SiNodedotjs,
   SiFastify,
+  SiZod, 
+  SiRedis
 } from "react-icons/si";
 
 export type Projects = {
@@ -38,6 +40,25 @@ export type Projects = {
 };
 
 export const projects: Projects[] = [
+   {
+    url: "https://sempreporperto.com.br/",
+    title: "Landing Page - SemprePorPerto",
+    date: "31/05/2026",
+    // projectImage: fintrackThumb,
+    description:
+    "Landing page de captação de leads pré-lançamento do SemprePorPerto, app de gestão de medicamentos para idosos. Voltada ao familiar/cuidador, apresenta o problema com dados, as funcionalidades do produto e um formulário de duplo campo obrigatório (e-mail + WhatsApp) com validação em tempo real via React Hook Form + Zod, normalização E.164 de números brasileiros e proteção anti-duplicata. Os leads são persistidos em PostgreSQL (Supabase) via Drizzle ORM e disparam automações de e-mail e WhatsApp em fila (BullMQ), com rate limiting em Redis (Upstash) e templates de mensagem editáveis sem redeploy. Instrumentada com Google Analytics 4 (generate_lead) e Meta Pixel (Lead) para medição de CPL em tráfego pago, com meta de carregamento abaixo de 3 segundos em 4G.",
+    icons: [
+      <SiNextdotjs key={"Next"} />,
+      <SiReact key={"React"} />,
+      <SiTypescript key={"Typescript"} />,
+      <SiTailwindcss key={"TailwindCSS"} />,
+      <SiZod key={"Zod"} />,
+      <SiDrizzle key={"Drizzle"} />,
+      <SiSupabase key={"Supabase"} />,
+      <SiRedis key={"Redis"} />,
+      <SiVercel key={"Vercel"} />,
+    ],
+  },
   {
     url: "fintrack-omega-snowy.vercel.app",
     title: "Projeto - FinTrack (MVP)",
