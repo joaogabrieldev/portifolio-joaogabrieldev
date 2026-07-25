@@ -3,9 +3,9 @@
  * de hidratação (ex.: `mailto:undefined` no SSR vs e-mail no cliente).
  * Mantemos fallback aos nomes antigos + literais para ambientes sem .env.
  */
-export const emailOutlook = "joaogrocha17@hotmail.com";
+export const emailOutlook = "hello@joaogabriel.dev";
 
-export const emailGmail = "joaogabrieldev.profissional@gmail.com";
+export const emailGmail = "hello@joaogabriel.dev";
 
 /** Slug Cal.com (`username/event`) — embed no cliente precisa de `NEXT_PUBLIC_`. */
 
