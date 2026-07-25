@@ -45,7 +45,7 @@ export const projects: Projects[] = [
     title: "Landing Page — SemprePorPerto",
     date: "31/05/2026",
     description:
-      "Landing page de captação de leads pré-lançamento do SemprePorPerto, app de gestão de medicamentos para idosos. Formulário de duplo campo obrigatório (e-mail + WhatsApp) com validação em tempo real via React Hook Form + Zod e normalização E.164. Leads persistidos em PostgreSQL (Supabase) via Drizzle, com automações de e-mail/WhatsApp em fila (BullMQ) e instrumentação GA4 + Meta Pixel para medição de CPL.",
+      "Landing page de captação de leads pré-lançamento do SemprePorPerto, app de gestão de medicamentos para idosos. Formulário de e-mail + WhatsApp com validação em tempo real (React Hook Form + Zod), leads salvos em PostgreSQL via Drizzle ORM e automações de envio por fila. Instrumentada com Google Analytics e Meta Pixel para acompanhar a conversão das campanhas.",
     icons: [
       <SiReact key={"React"} />,
       <SiTailwindcss key={"TailwindCSS"} />,
