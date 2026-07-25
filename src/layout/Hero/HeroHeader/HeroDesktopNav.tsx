@@ -50,7 +50,7 @@ const HeroDesktopNav = ({ navLinks }: HeroDesktopNavProps) => {
 export function HeroDesktopNavActions() {
   return (
     <div className="hidden flex-row gap-2 md:flex">
-      <LangSelect />
+      {/* <LangSelect /> */}
       <motion.div layoutId="global-header-cta" transition={MORPH_TRANSITION}>
         <ScrollLink
           to="contato"
